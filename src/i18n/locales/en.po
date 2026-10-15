@@ -129,97 +129,97 @@ msgstr ""
 #~ msgstr "香港腦癇基金會"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:153
+#: src/pages/FirstAidPage.jsx:146
 msgid "video.label"
 msgstr "▶️ Acute Seizure Management Animation"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:37
+#: src/pages/FirstAidPage.jsx:36
 msgid "faq.summary"
 msgstr "❓ Frequently Asked Questions (FAQ)"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:36
+#: src/pages/FirstAidPage.jsx:35
 msgid "whatIs.summary"
 msgstr "💡 What is Be Aware n' Be Around?"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:35
+#: src/pages/FirstAidPage.jsx:34
 msgid "install.button"
 msgstr "📥 Install App"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:34
+#: src/pages/FirstAidPage.jsx:33
 msgid "setup.summary"
 msgstr "📲 Setup & Guide"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:185
+#: src/pages/FirstAidPage.jsx:178
 msgid "footer.linkLabel"
 msgstr "🔗 Learn more about Epilepsy Foundation HK"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:178
+#: src/pages/FirstAidPage.jsx:171
 msgid "faq.answer1"
 msgstr "Action buttons play recorded audio. Check the media volume, disable silent mode, and refresh the page if the audio fails to load."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:154
+#: src/pages/FirstAidPage.jsx:147
 msgid "video.title"
 msgstr "Acute Seizure Animation"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:22
+#: src/pages/FirstAidPage.jsx:21
 msgid "header.subtitle"
 msgstr "Acute Seizure Management Slogan"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:160
+#: src/pages/FirstAidPage.jsx:153
 msgid "setup.androidLabel"
 msgstr "Android:"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:172
+#: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.environmentLabel"
 msgstr "Assess Environment:"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:170
+#: src/pages/FirstAidPage.jsx:163
 msgid "whatIs.tagline3"
 msgstr "Aware of what to do, Around when it matters most."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:173
+#: src/pages/FirstAidPage.jsx:166
 msgid "whatIs.aroundHeading"
 msgstr "Be Around (Physical Protection & Care)"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:171
+#: src/pages/FirstAidPage.jsx:164
 msgid "whatIs.awareHeading"
 msgstr "Be Aware (Mental Vigilance & Safety Knowledge)"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:109
+#: src/pages/FirstAidPage.jsx:102
 msgid "app.title"
 msgstr "Be Aware n' Be Around"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:168
+#: src/pages/FirstAidPage.jsx:161
 msgid "whatIs.tagline1"
 msgstr "Be Aware of the time. Be Around for the safe recovery."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:169
+#: src/pages/FirstAidPage.jsx:162
 msgid "whatIs.tagline2"
 msgstr "Be Aware: Don't restrain. Be Around: Protect and remain."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:174
+#: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.secureText"
 msgstr "Clear hard objects and cushion their head."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:24
+#: src/pages/FirstAidPage.jsx:23
 msgid "counter.label"
 msgstr "Clicks"
 
@@ -230,7 +230,17 @@ msgid "dialog.close"
 msgstr "Close"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:25
+#: src/components/BottomNav.jsx:16
+msgid "nav.diary"
+msgstr "Diary"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryPlaceholderPage.jsx:9
+msgid "diary.title"
+msgstr "Diary coming soon"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:24
 msgid "mode.education"
 msgstr "Education Mode"
 
@@ -260,9 +270,19 @@ msgid "organization.logoAlt"
 msgstr "Epilepsy Foundation of Hong Kong"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:123
+#: src/components/BottomNav.jsx:12
+msgid "nav.firstAid"
+msgstr "First Aid"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:116
 msgid "actions.ariaLabel"
 msgstr "First aid actions"
+
+#. js-lingui-explicit-id
+#: src/components/BottomNav.jsx:9
+msgid "nav.ariaLabel"
+msgstr "First Aid and Diary"
 
 #. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:90
@@ -270,37 +290,37 @@ msgid "playlist.cardLabel"
 msgstr "First aid audio guide"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:46
+#: src/pages/FirstAidPage.jsx:45
 msgid "guide.step3"
 msgstr "Gently roll the person onto their side. Never put anything in their mouth."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:30
+#: src/pages/FirstAidPage.jsx:29
 msgid "action.help"
 msgstr "HELP"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:159
+#: src/pages/FirstAidPage.jsx:152
 msgid "setup.installHeading"
 msgstr "How to Install"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:161
+#: src/pages/FirstAidPage.jsx:154
 msgid "setup.operateHeading"
 msgstr "How to Operate"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:180
+#: src/pages/FirstAidPage.jsx:173
 msgid "faq.answer3"
 msgstr "Install this PWA or add it to your home screen after a successful first load."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:160
+#: src/pages/FirstAidPage.jsx:153
 msgid "setup.iosLabel"
 msgstr "iPhone (iOS):"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:172
+#: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.dontsLabel"
 msgstr "Know the Don'ts:"
 
@@ -311,7 +331,7 @@ msgid "language.selectorLabel"
 msgstr "Language"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:33
+#: src/pages/FirstAidPage.jsx:32
 msgid "playlist.loading"
 msgstr "Loading…"
 
@@ -321,27 +341,27 @@ msgid "playlist.mute"
 msgstr "Mute"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:172
+#: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.dontsText"
 msgstr "Never restrain movement or place anything in the person's mouth."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:172
+#: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.recognizeText"
 msgstr "Note when the seizure starts; call emergency services if it exceeds 5 minutes."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:45
+#: src/pages/FirstAidPage.jsx:44
 msgid "guide.step2"
 msgstr "Observe and keep the person safe. Clear hard objects and cushion their head."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:160
+#: src/pages/FirstAidPage.jsx:153
 msgid "setup.androidInstructions"
 msgstr "Open in Chrome, use the menu, then select Add to Home screen."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:160
+#: src/pages/FirstAidPage.jsx:153
 msgid "setup.iosInstructions"
 msgstr "Open in Safari, tap Share, then select Add to Home Screen."
 
@@ -377,32 +397,32 @@ msgid "status.playingEducation"
 msgstr "Playing education step {id}..."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:174
+#: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.positionLabel"
 msgstr "Position safely:"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:174
+#: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.supportLabel"
 msgstr "Provide Support:"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:177
+#: src/pages/FirstAidPage.jsx:170
 msgid "faq.question1"
 msgstr "Q1: Why is there no sound in Education Mode?"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:179
+#: src/pages/FirstAidPage.jsx:172
 msgid "faq.question3"
 msgstr "Q2: Can I use the app offline?"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:181
+#: src/pages/FirstAidPage.jsx:174
 msgid "faq.question4"
 msgstr "Q3: How does the global click counter work?"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:172
+#: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.recognizeLabel"
 msgstr "Recognize & Time:"
 
@@ -428,22 +448,22 @@ msgid "playlist.repeatOne"
 msgstr "Repeat one"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:28
+#: src/pages/FirstAidPage.jsx:27
 msgid "action.safe"
 msgstr "SAFE"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:174
+#: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.secureLabel"
 msgstr "Secure the Surroundings:"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:47
+#: src/pages/FirstAidPage.jsx:46
 msgid "guide.step4"
 msgstr "Seek help. Stay with them until fully conscious, and call an ambulance if over 5 minutes."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:32
+#: src/pages/FirstAidPage.jsx:31
 msgid "guide.title"
 msgstr "Seizure First Aid Guide"
 
@@ -454,7 +474,7 @@ msgid "playlist.settings"
 msgstr "Settings"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:29
+#: src/pages/FirstAidPage.jsx:28
 msgid "action.side"
 msgstr "SIDE"
 
@@ -470,52 +490,57 @@ msgid "playlist.speedOption"
 msgstr "Speed {rate}×"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:172
+#: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.environmentText"
 msgstr "Spot physical hazards such as sharp corners, water, or stairs."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:27
+#: src/pages/FirstAidPage.jsx:26
 msgid "action.stay"
 msgstr "STAY"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:44
+#: src/pages/FirstAidPage.jsx:43
 msgid "guide.step1"
 msgstr "Stay calm and time the seizure."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:174
+#: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.supportText"
 msgstr "Stay until the person is fully alert and offer calm reassurance."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:21
+#: src/pages/FirstAidPage.jsx:20
 msgid "header.slogan"
 msgstr "STAY, SAFE, SIDE, HELP"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:162
+#: src/pages/FirstAidPage.jsx:155
 msgid "setup.educationInstructions"
 msgstr "Tap a button to hear the clinical instruction for that step."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:23
+#: src/pages/FirstAidPage.jsx:22
 msgid "header.secondarySubtitle"
 msgstr "Tap the 4 buttons below to learn the steps"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:182
+#: src/pages/FirstAidPage.jsx:175
 msgid "faq.answer4"
 msgstr "The counter shows the total number of times the app's action buttons have been clicked, across all users."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:94
+#: src/pages/DiaryPlaceholderPage.jsx:11
+msgid "diary.body"
+msgstr "The diary feature is under development. Stay tuned."
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:89
 msgid "install.fallbackAlert"
 msgstr "To install, use your browser's Add to Home Screen option."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:174
+#: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.positionText"
 msgstr "Turn the person gently onto their side to keep their airway clear."
 

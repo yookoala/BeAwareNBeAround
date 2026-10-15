@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react';
 import { t } from '@lingui/core/macro';
-import { activateLocale, i18n } from '../i18n/setup';
+import { i18n } from '../i18n/setup';
 import { getInstallAction, isIOS } from '../services/install';
 import { usePlaylistPlayer } from '../hooks/usePlaylistPlayer';
-import { AppHeader } from '../components/AppHeader';
 import { ClickCounter } from '../components/ClickCounter';
 import { FirstAidPlaylist } from '../components/FirstAidPlaylist';
 import { InfoPanel } from '../components/InfoPanel';
 
 // The first-aid ("Quick Handle Tip") page: main's playlist-integrated page
-// content, moved into a route (PLAN06 M13-001). Counter state is owned by
-// the shell and passed down so the visit POST fires once per app load, not
-// once per tab switch.
-export default function FirstAidPage({ counter }) {
+// content, moved into a route (PLAN06 M13-001); the shared chrome (AppHeader
+// M13-002/M16, BottomNav M13-003) is mounted by the shell, which also owns the
+// locale state. Counter state is owned by the shell and passed down so the
+// visit POST fires once per app load, not once per tab switch.
+export default function FirstAidPage({ counter, language }) {
   const { count, loading, error, trackClick } = counter;
-  const [language, setLanguage] = useState('zh-HK');
   const player = usePlaylistPlayer({ locale: language });
   const [installPrompt, setInstallPrompt] = useState(null);
   const labels = {
@@ -49,7 +48,8 @@ export default function FirstAidPage({ counter }) {
   const tracks = labels.buttons.map((label, index) => ({ id: index + 1, label, instruction: guideSteps[index] }));
 
   // The status line reports the player's actual phase; loading and error copy
-  // reuse the playlist's translated keys so both surfaces agree.
+  // reuse the playlist's translated keys so both surfaces agree. Derived
+  // during render, so a shell locale change re-localizes it for free.
   const statusText = player.phase === 'loading'
     ? labels.loading
     : player.phase === 'playing'
@@ -70,11 +70,6 @@ export default function FirstAidPage({ counter }) {
     window.addEventListener('beforeinstallprompt', handlePrompt);
     return () => window.removeEventListener('beforeinstallprompt', handlePrompt);
   }, []);
-
-  function changeLanguage(nextLanguage) {
-    activateLocale(nextLanguage);
-    setLanguage(nextLanguage);
-  }
 
   // The single counted selection path shared by the upper buttons and the
   // playlist rows: one click event per initiating click, then the shared
@@ -101,9 +96,7 @@ export default function FirstAidPage({ counter }) {
   const isPlayingButton = (id) => player.phase === 'playing' && player.selectedId === id;
 
   return (
-    <main>
-      <AppHeader language={language} onLanguageChange={changeLanguage} />
-
+    <>
       <section className="header">
         <div className="slogan-chars">{labels.slogan}</div>
         <h1 className="theme-title">{t({ id: 'app.title', message: "Be Aware n' Be Around" })}</h1>
@@ -183,6 +176,6 @@ export default function FirstAidPage({ counter }) {
       </InfoPanel>
 
       <footer className="footer-linktree"><a href="https://linktr.ee/EpilepsyFoundationOfHongKong" target="_blank" rel="noopener noreferrer" className="linktree-btn">{t({ id: 'footer.linkLabel', message: '🔗 Learn more about Epilepsy Foundation HK' })}</a></footer>
-    </main>
+    </>
   );
 }
