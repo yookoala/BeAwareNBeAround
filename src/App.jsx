@@ -1,185 +1,33 @@
-import { useEffect, useState } from 'react';
-import { t } from '@lingui/core/macro';
-import { activateLocale, i18n } from './i18n/setup';
-import { getInstallId, getInstallAction, isIOS } from './services/install';
+import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { getInstallId } from './services/install';
 import { useClickCounter } from './hooks/useClickCounter';
-import { usePlaylistPlayer } from './hooks/usePlaylistPlayer';
-import { AppHeader } from './components/AppHeader';
-import { ClickCounter } from './components/ClickCounter';
-import { FirstAidPlaylist } from './components/FirstAidPlaylist';
-import { InfoPanel } from './components/InfoPanel';
+import FirstAidPage from './pages/FirstAidPage';
 
-export default function App() {
-  const [language, setLanguage] = useState('zh-HK');
-  const player = usePlaylistPlayer({ locale: language });
-  const [installPrompt, setInstallPrompt] = useState(null);
-  const { count, loading, error, trackClick } = useClickCounter({ endpointUrl: import.meta.env.VITE_VISIT_COUNTER_URL, targetUrl: window.location.href, installId: getInstallId() });
-  const labels = {
-    slogan: t({ id: 'header.slogan', message: 'STAY, SAFE, SIDE, HELP' }),
-    subtitle: t({ id: 'header.subtitle', message: 'Acute Seizure Management Slogan' }),
-    secondarySubtitle: t({ id: 'header.secondarySubtitle', message: 'Tap the 4 buttons below to learn the steps' }),
-    clicks: t({ id: 'counter.label', message: 'Clicks' }),
-    education: t({ id: 'mode.education', message: 'Education Mode' }),
-    buttons: [
-      t({ id: 'action.stay', message: 'STAY' }),
-      t({ id: 'action.safe', message: 'SAFE' }),
-      t({ id: 'action.side', message: 'SIDE' }),
-      t({ id: 'action.help', message: 'HELP' }),
-    ],
-    guideTitle: t({ id: 'guide.title', message: 'Seizure First Aid Guide' }),
-    loading: t({ id: 'playlist.loading', message: 'Loading…' }),
-    setup: t({ id: 'setup.summary', message: '📲 Setup & Guide' }),
-    install: t({ id: 'install.button', message: '📥 Install App' }),
-    whatIs: t({ id: 'whatIs.summary', message: "💡 What is Be Aware n' Be Around?" }),
-    faq: t({ id: 'faq.summary', message: '❓ Frequently Asked Questions (FAQ)' }),
-  };
-
-  // The four playlist records reuse the unchanged guide copy; the same
-  // translated labels appear on the upper buttons, so both entry points
-  // address identical tracks.
-  const guideSteps = [
-    t({ id: 'guide.step1', message: 'Stay calm and time the seizure.' }),
-    t({ id: 'guide.step2', message: 'Observe and keep the person safe. Clear hard objects and cushion their head.' }),
-    t({ id: 'guide.step3', message: 'Gently roll the person onto their side. Never put anything in their mouth.' }),
-    t({ id: 'guide.step4', message: 'Seek help. Stay with them until fully conscious, and call an ambulance if over 5 minutes.' }),
-  ];
-  const tracks = labels.buttons.map((label, index) => ({ id: index + 1, label, instruction: guideSteps[index] }));
-
-  // The status line reports the player's actual phase; loading and error copy
-  // reuse the playlist's translated keys so both surfaces agree.
-  const statusText = player.phase === 'loading'
-    ? labels.loading
-    : player.phase === 'playing'
-      ? i18n._({ id: 'status.playingEducation', message: 'Playing education step {id}...' }, { id: player.selectedId })
-      : player.phase === 'paused'
-        ? t({ id: 'status.paused', message: 'Education playback paused.' })
-        : player.phase === 'ended'
-          ? t({ id: 'status.ended', message: 'Education step finished.' })
-          : player.phase === 'error'
-            ? t({ id: 'playlist.error', message: 'Playback failed. Press play to try again.' })
-            : t({ id: 'status.educationDefault', message: 'Education Mode: Click buttons for instructions.' });
-
-  useEffect(() => {
-    const handlePrompt = (event) => {
-      event.preventDefault();
-      setInstallPrompt(event);
-    };
-    window.addEventListener('beforeinstallprompt', handlePrompt);
-    return () => window.removeEventListener('beforeinstallprompt', handlePrompt);
-  }, []);
-
-  function changeLanguage(nextLanguage) {
-    activateLocale(nextLanguage);
-    setLanguage(nextLanguage);
-  }
-
-  // The single counted selection path shared by the upper buttons and the
-  // playlist rows: one click event per initiating click, then the shared
-  // player starts the requested track (transport controls never count).
-  function selectInstruction(id) {
-    trackClick(id);
-    player.selectTrack(id);
-  }
-
-  async function installApp() {
-    if (getInstallAction({ isIOS: isIOS(), prompt: installPrompt }) === 'prompt') {
-      installPrompt.prompt();
-      await installPrompt.userChoice;
-      setInstallPrompt(null);
-      return;
-    }
-    window.alert(t({ id: 'install.fallbackAlert', message: "To install, use your browser's Add to Home Screen option." }));
-  }
-
-  // The upper buttons report the player's playback state: pressed only while
-  // that same track is the one actually playing, the same condition that drives
-  // the playing highlight and the row badge (a paused selection stays
-  // unpressed, unlike the row, which reports selection).
-  const isPlayingButton = (id) => player.phase === 'playing' && player.selectedId === id;
+// App shell (PLAN06 M13-001): owns cross-route state and the route table.
+// The visit counter is hoisted here so the mount-time visit POST fires once
+// per app load; switching routes remounts pages without re-counting the
+// visit (production total_views semantics unchanged, MEMORY D2/D4).
+export function AppRoutes() {
+  // Captured once at app load so tab switches never change the tracked URL.
+  const [targetUrl] = useState(() => window.location.href);
+  const counter = useClickCounter({
+    endpointUrl: import.meta.env.VITE_VISIT_COUNTER_URL,
+    targetUrl,
+    installId: getInstallId(),
+  });
 
   return (
-    <main>
-      <AppHeader language={language} onLanguageChange={changeLanguage} />
+    <Routes>
+      <Route path="/" element={<FirstAidPage counter={counter} />} />
+    </Routes>
+  );
+}
 
-      <section className="header">
-        <div className="slogan-chars">{labels.slogan}</div>
-        <h1 className="theme-title">{t({ id: 'app.title', message: "Be Aware n' Be Around" })}</h1>
-        <div className="subtitle-box">
-          <div className="subtitle-primary">{labels.subtitle}</div>
-          <div className="subtitle-secondary">{labels.secondarySubtitle}</div>
-        </div>
-        <ClickCounter
-          count={count}
-          loading={loading}
-          error={error}
-          label={labels.clicks}
-          className="counter-box"
-        />
-      </section>
-
-      <section className="grid" aria-label={t({ id: 'actions.ariaLabel', message: 'First aid actions' })}>
-        {labels.buttons.map((label, index) => <button key={label} className={`btn-toy button-${index + 1}${isPlayingButton(index + 1) ? ' playing' : ''}`} aria-pressed={isPlayingButton(index + 1)} onClick={() => selectInstruction(index + 1)}>{label}</button>)}
-      </section>
-
-      <p className="status" aria-live="polite">{statusText}</p>
-
-      <section className="instruction-box">
-        <h2 className="youtube-label">
-          <span className="guide-title-text">{labels.guideTitle}</span>
-          <span
-            className={`guide-title-loading${player.phase === 'loading' ? ' is-loading' : ''}`}
-            role="img"
-            aria-label={player.phase === 'loading' ? labels.loading : undefined}
-            aria-hidden={player.phase !== 'loading'}
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <circle cx="12" cy="12" r="8" />
-            </svg>
-          </span>
-          <span
-            className={`guide-title-playing${player.phase === 'playing' ? ' is-playing' : ''}`}
-            aria-hidden="true"
-          >
-            {player.audioLevels.map((level, index) => <span key={index} style={{ '--audio-level': level }} />)}
-          </span>
-        </h2>
-        <FirstAidPlaylist tracks={tracks} player={player} onSelectTrack={selectInstruction} />
-      </section>
-
-      <section className="youtube-container">
-        <div className="youtube-label">{t({ id: 'video.label', message: '▶️ Acute Seizure Management Animation' })}</div>
-        <iframe src="https://www.youtube.com/embed/g9909mQ2dRo?iv_load_policy=3&rel=0&modestbranding=1" title={t({ id: 'video.title', message: 'Acute Seizure Animation' })} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-      </section>
-
-      <div className="install-row">
-        <InfoPanel className="setup-guide" summary={labels.setup}>
-          <h3>{t({ id: 'setup.installHeading', message: 'How to Install' })}</h3>
-          <ul><li><strong>{t({ id: 'setup.iosLabel', message: 'iPhone (iOS):' })}</strong> {t({ id: 'setup.iosInstructions', message: 'Open in Safari, tap Share, then select Add to Home Screen.' })}</li><li><strong>{t({ id: 'setup.androidLabel', message: 'Android:' })}</strong> {t({ id: 'setup.androidInstructions', message: 'Open in Chrome, use the menu, then select Add to Home screen.' })}</li></ul>
-          <h3>{t({ id: 'setup.operateHeading', message: 'How to Operate' })}</h3>
-          <ul><li><strong>{labels.education}:</strong> {t({ id: 'setup.educationInstructions', message: 'Tap a button to hear the clinical instruction for that step.' })}</li></ul>
-        </InfoPanel>
-        <button className="install-btn-small" onClick={installApp}>{labels.install}</button>
-      </div>
-
-      <InfoPanel className="what-is-guide" summary={labels.whatIs}>
-        <p>{t({ id: 'whatIs.tagline1', message: 'Be Aware of the time. Be Around for the safe recovery.' })}</p>
-        <p>{t({ id: 'whatIs.tagline2', message: "Be Aware: Don't restrain. Be Around: Protect and remain." })}</p>
-        <p>{t({ id: 'whatIs.tagline3', message: 'Aware of what to do, Around when it matters most.' })}</p>
-        <h3>{t({ id: 'whatIs.awareHeading', message: 'Be Aware (Mental Vigilance & Safety Knowledge)' })}</h3>
-        <ul><li><strong>{t({ id: 'whatIs.recognizeLabel', message: 'Recognize & Time:' })}</strong> {t({ id: 'whatIs.recognizeText', message: 'Note when the seizure starts; call emergency services if it exceeds 5 minutes.' })}</li><li><strong>{t({ id: 'whatIs.dontsLabel', message: "Know the Don'ts:" })}</strong> {t({ id: 'whatIs.dontsText', message: "Never restrain movement or place anything in the person's mouth." })}</li><li><strong>{t({ id: 'whatIs.environmentLabel', message: 'Assess Environment:' })}</strong> {t({ id: 'whatIs.environmentText', message: 'Spot physical hazards such as sharp corners, water, or stairs.' })}</li></ul>
-        <h3>{t({ id: 'whatIs.aroundHeading', message: 'Be Around (Physical Protection & Care)' })}</h3>
-        <ul><li><strong>{t({ id: 'whatIs.secureLabel', message: 'Secure the Surroundings:' })}</strong> {t({ id: 'whatIs.secureText', message: 'Clear hard objects and cushion their head.' })}</li><li><strong>{t({ id: 'whatIs.positionLabel', message: 'Position safely:' })}</strong> {t({ id: 'whatIs.positionText', message: 'Turn the person gently onto their side to keep their airway clear.' })}</li><li><strong>{t({ id: 'whatIs.supportLabel', message: 'Provide Support:' })}</strong> {t({ id: 'whatIs.supportText', message: 'Stay until the person is fully alert and offer calm reassurance.' })}</li></ul>
-      </InfoPanel>
-      <InfoPanel className="faq-guide" summary={labels.faq}>
-        <h3>{t({ id: 'faq.question1', message: 'Q1: Why is there no sound in Education Mode?' })}</h3>
-        <p>{t({ id: 'faq.answer1', message: 'Action buttons play recorded audio. Check the media volume, disable silent mode, and refresh the page if the audio fails to load.' })}</p>
-        <h3>{t({ id: 'faq.question3', message: 'Q2: Can I use the app offline?' })}</h3>
-        <p>{t({ id: 'faq.answer3', message: 'Install this PWA or add it to your home screen after a successful first load.' })}</p>
-        <h3>{t({ id: 'faq.question4', message: 'Q3: How does the global click counter work?' })}</h3>
-        <p>{t({ id: 'faq.answer4', message: "The counter shows the total number of times the app's action buttons have been clicked, across all users." })}</p>
-      </InfoPanel>
-
-      <footer className="footer-linktree"><a href="https://linktr.ee/EpilepsyFoundationOfHongKong" target="_blank" rel="noopener noreferrer" className="linktree-btn">{t({ id: 'footer.linkLabel', message: '🔗 Learn more about Epilepsy Foundation HK' })}</a></footer>
-    </main>
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }

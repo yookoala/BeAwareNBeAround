@@ -129,97 +129,97 @@ msgstr ""
 #~ msgstr "香港脑痫基金会"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:150
+#: src/pages/FirstAidPage.jsx:153
 msgid "video.label"
 msgstr "▶️ 急性癫痫发作处理动画"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:34
+#: src/pages/FirstAidPage.jsx:37
 msgid "faq.summary"
 msgstr "❓ 常见问题 (FAQ)"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:33
+#: src/pages/FirstAidPage.jsx:36
 msgid "whatIs.summary"
 msgstr "💡 什么是 Be Aware n' Be Around?"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:32
+#: src/pages/FirstAidPage.jsx:35
 msgid "install.button"
 msgstr "📥 安装 App"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:31
+#: src/pages/FirstAidPage.jsx:34
 msgid "setup.summary"
 msgstr "📲 安装及使用指南"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:182
+#: src/pages/FirstAidPage.jsx:185
 msgid "footer.linkLabel"
 msgstr "🔗 了解更多 Epilepsy Foundation HK"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:175
+#: src/pages/FirstAidPage.jsx:178
 msgid "faq.answer1"
 msgstr "点击按键会播放预录的语音。请检查媒体音量、关闭静音模式；若音频未能加载，请刷新页面。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:151
+#: src/pages/FirstAidPage.jsx:154
 msgid "video.title"
 msgstr "急性癫痫发作处理动画"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:19
+#: src/pages/FirstAidPage.jsx:22
 msgid "header.subtitle"
 msgstr "处理急性癫痫发作的口诀"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:157
+#: src/pages/FirstAidPage.jsx:160
 msgid "setup.androidLabel"
 msgstr "Android："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:169
+#: src/pages/FirstAidPage.jsx:172
 msgid "whatIs.environmentLabel"
 msgstr "评估环境："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:167
+#: src/pages/FirstAidPage.jsx:170
 msgid "whatIs.tagline3"
 msgstr "知道该做什么，在最需要时陪伴左右。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:170
+#: src/pages/FirstAidPage.jsx:173
 msgid "whatIs.aroundHeading"
 msgstr "Be Around（实际保护与照顾）"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:168
+#: src/pages/FirstAidPage.jsx:171
 msgid "whatIs.awareHeading"
 msgstr "Be Aware（保持警觉与急救知识）"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:106
+#: src/pages/FirstAidPage.jsx:109
 msgid "app.title"
 msgstr "Be Aware n' Be Around"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:165
+#: src/pages/FirstAidPage.jsx:168
 msgid "whatIs.tagline1"
 msgstr "留意发作时间，陪伴患者安全恢复。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:166
+#: src/pages/FirstAidPage.jsx:169
 msgid "whatIs.tagline2"
 msgstr "Be Aware：不要压制。Be Around：保护并陪伴。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:171
+#: src/pages/FirstAidPage.jsx:174
 msgid "whatIs.secureText"
 msgstr "移开硬物，并在患者头下垫上软物。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:21
+#: src/pages/FirstAidPage.jsx:24
 msgid "counter.label"
 msgstr "点击次数"
 
@@ -230,22 +230,22 @@ msgid "dialog.close"
 msgstr "关闭"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:22
+#: src/pages/FirstAidPage.jsx:25
 msgid "mode.education"
 msgstr "教育模式"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:60
+#: src/pages/FirstAidPage.jsx:63
 msgid "status.educationDefault"
 msgstr "教育模式：请点击按键聆听指示。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:55
+#: src/pages/FirstAidPage.jsx:58
 msgid "status.paused"
 msgstr "教育播放已暂停。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:57
+#: src/pages/FirstAidPage.jsx:60
 msgid "status.ended"
 msgstr "教育步骤已完成。"
 
@@ -260,7 +260,7 @@ msgid "organization.logoAlt"
 msgstr "香港脑痫基金会"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:120
+#: src/pages/FirstAidPage.jsx:123
 msgid "actions.ariaLabel"
 msgstr "急救行动"
 
@@ -270,37 +270,37 @@ msgid "playlist.cardLabel"
 msgstr "急救语音指引"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:43
+#: src/pages/FirstAidPage.jsx:46
 msgid "guide.step3"
 msgstr "将患者轻轻翻侧，保持呼吸道畅通。切勿强行将任何物品塞入患者口中。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:27
+#: src/pages/FirstAidPage.jsx:30
 msgid "action.help"
 msgstr "助"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:156
+#: src/pages/FirstAidPage.jsx:159
 msgid "setup.installHeading"
 msgstr "如何安装至手机"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:158
+#: src/pages/FirstAidPage.jsx:161
 msgid "setup.operateHeading"
 msgstr "如何操作"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:177
+#: src/pages/FirstAidPage.jsx:180
 msgid "faq.answer3"
 msgstr "首次成功加载后，安装此 PWA 或加入主屏幕即可离线使用。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:157
+#: src/pages/FirstAidPage.jsx:160
 msgid "setup.iosLabel"
 msgstr "iPhone (iOS)："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:169
+#: src/pages/FirstAidPage.jsx:172
 msgid "whatIs.dontsLabel"
 msgstr "了解不要做什么："
 
@@ -311,7 +311,7 @@ msgid "language.selectorLabel"
 msgstr "语言"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:30
+#: src/pages/FirstAidPage.jsx:33
 msgid "playlist.loading"
 msgstr "加载中…"
 
@@ -321,27 +321,27 @@ msgid "playlist.mute"
 msgstr "静音"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:169
+#: src/pages/FirstAidPage.jsx:172
 msgid "whatIs.dontsText"
 msgstr "切勿压制患者的动作或把任何物品放入口中。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:169
+#: src/pages/FirstAidPage.jsx:172
 msgid "whatIs.recognizeText"
 msgstr "记下发作开始时间；如超过五分钟，请呼叫紧急服务。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:42
+#: src/pages/FirstAidPage.jsx:45
 msgid "guide.step2"
 msgstr "观察并保护患者。移开附近危险物品，用软物垫着患者头部。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:157
+#: src/pages/FirstAidPage.jsx:160
 msgid "setup.androidInstructions"
 msgstr "使用 Chrome 浏览器打开，点击右上角菜单，然后选择「添加到主屏幕」。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:157
+#: src/pages/FirstAidPage.jsx:160
 msgid "setup.iosInstructions"
 msgstr "使用 Safari 浏览器打开此网页，点击「分享」图标，然后选择「添加到主屏幕」。"
 
@@ -361,8 +361,8 @@ msgid "playlist.repeatOnce"
 msgstr "全部播放一次"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:59
 #: src/components/FirstAidPlaylist.jsx:64
+#: src/pages/FirstAidPage.jsx:62
 msgid "playlist.error"
 msgstr "播放失败，请按播放重试。"
 
@@ -372,37 +372,37 @@ msgid "playlist.seek"
 msgstr "播放位置"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:53
+#: src/pages/FirstAidPage.jsx:56
 msgid "status.playingEducation"
 msgstr "播放教育步骤 {id}..."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:171
+#: src/pages/FirstAidPage.jsx:174
 msgid "whatIs.positionLabel"
 msgstr "安全摆位："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:171
+#: src/pages/FirstAidPage.jsx:174
 msgid "whatIs.supportLabel"
 msgstr "提供支持："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:174
+#: src/pages/FirstAidPage.jsx:177
 msgid "faq.question1"
 msgstr "Q1: 为什么教育模式没有声音？"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:176
+#: src/pages/FirstAidPage.jsx:179
 msgid "faq.question3"
 msgstr "Q2: 如何确保离线时也能使用？"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:178
+#: src/pages/FirstAidPage.jsx:181
 msgid "faq.question4"
 msgstr "Q3: 为什么点击次数没有立即更新？"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:169
+#: src/pages/FirstAidPage.jsx:172
 msgid "whatIs.recognizeLabel"
 msgstr "识别与计时："
 
@@ -428,22 +428,22 @@ msgid "playlist.repeatOne"
 msgstr "单曲重复"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:25
+#: src/pages/FirstAidPage.jsx:28
 msgid "action.safe"
 msgstr "望"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:171
+#: src/pages/FirstAidPage.jsx:174
 msgid "whatIs.secureLabel"
 msgstr "清理周边环境："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:44
+#: src/pages/FirstAidPage.jsx:47
 msgid "guide.step4"
 msgstr "寻求协助。陪伴患者直至清醒，若超过五分钟请召唤救护车。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:29
+#: src/pages/FirstAidPage.jsx:32
 msgid "guide.title"
 msgstr "守望相助 急救指南"
 
@@ -454,7 +454,7 @@ msgid "playlist.settings"
 msgstr "播放设置"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:26
+#: src/pages/FirstAidPage.jsx:29
 msgid "action.side"
 msgstr "相"
 
@@ -470,52 +470,52 @@ msgid "playlist.speedOption"
 msgstr "速度 {rate}×"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:169
+#: src/pages/FirstAidPage.jsx:172
 msgid "whatIs.environmentText"
 msgstr "留意尖角、水域或楼梯等实际危险。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:24
+#: src/pages/FirstAidPage.jsx:27
 msgid "action.stay"
 msgstr "守"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:41
+#: src/pages/FirstAidPage.jsx:44
 msgid "guide.step1"
 msgstr "保持镇定，记录抽搐开始及持续的时间。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:171
+#: src/pages/FirstAidPage.jsx:174
 msgid "whatIs.supportText"
 msgstr "陪伴患者直至完全清醒，并给予平静的安慰。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:18
+#: src/pages/FirstAidPage.jsx:21
 msgid "header.slogan"
 msgstr "守、望、相、助"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:159
+#: src/pages/FirstAidPage.jsx:162
 msgid "setup.educationInstructions"
 msgstr "点击彩色按键，手机会播放该步骤的急救指示。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:20
+#: src/pages/FirstAidPage.jsx:23
 msgid "header.secondarySubtitle"
 msgstr "点按下面 4 个按键了解口诀"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:179
+#: src/pages/FirstAidPage.jsx:182
 msgid "faq.answer4"
 msgstr "计数器显示所有用户点击过应用动作按钮的总次数。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:91
+#: src/pages/FirstAidPage.jsx:94
 msgid "install.fallbackAlert"
 msgstr "请使用浏览器的「加入主屏幕」选项安装。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:171
+#: src/pages/FirstAidPage.jsx:174
 msgid "whatIs.positionText"
 msgstr "将患者轻轻翻侧，保持呼吸道畅通。"
 
