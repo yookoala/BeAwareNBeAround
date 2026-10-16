@@ -30,6 +30,7 @@ export function usePlaylistPlayer({ locale }) {
   const [playbackRate, setPlaybackRateState] = useState(1);
   const [volume, setVolumeState] = useState(1);
   const [muted, setMutedState] = useState(false);
+  const [audioLevels, setAudioLevels] = useState([0, 0, 0]);
 
   const audioRef = useRef(null);
   const listenersRef = useRef([]);
@@ -46,12 +47,38 @@ export function usePlaylistPlayer({ locale }) {
   const localeRef = useRef(locale);
   const playTrackRef = useRef(null);
   const loadTrackRef = useRef(null);
+  const analyserRef = useRef(null);
+  const audioContextRef = useRef(null);
+  const analysisDataRef = useRef(null);
+  const analysisFrameRef = useRef(null);
 
   // Media event handlers outlive renders, so phase changes go through this
   // helper to keep the ref in sync with the state synchronously.
   const applyPhase = (nextPhase) => {
     phaseRef.current = nextPhase;
     setPhase(nextPhase);
+  };
+
+  const stopAnalysis = () => {
+    if (analysisFrameRef.current !== null) cancelAnimationFrame(analysisFrameRef.current);
+    analysisFrameRef.current = null;
+    setAudioLevels([0, 0, 0]);
+  };
+
+  const startAnalysis = () => {
+    const analyser = analyserRef.current;
+    if (!analyser) return;
+    audioContextRef.current?.resume?.().catch(() => {});
+    const sample = () => {
+      if (phaseRef.current !== 'playing') return;
+      const data = analysisDataRef.current;
+      analyser.getByteFrequencyData(data);
+      const third = Math.floor(data.length / 3);
+      const average = (start, end) => data.slice(start, end).reduce((sum, value) => sum + value, 0) / ((end - start) * 255);
+      setAudioLevels([average(0, third), average(third, third * 2), average(third * 2, data.length)]);
+      analysisFrameRef.current = requestAnimationFrame(sample);
+    };
+    sample();
   };
 
   const getAudio = () => {
@@ -67,7 +94,7 @@ export function usePlaylistPlayer({ locale }) {
     const listeners = [
       ['playing', () => {
         if (!isCurrentSource()) return;
-        if (phaseRef.current === 'loading' || phaseRef.current === 'paused' || phaseRef.current === 'playing') applyPhase('playing');
+        if (phaseRef.current === 'loading' || phaseRef.current === 'paused' || phaseRef.current === 'playing') { applyPhase('playing'); startAnalysis(); }
       }],
       ['pause', () => {
         // Stale-source guard, like every other listener. A real browser queues
@@ -77,7 +104,7 @@ export function usePlaylistPlayer({ locale }) {
         // again, so a pause that does not match the commanded source or the
         // element's own paused flag belongs to an interrupted source.
         if (!isCurrentSource() || !audio.paused) return;
-        if (phaseRef.current === 'playing' || phaseRef.current === 'loading') applyPhase('paused');
+        if (phaseRef.current === 'playing' || phaseRef.current === 'loading') { applyPhase('paused'); stopAnalysis(); }
       }],
       ['ended', () => {
         if (!isCurrentSource()) return;
@@ -85,7 +112,7 @@ export function usePlaylistPlayer({ locale }) {
         const currentIndex = TRACK_IDS.indexOf(selectedIdRef.current);
         if (repeatModeRef.current === 'off'
           || (repeatModeRef.current === 'once' && currentIndex === TRACK_IDS.length - 1)) {
-          applyPhase('ended');
+          applyPhase('ended'); stopAnalysis();
           return;
         }
         if (repeatModeRef.current === 'one') {
@@ -96,14 +123,14 @@ export function usePlaylistPlayer({ locale }) {
       }],
       ['waiting', () => {
         if (!isCurrentSource()) return;
-        if (phaseRef.current === 'playing') applyPhase('loading');
+        if (phaseRef.current === 'playing') { applyPhase('loading'); stopAnalysis(); }
       }],
       ['error', () => {
         if (!isCurrentSource()) return;
         if (phaseRef.current === 'idle') return;
         // Retryable error state; autoplay/repetition halts until a command
         // retries the selected source.
-        applyPhase('error');
+        applyPhase('error'); stopAnalysis();
       }],
       ['timeupdate', () => {
         if (!isCurrentSource()) return;
@@ -122,6 +149,21 @@ export function usePlaylistPlayer({ locale }) {
     audio.volume = volumeRef.current;
     audio.muted = mutedRef.current;
     audioRef.current = audio;
+    const AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
+    if (AudioContextConstructor) {
+      try {
+        const context = new AudioContextConstructor();
+        const analyser = context.createAnalyser();
+        analyser.fftSize = 32;
+        analyser.smoothingTimeConstant = 0.7;
+        const source = context.createMediaElementSource(audio);
+        source.connect(analyser);
+        analyser.connect(context.destination);
+        analyserRef.current = analyser;
+        audioContextRef.current = context;
+        analysisDataRef.current = new Uint8Array(analyser.frequencyBinCount);
+      } catch { /* Decorative analysis must never block playback. */ }
+    }
     return audio;
   };
 
@@ -293,6 +335,8 @@ export function usePlaylistPlayer({ locale }) {
       listenersRef.current = [];
       audio.pause();
       audioRef.current = null;
+      audioContextRef.current?.close?.();
+      audioContextRef.current = null;
     };
   }, []);
 
@@ -305,6 +349,7 @@ export function usePlaylistPlayer({ locale }) {
     playbackRate,
     volume,
     muted,
+    audioLevels,
     selectTrack,
     togglePlayback,
     previous: () => stepTrack(-1),

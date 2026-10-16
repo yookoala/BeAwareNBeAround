@@ -190,9 +190,7 @@ export default function App() {
             className={`guide-title-playing${player.phase === 'playing' ? ' is-playing' : ''}`}
             aria-hidden="true"
           >
-            <span />
-            <span />
-            <span />
+            {player.audioLevels.map((level, index) => <span key={index} style={{ '--audio-level': level }} />)}
           </span>
         </h2>
         <FirstAidPlaylist tracks={tracks} player={player} onSelectTrack={selectInstruction} />

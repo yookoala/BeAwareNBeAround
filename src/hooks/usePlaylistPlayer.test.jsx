@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { act, renderHook } from '@testing-library/react';
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { usePlaylistPlayer } from './usePlaylistPlayer';
 
 function renderPlayer(locale = 'zh-HK', options = {}) {
@@ -32,6 +32,34 @@ test('starts idle with no selection, no audio element, and default settings', ()
   expect(result.current.volume).toBe(1);
   expect(result.current.muted).toBe(false);
   expect(window.MockAudioInstances).toHaveLength(0);
+});
+
+test('maps analyser low, mid, and high frequency energy to title-bar levels only while playing', () => {
+  const analyser = {
+    fftSize: 32,
+    frequencyBinCount: 16,
+    smoothingTimeConstant: 0,
+    connect: vi.fn(),
+    getByteFrequencyData: vi.fn((data) => data.set([255, 255, 255, 255, 255, 128, 128, 128, 128, 128, 64, 64, 64, 64, 64, 64])),
+  };
+  vi.stubGlobal('AudioContext', class {
+    sampleRate = 48000;
+    destination = {};
+    state = 'running';
+    createMediaElementSource = vi.fn(() => ({ connect: vi.fn() }));
+    createAnalyser = vi.fn(() => analyser);
+    resume = vi.fn(() => Promise.resolve());
+    close = vi.fn(() => Promise.resolve());
+  });
+  vi.stubGlobal('requestAnimationFrame', vi.fn(() => 1));
+  vi.stubGlobal('cancelAnimationFrame', vi.fn());
+
+  const { result } = renderPlayer();
+  const audio = selectAndPlay(result, 1);
+
+  expect(result.current.audioLevels).toEqual([1, 128 / 255, 64 / 255]);
+  act(() => { audio.paused = true; audio.emit('pause'); });
+  expect(result.current.audioLevels).toEqual([0, 0, 0]);
 });
 
 test('creates one audio element lazily and reuses it for every command', () => {

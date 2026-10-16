@@ -119,7 +119,7 @@ msgstr ""
 #~ msgstr "上一段"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:202
+#: src/App.jsx:200
 msgid "video.label"
 msgstr "▶️ 急性癫痫发作处理动画"
 
@@ -144,17 +144,17 @@ msgid "setup.summary"
 msgstr "📲 安装及使用指南"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:234
+#: src/App.jsx:232
 msgid "footer.linkLabel"
 msgstr "🔗 了解更多 Epilepsy Foundation HK"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:227
+#: src/App.jsx:225
 msgid "faq.answer1"
 msgstr "点击按键会播放预录的语音。请检查媒体音量、关闭静音模式；若音频未能加载，请刷新页面。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:203
+#: src/App.jsx:201
 msgid "video.title"
 msgstr "急性癫痫发作处理动画"
 
@@ -164,27 +164,27 @@ msgid "header.subtitle"
 msgstr "处理急性癫痫发作的口诀"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:209
+#: src/App.jsx:207
 msgid "setup.androidLabel"
 msgstr "Android："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:219
 msgid "whatIs.environmentLabel"
 msgstr "评估环境："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:219
+#: src/App.jsx:217
 msgid "whatIs.tagline3"
 msgstr "知道该做什么，在最需要时陪伴左右。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:222
+#: src/App.jsx:220
 msgid "whatIs.aroundHeading"
 msgstr "Be Around（实际保护与照顾）"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:220
+#: src/App.jsx:218
 msgid "whatIs.awareHeading"
 msgstr "Be Aware（保持警觉与急救知识）"
 
@@ -194,17 +194,17 @@ msgid "app.title"
 msgstr "Be Aware n' Be Around"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:217
+#: src/App.jsx:215
 msgid "whatIs.tagline1"
 msgstr "留意发作时间，陪伴患者安全恢复。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:218
+#: src/App.jsx:216
 msgid "whatIs.tagline2"
 msgstr "Be Aware：不要压制。Be Around：保护并陪伴。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:223
+#: src/App.jsx:221
 msgid "whatIs.secureText"
 msgstr "移开硬物，并在患者头下垫上软物。"
 
@@ -270,27 +270,27 @@ msgid "action.help"
 msgstr "助"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:208
+#: src/App.jsx:206
 msgid "setup.installHeading"
 msgstr "如何安装至手机"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:210
+#: src/App.jsx:208
 msgid "setup.operateHeading"
 msgstr "如何操作"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:229
+#: src/App.jsx:227
 msgid "faq.answer3"
 msgstr "首次成功加载后，安装此 PWA 或加入主屏幕即可离线使用。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:209
+#: src/App.jsx:207
 msgid "setup.iosLabel"
 msgstr "iPhone (iOS)："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:219
 msgid "whatIs.dontsLabel"
 msgstr "了解不要做什么："
 
@@ -311,12 +311,12 @@ msgid "playlist.mute"
 msgstr "静音"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:219
 msgid "whatIs.dontsText"
 msgstr "切勿压制患者的动作或把任何物品放入口中。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:219
 msgid "whatIs.recognizeText"
 msgstr "记下发作开始时间；如超过五分钟，请呼叫紧急服务。"
 
@@ -326,12 +326,12 @@ msgid "guide.step2"
 msgstr "观察并保护患者。移开附近危险物品，用软物垫着患者头部。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:209
+#: src/App.jsx:207
 msgid "setup.androidInstructions"
 msgstr "使用 Chrome 浏览器打开，点击右上角菜单，然后选择「添加到主屏幕」。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:209
+#: src/App.jsx:207
 msgid "setup.iosInstructions"
 msgstr "使用 Safari 浏览器打开此网页，点击「分享」图标，然后选择「添加到主屏幕」。"
 
@@ -367,32 +367,32 @@ msgid "status.playingEducation"
 msgstr "播放教育步骤 {id}..."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:223
+#: src/App.jsx:221
 msgid "whatIs.positionLabel"
 msgstr "安全摆位："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:223
+#: src/App.jsx:221
 msgid "whatIs.supportLabel"
 msgstr "提供支持："
 
 #. js-lingui-explicit-id
-#: src/App.jsx:226
+#: src/App.jsx:224
 msgid "faq.question1"
 msgstr "Q1: 为什么教育模式没有声音？"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:228
+#: src/App.jsx:226
 msgid "faq.question3"
 msgstr "Q2: 如何确保离线时也能使用？"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:230
+#: src/App.jsx:228
 msgid "faq.question4"
 msgstr "Q3: 为什么点击次数没有立即更新？"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:219
 msgid "whatIs.recognizeLabel"
 msgstr "识别与计时："
 
@@ -423,7 +423,7 @@ msgid "action.safe"
 msgstr "望"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:223
+#: src/App.jsx:221
 msgid "whatIs.secureLabel"
 msgstr "清理周边环境："
 
@@ -460,7 +460,7 @@ msgid "playlist.speedOption"
 msgstr "速度 {rate}×"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:219
 msgid "whatIs.environmentText"
 msgstr "留意尖角、水域或楼梯等实际危险。"
 
@@ -475,7 +475,7 @@ msgid "guide.step1"
 msgstr "保持镇定，记录抽搐开始及持续的时间。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:223
+#: src/App.jsx:221
 msgid "whatIs.supportText"
 msgstr "陪伴患者直至完全清醒，并给予平静的安慰。"
 
@@ -485,7 +485,7 @@ msgid "header.slogan"
 msgstr "守、望、相、助"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:211
+#: src/App.jsx:209
 msgid "setup.educationInstructions"
 msgstr "点击彩色按键，手机会播放该步骤的急救指示。"
 
@@ -495,7 +495,7 @@ msgid "header.secondarySubtitle"
 msgstr "点按下面 4 个按键了解口诀"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:231
+#: src/App.jsx:229
 msgid "faq.answer4"
 msgstr "计数器显示所有用户点击过应用动作按钮的总次数。"
 
@@ -505,7 +505,7 @@ msgid "install.fallbackAlert"
 msgstr "请使用浏览器的「加入主屏幕」选项安装。"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:223
+#: src/App.jsx:221
 msgid "whatIs.positionText"
 msgstr "将患者轻轻翻侧，保持呼吸道畅通。"
 
