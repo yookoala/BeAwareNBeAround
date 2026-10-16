@@ -430,7 +430,7 @@ msgstr "清理周邊環境："
 #. js-lingui-explicit-id
 #: src/App.jsx:47
 msgid "guide.step4"
-msgstr "尋求協助。陪伴患者直至清醒，若超過五分鐘請召喚救護車。"
+msgstr "尋求協助。陪伴患者直至清醒，若發作超過五分鐘請召喚救護車。"
 
 #. js-lingui-explicit-id
 #: src/App.jsx:32
