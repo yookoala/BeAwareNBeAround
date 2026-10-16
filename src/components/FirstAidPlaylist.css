@@ -210,6 +210,12 @@
   flex-wrap: wrap;
 }
 
+.playlist-repeat-choices {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
 .playlist-choice {
   border: 1px solid #ddd;
   background: #fff;
@@ -218,6 +224,11 @@
   font-size: 13px;
   cursor: pointer;
   white-space: nowrap;
+}
+
+.playlist-repeat-choices .playlist-choice {
+  width: 100%;
+  text-align: center;
 }
 
 .playlist-choice[aria-pressed='true'] {

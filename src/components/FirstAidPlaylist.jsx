@@ -204,7 +204,7 @@ export function FirstAidPlaylist({ tracks, player, onSelectTrack, volumeSupporte
               </div>
               <div className="playlist-setting" role="group" aria-label={t({ id: 'playlist.repeat', message: 'Repeat' })}>
                 <div className="playlist-setting-name">{t({ id: 'playlist.repeat', message: 'Repeat' })}</div>
-                <div className="playlist-choices">
+                <div className="playlist-choices playlist-repeat-choices">
                   {[
                     ['off', t({ id: 'playlist.repeatOff', message: 'Repeat off' })],
                     ['once', t({ id: 'playlist.repeatOnce', message: 'Play all once' })],

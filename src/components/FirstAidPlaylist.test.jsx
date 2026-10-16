@@ -217,6 +217,17 @@ test('settings exposes speed and repeat choices, defaulting to 1x and repeat off
   expect(within(repeatGroup).getByRole('button', { name: 'Repeat off' })).toHaveAttribute('aria-pressed', 'true');
 });
 
+test('repeat choices use the dedicated vertical layout hook while speed choices retain their compact layout', () => {
+  renderPlaylist();
+
+  fireEvent.click(screen.getByRole('button', { name: 'Settings' }));
+
+  const speedChoices = screen.getByRole('group', { name: 'Speed' }).querySelector('.playlist-choices');
+  const repeatChoices = screen.getByRole('group', { name: 'Repeat' }).querySelector('.playlist-repeat-choices');
+  expect(speedChoices).not.toHaveClass('playlist-repeat-choices');
+  expect(repeatChoices).toHaveClass('playlist-choices', 'playlist-repeat-choices');
+});
+
 test('choosing a speed or repeat mode calls the exact command and updates the pressed state', () => {
   const { player, rerenderWith } = renderPlaylist();
 

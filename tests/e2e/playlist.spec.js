@@ -257,6 +257,24 @@ test.describe('compact play-all-once contract', () => {
   }
 });
 
+test('stacks repeat choices in one equal-width, centered column', async ({ page }) => {
+  await openApp(page);
+  await openSettings(page, HK);
+
+  const layout = await page.locator('.playlist-repeat-choices').evaluate((choices) => ({
+    direction: getComputedStyle(choices).flexDirection,
+    buttons: Array.from(choices.querySelectorAll('button')).map((button) => ({
+      width: getComputedStyle(button).width,
+      textAlign: getComputedStyle(button).textAlign,
+    })),
+  }));
+
+  expect(layout.direction).toBe('column');
+  expect(layout.buttons).toHaveLength(4);
+  expect(new Set(layout.buttons.map(({ width }) => width)).size).toBe(1);
+  expect(layout.buttons.every(({ textAlign }) => textAlign === 'center')).toBe(true);
+});
+
 test.describe('desktop playlist interaction affordances', () => {
   test.use({ viewport: { width: 1280, height: 900 } });
 
