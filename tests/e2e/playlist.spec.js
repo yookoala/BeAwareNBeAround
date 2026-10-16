@@ -891,4 +891,19 @@ test.describe('real recordings in the browser', () => {
     await expect(row(page, 3)).toHaveAttribute('aria-pressed', 'true');
     await expect(row(page, 1).locator('.playlist-playing-badge')).toHaveCount(0);
   });
+
+  test('keeps the selected 2x rate when repeat-all advances to the next real recording', async ({ page }) => {
+    await row(page, 1).click();
+    await expect(status(page)).toHaveText(HK.playing(1));
+    await openSettings(page, HK);
+    await page.getByRole('button', { name: '速度 2×', exact: true }).click();
+    await page.getByRole('button', { name: HK.repeatAll, exact: true }).click();
+    expect(await page.evaluate(() => window.__createdAudio[0].playbackRate)).toBe(2);
+
+    const duration = Number(await page.locator('.playlist-seek-range').getAttribute('max'));
+    await page.locator('.playlist-seek-range').fill((duration - 0.1).toFixed(3));
+
+    await expect(status(page)).toHaveText(HK.playing(2), { timeout: 15000 });
+    expect(await page.evaluate(() => window.__createdAudio[0].playbackRate)).toBe(2);
+  });
 });

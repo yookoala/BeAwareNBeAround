@@ -152,6 +152,9 @@ export function usePlaylistPlayer({ locale }) {
     setDuration(NaN);
     audio.currentTime = 0;
     audio.src = source;
+    // Browsers reset the effective playback rate when the source changes, so
+    // restore the page-owned setting before requesting the next track.
+    audio.playbackRate = playbackRateRef.current;
     requestPlay(audio);
   };
 
@@ -169,6 +172,7 @@ export function usePlaylistPlayer({ locale }) {
     setDuration(NaN);
     audio.currentTime = 0;
     audio.src = source;
+    audio.playbackRate = playbackRateRef.current;
     applyPhase('paused');
   };
 
