@@ -73,9 +73,10 @@ export function usePlaylistPlayer({ locale }) {
       if (phaseRef.current !== 'playing') return;
       const data = analysisDataRef.current;
       analyser.getByteFrequencyData(data);
-      const third = Math.floor(data.length / 3);
       const average = (start, end) => data.slice(start, end).reduce((sum, value) => sum + value, 0) / ((end - start) * 255);
-      setAudioLevels([average(0, third), average(third, third * 2), average(third * 2, data.length)]);
+      // Spoken guidance has little energy in the upper third of the full
+      // spectrum. These overlapping vocal ranges keep every bar responsive.
+      setAudioLevels([average(0, 3), average(1, 5), average(3, 8)]);
       analysisFrameRef.current = requestAnimationFrame(sample);
     };
     sample();
