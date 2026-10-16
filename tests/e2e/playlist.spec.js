@@ -29,8 +29,8 @@ const LOCALES = [
     next: '下一段',
     settings: '播放設定',
     repeatOff: '不重複',
-    repeatAll: '全部重複',
-    repeatOne: '單曲重複',
+    repeatAll: '循環播放全部',
+    repeatOne: '循環播放單段',
     repeatOnce: '全部播放一次',
     mute: '靜音',
     unmute: '取消靜音',
@@ -187,7 +187,7 @@ test.describe('compact play-all-once contract', () => {
       const speed = page.locator('.playlist-setting').first().getByRole('button').last();
       await speed.focus();
       await page.keyboard.press('Enter');
-      expect((await media.state()).playbackRate).toBe(1.5);
+      expect((await media.state()).playbackRate).toBe(2);
       await page.getByRole('button', { name: locale.repeatOnce, exact: true }).focus();
       await page.keyboard.press('Space');
       await expect(page.getByRole('button', { name: locale.repeatOnce, exact: true })).toHaveAttribute('aria-pressed', 'true');
@@ -504,7 +504,7 @@ test.describe('deterministic playback', () => {
     await media.fire('playing');
     await setRepeat(page, HK, 'all');
     await openSettings(page, HK);
-    await page.getByRole('button', { name: '速度 1.5×', exact: true }).click();
+    await page.getByRole('button', { name: '速度 2×', exact: true }).click();
     // Close the panel first: at 375px it overlays the wrapped control row.
     await page.keyboard.press('Escape');
     await expect(page.locator('#playlist-settings-panel')).toHaveCount(0);
@@ -516,7 +516,7 @@ test.describe('deterministic playback', () => {
     expect(clickPosts().map((request) => request.body.action_target)).toEqual(['2']);
     expect(await media.elementCount()).toBe(1);
     const state = await media.state();
-    expect(state.playbackRate).toBe(1.5);
+    expect(state.playbackRate).toBe(2);
     expect(state.volume).toBe(0.5);
     expect(state.muted).toBe(true);
   });

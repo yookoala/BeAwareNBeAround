@@ -204,7 +204,7 @@ test('settings exposes speed and repeat choices, defaulting to 1x and repeat off
   fireEvent.click(screen.getByRole('button', { name: 'Settings' }));
 
   const speedGroup = screen.getByRole('group', { name: 'Speed' });
-  for (const label of ['Speed 0.75×', 'Speed 1×', 'Speed 1.25×', 'Speed 1.5×']) {
+  for (const label of ['Speed 0.75×', 'Speed 1×', 'Speed 1.25×', 'Speed 1.5×', 'Speed 2×']) {
     expect(within(speedGroup).getByRole('button', { name: label })).toBeInTheDocument();
   }
   expect(within(speedGroup).getByRole('button', { name: 'Speed 1×' })).toHaveAttribute('aria-pressed', 'true');
@@ -221,9 +221,9 @@ test('choosing a speed or repeat mode calls the exact command and updates the pr
   const { player, rerenderWith } = renderPlaylist();
 
   fireEvent.click(screen.getByRole('button', { name: 'Settings' }));
-  fireEvent.click(within(screen.getByRole('group', { name: 'Speed' })).getByRole('button', { name: 'Speed 1.25×' }));
+  fireEvent.click(within(screen.getByRole('group', { name: 'Speed' })).getByRole('button', { name: 'Speed 2×' }));
   expect(player.setPlaybackRate).toHaveBeenCalledTimes(1);
-  expect(player.setPlaybackRate).toHaveBeenCalledWith(1.25);
+  expect(player.setPlaybackRate).toHaveBeenCalledWith(2);
 
   const repeatGroup = screen.getByRole('group', { name: 'Repeat' });
   fireEvent.click(within(repeatGroup).getByRole('button', { name: 'Repeat one' }));
@@ -231,10 +231,10 @@ test('choosing a speed or repeat mode calls the exact command and updates the pr
   expect(player.setRepeatMode).toHaveBeenCalledWith('one');
 
   // The panel stays open so several settings can be adjusted together.
-  rerenderWith({ playbackRate: 1.25, repeatMode: 'one' });
+  rerenderWith({ playbackRate: 2, repeatMode: 'one' });
   const speedGroup = screen.getByRole('group', { name: 'Speed' });
   expect(within(speedGroup).getByRole('button', { name: 'Speed 1×' })).toHaveAttribute('aria-pressed', 'false');
-  expect(within(speedGroup).getByRole('button', { name: 'Speed 1.25×' })).toHaveAttribute('aria-pressed', 'true');
+  expect(within(speedGroup).getByRole('button', { name: 'Speed 2×' })).toHaveAttribute('aria-pressed', 'true');
   expect(within(repeatGroup).getByRole('button', { name: 'Repeat off' })).toHaveAttribute('aria-pressed', 'false');
   expect(within(repeatGroup).getByRole('button', { name: 'Repeat one' })).toHaveAttribute('aria-pressed', 'true');
 });
@@ -388,8 +388,8 @@ test('control labels and repeat choices are translated in zh-HK', () => {
   expect(within(speedGroup).getByRole('button', { name: '速度 0.75×' })).toBeInTheDocument();
   const repeatGroup = screen.getByRole('group', { name: '重複播放' });
   expect(within(repeatGroup).getByRole('button', { name: '不重複' })).toBeInTheDocument();
-  expect(within(repeatGroup).getByRole('button', { name: '全部重複' })).toBeInTheDocument();
-  expect(within(repeatGroup).getByRole('button', { name: '單曲重複' })).toBeInTheDocument();
+  expect(within(repeatGroup).getByRole('button', { name: '循環播放全部' })).toBeInTheDocument();
+  expect(within(repeatGroup).getByRole('button', { name: '循環播放單段' })).toBeInTheDocument();
 });
 
 test('control labels, pause, and error are translated in zh-CN', () => {

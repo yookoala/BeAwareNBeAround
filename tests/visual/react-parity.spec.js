@@ -76,7 +76,7 @@ test.describe('localized mobile layouts', () => {
 // reported duration/position, so the transport row renders identically on
 // every run instead of capturing whatever a real recording had decoded to.
 const playlistStates = [
-  { selector: '繁體', prefix: 'zh-hk', pause: '暫停', play: '播放', settings: '播放設定', repeatAll: '全部重複', speed: '速度 1.5×' },
+  { selector: '繁體', prefix: 'zh-hk', pause: '暫停', play: '播放', settings: '播放設定', repeatAll: '循環播放全部', speed: '速度 1.5×' },
   { selector: '简体', prefix: 'zh-cn', pause: '暂停', play: '播放', settings: '播放设置', repeatAll: '全部重复', speed: '速度 1.5×' },
   { selector: 'EN', prefix: 'en', pause: 'Pause', play: 'Play', settings: 'Settings', repeatAll: 'Repeat all', speed: 'Speed 1.5×' },
 ];

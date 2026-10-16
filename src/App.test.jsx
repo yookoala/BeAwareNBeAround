@@ -210,6 +210,8 @@ test('switches the setup, guidance, FAQ, and footer content between languages', 
   closeInfoPanel(whatIsPanel, '關閉');
   const faqPanel = openInfoPanel('❓ 常見問題 (FAQ)');
   expect(screen.getByRole('heading', { name: 'Q1: 為什麼教育模式沒有聲音？' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Q2: 如何確保離線時也能使用？' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Q3: 為什麼點擊次數沒有立即更新？' })).toBeInTheDocument();
   expect(screen.getByText('計數器顯示所有用戶按過應用程式動作按鍵的總次數。')).toBeInTheDocument();
   closeInfoPanel(faqPanel, '關閉');
   expect(screen.getByRole('link', { name: '🔗 了解更多 Epilepsy Foundation HK' })).toBeInTheDocument();
@@ -226,6 +228,8 @@ test('switches the setup, guidance, FAQ, and footer content between languages', 
   closeInfoPanel(englishWhatIsPanel, 'Close');
   const englishFaqPanel = openInfoPanel('❓ Frequently Asked Questions (FAQ)');
   expect(screen.getByRole('heading', { name: 'Q1: Why is there no sound in Education Mode?' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Q2: Can I use the app offline?' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Q3: How does the global click counter work?' })).toBeInTheDocument();
   expect(screen.getByText("The counter shows the total number of times the app's action buttons have been clicked, across all users.")).toBeInTheDocument();
   closeInfoPanel(englishFaqPanel, 'Close');
   expect(screen.getByRole('link', { name: '🔗 Learn more about Epilepsy Foundation HK' })).toBeInTheDocument();
@@ -281,8 +285,14 @@ test('shows a localized, non-live loading spinner in the attached guide title in
   expect(spinner).not.toHaveAttribute('role', 'status');
   expect(document.querySelector('.playlist-error-overlay')).toBeNull();
 
+  emit(audio(), 'playing');
+  expect(document.querySelector('.guide-title-playing')).toHaveClass('is-playing');
+  expect(document.querySelector('.guide-title-playing')).toHaveAttribute('aria-hidden', 'true');
+  expect(spinner).toHaveAttribute('aria-hidden', 'true');
+
   emit(audio(), 'error');
   expect(spinner).toHaveAttribute('aria-hidden', 'true');
+  expect(document.querySelector('.guide-title-playing')).not.toHaveClass('is-playing');
   expect(document.querySelector('.playlist-error-overlay')).toHaveTextContent('Playback failed. Press play to try again.');
 });
 
@@ -435,7 +445,7 @@ test('repeat all advances from an upper-button selection and repeat one restarts
   const { counter } = renderApp();
 
   fireEvent.click(screen.getByRole('button', { name: /播放設定/ }));
-  fireEvent.click(screen.getByRole('button', { name: '全部重複' }));
+  fireEvent.click(screen.getByRole('button', { name: '循環播放全部' }));
   fireEvent.click(screen.getByRole('button', { name: /播放設定/ }));
 
   fireEvent.click(upperButton('助'));
@@ -451,7 +461,7 @@ test('repeat all advances from an upper-button selection and repeat one restarts
   expect(playlistRow(0)).toHaveAttribute('aria-pressed', 'true');
 
   fireEvent.click(screen.getByRole('button', { name: /播放設定/ }));
-  fireEvent.click(screen.getByRole('button', { name: '單曲重複' }));
+  fireEvent.click(screen.getByRole('button', { name: '循環播放單段' }));
 
   fireEvent.click(playlistRow(1));
   emit(audio(), 'playing');

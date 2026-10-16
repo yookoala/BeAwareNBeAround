@@ -4,7 +4,7 @@ import { i18n } from '../i18n/setup';
 import { isIOS } from '../services/install';
 import './FirstAidPlaylist.css';
 
-const PLAYBACK_RATES = [0.75, 1, 1.25, 1.5];
+const PLAYBACK_RATES = [0.75, 1, 1.25, 1.5, 2];
 
 // Formats seconds as m:ss; unknown or invalid positions fall back to 0:00 so
 // NaN/Infinity from the media element can never reach the UI.

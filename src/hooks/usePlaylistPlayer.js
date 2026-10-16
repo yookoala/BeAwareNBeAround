@@ -3,7 +3,7 @@ import { getActionAudioSource } from '../services/audio';
 
 const TRACK_IDS = [1, 2, 3, 4];
 const REPEAT_MODES = ['off', 'all', 'one', 'once'];
-const PLAYBACK_RATES = [0.75, 1, 1.25, 1.5];
+const PLAYBACK_RATES = [0.75, 1, 1.25, 1.5, 2];
 
 // HTMLMediaElement.src reflects the resolved absolute URL, while the hook
 // tracks the relative recording path; compare resolved forms so real

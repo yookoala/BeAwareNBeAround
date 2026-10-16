@@ -613,7 +613,9 @@ test('playback rates accept only the advertised choices', () => {
   const { result } = renderPlayer();
   act(() => { result.current.setPlaybackRate(1.25); });
   act(() => { result.current.setPlaybackRate(2); });
-  expect(result.current.playbackRate).toBe(1.25);
+  const audio = selectAndPlay(result, 1);
+  expect(result.current.playbackRate).toBe(2);
+  expect(audio.playbackRate).toBe(2);
 
   act(() => { result.current.setPlaybackRate(0.75); });
   expect(result.current.playbackRate).toBe(0.75);

@@ -186,6 +186,14 @@ export default function App() {
               <circle cx="12" cy="12" r="8" />
             </svg>
           </span>
+          <span
+            className={`guide-title-playing${player.phase === 'playing' ? ' is-playing' : ''}`}
+            aria-hidden="true"
+          >
+            <span />
+            <span />
+            <span />
+          </span>
         </h2>
         <FirstAidPlaylist tracks={tracks} player={player} onSelectTrack={selectInstruction} />
       </section>
@@ -217,9 +225,9 @@ export default function App() {
       <InfoPanel className="faq-guide" summary={labels.faq}>
         <h3>{t({ id: 'faq.question1', message: 'Q1: Why is there no sound in Education Mode?' })}</h3>
         <p>{t({ id: 'faq.answer1', message: 'Action buttons play recorded audio. Check the media volume, disable silent mode, and refresh the page if the audio fails to load.' })}</p>
-        <h3>{t({ id: 'faq.question3', message: 'Q3: Can I use the app offline?' })}</h3>
+        <h3>{t({ id: 'faq.question3', message: 'Q2: Can I use the app offline?' })}</h3>
         <p>{t({ id: 'faq.answer3', message: 'Install this PWA or add it to your home screen after a successful first load.' })}</p>
-        <h3>{t({ id: 'faq.question4', message: 'Q4: How does the global click counter work?' })}</h3>
+        <h3>{t({ id: 'faq.question4', message: 'Q3: How does the global click counter work?' })}</h3>
         <p>{t({ id: 'faq.answer4', message: "The counter shows the total number of times the app's action buttons have been clicked, across all users." })}</p>
       </InfoPanel>
 
