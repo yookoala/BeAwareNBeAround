@@ -150,3 +150,78 @@ test('medical profile works with keyboard and retains the diary shell', async ({
   await page.getByRole('button', { name: '← 返回' }).click();
   await expect(page).toHaveURL(/\/diary$/);
 });
+
+test('complete diary journey includes both printable reports', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('link', { name: '日記', exact: true }).click();
+  await expect(page.locator('#btn-attack')).toContainText('腦癇記錄');
+  await expect(page.locator('#btn-headache')).toContainText('頭痛記錄');
+  await expect(page.locator('#appMode, .first-aid-banner')).toHaveCount(0);
+  await expect(page.locator('#fabRecord')).toBeVisible();
+  await page.locator('.month-button').click();
+  await expect(page.locator('#monthlyModal [role="dialog"]')).toBeVisible();
+  await page.getByRole('button', { name: '關閉' }).click();
+  await page.getByRole('button', { name: /生理及健康/ }).click();
+  await expect(page.locator('#stateModal [role="dialog"]')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await page.locator('#btn-attack').click();
+  await page.getByRole('button', { name: '叢集 / 連續多次' }).click();
+  await page.locator('#cluster-counter button').last().click();
+  await expect(page.locator('#attack-count')).toHaveText('3');
+  const noAura = page.getByRole('button', { name: '無預兆' });
+  await noAura.click();
+  const visual = page.getByRole('button', { name: '視覺 (如閃光/幻覺)' });
+  await visual.click();
+  await expect(noAura).toHaveAttribute('aria-pressed', 'false');
+  await expect(visual).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: '← 取消' }).click();
+  await page.locator('.profile-card').click();
+  const contacts = page.getByTestId('accordion-contacts');
+  await contacts.locator('.accordion-header').click();
+  await contacts.locator('.phone-input').fill('+852 9876 5432');
+  await expect(contacts.locator('.wa-link')).toHaveAttribute('href', /^https:\/\/wa\.me\/85298765432\?text=/);
+  await expect(contacts.locator('.call-link')).toHaveAttribute('href', 'tel:+85298765432');
+  await expect(contacts.locator('.sms-link')).toHaveAttribute('href', /^sms:\+85298765432\?body=/);
+  await page.getByRole('button', { name: '← 返回' }).click();
+  for (const [level, sheet] of [['a', 'a4-landscape'], ['b', 'page-container']]) {
+    await page.locator(`[data-report="level-${level}"]`).click();
+    await expect(page).toHaveURL(new RegExp(`/diary/report/level-${level}$`));
+    await expect(page.locator('.app-header, .bottom-nav')).toHaveCount(0);
+    await expect(page.locator(`#pdfContainer.${sheet}`)).toBeVisible();
+    await page.getByRole('button', { name: '切換 黑白/彩色 模式' }).click();
+    await expect(page.locator('#pdfContainer')).toHaveClass(/bw-mode/);
+    await expect(page.locator('#modeStatus')).toContainText('黑白');
+    await page.getByRole('button', { name: '← 返回日記' }).click();
+    await expect(page).toHaveURL(/\/diary$/);
+  }
+  for (const [menu, title] of [['简体', '癫痫及头痛追踪'], ['EN', 'Epilepsy and Headache Tracking'], ['繁體', '腦癇及頭痛追蹤']]) {
+    await page.locator('.lang-menu-toggle').click();
+    await page.getByRole('menuitem', { name: menu, exact: true }).click();
+    await expect(page.locator('.dashboard-title')).toHaveText(title);
+  }
+});
+
+test('report sheets keep content above the footer and print at A4 size', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('link', { name: '日記', exact: true }).click();
+  for (const [level, count, width, height] of [['a', 1, 841.9, 595], ['b', 3, 595, 841.9]]) {
+    await page.locator(`[data-report="level-${level}"]`).click();
+    const sheets = page.locator('.a4-landscape, .a4-portrait');
+    await expect(sheets).toHaveCount(count);
+    for (const sheet of await sheets.all()) {
+      const geometry = await sheet.evaluate((el) => {
+        const footer = el.querySelector('.pdf-footer').getBoundingClientRect();
+        const content = el.querySelector('.right-column, .data-table');
+        return { contentBottom: content.getBoundingClientRect().bottom, footerTop: footer.top };
+      });
+      expect(geometry.contentBottom).toBeLessThanOrEqual(geometry.footerTop);
+    }
+    const pdf = await page.pdf({ printBackground: true, preferCSSPageSize: true });
+    const source = pdf.toString('latin1');
+    expect((source.match(/\/Type\s*\/Page\b/g) || []).length).toBe(count);
+    const box = /\/MediaBox\s*\[\s*0\s+0\s+([\d.]+)\s+([\d.]+)\s*\]/.exec(source);
+    expect(Number(box[1])).toBeCloseTo(width, 0);
+    expect(Number(box[2])).toBeCloseTo(height, 0);
+    await page.getByRole('button', { name: '← 返回日記' }).click();
+  }
+});
