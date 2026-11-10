@@ -61,3 +61,19 @@ Preserve clinical marker fills in printed A4 reports and expose meaningful, loca
 ## Human testing
 
 In all three languages, use a screen reader on marked days, medication markers and each report logo; verify dates and meanings. Print both color and grayscale reports with background graphics disabled and confirm seizure/health, medication, cluster and action markers remain distinguishable; printer/browser settings may override CSS.
+
+# Whole-branch review: diary layout and JSX readability
+
+## Objective and approach
+
+Restore the prototype's border-box sizing inside diary page content and report controls without changing the shared first-aid shell. Reset heading and paragraph margins in the scoped page content to match the prototype. Percentage-width form fields currently add padding and borders outside their columns; flex columns alone cannot prevent that overflow. A global reset would risk regressions in unrelated pages, so use page-scoped selectors. Preserve all behavior while formatting the profile, contact and investigation JSX.
+
+## TODO
+
+- [x] Add failing 375×812 browser checks for profile page width, adjacent field overlap and event control bounds.
+- [x] Apply scoped sizing/margin resets and format the three JSX files; confirm the browser checks pass.
+- [x] Run test, lint, build and full E2E regressions; review and commit.
+
+## Human testing
+
+At 375×812 open the profile basics, contacts, and auras sections and add a custom aura. Check that the page and fields do not overflow or overlap, and enter data in each field. Open the event log and inspect the date/time and notes controls. Review dashboard, modals, both reports, and the first-aid screen for visual regressions.

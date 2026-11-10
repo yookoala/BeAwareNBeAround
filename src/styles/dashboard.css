@@ -1,3 +1,11 @@
+/* Match the prototype reset without affecting the shared app shell. */
+body.page-dashboard .app-container,
+body.page-dashboard .app-container *,
+body.page-dashboard .modal-overlay,
+body.page-dashboard .modal-overlay * { box-sizing: border-box; }
+body.page-dashboard .app-container :is(h1, h2, h3, p),
+body.page-dashboard .modal-overlay :is(h1, h2, h3, p) { margin: 0; }
+
 body.page-dashboard {
     --bg-color: #F9F9F9;
     --surface-color: #FFFFFF;

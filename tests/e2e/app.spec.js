@@ -245,3 +245,45 @@ test('clinical report markers preserve their colors when printed', async ({ page
     await page.getByRole('button', { name: '← 返回日記' }).click();
   }
 });
+
+async function openExpandedProfile(page) {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/');
+  await page.getByRole('link', { name: '日記', exact: true }).click();
+  await page.locator('.profile-card').click();
+  for (const id of ['basics', 'contacts', 'auras']) {
+    await page.getByTestId(`accordion-${id}`).locator('.accordion-header').click();
+  }
+  await page.getByRole('button', { name: '+ 新增自訂預兆' }).click();
+  await expect(page.locator('#custom-aura-list input')).toBeVisible();
+}
+
+test('expanded profile fits a 375px viewport', async ({ page }) => {
+  await openExpandedProfile(page);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+});
+
+test('expanded profile adjacent fields do not overlap', async ({ page }) => {
+  await openExpandedProfile(page);
+  for (const id of ['basics', 'contacts']) {
+    const inputs = page.getByTestId(`accordion-${id}`).locator('.row .col .form-control');
+    expect(await inputs.count()).toBe(2);
+    const first = await inputs.nth(0).boundingBox();
+    const second = await inputs.nth(1).boundingBox();
+    expect(first.x + first.width).toBeLessThanOrEqual(second.x);
+  }
+});
+
+test('event log fields stay inside their form sections on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/');
+  await page.getByRole('link', { name: '日記', exact: true }).click();
+  await page.locator('#btn-attack').click();
+  for (const selector of ['.datetime-picker', '.textarea-box']) {
+    const control = page.locator(selector);
+    const bounds = await control.boundingBox();
+    const section = await control.locator('xpath=ancestor::div[contains(concat(" ", normalize-space(@class), " "), " form-section ")]').boundingBox();
+    expect(bounds.x).toBeGreaterThanOrEqual(section.x);
+    expect(bounds.x + bounds.width).toBeLessThanOrEqual(section.x + section.width);
+  }
+});

@@ -1,7 +1,11 @@
-/* Copied from efhk-diary-prototype/report-level-b.html <style> block with
-   every declaration verbatim. Selectors scoped under body.page-report-b (see
-   dashboard.css note); the shared `*` reset lives in app.css. No :root block
-   in the prototype (colors hard-coded). */
+/* Match the prototype reset without affecting the shared app shell. */
+body.page-report-b #pdfContainer,
+body.page-report-b #pdfContainer *,
+body.page-report-b .controls,
+body.page-report-b .controls * { box-sizing: border-box; }
+body.page-report-b #pdfContainer :is(h1, h2, h3, p) { margin: 0; }
+
+/* Prototype report styles are scoped to this page. */
 body.page-report-b { font-family: 'Noto Sans HK', sans-serif; background-color: #555; display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 20px; }
 
 body.page-report-b .controls { background: #FFF; padding: 12px 20px; border-radius: 8px; display: flex; gap: 16px; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); position: sticky; top: 20px; z-index: 100; }

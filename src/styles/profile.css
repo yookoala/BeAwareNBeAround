@@ -1,7 +1,9 @@
-/* Copied from efhk-diary-prototype/profile.html <style> block with every
-   declaration verbatim. Selectors scoped under body.page-profile (see
-   dashboard.css note); the shared `*` reset lives in app.css, so the
-   prototype's `*` rule contributes only its font-family here. */
+/* Match the prototype reset without affecting the shared app shell. */
+body.page-profile .app-container,
+body.page-profile .app-container * { box-sizing: border-box; }
+body.page-profile .app-container :is(h1, h2, h3, p) { margin: 0; }
+
+/* Prototype profile styles are scoped to this page. */
 body.page-profile {
     --bg-color: #F4F5F7;
     --surface-color: #FFFFFF;
