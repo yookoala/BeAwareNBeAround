@@ -9,6 +9,7 @@ import { BottomNav } from './components/BottomNav';
 import FirstAidPage from './pages/FirstAidPage';
 import DiaryDashboardPage from './pages/DiaryDashboardPage';
 import EventLogPage from './pages/EventLogPage';
+import ProfilePage from './pages/ProfilePage';
 
 // App shell (PLAN06 M13): owns the shared chrome (header + bottom nav),
 // the route table, and cross-route state. The visit counter is hoisted
@@ -54,6 +55,7 @@ export function AppRoutes() {
         <Route path="/" element={<FirstAidPage counter={counter} language={language} />} />
         <Route path="/diary" element={<DiaryDashboardPage />} />
         <Route path="/diary/event-log" element={<EventLogPage />} />
+        <Route path="/diary/profile" element={<ProfilePage />} />
       </Routes>
       <BottomNav hidden={chromeHidden} />
     </main>

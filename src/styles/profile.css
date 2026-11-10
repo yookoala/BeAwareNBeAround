@@ -1,0 +1,75 @@
+/* Copied from efhk-diary-prototype/profile.html <style> block with every
+   declaration verbatim. Selectors scoped under body.page-profile (see
+   dashboard.css note); the shared `*` reset lives in app.css, so the
+   prototype's `*` rule contributes only its font-family here. */
+body.page-profile {
+    --bg-color: #F4F5F7;
+    --surface-color: #FFFFFF;
+    --text-primary: #1C1C1E;
+    --text-secondary: #6E6E73;
+    --efhk-flame: #F57C00;
+    --efhk-flame-light: #FFF0E0;
+    --border-color: #E5E5EA;
+    --input-bg: #F9F9F9;
+    --btn-whatsapp: #25D366;
+    --btn-sms: #007AFF;
+    --btn-call: #34C759;
+    --record-red: #FF3B30;
+}
+
+
+
+/* 確保主容器可以無限向下滑動 */
+body.page-profile .app-container { width: 100%; max-width: 414px; background-color: var(--bg-color); position: relative; display: flex; flex-direction: column; text-align: left; padding-bottom: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+
+/* Header */
+body.page-profile .diary-subheader {  background-color: var(--surface-color); padding: 16px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-bottom: 2px solid var(--efhk-flame); }
+body.page-profile .back-btn { color: var(--text-secondary); font-size: 16px; font-weight: 500; text-decoration: none; cursor: pointer; background: none; border: none; }
+body.page-profile .page-title { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+body.page-profile .save-btn { color: var(--efhk-flame); font-size: 16px; font-weight: 700; background: none; border: none; cursor: pointer; }
+
+/* Accordion (修復高度限制問題) */
+body.page-profile .accordion-item { background-color: var(--surface-color); margin: 12px 16px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); border: 1px solid var(--border-color); }
+body.page-profile .accordion-header { padding: 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background-color: var(--surface-color); border-radius: 12px; width: 100%; border: 0; text-align: left; }
+body.page-profile .header-left { display: flex; align-items: center; gap: 12px; }
+body.page-profile .card-icon { font-size: 20px; background-color: var(--efhk-flame-light); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+body.page-profile .card-title { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+body.page-profile .toggle-icon { font-size: 16px; color: var(--text-secondary); transition: transform 0.3s; }
+
+/* 改用 display: none / block，徹底解決動態內容溢出被裁切的問題 */
+body.page-profile .accordion-content { display: none; padding: 0 16px 16px 16px; border-top: 1px solid transparent; }
+body.page-profile .accordion-item.active .accordion-content { display: block; border-top-color: var(--border-color); }
+body.page-profile .accordion-item.active .toggle-icon { transform: rotate(180deg); }
+
+/* 表單元件 */
+body.page-profile .input-group { margin-bottom: 12px; margin-top: 12px; position: relative; }
+body.page-profile .label { display: block; font-size: 13px; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px; }
+body.page-profile .form-control { width: 100%; background-color: var(--input-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 12px; font-size: 15px; color: var(--text-primary); outline: none; }
+body.page-profile .form-control:focus { border-color: var(--efhk-flame); background-color: #FFF; }
+
+body.page-profile .row { display: flex; gap: 12px; margin-top: 12px; margin-bottom: 12px; }
+body.page-profile .col { flex: 1; }
+
+/* 觸控標籤 */
+body.page-profile .tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; margin-bottom: 12px; }
+body.page-profile .tag-checkbox { position: absolute; width: 1px; height: 1px; opacity: 0; }
+body.page-profile .tag-checkbox:focus-visible + .tag-label { outline: 2px solid #9a4800; outline-offset: 2px; }
+body.page-profile .tag-label { display: inline-block; padding: 8px 12px; background-color: var(--input-bg); border: 1px solid var(--border-color); border-radius: 20px; font-size: 13px; color: var(--text-secondary); cursor: pointer; user-select: none; }
+body.page-profile .tag-checkbox:checked + .tag-label { background-color: var(--efhk-flame); color: #FFF; border-color: var(--efhk-flame); font-weight: 700; }
+
+/* 按鈕與卡片 */
+body.page-profile .add-btn { width: 100%; padding: 12px; background-color: var(--surface-color); border: 1px dashed var(--efhk-flame); border-radius: 8px; color: var(--efhk-flame); font-weight: 700; cursor: pointer; margin-top: 8px; }
+
+body.page-profile .contact-card, body.page-profile .investigation-card, body.page-profile .custom-item-card { background-color: var(--input-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; margin-bottom: 12px; position: relative; }
+body.page-profile .remove-btn { position: absolute; top: 12px; right: 12px; background: none; border: none; color: var(--record-red); font-size: 12px; font-weight: 700; cursor: pointer; z-index: 10; }
+
+body.page-profile .action-links { display: flex; gap: 8px; margin-top: 12px; }
+body.page-profile .action-link { flex: 1; text-align: center; padding: 8px; border-radius: 6px; font-size: 12px; font-weight: 700; color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; }
+body.page-profile .bg-call { background-color: var(--btn-call); }
+body.page-profile .bg-sms { background-color: var(--btn-sms); }
+body.page-profile .bg-wa { background-color: var(--btn-whatsapp); }
+
+body.page-profile :is(button, input, select, textarea, a):focus-visible, body.page-profile .form-control:focus { outline: 2px solid #9a4800; outline-offset: 2px; }
+body.page-profile .col { min-width: 0; }
+body.page-profile .profile-toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--text-primary); color: #fff; padding: 10px 18px; border-radius: 8px; z-index: 3000; }
+body.page-profile .custom-remove { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: 0; color: var(--record-red); font-weight: 700; cursor: pointer; }

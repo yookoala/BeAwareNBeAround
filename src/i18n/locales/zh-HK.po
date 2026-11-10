@@ -144,9 +144,39 @@ msgid "diary.profileDesc"
 msgstr "(選填) 建議填寫綜合診斷資料、發作類型、腦電圖等數據，有助於為您的主診醫生生成更精準完整的 PDF 報告。"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:5
+msgid "profile.back"
+msgstr "← 返回"
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:71
 msgid "diary.eventLog.cancel"
 msgstr "← 取消"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:27
+msgid "profile.addContact"
+msgstr "+ 新增聯絡人"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:29
+msgid "profile.addAura"
+msgstr "+ 新增自訂預兆"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:31
+msgid "profile.addCustom"
+msgstr "+ 新增自訂項目"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:28
+msgid "profile.addInvestigation"
+msgstr "+ 新增檢查紀錄"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:26
+msgid "profile.addMed"
+msgstr "+ 新增藥物"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:146
@@ -254,6 +284,11 @@ msgid "diary.eventLog.aura.abdominal"
 msgstr "腹部 (胃部不適/向上移)"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:41
+msgid "profile.a7"
+msgstr "腹部 (胃部不適向上移)"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:171
 msgid "faq.answer1"
 msgstr "點擊按鍵會播放預錄的語音。請檢查媒體音量、關閉靜音模式；若音訊未能載入，請重新整理頁面。"
@@ -274,6 +309,11 @@ msgid "diary.eventLog.trigger.alcohol"
 msgstr "飲酒"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:43
+msgid "profile.t2"
+msgstr "飲酒"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:153
 msgid "setup.androidLabel"
 msgstr "Android："
@@ -289,6 +329,11 @@ msgid "diary.eventLog.aura.auditory"
 msgstr "聽覺 (如耳鳴/雜音)"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:37
+msgid "profile.a3"
+msgstr "聽覺 (人聲/音樂等幻覺)"
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:93
 msgid "diary.eventLog.auras"
 msgstr "預兆 (可多選)"
@@ -299,9 +344,24 @@ msgid "diary.eventLog.aura.autonomic"
 msgstr "自律神經 (心悸/流汗)"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:42
+msgid "profile.a8"
+msgstr "自律神經 (心悸/流汗/發熱)"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.available"
+msgstr "已提供"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:163
 msgid "whatIs.tagline3"
 msgstr "知道該做什麼，在最需要時陪伴左右。"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:9
+msgid "profile.basics"
+msgstr "基本與重要資料"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:166
@@ -329,6 +389,16 @@ msgid "whatIs.tagline2"
 msgstr "Be Aware：不要壓制。Be Around：保護並陪伴。"
 
 #. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.blood"
+msgstr "血液檢查 (Blood Test)"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:9
+msgid "profile.remarkPlaceholder"
+msgstr "簡短說明..."
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:65
 msgid "diary.eventLog.trigger.light"
 msgstr "強光/閃光"
@@ -337,6 +407,16 @@ msgstr "強光/閃光"
 #: src/pages/DiaryDashboardPage.jsx:41
 msgid "diary.calendarView"
 msgstr "日曆檢視"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:11
+msgid "profile.call"
+msgstr "致電"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:53
+msgid "profile.l5"
+msgstr "照顧兒童"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:167
@@ -365,9 +445,44 @@ msgid "diary.eventLog.cluster"
 msgstr "叢集 / 連續多次"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:12
+msgid "profile.auras"
+msgstr "常見發作預兆 (Auras)"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:8
+msgid "profile.contact"
+msgstr "聯絡人"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:8
+msgid "profile.contact1"
+msgstr "聯絡人 1"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.ct"
+msgstr "電腦掃描 (CT)"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:10
+msgid "profile.meds"
+msgstr "目前服用的抗腦癇藥物"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:34
+msgid "profile.lifeLabel"
+msgstr "有困難或不能做到的日常生活："
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:40
 msgid "diary.daily"
 msgstr "日常記錄"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:7
+msgid "profile.date"
+msgstr "日期 (Date)"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:86
@@ -378,6 +493,26 @@ msgstr "減少發作次數"
 #: src/components/BottomNav.jsx:16
 msgid "nav.diary"
 msgstr "日記"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:15
+msgid "profile.doctor"
+msgstr "醫生姓名"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:16
+msgid "profile.doctorExample"
+msgstr "例: 陳醫生"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:9
+msgid "profile.father"
+msgstr "例: 父親"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:18
+msgid "profile.hospitalExample"
+msgstr "例: 瑪麗醫院"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:24
@@ -405,10 +540,45 @@ msgid "header.brandTitle"
 msgstr "腦癎錦囊"
 
 #. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.eeg"
+msgstr "腦電圖 (EEG)"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:11
+msgid "profile.contacts"
+msgstr "緊急聯絡人"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:80
 #: src/pages/DiaryDashboardPage.jsx:80
 msgid "diary.emergencyVideo"
 msgstr "緊急錄影"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:30
+msgid "profile.auraPlaceholder"
+msgstr "輸入自訂預兆..."
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:24
+msgid "profile.allergiesPlaceholder"
+msgstr "輸入過敏藥物名稱..."
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:20
+msgid "profile.conditionsPlaceholder"
+msgstr "輸入其他長期病患..."
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:32
+msgid "profile.triggerPlaceholder"
+msgstr "輸入其他誘因或影響..."
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:22
+msgid "profile.surgeriesPlaceholder"
+msgstr "輸入手術紀錄..."
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:105
@@ -436,8 +606,18 @@ msgid "diary.eventLog.estimatedCount"
 msgstr "估計發作次數"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:50
+msgid "profile.l2"
+msgstr "運動"
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:61
 msgid "diary.eventLog.trigger.illness"
+msgstr "發燒/感冒"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:47
+msgid "profile.t6"
 msgstr "發燒/感冒"
 
 #. js-lingui-explicit-id
@@ -471,9 +651,24 @@ msgid "diary.weekday.fri"
 msgstr "五"
 
 #. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.genetic"
+msgstr "基因檢測 (Genetic Test)"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:45
 msgid "guide.step3"
 msgstr "將患者輕輕翻側，保持呼吸道暢通。切勿強行將任何物品塞入患者口中。"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:52
+msgid "profile.l4"
+msgstr "起床"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:56
+msgid "profile.l8"
+msgstr "與朋友外出"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:62
@@ -484,6 +679,11 @@ msgstr "頭痛記錄"
 #: src/pages/FirstAidPage.jsx:29
 msgid "action.help"
 msgstr "助"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:17
+msgid "profile.hospital"
+msgstr "醫院/診所"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:152
@@ -517,6 +717,11 @@ msgid "faq.answer3"
 msgstr "首次成功載入後，安裝此 PWA 或加入主畫面即可離線使用。"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:14
+msgid "profile.investigations"
+msgstr "檢查報告 (Investigations)"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:153
 msgid "setup.iosLabel"
 msgstr "iPhone (iOS)："
@@ -543,9 +748,19 @@ msgid "diary.eventLog.major"
 msgstr "大發作"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:6
+msgid "profile.title"
+msgstr "個人醫療檔案"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:54
 msgid "diary.legend.meds"
 msgstr "服藥(綠=吃/黃=漏)"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:23
+msgid "profile.allergies"
+msgstr "藥物過敏"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:65
@@ -553,8 +768,18 @@ msgid "diary.meds"
 msgstr "服藥記錄"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:55
+msgid "profile.l7"
+msgstr "記憶力下降"
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:62
 msgid "diary.eventLog.trigger.menstruation"
+msgstr "月經"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:45
+msgid "profile.t4"
 msgstr "月經"
 
 #. js-lingui-explicit-id
@@ -573,9 +798,19 @@ msgid "diary.calendar.missed"
 msgstr "漏服: {missed}"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:46
+msgid "profile.t5"
+msgstr "忘記依時服藥"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:21
 msgid "diary.weekday.mon"
 msgstr "一"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.mri"
+msgstr "磁力共振 (MRI)"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:99
@@ -593,6 +828,11 @@ msgid "diary.medicalData"
 msgstr "我的醫療資料"
 
 #. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:8
+msgid "profile.name"
+msgstr "姓名"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.dontsText"
 msgstr "切勿壓制患者的動作或把任何物品放入口中。"
@@ -606,6 +846,21 @@ msgstr "新增記錄"
 #: src/pages/EventLogPage.jsx:48
 msgid "diary.eventLog.aura.none"
 msgstr "無預兆"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.normal"
+msgstr "正常"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.notAvailable"
+msgstr "未提供"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.notNormal"
+msgstr "異常"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:11
@@ -633,6 +888,21 @@ msgid "setup.iosInstructions"
 msgstr "使用 Safari 瀏覽器開啟此網頁，點擊「分享」圖示，然後選擇「加入主畫面」。"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:25
+msgid "profile.medsHint"
+msgstr "點擊下方按鈕開啟完整藥物庫，設定您的基線藥物與服用頻率。"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.other"
+msgstr "其他 (Other)"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:19
+msgid "profile.conditions"
+msgstr "其他疾病"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:42
 msgid "diary.past7"
 msgstr "過去 7 天"
@@ -655,9 +925,24 @@ msgid "diary.profile"
 msgstr "個人醫療檔案"
 
 #. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:10
+msgid "profile.phone"
+msgstr "電話"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:10
+msgid "profile.phoneExample"
+msgstr "電話 (包含區號, 例: 85298765432)"
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:50
 msgid "diary.eventLog.aura.sensory"
 msgstr "身體感覺 (如麻木/刺痛)"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:35
+msgid "profile.a1"
+msgstr "身體感覺 (刺痛/麻木)"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:101
@@ -701,14 +986,34 @@ msgid "whatIs.positionLabel"
 msgstr "安全擺位："
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:33
+msgid "profile.triggerLabel"
+msgstr "可誘發腦癇發作的原因："
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:21
+msgid "profile.surgeries"
+msgstr "曾做過的手術"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:78
 msgid "diary.privacy"
 msgstr "隱私保障：資料僅儲存於本機或您的雲端，絕不上傳至基金會。"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:8
+msgid "profile.saved"
+msgstr "檔案已儲存"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.supportLabel"
 msgstr "提供支持："
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:40
+msgid "profile.a6"
+msgstr "心理 (似曾相識/恐懼/錯覺)"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:52
@@ -736,6 +1041,24 @@ msgid "whatIs.recognizeLabel"
 msgstr "辨認與計時："
 
 #. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:9
+#: src/components/diary/ContactCard.jsx:9
+msgid "profile.relationship"
+msgstr "關係"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:9
+msgid "profile.remark"
+msgstr "備註 (Remark)"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:7
+#: src/components/diary/CustomItemList.jsx:4
+#: src/components/diary/InvestigationCard.jsx:6
+msgid "profile.remove"
+msgstr "刪除"
+
+#. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:205
 #: src/components/FirstAidPlaylist.jsx:206
 msgid "playlist.repeat"
@@ -757,6 +1080,11 @@ msgid "playlist.repeatOne"
 msgstr "循環播放單段"
 
 #. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.result"
+msgstr "結果 (Result)"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:27
 msgid "action.safe"
 msgstr "望"
@@ -769,6 +1097,11 @@ msgstr "六"
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:73
 msgid "diary.eventLog.save"
+msgstr "儲存"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:7
+msgid "profile.save"
 msgstr "儲存"
 
 #. js-lingui-explicit-id
@@ -825,6 +1158,16 @@ msgid "playlist.settings"
 msgstr "播放設定"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:54
+msgid "profile.l6"
+msgstr "性生活"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:51
+msgid "profile.l3"
+msgstr "購物"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:28
 msgid "action.side"
 msgstr "相"
@@ -843,6 +1186,16 @@ msgstr "單次發作"
 #: src/pages/EventLogPage.jsx:58
 msgid "diary.eventLog.trigger.sleep"
 msgstr "熬夜/睡眠不足"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:57
+msgid "profile.t1"
+msgstr "熬夜/睡眠不足"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:38
+msgid "profile.a4"
+msgstr "嗅覺 (不舒服氣味)"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:53
@@ -864,6 +1217,11 @@ msgstr "速度 {rate}×"
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.environmentText"
 msgstr "留意尖角、水域或樓梯等實際危險。"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.status"
+msgstr "狀態 (Status)"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:26
@@ -891,6 +1249,11 @@ msgid "diary.eventLog.trigger.stress"
 msgstr "壓力/緊張"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:44
+msgid "profile.t3"
+msgstr "壓力/緊張"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:20
 msgid "diary.weekday.sun"
 msgstr "日"
@@ -909,6 +1272,11 @@ msgstr "點擊顏色按鍵，手機會播放該步驟的急救指示。"
 #: src/pages/FirstAidPage.jsx:22
 msgid "header.secondarySubtitle"
 msgstr "點按下面 4 個按鍵了解口訣"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:39
+msgid "profile.a5"
+msgstr "味覺 (不舒服味道)"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:175
@@ -936,6 +1304,11 @@ msgid "diary.eventLog.triggers"
 msgstr "誘發原因 (可多選)"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:13
+msgid "profile.triggers"
+msgstr "誘因與生活影響"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:22
 msgid "diary.weekday.tue"
 msgstr "二"
@@ -944,6 +1317,11 @@ msgstr "二"
 #: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.positionText"
 msgstr "將患者輕輕翻側，保持呼吸道暢通。"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:7
+msgid "profile.type"
+msgstr "檢查項目 (Type)"
 
 #. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:150
@@ -966,6 +1344,11 @@ msgid "diary.eventLog.aura.visual"
 msgstr "視覺 (如閃光/幻覺)"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:36
+msgid "profile.a2"
+msgstr "視覺 (單調或複雜幻覺)"
+
+#. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:164
 msgid "playlist.volume"
 msgstr "音量"
@@ -976,6 +1359,16 @@ msgid "diary.eventLog.trigger.weather"
 msgstr "天氣轉變"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:48
+msgid "profile.t7"
+msgstr "天氣轉變"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:23
 msgid "diary.weekday.wed"
 msgstr "三"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:49
+msgid "profile.l1"
+msgstr "工作"

@@ -125,3 +125,28 @@ test('event log text controls have a visible keyboard focus ring', async ({ page
     expect(outline.width).toBeGreaterThanOrEqual(2);
   }
 });
+
+test('medical profile works with keyboard and retains the diary shell', async ({ page }) => {
+  await page.goto('/diary');
+  await page.locator('.profile-card').click();
+  await expect(page).toHaveURL(/\/diary\/profile$/);
+  await expect(page.locator('.app-header')).toBeVisible();
+  await expect(page.locator('.bottom-nav a[href="/diary"]')).toHaveAttribute('aria-current', 'page');
+  const section = page.getByTestId('accordion-contacts');
+  const toggle = section.locator('.accordion-header');
+  await toggle.focus();
+  await page.keyboard.press('Enter');
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  const phone = section.locator('.phone-input');
+  await phone.focus();
+  const outline = await phone.evaluate((element) => { const s = getComputedStyle(element); return [s.outlineStyle, parseFloat(s.outlineWidth)]; });
+  expect(outline[0]).not.toBe('none');
+  expect(outline[1]).toBeGreaterThanOrEqual(2);
+  await phone.fill('+852 9876-5432');
+  await expect(section.locator('.wa-link')).toHaveAttribute('href', /^https:\/\/wa\.me\/85298765432\?text=/);
+  await page.getByRole('button', { name: '儲存', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('檔案已儲存');
+  await expect(page.getByRole('status')).toHaveCount(0);
+  await page.getByRole('button', { name: '← 返回' }).click();
+  await expect(page).toHaveURL(/\/diary$/);
+});

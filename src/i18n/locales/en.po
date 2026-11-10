@@ -144,9 +144,39 @@ msgid "diary.profileDesc"
 msgstr "(Optional) Add comprehensive diagnostic information, seizure types, EEG and other data to help generate a more accurate and complete PDF report for your doctor."
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:5
+msgid "profile.back"
+msgstr "← Back"
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:71
 msgid "diary.eventLog.cancel"
 msgstr "← Cancel"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:27
+msgid "profile.addContact"
+msgstr "+ Add contact"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:29
+msgid "profile.addAura"
+msgstr "+ Add custom aura"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:31
+msgid "profile.addCustom"
+msgstr "+ Add custom item"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:28
+msgid "profile.addInvestigation"
+msgstr "+ Add investigation"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:26
+msgid "profile.addMed"
+msgstr "+ Add medication"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:146
@@ -254,6 +284,11 @@ msgid "diary.eventLog.aura.abdominal"
 msgstr "Abdominal (discomfort/rising sensation)"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:41
+msgid "profile.a7"
+msgstr "Abdominal (rising discomfort)"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:171
 msgid "faq.answer1"
 msgstr "Action buttons play recorded audio. Check the media volume, disable silent mode, and refresh the page if the audio fails to load."
@@ -274,6 +309,11 @@ msgid "diary.eventLog.trigger.alcohol"
 msgstr "Alcohol"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:43
+msgid "profile.t2"
+msgstr "Alcohol"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:153
 msgid "setup.androidLabel"
 msgstr "Android:"
@@ -289,6 +329,11 @@ msgid "diary.eventLog.aura.auditory"
 msgstr "Auditory (e.g. ringing/noise)"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:37
+msgid "profile.a3"
+msgstr "Auditory (voices/music)"
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:93
 msgid "diary.eventLog.auras"
 msgstr "Auras (select all that apply)"
@@ -299,9 +344,24 @@ msgid "diary.eventLog.aura.autonomic"
 msgstr "Autonomic (palpitations/sweating)"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:42
+msgid "profile.a8"
+msgstr "Autonomic (palpitations/sweating/heat)"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.available"
+msgstr "Available"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:163
 msgid "whatIs.tagline3"
 msgstr "Aware of what to do, Around when it matters most."
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:9
+msgid "profile.basics"
+msgstr "Basic and important information"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:166
@@ -329,6 +389,16 @@ msgid "whatIs.tagline2"
 msgstr "Be Aware: Don't restrain. Be Around: Protect and remain."
 
 #. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.blood"
+msgstr "Blood test"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:9
+msgid "profile.remarkPlaceholder"
+msgstr "Brief description..."
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:65
 msgid "diary.eventLog.trigger.light"
 msgstr "Bright/flashing lights"
@@ -337,6 +407,16 @@ msgstr "Bright/flashing lights"
 #: src/pages/DiaryDashboardPage.jsx:41
 msgid "diary.calendarView"
 msgstr "Calendar view"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:11
+msgid "profile.call"
+msgstr "Call"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:53
+msgid "profile.l5"
+msgstr "Childcare"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:167
@@ -365,9 +445,44 @@ msgid "diary.eventLog.cluster"
 msgstr "Cluster / repeated seizures"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:12
+msgid "profile.auras"
+msgstr "Common seizure auras"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:8
+msgid "profile.contact"
+msgstr "Contact"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:8
+msgid "profile.contact1"
+msgstr "Contact 1"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.ct"
+msgstr "CT scan"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:10
+msgid "profile.meds"
+msgstr "Current anti-seizure medications"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:34
+msgid "profile.lifeLabel"
+msgstr "Daily activities that are difficult or impossible:"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:40
 msgid "diary.daily"
 msgstr "Daily records"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:7
+msgid "profile.date"
+msgstr "Date"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:86
@@ -378,6 +493,26 @@ msgstr "Decrease seizure count"
 #: src/components/BottomNav.jsx:16
 msgid "nav.diary"
 msgstr "Diary"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:15
+msgid "profile.doctor"
+msgstr "Doctor name"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:16
+msgid "profile.doctorExample"
+msgstr "e.g. Dr Chan"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:9
+msgid "profile.father"
+msgstr "e.g. Father"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:18
+msgid "profile.hospitalExample"
+msgstr "e.g. Queen Mary Hospital"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:24
@@ -405,10 +540,45 @@ msgid "header.brandTitle"
 msgstr "EFHK Seizure Help"
 
 #. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.eeg"
+msgstr "Electroencephalogram (EEG)"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:11
+msgid "profile.contacts"
+msgstr "Emergency contacts"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:80
 #: src/pages/DiaryDashboardPage.jsx:80
 msgid "diary.emergencyVideo"
 msgstr "Emergency video"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:30
+msgid "profile.auraPlaceholder"
+msgstr "Enter custom aura..."
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:24
+msgid "profile.allergiesPlaceholder"
+msgstr "Enter medication allergies..."
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:20
+msgid "profile.conditionsPlaceholder"
+msgstr "Enter other chronic conditions..."
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:32
+msgid "profile.triggerPlaceholder"
+msgstr "Enter other triggers or impacts..."
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:22
+msgid "profile.surgeriesPlaceholder"
+msgstr "Enter surgical history..."
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:105
@@ -436,8 +606,18 @@ msgid "diary.eventLog.estimatedCount"
 msgstr "Estimated number of seizures"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:50
+msgid "profile.l2"
+msgstr "Exercise"
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:61
 msgid "diary.eventLog.trigger.illness"
+msgstr "Fever/cold"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:47
+msgid "profile.t6"
 msgstr "Fever/cold"
 
 #. js-lingui-explicit-id
@@ -471,9 +651,24 @@ msgid "diary.weekday.fri"
 msgstr "Fri"
 
 #. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.genetic"
+msgstr "Genetic test"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:45
 msgid "guide.step3"
 msgstr "Gently roll the person onto their side. Never put anything in their mouth."
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:52
+msgid "profile.l4"
+msgstr "Getting up"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:56
+msgid "profile.l8"
+msgstr "Going out with friends"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:62
@@ -484,6 +679,11 @@ msgstr "Headache record"
 #: src/pages/FirstAidPage.jsx:29
 msgid "action.help"
 msgstr "HELP"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:17
+msgid "profile.hospital"
+msgstr "Hospital/clinic"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:152
@@ -517,6 +717,11 @@ msgid "faq.answer3"
 msgstr "Install this PWA or add it to your home screen after a successful first load."
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:14
+msgid "profile.investigations"
+msgstr "Investigations"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:153
 msgid "setup.iosLabel"
 msgstr "iPhone (iOS):"
@@ -543,9 +748,19 @@ msgid "diary.eventLog.major"
 msgstr "Major seizure"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:6
+msgid "profile.title"
+msgstr "Medical Profile"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:54
 msgid "diary.legend.meds"
 msgstr "Medication (green=taken/yellow=missed)"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:23
+msgid "profile.allergies"
+msgstr "Medication allergies"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:65
@@ -553,8 +768,18 @@ msgid "diary.meds"
 msgstr "Medication record"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:55
+msgid "profile.l7"
+msgstr "Memory decline"
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:62
 msgid "diary.eventLog.trigger.menstruation"
+msgstr "Menstruation"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:45
+msgid "profile.t4"
 msgstr "Menstruation"
 
 #. js-lingui-explicit-id
@@ -573,9 +798,19 @@ msgid "diary.calendar.missed"
 msgstr "Missed: {missed}"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:46
+msgid "profile.t5"
+msgstr "Missing medication"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:21
 msgid "diary.weekday.mon"
 msgstr "Mon"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.mri"
+msgstr "MRI"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:99
@@ -593,6 +828,11 @@ msgid "diary.medicalData"
 msgstr "My medical information"
 
 #. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:8
+msgid "profile.name"
+msgstr "Name"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.dontsText"
 msgstr "Never restrain movement or place anything in the person's mouth."
@@ -606,6 +846,21 @@ msgstr "New Entry"
 #: src/pages/EventLogPage.jsx:48
 msgid "diary.eventLog.aura.none"
 msgstr "No Aura"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.normal"
+msgstr "Normal"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.notAvailable"
+msgstr "Not available"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.notNormal"
+msgstr "Not normal"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:11
@@ -633,6 +888,21 @@ msgid "setup.iosInstructions"
 msgstr "Open in Safari, tap Share, then select Add to Home Screen."
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:25
+msgid "profile.medsHint"
+msgstr "Open the medication library to set baseline medications and frequency."
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:4
+msgid "profile.other"
+msgstr "Other"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:19
+msgid "profile.conditions"
+msgstr "Other conditions"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:42
 msgid "diary.past7"
 msgstr "Past 7 days"
@@ -655,9 +925,24 @@ msgid "diary.profile"
 msgstr "Personal medical profile"
 
 #. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:10
+msgid "profile.phone"
+msgstr "Phone"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:10
+msgid "profile.phoneExample"
+msgstr "Phone (include country code, e.g. 85298765432)"
+
+#. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:50
 msgid "diary.eventLog.aura.sensory"
 msgstr "Physical sensations (e.g. numbness/tingling)"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:35
+msgid "profile.a1"
+msgstr "Physical sensations (tingling/numbness)"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:101
@@ -701,14 +986,34 @@ msgid "whatIs.positionLabel"
 msgstr "Position safely:"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:33
+msgid "profile.triggerLabel"
+msgstr "Possible seizure triggers:"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:21
+msgid "profile.surgeries"
+msgstr "Previous surgeries"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:78
 msgid "diary.privacy"
 msgstr "Privacy: data is stored only on your device or in your cloud, never uploaded to the Foundation."
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:8
+msgid "profile.saved"
+msgstr "Profile saved"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.supportLabel"
 msgstr "Provide Support:"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:40
+msgid "profile.a6"
+msgstr "Psychological (déjà vu/fear/illusion)"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:52
@@ -736,6 +1041,24 @@ msgid "whatIs.recognizeLabel"
 msgstr "Recognize & Time:"
 
 #. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:9
+#: src/components/diary/ContactCard.jsx:9
+msgid "profile.relationship"
+msgstr "Relationship"
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:9
+msgid "profile.remark"
+msgstr "Remark"
+
+#. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:7
+#: src/components/diary/CustomItemList.jsx:4
+#: src/components/diary/InvestigationCard.jsx:6
+msgid "profile.remove"
+msgstr "Remove"
+
+#. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:205
 #: src/components/FirstAidPlaylist.jsx:206
 msgid "playlist.repeat"
@@ -757,6 +1080,11 @@ msgid "playlist.repeatOne"
 msgstr "Repeat one"
 
 #. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.result"
+msgstr "Result"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:27
 msgid "action.safe"
 msgstr "SAFE"
@@ -769,6 +1097,11 @@ msgstr "Sat"
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:73
 msgid "diary.eventLog.save"
+msgstr "Save"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:7
+msgid "profile.save"
 msgstr "Save"
 
 #. js-lingui-explicit-id
@@ -825,6 +1158,16 @@ msgid "playlist.settings"
 msgstr "Settings"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:54
+msgid "profile.l6"
+msgstr "Sexual activity"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:51
+msgid "profile.l3"
+msgstr "Shopping"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:28
 msgid "action.side"
 msgstr "SIDE"
@@ -843,6 +1186,16 @@ msgstr "Single seizure"
 #: src/pages/EventLogPage.jsx:58
 msgid "diary.eventLog.trigger.sleep"
 msgstr "Sleep deprivation"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:57
+msgid "profile.t1"
+msgstr "Sleep deprivation"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:38
+msgid "profile.a4"
+msgstr "Smell (unpleasant smells)"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:53
@@ -864,6 +1217,11 @@ msgstr "Speed {rate}×"
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.environmentText"
 msgstr "Spot physical hazards such as sharp corners, water, or stairs."
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:8
+msgid "profile.status"
+msgstr "Status"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:26
@@ -891,6 +1249,11 @@ msgid "diary.eventLog.trigger.stress"
 msgstr "Stress/tension"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:44
+msgid "profile.t3"
+msgstr "Stress/tension"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:20
 msgid "diary.weekday.sun"
 msgstr "Sun"
@@ -909,6 +1272,11 @@ msgstr "Tap a button to hear the clinical instruction for that step."
 #: src/pages/FirstAidPage.jsx:22
 msgid "header.secondarySubtitle"
 msgstr "Tap the 4 buttons below to learn the steps"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:39
+msgid "profile.a5"
+msgstr "Taste (unpleasant tastes)"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:175
@@ -936,6 +1304,11 @@ msgid "diary.eventLog.triggers"
 msgstr "Triggers (select all that apply)"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:13
+msgid "profile.triggers"
+msgstr "Triggers and impact on daily life"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:22
 msgid "diary.weekday.tue"
 msgstr "Tue"
@@ -944,6 +1317,11 @@ msgstr "Tue"
 #: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.positionText"
 msgstr "Turn the person gently onto their side to keep their airway clear."
+
+#. js-lingui-explicit-id
+#: src/components/diary/InvestigationCard.jsx:7
+msgid "profile.type"
+msgstr "Type"
 
 #. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:150
@@ -966,6 +1344,11 @@ msgid "diary.eventLog.aura.visual"
 msgstr "Visual (e.g. flashing lights/hallucinations)"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:36
+msgid "profile.a2"
+msgstr "Visual (simple or complex hallucinations)"
+
+#. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:164
 msgid "playlist.volume"
 msgstr "Volume"
@@ -976,6 +1359,16 @@ msgid "diary.eventLog.trigger.weather"
 msgstr "Weather changes"
 
 #. js-lingui-explicit-id
+#: src/pages/profileMessages.js:48
+msgid "profile.t7"
+msgstr "Weather changes"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:23
 msgid "diary.weekday.wed"
 msgstr "Wed"
+
+#. js-lingui-explicit-id
+#: src/pages/profileMessages.js:49
+msgid "profile.l1"
+msgstr "Work"
