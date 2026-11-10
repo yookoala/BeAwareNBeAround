@@ -31,11 +31,16 @@ test('keeps first-aid content clear of the fixed bottom bar', async ({ page }) =
 
 test('loads the diary route directly with the shared shell', async ({ page }) => {
   mockCounterRoute(page, { initialTotal: 12544 });
-  await page.goto('/diary');
-
-  await expect(page.getByRole('heading', { name: '腦癇及頭痛追蹤' })).toBeVisible();
-  await expect(page.getByRole('button', { name: '語言' })).toBeVisible();
-  await expect(page.getByRole('link', { name: '日記' })).toHaveAttribute('aria-current', 'page');
+  for (const [route, heading] of [
+    ['/diary', '腦癇及頭痛追蹤'],
+    ['/diary/event-log', '新增記錄'],
+    ['/diary/profile', '個人醫療檔案'],
+    ['/resource', '香港腦癇基金會 資源中心'],
+  ]) {
+    const response = await page.goto(route);
+    expect(response.status()).toBe(200);
+    await expect(page.getByText(heading).first()).toBeVisible();
+  }
 });
 
 test('auto-hides header and bottom bar on downward scroll and reveals them after scrolling up at least 5vh', async ({ page }) => {

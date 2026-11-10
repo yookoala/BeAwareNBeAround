@@ -1,9 +1,41 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { lingui } from '@lingui/vite-plugin';
 import babel from '@rolldown/plugin-babel';
 import { VitePWA } from 'vite-plugin-pwa';
 import { fileURLToPath, URL } from 'node:url';
+
+const STATIC_ROUTES = [
+  'diary',
+  'diary/event-log',
+  'diary/profile',
+  'diary/report/level-a',
+  'diary/report/level-b',
+  'resource',
+];
+
+function staticRouteHtmlPlugin() {
+  let outDir = 'dist';
+  return {
+    name: 'static-route-html',
+    configResolved(config) {
+      outDir = path.resolve(config.root, config.build.outDir);
+    },
+    closeBundle() {
+      const indexHtmlPath = path.join(outDir, 'index.html');
+      if (!fs.existsSync(indexHtmlPath)) return;
+      const html = fs.readFileSync(indexHtmlPath, 'utf8');
+      fs.writeFileSync(path.join(outDir, '404.html'), html);
+      for (const route of STATIC_ROUTES) {
+        const routeDir = path.join(outDir, route);
+        fs.mkdirSync(routeDir, { recursive: true });
+        fs.writeFileSync(path.join(routeDir, 'index.html'), html);
+      }
+    },
+  };
+}
 
 function normalizeBasePath(rawBase = process.env.VITE_BASE_PATH) {
   const trimmed = rawBase ? String(rawBase).trim() : '';
@@ -46,6 +78,7 @@ export default defineConfig({
         ],
       },
     }),
+    staticRouteHtmlPlugin(),
   ],
   define: {
     'import.meta.env.VITE_VISIT_COUNTER_URL': JSON.stringify(
