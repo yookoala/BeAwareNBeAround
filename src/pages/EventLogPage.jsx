@@ -5,6 +5,7 @@ import Modal from '../components/diary/Modal';
 import OptionGroup from '../components/diary/OptionGroup';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
+import { navigateWithViewTransition } from '../utils/viewTransition';
 import '../styles/event-log.css';
 
 const DEFAULT_DATETIME = '2026-09-17T17:30';
@@ -54,12 +55,16 @@ export default function EventLogPage() {
     setIsDirty(false);
     setSaveCount((count) => count + 1);
   }
+  function leaveToDiary() {
+    setLeaveConfirmOpen(false);
+    navigateWithViewTransition(navigate, '/diary', 'vt-slide-out-right');
+  }
   function handleBack() {
     if (isDirty) {
       setLeaveConfirmOpen(true);
       return;
     }
-    navigate('/diary');
+    leaveToDiary();
   }
   const severityOptions = [
     { value: 'major', label: t({ id: 'diary.eventLog.major', message: 'Major seizure' }) },
@@ -178,7 +183,7 @@ export default function EventLogPage() {
             <button type="button" className="unsaved-stay-btn" onClick={() => setLeaveConfirmOpen(false)}>
               {t({ id: 'diary.eventLog.stay', message: 'Stay' })}
             </button>
-            <button type="button" className="unsaved-leave-btn" onClick={() => navigate('/diary')}>
+            <button type="button" className="unsaved-leave-btn" onClick={leaveToDiary}>
               {t({ id: 'diary.eventLog.leave', message: 'Leave' })}
             </button>
           </div>

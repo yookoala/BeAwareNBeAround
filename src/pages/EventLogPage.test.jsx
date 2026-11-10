@@ -62,6 +62,31 @@ test('saving clears the dirty state so back navigates without warning', () => {
   expect(screen.getByTestId('location')).toHaveTextContent('/diary');
 });
 
+test('uses document.startViewTransition with vt-slide-out-right when returning to diary', async () => {
+  let finishTransition;
+  document.startViewTransition = vi.fn((callback) => {
+    callback();
+    return {
+      finished: new Promise((resolve) => {
+        finishTransition = resolve;
+      }),
+    };
+  });
+  try {
+    renderApp('en');
+    fireEvent.click(screen.getByRole('button', { name: '← Back' }));
+    expect(document.startViewTransition).toHaveBeenCalledTimes(1);
+    expect(document.documentElement).toHaveClass('vt-slide-out-right');
+    expect(screen.getByTestId('location')).toHaveTextContent('/diary');
+    await act(async () => {
+      finishTransition();
+    });
+    expect(document.documentElement).not.toHaveClass('vt-slide-out-right');
+  } finally {
+    delete document.startViewTransition;
+  }
+});
+
 test('severity and pattern options toggle and the cluster counter has a floor and resets', () => {
   const { container } = renderApp();
   const minor = screen.getByRole('button', { name: '小發作' });

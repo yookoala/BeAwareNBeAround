@@ -6,6 +6,7 @@ import { calendarLabel } from '../components/diary/calendarLabel';
 import Modal from '../components/diary/Modal';
 import useDraggableFAB from '../hooks/useDraggableFAB';
 import usePageBodyClass from '../hooks/usePageBodyClass';
+import { navigateWithViewTransition } from '../utils/viewTransition';
 import { past7Days, thisWeekDays, monthDays, monthEmptyCells, monthHeaderDays, hubKeys } from '../data/mockDashboard';
 import '../styles/dashboard.css';
 
@@ -15,7 +16,11 @@ export default function DiaryDashboardPage() {
   const [calendarView, setCalendarView] = useState('past7');
   const [modal, setModal] = useState(null);
   const closeModal = useCallback(() => setModal(null), []);
-  const { ref, handleClick } = useDraggableFAB(() => navigate('/diary/event-log'));
+  const openEventLog = useCallback(
+    () => navigateWithViewTransition(navigate, '/diary/event-log', 'vt-slide-in-right'),
+    [navigate],
+  );
+  const { ref, handleClick } = useDraggableFAB(openEventLog);
   const weekdays = {
     '日': t({ id: 'diary.weekday.sun', message: 'Sun' }),
     '一': t({ id: 'diary.weekday.mon', message: 'Mon' }),
@@ -58,8 +63,8 @@ export default function DiaryDashboardPage() {
       </div>
       <div className="action-layout">
         <div className="action-row" id="row-attacks">
-          <button className="action-btn top-row-btn" id="btn-attack" onClick={() => navigate('/diary/event-log')}><span className="action-icon" aria-hidden="true">⚡</span><span>{t({ id: 'diary.seizure', message: 'Seizure record' })}</span></button>
-          <button className="action-btn top-row-btn" id="btn-headache" onClick={() => navigate('/diary/event-log')}><span className="action-icon" aria-hidden="true">🤕</span><span>{t({ id: 'diary.headache', message: 'Headache record' })}</span></button>
+          <button className="action-btn top-row-btn" id="btn-attack" onClick={openEventLog}><span className="action-icon" aria-hidden="true">⚡</span><span>{t({ id: 'diary.seizure', message: 'Seizure record' })}</span></button>
+          <button className="action-btn top-row-btn" id="btn-headache" onClick={openEventLog}><span className="action-icon" aria-hidden="true">🤕</span><span>{t({ id: 'diary.headache', message: 'Headache record' })}</span></button>
         </div>
         <div className="action-row" id="row-management">
           <button className="action-btn" id="btn-meds"><span className="action-icon" aria-hidden="true">💊</span><span>{t({ id: 'diary.meds', message: 'Medication record' })}</span></button>

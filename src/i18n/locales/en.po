@@ -189,7 +189,7 @@ msgid "report.fixture.7c32d40e5e"
 msgstr "--- End of system records; all historical data shown in full ---"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:72
+#: src/pages/DiaryDashboardPage.jsx:77
 msgid "diary.profileDesc"
 msgstr "(Optional) Add comprehensive diagnostic information, seizure types, EEG and other data to help generate a more accurate and complete PDF report for your doctor."
 
@@ -247,7 +247,7 @@ msgid "report.count"
 msgstr "#"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:96
+#: src/pages/EventLogPage.jsx:101
 msgid "diary.eventLog.back"
 msgstr "← Back"
 
@@ -292,27 +292,27 @@ msgid "video.label"
 msgstr "▶️ Acute Seizure Management Animation"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:107
+#: src/pages/DiaryDashboardPage.jsx:112
 msgid "diary.state.urti"
 msgstr "☐ Cold (URTI)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:107
+#: src/pages/DiaryDashboardPage.jsx:112
 msgid "diary.state.custom"
 msgstr "☐ Custom: ________"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:107
+#: src/pages/DiaryDashboardPage.jsx:112
 msgid "diary.state.stress"
 msgstr "☐ Extreme sadness/stress"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:107
+#: src/pages/DiaryDashboardPage.jsx:112
 msgid "diary.state.period"
 msgstr "☐ Menstrual period"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:107
+#: src/pages/DiaryDashboardPage.jsx:112
 msgid "diary.state.surgery"
 msgstr "☐ Surgery"
 
@@ -322,7 +322,7 @@ msgid "faq.summary"
 msgstr "❓ Frequently Asked Questions (FAQ)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:29
+#: src/pages/DiaryDashboardPage.jsx:34
 msgid "diary.hub.social"
 msgstr "🌐 Social media"
 
@@ -342,12 +342,12 @@ msgid "report.fixture.50000f6273"
 msgstr "💊 4. Medication History"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:33
+#: src/pages/DiaryDashboardPage.jsx:38
 msgid "diary.hub.donate"
 msgstr "💖 Donate"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:166
+#: src/pages/EventLogPage.jsx:171
 msgid "diary.eventLog.videoHelp"
 msgstr "💡 If you just made an emergency recording, the video will be attached below automatically."
 
@@ -397,32 +397,32 @@ msgid "report.fixture.0344073394"
 msgstr "📅 5. Comprehensive Daily Ledger - Recent records"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:46
+#: src/pages/DiaryDashboardPage.jsx:51
 msgid "diary.fullCalendar"
 msgstr "📅 Full calendar ➔"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:30
+#: src/pages/DiaryDashboardPage.jsx:35
 msgid "diary.hub.events"
 msgstr "📅 Latest events"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:75
+#: src/pages/DiaryDashboardPage.jsx:80
 msgid "diary.reportA"
 msgstr "📊 Clinic report (Level A)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:76
+#: src/pages/DiaryDashboardPage.jsx:81
 msgid "diary.reportB"
 msgstr "📋 Historical summary (Level B)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:32
+#: src/pages/DiaryDashboardPage.jsx:37
 msgid "diary.hub.courses"
 msgstr "📚 Online courses"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:34
+#: src/pages/DiaryDashboardPage.jsx:39
 msgid "diary.hub.contact"
 msgstr "📞 Contact us"
 
@@ -512,7 +512,7 @@ msgid "report.fixture.83daed65be"
 msgstr "87 days"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:79
+#: src/pages/EventLogPage.jsx:84
 msgid "diary.eventLog.aura.abdominal"
 msgstr "Abdominal (discomfort/rising sensation)"
 
@@ -542,7 +542,7 @@ msgid "report.fixture.1ef47edf35"
 msgstr "Age of Onset"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:88
+#: src/pages/EventLogPage.jsx:93
 msgid "diary.eventLog.trigger.alcohol"
 msgstr "Alcohol"
 
@@ -557,7 +557,7 @@ msgid "setup.androidLabel"
 msgstr "Android:"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:175
+#: src/pages/EventLogPage.jsx:180
 msgid "diary.eventLog.unsavedPrompt"
 msgstr "Are you sure you want to leave without saving?"
 
@@ -567,7 +567,7 @@ msgid "whatIs.environmentLabel"
 msgstr "Assess Environment:"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:76
+#: src/pages/EventLogPage.jsx:81
 msgid "diary.eventLog.aura.auditory"
 msgstr "Auditory (e.g. ringing/noise)"
 
@@ -577,12 +577,12 @@ msgid "profile.a3"
 msgstr "Auditory (voices/music)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:147
+#: src/pages/EventLogPage.jsx:152
 msgid "diary.eventLog.auras"
 msgstr "Auras (select all that apply)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:80
+#: src/pages/EventLogPage.jsx:85
 msgid "diary.eventLog.aura.autonomic"
 msgstr "Autonomic (palpitations/sweating)"
 
@@ -652,12 +652,12 @@ msgid "profile.remarkPlaceholder"
 msgstr "Brief description..."
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:90
+#: src/pages/EventLogPage.jsx:95
 msgid "diary.eventLog.trigger.light"
 msgstr "Bright/flashing lights"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:41
+#: src/pages/DiaryDashboardPage.jsx:46
 msgid "diary.calendarView"
 msgstr "Calendar view"
 
@@ -693,7 +693,7 @@ msgid "diary.close"
 msgstr "Close"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:70
+#: src/pages/EventLogPage.jsx:75
 msgid "diary.eventLog.cluster"
 msgstr "Cluster / repeated seizures"
 
@@ -749,7 +749,7 @@ msgid "profile.lifeLabel"
 msgstr "Daily activities that are difficult or impossible:"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:40
+#: src/pages/DiaryDashboardPage.jsx:45
 msgid "diary.daily"
 msgstr "Daily records"
 
@@ -769,7 +769,7 @@ msgid "report.fixture.1c37b940d2"
 msgstr "Date of birth / Age"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:123
+#: src/pages/EventLogPage.jsx:128
 msgid "diary.eventLog.decrease"
 msgstr "Decrease seizure count"
 
@@ -885,8 +885,8 @@ msgid "diary.profile.contactEmergencyMsg"
 msgstr "Emergency notice: I may currently be experiencing a seizure, please assist me."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:80
-#: src/pages/DiaryDashboardPage.jsx:80
+#: src/pages/DiaryDashboardPage.jsx:85
+#: src/pages/DiaryDashboardPage.jsx:85
 msgid "diary.emergencyVideo"
 msgstr "Emergency video"
 
@@ -921,12 +921,12 @@ msgid "profile.surgeriesPlaceholder"
 msgstr "Enter surgical history..."
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:187
+#: src/pages/EventLogPage.jsx:192
 msgid "diary.eventLog.saved"
 msgstr "Entry saved!"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:38
+#: src/pages/DiaryDashboardPage.jsx:43
 msgid "diary.dashboard.title"
 msgstr "Epilepsy and Headache Tracking"
 
@@ -959,12 +959,12 @@ msgid "report.fixture.519df040d6"
 msgstr "Epilepsy Foundation of Hong Kong PWA export (Page 3)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:79
+#: src/pages/DiaryDashboardPage.jsx:84
 msgid "diary.hub"
 msgstr "Epilepsy Foundation of Hong Kong Resource Centre"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:118
+#: src/pages/EventLogPage.jsx:123
 msgid "diary.eventLog.estimatedCount"
 msgstr "Estimated number of seizures"
 
@@ -999,7 +999,7 @@ msgid "report.fixture.79efc63abc"
 msgstr "Family History"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:86
+#: src/pages/EventLogPage.jsx:91
 msgid "diary.eventLog.trigger.illness"
 msgstr "Fever/cold"
 
@@ -1044,12 +1044,12 @@ msgid "report.fixture.434b94fc8b"
 msgstr "Focal Impaired Awareness (FIAS), Secondary GTCS"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:164
+#: src/pages/EventLogPage.jsx:169
 msgid "diary.eventLog.notesPlaceholder"
 msgstr "For example: left hand twitching, confused for about 2 minutes..."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:25
+#: src/pages/DiaryDashboardPage.jsx:30
 msgid "diary.weekday.fri"
 msgstr "Fri"
 
@@ -1089,7 +1089,7 @@ msgid "report.fixture.ed147a309e"
 msgstr "Hand tremor gradually improved."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:62
+#: src/pages/DiaryDashboardPage.jsx:67
 msgid "diary.headache"
 msgstr "Headache record"
 
@@ -1114,18 +1114,18 @@ msgid "setup.operateHeading"
 msgstr "How to Operate"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:31
+#: src/pages/DiaryDashboardPage.jsx:36
 msgid "diary.hub.about"
 msgstr "ℹ️ About us"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:14
-#: src/pages/DiaryDashboardPage.jsx:57
+#: src/pages/DiaryDashboardPage.jsx:62
 msgid "diary.legend.illness"
 msgstr "Illness/Stress"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:135
+#: src/pages/EventLogPage.jsx:140
 msgid "diary.eventLog.increase"
 msgstr "Increase seizure count"
 
@@ -1166,7 +1166,7 @@ msgid "language.selectorLabel"
 msgstr "Language"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:182
+#: src/pages/EventLogPage.jsx:187
 msgid "diary.eventLog.leave"
 msgstr "Leave"
 
@@ -1191,7 +1191,7 @@ msgid "report.fixture.0ac4da82de"
 msgstr "Major event:"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:65
+#: src/pages/EventLogPage.jsx:70
 msgid "diary.eventLog.major"
 msgstr "Major seizure"
 
@@ -1232,7 +1232,7 @@ msgid "report.fixture.62f790cc83"
 msgstr "Medication"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:54
+#: src/pages/DiaryDashboardPage.jsx:59
 msgid "diary.legend.meds"
 msgstr "Medication (green=taken/yellow=missed)"
 
@@ -1254,7 +1254,7 @@ msgid "report.medMissed"
 msgstr "Medication missed"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:65
+#: src/pages/DiaryDashboardPage.jsx:70
 msgid "diary.meds"
 msgstr "Medication record"
 
@@ -1271,7 +1271,7 @@ msgid "profile.l7"
 msgstr "Memory decline"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:87
+#: src/pages/EventLogPage.jsx:92
 msgid "diary.eventLog.trigger.menstruation"
 msgstr "Menstruation"
 
@@ -1281,7 +1281,7 @@ msgid "profile.t4"
 msgstr "Menstruation"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:66
+#: src/pages/EventLogPage.jsx:71
 msgid "diary.eventLog.minor"
 msgstr "Minor seizure"
 
@@ -1301,7 +1301,7 @@ msgid "report.fixture.7cd9ffdbc5"
 msgstr "Missed evening dose"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:84
+#: src/pages/EventLogPage.jsx:89
 msgid "diary.eventLog.trigger.medication"
 msgstr "Missed medication"
 
@@ -1316,7 +1316,7 @@ msgid "profile.t5"
 msgstr "Missing medication"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:21
+#: src/pages/DiaryDashboardPage.jsx:26
 msgid "diary.weekday.mon"
 msgstr "Mon"
 
@@ -1341,7 +1341,7 @@ msgid "report.fixture.fd5436428e"
 msgstr "Mrs. Chan (Wife)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:104
+#: src/pages/DiaryDashboardPage.jsx:109
 msgid "diary.monthMeds"
 msgstr "Multiple medications (green/yellow)"
 
@@ -1351,7 +1351,7 @@ msgid "playlist.mute"
 msgstr "Mute"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:70
+#: src/pages/DiaryDashboardPage.jsx:75
 msgid "diary.medicalData"
 msgstr "My medical information"
 
@@ -1376,7 +1376,7 @@ msgid "whatIs.dontsText"
 msgstr "Never restrain movement or place anything in the person's mouth."
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:97
+#: src/pages/EventLogPage.jsx:102
 msgid "diary.eventLog.title"
 msgstr "New Entry"
 
@@ -1391,7 +1391,7 @@ msgid "report.fixture.7b7a8d3ca9"
 msgstr "Nil (no family history of epilepsy)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:73
+#: src/pages/EventLogPage.jsx:78
 msgid "diary.eventLog.aura.none"
 msgstr "No Aura"
 
@@ -1516,7 +1516,7 @@ msgid "report.fixture.1483158f58"
 msgstr "Others"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:42
+#: src/pages/DiaryDashboardPage.jsx:47
 msgid "diary.past7"
 msgstr "Past 7 days"
 
@@ -1527,8 +1527,8 @@ msgstr "Pause"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:13
-#: src/pages/DiaryDashboardPage.jsx:56
-#: src/pages/DiaryDashboardPage.jsx:104
+#: src/pages/DiaryDashboardPage.jsx:61
+#: src/pages/DiaryDashboardPage.jsx:109
 msgid "diary.legend.period"
 msgstr "Period"
 
@@ -1539,7 +1539,7 @@ msgid "report.periodIllness"
 msgstr "Period/illness"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:72
+#: src/pages/DiaryDashboardPage.jsx:77
 msgid "diary.profile"
 msgstr "Personal medical profile"
 
@@ -1554,7 +1554,7 @@ msgid "profile.phoneExample"
 msgstr "Phone (include country code, e.g. 85298765432)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:75
+#: src/pages/EventLogPage.jsx:80
 msgid "diary.eventLog.aura.sensory"
 msgstr "Physical sensations (e.g. numbness/tingling)"
 
@@ -1564,12 +1564,12 @@ msgid "profile.a1"
 msgstr "Physical sensations (tingling/numbness)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:106
+#: src/pages/DiaryDashboardPage.jsx:111
 msgid "diary.healthTitle"
 msgstr "Physiological and health conditions"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:67
+#: src/pages/DiaryDashboardPage.jsx:72
 msgid "diary.health"
 msgstr "Physiology and health"
 
@@ -1625,7 +1625,7 @@ msgid "profile.surgeries"
 msgstr "Previous surgeries"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:78
+#: src/pages/DiaryDashboardPage.jsx:83
 msgid "diary.privacy"
 msgstr "Privacy: data is stored only on your device or in your cloud, never uploaded to the Foundation."
 
@@ -1645,7 +1645,7 @@ msgid "profile.a6"
 msgstr "Psychological (déjà vu/fear/illusion)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:77
+#: src/pages/EventLogPage.jsx:82
 msgid "diary.eventLog.aura.psychic"
 msgstr "Psychological (e.g. fear/déjà vu)"
 
@@ -1739,7 +1739,7 @@ msgid "action.safe"
 msgstr "SAFE"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:26
+#: src/pages/DiaryDashboardPage.jsx:31
 msgid "diary.weekday.sat"
 msgstr "Sat"
 
@@ -1749,7 +1749,7 @@ msgid "report.sat"
 msgstr "Sat"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:98
+#: src/pages/EventLogPage.jsx:103
 msgid "diary.eventLog.save"
 msgstr "Save"
 
@@ -1775,7 +1775,7 @@ msgid "report.seizureDay"
 msgstr "Seizure day"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:155
+#: src/pages/EventLogPage.jsx:160
 msgid "diary.eventLog.notes"
 msgstr "Seizure description / notes"
 
@@ -1795,17 +1795,17 @@ msgid "report.fixture.6b9307910c"
 msgstr "Seizure frequency halved, but breakthrough seizures continued."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:61
+#: src/pages/DiaryDashboardPage.jsx:66
 msgid "diary.seizure"
 msgstr "Seizure record"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:114
+#: src/pages/EventLogPage.jsx:119
 msgid "diary.eventLog.severityPattern"
 msgstr "Seizure severity and pattern"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:101
+#: src/pages/EventLogPage.jsx:106
 msgid "diary.eventLog.time"
 msgstr "Seizure time"
 
@@ -1816,8 +1816,8 @@ msgstr "Seizure-free days"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:12
-#: src/pages/DiaryDashboardPage.jsx:55
-#: src/pages/DiaryDashboardPage.jsx:104
+#: src/pages/DiaryDashboardPage.jsx:60
+#: src/pages/DiaryDashboardPage.jsx:109
 msgid "diary.legend.event"
 msgstr "Seizure/Headache"
 
@@ -1827,7 +1827,7 @@ msgid "report.fixture.f525bfca0b"
 msgstr "Seizures decreased; no allergic rash."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:86
+#: src/pages/DiaryDashboardPage.jsx:91
 msgid "diary.monthTitle"
 msgstr "September 2026 records"
 
@@ -1863,7 +1863,7 @@ msgid "action.side"
 msgstr "SIDE"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:66
+#: src/pages/DiaryDashboardPage.jsx:71
 msgid "diary.sideEffects"
 msgstr "Side effects"
 
@@ -1878,12 +1878,12 @@ msgid "report.fixture.28013118c3"
 msgstr "Side effects: hand tremor prevented fine work; began tapering off."
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:69
+#: src/pages/EventLogPage.jsx:74
 msgid "diary.eventLog.single"
 msgstr "Single seizure"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:83
+#: src/pages/EventLogPage.jsx:88
 msgid "diary.eventLog.trigger.sleep"
 msgstr "Sleep deprivation"
 
@@ -1898,7 +1898,7 @@ msgid "profile.a4"
 msgstr "Smell (unpleasant smells)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:78
+#: src/pages/EventLogPage.jsx:83
 msgid "diary.eventLog.aura.smellTaste"
 msgstr "Smell/taste (unpleasant smells)"
 
@@ -1936,7 +1936,7 @@ msgid "report.fixture.252475c9cb"
 msgstr "Status:"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:179
+#: src/pages/EventLogPage.jsx:184
 msgid "diary.eventLog.stay"
 msgstr "Stay"
 
@@ -1961,7 +1961,7 @@ msgid "header.slogan"
 msgstr "STAY, SAFE, SIDE, HELP"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:85
+#: src/pages/EventLogPage.jsx:90
 msgid "diary.eventLog.trigger.stress"
 msgstr "Stress/tension"
 
@@ -1981,7 +1981,7 @@ msgid "report.fixture.e92943ac50"
 msgstr "Suboptimal control: stress triggered frequent FIAS; added second-line medication."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:20
+#: src/pages/DiaryDashboardPage.jsx:25
 msgid "diary.weekday.sun"
 msgstr "Sun"
 
@@ -2032,12 +2032,12 @@ msgid "faq.answer4"
 msgstr "The counter shows the total number of times the app's action buttons have been clicked, across all users."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:43
+#: src/pages/DiaryDashboardPage.jsx:48
 msgid "diary.thisWeek"
 msgstr "This week"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:24
+#: src/pages/DiaryDashboardPage.jsx:29
 msgid "diary.weekday.thu"
 msgstr "Thu"
 
@@ -2067,7 +2067,7 @@ msgid "report.fixture.b764971415"
 msgstr "Total seizures in 90 days"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:151
+#: src/pages/EventLogPage.jsx:156
 msgid "diary.eventLog.triggers"
 msgstr "Triggers (select all that apply)"
 
@@ -2077,7 +2077,7 @@ msgid "profile.triggers"
 msgstr "Triggers and impact on daily life"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:22
+#: src/pages/DiaryDashboardPage.jsx:27
 msgid "diary.weekday.tue"
 msgstr "Tue"
 
@@ -2107,12 +2107,12 @@ msgid "playlist.unmute"
 msgstr "Unmute"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:171
+#: src/pages/EventLogPage.jsx:176
 msgid "diary.eventLog.unsavedTitle"
 msgstr "Unsaved changes"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:104
+#: src/pages/DiaryDashboardPage.jsx:109
 msgid "diary.monthIllness"
 msgstr "URTI/surgery/stress etc."
 
@@ -2122,7 +2122,7 @@ msgid "playlist.deviceVolume"
 msgstr "Use your device's volume buttons to adjust the volume."
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:74
+#: src/pages/EventLogPage.jsx:79
 msgid "diary.eventLog.aura.visual"
 msgstr "Visual (e.g. flashing lights/hallucinations)"
 
@@ -2137,7 +2137,7 @@ msgid "playlist.volume"
 msgstr "Volume"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:89
+#: src/pages/EventLogPage.jsx:94
 msgid "diary.eventLog.trigger.weather"
 msgstr "Weather changes"
 
@@ -2147,7 +2147,7 @@ msgid "profile.t7"
 msgstr "Weather changes"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:23
+#: src/pages/DiaryDashboardPage.jsx:28
 msgid "diary.weekday.wed"
 msgstr "Wed"
 

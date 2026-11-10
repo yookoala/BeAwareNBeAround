@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { I18nProvider } from '@lingui/react';
 import { MemoryRouter, useLocation } from 'react-router-dom';
 import { expect, test, vi } from 'vitest';
@@ -55,6 +55,31 @@ test.each([
   const { container } = renderApp();
   fireEvent.click(container.querySelector(selector));
   expect(screen.getByTestId('location')).toHaveTextContent(destination);
+});
+
+test('opening event log uses document.startViewTransition with vt-slide-in-right', async () => {
+  let finishTransition;
+  document.startViewTransition = vi.fn((callback) => {
+    callback();
+    return {
+      finished: new Promise((resolve) => {
+        finishTransition = resolve;
+      }),
+    };
+  });
+  try {
+    const { container } = renderApp();
+    fireEvent.click(container.querySelector('#btn-attack'));
+    expect(document.startViewTransition).toHaveBeenCalledTimes(1);
+    expect(document.documentElement).toHaveClass('vt-slide-in-right');
+    expect(screen.getByTestId('location')).toHaveTextContent('/diary/event-log');
+    await act(async () => {
+      finishTransition();
+    });
+    expect(document.documentElement).not.toHaveClass('vt-slide-in-right');
+  } finally {
+    delete document.startViewTransition;
+  }
 });
 
 test('FAB exists only on the diary dashboard and uses a pen icon', () => {
