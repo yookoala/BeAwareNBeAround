@@ -3,6 +3,7 @@ import { expect, test, vi } from 'vitest';
 import { I18nProvider } from '@lingui/react';
 import { MemoryRouter, useNavigate } from 'react-router-dom';
 import { AppRoutes } from './App';
+import { resolveRouterBasename } from './utils/routerBase';
 import { activateLocale, i18n } from './i18n/setup';
 
 function stubCounter(initialTotal = 12544) {
@@ -170,4 +171,14 @@ test('auto-hides the header and bottom nav on downward scroll, closes any open l
   expect(header).not.toHaveClass('is-hidden');
   expect(bottomNav).not.toHaveClass('is-hidden');
   expect(screen.queryByRole('menuitem')).not.toBeInTheDocument();
+});
+
+test('resolveRouterBasename defaults to "/" and normalizes subfolder base paths', () => {
+  expect(resolveRouterBasename(undefined)).toBe('/');
+  expect(resolveRouterBasename('')).toBe('/');
+  expect(resolveRouterBasename('/')).toBe('/');
+  expect(resolveRouterBasename('./')).toBe('/');
+  expect(resolveRouterBasename('/BeAwareNBeAround/')).toBe('/BeAwareNBeAround');
+  expect(resolveRouterBasename('BeAwareNBeAround/')).toBe('/BeAwareNBeAround');
+  expect(resolveRouterBasename('/BeAwareNBeAround')).toBe('/BeAwareNBeAround');
 });

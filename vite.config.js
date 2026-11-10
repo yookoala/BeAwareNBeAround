@@ -5,8 +5,20 @@ import babel from '@rolldown/plugin-babel';
 import { VitePWA } from 'vite-plugin-pwa';
 import { fileURLToPath, URL } from 'node:url';
 
+function normalizeBasePath(rawBase = process.env.VITE_BASE_PATH) {
+  const trimmed = rawBase ? String(rawBase).trim() : '';
+  if (!trimmed || trimmed === '/') {
+    return '/';
+  }
+  if (trimmed === './' || trimmed === '.') {
+    return './';
+  }
+  const withLeading = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+  return withLeading.endsWith('/') ? withLeading : `${withLeading}/`;
+}
+
 export default defineConfig({
-  base: './',
+  base: normalizeBasePath(),
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },
