@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { activateLocale, i18n } from './i18n/setup';
 import { getInstallId } from './services/install';
 import { useAutoHideChrome } from './hooks/useAutoHideChrome';
@@ -10,6 +10,8 @@ import FirstAidPage from './pages/FirstAidPage';
 import DiaryDashboardPage from './pages/DiaryDashboardPage';
 import EventLogPage from './pages/EventLogPage';
 import ProfilePage from './pages/ProfilePage';
+import ReportLevelAPage from './pages/ReportLevelAPage';
+import ReportLevelBPage from './pages/ReportLevelBPage';
 
 // App shell (PLAN06 M13): owns the shared chrome (header + bottom nav),
 // the route table, and cross-route state. The visit counter is hoisted
@@ -19,6 +21,7 @@ import ProfilePage from './pages/ProfilePage';
 // until the useLocale hook lands (M15).
 export function AppRoutes() {
   const navigate = useNavigate();
+  const isReport = useLocation().pathname.startsWith('/diary/report/');
   const chromeHidden = useAutoHideChrome();
   // Captured once at app load so tab switches never change the tracked URL.
   const [targetUrl] = useState(() => window.location.href);
@@ -44,20 +47,22 @@ export function AppRoutes() {
   }
 
   return (
-    <main>
-      <AppHeader
+    <main className={isReport ? 'main--report' : undefined}>
+      {!isReport && <AppHeader
         language={language}
         onLanguageChange={changeLanguage}
         onNavigateHome={navigateHome}
         hidden={chromeHidden}
-      />
+      />}
       <Routes>
         <Route path="/" element={<FirstAidPage counter={counter} language={language} />} />
         <Route path="/diary" element={<DiaryDashboardPage />} />
         <Route path="/diary/event-log" element={<EventLogPage />} />
         <Route path="/diary/profile" element={<ProfilePage />} />
+        <Route path="/diary/report/level-a" element={<ReportLevelAPage />} />
+        <Route path="/diary/report/level-b" element={<ReportLevelBPage />} />
       </Routes>
-      <BottomNav hidden={chromeHidden} />
+      {!isReport && <BottomNav hidden={chromeHidden} />}
     </main>
   );
 }

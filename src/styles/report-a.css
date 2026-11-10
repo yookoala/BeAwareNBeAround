@@ -1,0 +1,97 @@
+/* Copied from efhk-diary-prototype/report-level-a.html <style> block with
+   every declaration verbatim. Selectors scoped under body.page-report-a (see
+   dashboard.css note); the shared `*` reset lives in app.css. The prototype
+   has no :root block (colors are hard-coded), so no token scoping needed. */
+body.page-report-a { font-family: 'Noto Sans HK', sans-serif; background-color: #555; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 20px; }
+
+/* 網頁端控制介面 (不會印在 PDF 內) */
+body.page-report-a .controls { background: #FFF; padding: 12px 20px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 16px; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+body.page-report-a .controls button { background: #F57C00; color: #FFF; border: none; padding: 8px 16px; border-radius: 4px; font-weight: 700; cursor: pointer; }
+body.page-report-a .controls span { font-size: 14px; font-weight: 700; color: #1C1C1E; }
+
+/* A4 橫向紙張 */
+body.page-report-a .a4-landscape { width: 297mm; height: 210mm; background: #FFFFFF; padding: 10mm 12mm; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.3); color: #1C1C1E; transition: filter 0.3s; }
+
+/* 黑白模式切換 (CSS Filter) */
+body.page-report-a .a4-landscape.bw-mode { filter: grayscale(100%) contrast(1.1); color: #000; }
+
+/* 頁首 */
+body.page-report-a .pdf-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #F57C00; padding-bottom: 6px; margin-bottom: 8px; }
+body.page-report-a .bw-mode .pdf-header { border-bottom-color: #000; }
+body.page-report-a .pdf-logo-area { display: flex; align-items: center; gap: 8px; }
+body.page-report-a .pdf-logo-img { height: 32px; width: auto; }
+body.page-report-a .pdf-title { text-align: right; }
+body.page-report-a .pdf-title h1 { font-size: 16px; font-weight: 700; color: #F57C00; }
+body.page-report-a .bw-mode .pdf-title h1 { color: #000; }
+body.page-report-a .pdf-title p { font-size: 10px; color: #6E6E73; }
+
+/* 主體 */
+body.page-report-a .pdf-body { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex-grow: 1; height: calc(100% - 50px); }
+body.page-report-a .left-column { display: flex; flex-direction: column; gap: 8px; height: 100%; }
+body.page-report-a .right-column { display: flex; flex-direction: column; height: 100%; border: 1px solid #E5E5EA; border-radius: 6px; padding: 10px; overflow: hidden; background: #FAFAFC; }
+body.page-report-a .bw-mode .right-column { border-color: #000; background: #FFF; }
+
+body.page-report-a .box { border: 1px solid #E5E5EA; border-radius: 6px; padding: 8px 10px; background: #FAFAFC; }
+body.page-report-a .bw-mode .box { border-color: #333; background: #FFF; }
+body.page-report-a .box-title { font-size: 12px; font-weight: 700; color: #F57C00; border-bottom: 1px solid #DDD; padding-bottom: 3px; margin-bottom: 6px; }
+body.page-report-a .bw-mode .box-title { color: #000; border-color: #999; }
+
+/* 基本資料 */
+body.page-report-a .patient-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-size: 10px; margin-bottom: 6px; }
+body.page-report-a .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; text-align: center; margin-bottom: 6px; }
+body.page-report-a .stat-box { border: 1px solid #E5E5EA; background: #FFF; border-radius: 4px; padding: 4px; }
+body.page-report-a .bw-mode .stat-box { border-color: #666; }
+body.page-report-a .stat-box .num { font-size: 14px; font-weight: 700; color: #D32F2F; }
+body.page-report-a .bw-mode .stat-box .num { color: #000; }
+body.page-report-a .stat-box .label { font-size: 8px; color: #6E6E73; }
+
+/* 微型月曆矩陣 (修復比例為方形) */
+body.page-report-a .multi-month-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; flex-grow: 1; align-content: start; }
+body.page-report-a .mini-month { border: 1px solid #E5E5EA; border-radius: 6px; padding: 6px; display: flex; flex-direction: column; background: #FFF; }
+body.page-report-a .bw-mode .mini-month { border-color: #999; }
+body.page-report-a .mini-month-title { font-size: 10px; font-weight: 700; text-align: center; margin-bottom: 6px; background: #F2F2F7; padding: 2px 0; border-radius: 4px; }
+
+body.page-report-a .mini-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; text-align: center; }
+body.page-report-a .mini-day-hdr { font-size: 8px; color: #6E6E73; font-weight: 700; }
+body.page-report-a .mini-day { aspect-ratio: 1; border: 1px solid #E5E5EA; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 9px; position: relative; font-weight: 500; }
+body.page-report-a .bw-mode .mini-day { border-color: #EEE; }
+body.page-report-a .mini-day.empty { border: none; background: transparent; }
+
+/* 標記樣式 (彩色與黑白相容) */
+body.page-report-a .mark-attack { background-color: #FF3B30; color: #FFF; border-radius: 50%; font-weight: 700; border: none; }
+body.page-report-a .bw-mode .mark-attack { background-color: #000; }
+body.page-report-a .mark-period { background: repeating-linear-gradient(45deg, #FFF0F5, #FFF0F5 2px, #FFB6C1 2px, #FFB6C1 4px); }
+body.page-report-a .bw-mode .mark-period { background: repeating-linear-gradient(45deg, #FFF, #FFF 2px, #CCC 2px, #CCC 4px); }
+
+/* 純 CSS 服藥幾何圖示 (解決顯示問題) */
+body.page-report-a .css-circle { display: inline-block; width: 8px; height: 8px; background-color: #34C759; border-radius: 50%; vertical-align: middle; }
+body.page-report-a .bw-mode .css-circle { background-color: #000; }
+body.page-report-a .css-triangle { display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 8px solid #FFCC00; vertical-align: middle; }
+body.page-report-a .bw-mode .css-triangle { border-bottom-color: #666; }
+
+body.page-report-a .cal-legend { display: flex; justify-content: space-around; font-size: 9px; margin-top: 8px; border-top: 1px solid #E5E5EA; padding-top: 6px; }
+body.page-report-a .bw-mode .cal-legend { border-color: #CCC; }
+
+/* 右側稀疏時間軸 */
+body.page-report-a .timeline-container { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+body.page-report-a .timeline-date-group { border: 1px solid #E5E5EA; border-radius: 6px; background: #FFF; }
+body.page-report-a .bw-mode .timeline-date-group { border-color: #666; }
+body.page-report-a .timeline-date-header { background: #FFF0E0; color: #F57C00; font-size: 11px; font-weight: 700; padding: 4px 8px; display: flex; justify-content: space-between; border-bottom: 1px solid #E5E5EA; border-radius: 6px 6px 0 0;}
+body.page-report-a .bw-mode .timeline-date-header { background: #EFEFEF; color: #000; border-bottom-color: #666; }
+
+body.page-report-a .cluster-list { padding: 6px 8px; }
+body.page-report-a .cluster-tag { display: inline-flex; align-items: center; gap: 4px; border: 1px solid transparent; border-radius: 4px; padding: 3px 6px; font-size: 9px; font-weight: 700; color: #FFF; margin: 2px; }
+body.page-report-a .type-t1 { background-color: #007AFF; }
+body.page-report-a .type-t2 { background-color: #5856D6; }
+body.page-report-a .bw-mode .cluster-tag { background: #FFF; color: #000; border-color: #000; }
+body.page-report-a .cluster-tag span.time { font-weight: 400; border-right: 1px solid rgba(255,255,255,0.4); padding-right: 4px; }
+body.page-report-a .bw-mode .cluster-tag span.time { border-right-color: #999; }
+
+/* 藥物遵從率顯示區塊 */
+body.page-report-a .med-check { display: inline-flex; align-items: center; gap: 3px; }
+
+body.page-report-a .pdf-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #E5E5EA; padding-top: 6px; margin-top: 6px; font-size: 8px; color: #6E6E73; }
+body.page-report-a .bw-mode .pdf-footer { border-color: #000; }
+/* The prototype's content-box columns otherwise extend into the footer. */
+body.page-report-a .pdf-body { min-height: 0; }
+body.page-report-a .left-column, body.page-report-a .right-column { box-sizing: border-box; min-height: 0; }

@@ -13,3 +13,24 @@ main { display: flex; flex-direction: column; align-items: center; padding: 0 15
 .install-row { display: flex; align-items: flex-start; justify-content: space-between; width: 100%; max-width: 350px; margin: 20px 0; gap: 10px; }.setup-guide { flex: 1; height: 48px; background: #fff; border: 1px solid #ccc; border-radius: 8px; font-weight: bold; cursor: pointer; }.install-btn-small { background: #43e660; color: #111; padding: 0 15px; height: 48px; border-radius: 8px; border: 0; font-size: 14px; font-weight: bold; cursor: pointer; }.what-is-guide,.faq-guide { width: 100%; max-width: 350px; margin-bottom: 20px; border: 2px solid var(--primary-brand); border-radius: 8px; background: #ffe0b2; color: var(--dark-orange); font-weight: bold; padding: 15px; cursor: pointer; text-align: center; }.info-dialog { width: min(92vw, 420px); max-height: 80vh; border: 1px solid #ccc; border-radius: 8px; padding: 0; background: #fff; box-sizing: border-box; }.info-dialog::backdrop { background: rgba(0,0,0,.4); }.info-dialog-header { display: flex; justify-content: space-between; align-items: center; background: #fff; border-bottom: 1px solid #ccc; padding: 10px 15px; }.info-dialog-title { font-weight: bold; color: var(--dark-orange); text-align: left; }.info-dialog-close { border: 0; background: transparent; font-size: 18px; cursor: pointer; padding: 8px; min-width: 44px; min-height: 44px; }.info-dialog-body { max-height: calc(80vh - 50px); overflow-y: auto; padding: 15px; text-align: left; font-size: 13px; line-height: 1.6; }.info-dialog-body h3 { color: var(--primary-brand); font-size: 14px; }.footer-linktree { margin: 10px 0 40px; width: 100%; max-width: 350px; }.linktree-btn { display: block; background: #43e660; color: #111; text-decoration: none; padding: 15px; border-radius: 30px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,.1); } body.dialog-open { overflow: hidden; }
 .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; gap: 32px; background: #fff; border-top: 1px solid #ccc; box-shadow: 0 -2px 8px rgba(0,0,0,.08); padding: 6px 0 calc(6px + env(safe-area-inset-bottom)); z-index: 20; transition: transform 220ms ease; }.bottom-nav.is-hidden { transform: translateY(100%); pointer-events: none; } @media (prefers-reduced-motion: reduce) { .bottom-nav { transition-duration: 0ms; } }.bottom-nav-tab { display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 72px; padding: 6px 12px; border-radius: 12px; text-decoration: none; color: #555; font-size: 13px; font-weight: bold; -webkit-tap-highlight-color: transparent; }.bottom-nav-tab[aria-current="page"] { color: var(--primary-brand); }
 .diary-placeholder { margin-top: 25px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,.05); width: 100%; max-width: 320px; font-size: 14px; line-height: 1.5; box-sizing: border-box; }
+
+/* Reports retain their physical A4 dimensions and scroll horizontally on phones. */
+main.main--report { display: block; padding: 0; text-align: left; width: max-content; min-width: 100%; }
+body.page-report-a, body.page-report-b { display: block; margin: 0; overflow-x: auto; }
+body.page-report-a .a4-landscape, body.page-report-b .a4-portrait { box-sizing: border-box; }
+body.page-report-a .controls, body.page-report-b .controls { width: max-content; max-width: calc(100vw - 80px); flex-wrap: wrap; margin-bottom: 20px; }
+body.page-report-a .controls button:focus-visible, body.page-report-b .controls button:focus-visible { outline: 3px solid #222; outline-offset: 3px; }
+@media print {
+  body.page-report-a, body.page-report-b { padding: 0; background: white; }
+  body.page-report-a .controls, body.page-report-b .controls { display: none; }
+  body.page-report-a .a4-landscape, body.page-report-b .a4-portrait { box-shadow: none; }
+  body.page-report-b .page-container { gap: 0; }
+  body.page-report-b .a4-portrait { break-after: page; }
+  body.page-report-b .a4-portrait:last-child { break-after: auto; }
+}
+@page report-landscape { size: A4 landscape; margin: 0; }
+@page report-portrait { size: A4 portrait; margin: 0; }
+@media print {
+  body.page-report-a .a4-landscape { page: report-landscape; }
+  body.page-report-b .a4-portrait { page: report-portrait; }
+}

@@ -1,0 +1,69 @@
+/* Copied from efhk-diary-prototype/report-level-b.html <style> block with
+   every declaration verbatim. Selectors scoped under body.page-report-b (see
+   dashboard.css note); the shared `*` reset lives in app.css. No :root block
+   in the prototype (colors hard-coded). */
+body.page-report-b { font-family: 'Noto Sans HK', sans-serif; background-color: #555; display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 20px; }
+
+body.page-report-b .controls { background: #FFF; padding: 12px 20px; border-radius: 8px; display: flex; gap: 16px; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); position: sticky; top: 20px; z-index: 100; }
+body.page-report-b .controls button { background: #F57C00; color: #FFF; border: none; padding: 8px 16px; border-radius: 4px; font-weight: 700; cursor: pointer; }
+body.page-report-b .controls span { font-size: 14px; font-weight: 700; color: #1C1C1E; }
+
+body.page-report-b .page-container { display: flex; flex-direction: column; gap: 24px; transition: filter 0.3s; }
+body.page-report-b .bw-mode { filter: grayscale(100%) contrast(1.2); color: #000; }
+
+body.page-report-b .a4-portrait { width: 210mm; height: 297mm; background: #FFFFFF; padding: 12mm 15mm; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.3); color: #1C1C1E; overflow: hidden; position: relative; }
+
+body.page-report-b .pdf-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #F57C00; padding-bottom: 8px; margin-bottom: 12px; flex-shrink: 0; }
+body.page-report-b .bw-mode .pdf-header { border-bottom-color: #000; }
+body.page-report-b .pdf-logo-area { display: flex; align-items: center; gap: 10px; }
+body.page-report-b .pdf-logo-img { height: 35px; width: auto; }
+body.page-report-b .pdf-title { text-align: right; }
+body.page-report-b .pdf-title h1 { font-size: 16px; font-weight: 700; color: #F57C00; margin-bottom: 2px; }
+body.page-report-b .bw-mode .pdf-title h1 { color: #000; }
+body.page-report-b .pdf-title p { font-size: 9px; color: #6E6E73; }
+
+body.page-report-b .pdf-footer { margin-top: auto; padding-top: 8px; border-top: 1px solid #E5E5EA; display: flex; justify-content: space-between; font-size: 9px; color: #8E8E93; flex-shrink: 0; }
+body.page-report-b .bw-mode .pdf-footer { border-color: #000; color: #555; }
+
+body.page-report-b .section-title { font-size: 12px; font-weight: 700; color: #F57C00; border-bottom: 1px solid #E5E5EA; padding-bottom: 4px; margin: 10px 0 6px 0; display: flex; align-items: center; gap: 6px; }
+body.page-report-b .bw-mode .section-title { color: #000; border-bottom-color: #999; }
+
+body.page-report-b .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 9px; margin-bottom: 6px; }
+body.page-report-b .profile-item { background: #FAFAFC; border: 1px solid #E5E5EA; padding: 4px 6px; border-radius: 4px; display: flex; flex-direction: column; }
+body.page-report-b .bw-mode .profile-item { background: #FFF; border-color: #999; }
+body.page-report-b .profile-item .label { color: #6E6E73; font-size: 7px; margin-bottom: 2px; }
+body.page-report-b .bw-mode .profile-item .label { color: #333; }
+body.page-report-b .profile-item .value { font-weight: 700; color: #1C1C1E; }
+
+body.page-report-b .investigation-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; font-size: 9px; margin-bottom: 6px; }
+
+body.page-report-b .data-table { width: 100%; border-collapse: collapse; font-size: 9px; text-align: left; margin-bottom: 8px; }
+body.page-report-b .data-table th, body.page-report-b .data-table td { border: 1px solid #E5E5EA; padding: 5px 6px; vertical-align: top; }
+body.page-report-b .bw-mode .data-table th, body.page-report-b .bw-mode .data-table td { border-color: #666; }
+body.page-report-b .data-table th { background-color: #F2F2F7; color: #3A3A3C; font-weight: 700; }
+body.page-report-b .bw-mode .data-table th { background-color: #EFEFEF; color: #000; border-bottom: 2px solid #000; }
+
+body.page-report-b .action-tag { display: inline-block; font-size: 8px; font-weight: 700; padding: 1px 4px; border-radius: 3px; margin-left: 4px; }
+body.page-report-b .tag-up { background-color: #FFF0E0; color: #F57C00; border: 1px solid #F57C00; }
+body.page-report-b .tag-down { background-color: #F2F2F7; color: #8E8E93; border: 1px solid #8E8E93; }
+body.page-report-b .tag-add { background-color: #E8F5E9; color: #2E7D32; border: 1px solid #2E7D32; }
+body.page-report-b .bw-mode .action-tag { background: #FFF !important; color: #000 !important; border-color: #000 !important; }
+
+body.page-report-b .med-active { background-color: #F9F9F9; border-left: 3px solid #34C759 !important; }
+body.page-report-b .bw-mode .med-active { background-color: #FFF; border-left: 3px solid #000 !important; }
+body.page-report-b .med-discontinued { background-color: #FFF; color: #8E8E93; }
+body.page-report-b .bw-mode .med-discontinued { color: #555; }
+
+body.page-report-b .month-divider { background-color: #FFF0E0; font-weight: 700; color: #F57C00; text-align: left; padding: 4px 6px !important; font-size: 10px; }
+body.page-report-b .bw-mode .month-divider { background-color: #E0E0E0; color: #000; border-top: 2px solid #000; border-bottom: 2px solid #000; }
+
+body.page-report-b .cluster-tag { display: inline-flex; align-items: center; gap: 4px; border-radius: 3px; padding: 2px 4px; font-size: 8px; font-weight: 700; color: #FFF; border: 1px solid transparent; margin-bottom: 2px; }
+body.page-report-b .type-t1 { background-color: #007AFF; }
+body.page-report-b .type-t2 { background-color: #5856D6; }
+body.page-report-b .type-t5 { background-color: #FF3B30; }
+body.page-report-b .bw-mode .cluster-tag { background: #FFF; color: #000; border-color: #000; }
+
+body.page-report-b .css-circle { display: inline-block; width: 7px; height: 7px; background-color: #34C759; border-radius: 50%; vertical-align: middle; }
+body.page-report-b .bw-mode .css-circle { background-color: #000; }
+body.page-report-b .css-triangle { display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 7px solid #FFCC00; vertical-align: middle; }
+body.page-report-b .bw-mode .css-triangle { border-bottom-color: #666; }
