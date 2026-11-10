@@ -272,7 +272,7 @@ msgstr "Gently roll the person onto their side. Never put anything in their mout
 #. js-lingui-explicit-id
 #: src/App.jsx:21
 msgid "counter.label"
-msgstr "Global Clicks:"
+msgstr "Global Clicks"
 
 #. js-lingui-explicit-id
 #: src/App.jsx:27

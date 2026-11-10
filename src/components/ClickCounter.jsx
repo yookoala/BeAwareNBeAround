@@ -9,8 +9,8 @@ export const ClickCounter = ({ count = 0, loading = false, error = null, label, 
 
   return (
     <div className={className}>
-      <span>{label}</span>&nbsp;
-      <span>{count.toLocaleString()}</span>
+      <span className="counter-label">{label}</span>
+      <span className="counter-value">{count.toLocaleString()}</span>
     </div>
   );
 };

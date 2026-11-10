@@ -18,12 +18,14 @@ test('shows the unavailable state on error', () => {
   expect(element).toHaveClass('view-counter', 'error', 'counter-box');
 });
 
-test('renders the label and the formatted count', () => {
+test('renders the label and the formatted count as separate pill segments', () => {
   const { container } = render(
-    <ClickCounter count={1234} label="Global Clicks:" className="counter-box" />,
+    <ClickCounter count={1234} label="Global Clicks" className="counter-box" />,
   );
 
-  expect(screen.getByText('Global Clicks:')).toBeInTheDocument();
-  expect(screen.getByText('1,234')).toBeInTheDocument();
-  expect(container.firstChild).toHaveClass('counter-box');
+  const box = container.firstChild;
+  expect(box).toHaveClass('counter-box');
+  expect(box.childNodes).toHaveLength(2);
+  expect(screen.getByText('Global Clicks')).toHaveClass('counter-label');
+  expect(screen.getByText('1,234')).toHaveClass('counter-value');
 });

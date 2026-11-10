@@ -272,7 +272,7 @@ msgstr "将患者轻轻翻侧，保持呼吸道畅通。切勿强行将任何物
 #. js-lingui-explicit-id
 #: src/App.jsx:21
 msgid "counter.label"
-msgstr "全球点击次数 (Global Clicks):"
+msgstr "全球点击次数"
 
 #. js-lingui-explicit-id
 #: src/App.jsx:27

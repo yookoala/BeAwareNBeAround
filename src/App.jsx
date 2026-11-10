@@ -18,7 +18,7 @@ export default function App() {
     slogan: t({ id: 'header.slogan', message: 'STAY, SAFE, SIDE, HELP' }),
     subtitle: t({ id: 'header.subtitle', message: 'Acute Seizure Management Slogan' }),
     secondarySubtitle: t({ id: 'header.secondarySubtitle', message: 'Tap the 4 buttons below to learn the steps' }),
-    clicks: t({ id: 'counter.label', message: 'Global Clicks:' }),
+    clicks: t({ id: 'counter.label', message: 'Global Clicks' }),
     education: t({ id: 'mode.education', message: 'Education Mode' }),
     buttons: [
       t({ id: 'action.stay', message: 'STAY' }),
