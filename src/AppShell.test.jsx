@@ -86,10 +86,13 @@ test('renders the bottom nav on every route with the active tab marked', async (
 
   const firstAidTab = await screen.findByRole('link', { name: '指南' });
   const diaryTab = screen.getByRole('link', { name: '日記' });
+  const resourceTab = screen.getByRole('link', { name: '資源' });
   expect(firstAidTab).toHaveAttribute('aria-current', 'page');
   expect(diaryTab).not.toHaveAttribute('aria-current');
+  expect(resourceTab).not.toHaveAttribute('aria-current');
   expect(firstAidTab.querySelector('svg')).toBeInTheDocument();
   expect(diaryTab.querySelector('svg')).toBeInTheDocument();
+  expect(resourceTab.querySelector('svg')).toBeInTheDocument();
 });
 
 test('switches to the diary dashboard and back via the bottom nav without re-counting the visit', async () => {
@@ -125,11 +128,13 @@ test('localizes the bottom tab labels when the app language changes', async () =
   fireEvent.click(screen.getByRole('menuitem', { name: '简体' }));
   expect(screen.getByRole('link', { name: '指南' })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: '日记' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: '资源' })).toBeInTheDocument();
 
   fireEvent.click(screen.getByRole('button', { name: '语言' }));
   fireEvent.click(screen.getByRole('menuitem', { name: 'EN' }));
   expect(screen.getByRole('link', { name: 'First Aid' })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Diary' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Resource' })).toBeInTheDocument();
 });
 
 test('auto-hides the header and bottom nav on downward scroll, closes any open language menu, and reveals them after scrolling up at least 5vh', async () => {

@@ -4,10 +4,9 @@ import { t } from '@lingui/core/macro';
 import CalendarDay from '../components/diary/CalendarDay';
 import { calendarLabel } from '../components/diary/calendarLabel';
 import Modal from '../components/diary/Modal';
-import useDraggableFAB from '../hooks/useDraggableFAB';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { navigateWithViewTransition } from '../utils/viewTransition';
-import { past7Days, thisWeekDays, monthDays, monthEmptyCells, monthHeaderDays, hubKeys } from '../data/mockDashboard';
+import { past7Days, thisWeekDays, monthDays, monthEmptyCells, monthHeaderDays } from '../data/mockDashboard';
 import '../styles/dashboard.css';
 
 export default function DiaryDashboardPage() {
@@ -20,7 +19,6 @@ export default function DiaryDashboardPage() {
     () => navigateWithViewTransition(navigate, '/diary/event-log', 'vt-slide-in-right'),
     [navigate],
   );
-  const { ref, handleClick } = useDraggableFAB(openEventLog);
   const weekdays = {
     '日': t({ id: 'diary.weekday.sun', message: 'Sun' }),
     '一': t({ id: 'diary.weekday.mon', message: 'Mon' }),
@@ -29,14 +27,6 @@ export default function DiaryDashboardPage() {
     '四': t({ id: 'diary.weekday.thu', message: 'Thu' }),
     '五': t({ id: 'diary.weekday.fri', message: 'Fri' }),
     '六': t({ id: 'diary.weekday.sat', message: 'Sat' }),
-  };
-  const hubButtons = {
-    social: t({ id: 'diary.hub.social', message: '🌐 Social media' }),
-    events: t({ id: 'diary.hub.events', message: '📅 Latest events' }),
-    about: t({ id: 'diary.hub.about', message: 'ℹ️ About us' }),
-    courses: t({ id: 'diary.hub.courses', message: '📚 Online courses' }),
-    donate: t({ id: 'diary.hub.donate', message: '💖 Donate' }),
-    contact: t({ id: 'diary.hub.contact', message: '📞 Contact us' }),
   };
   return (
     <div className="app-container" id="appContainer">
@@ -81,8 +71,7 @@ export default function DiaryDashboardPage() {
         <button data-report="level-b" onClick={() => navigate('/diary/report/level-b')}>{t({ id: 'diary.reportB', message: '📋 Historical summary (Level B)' })}</button>
       </div>
       <div className="privacy-note"><span aria-hidden="true">🔒</span><span>{t({ id: 'diary.privacy', message: 'Privacy: data is stored only on your device or in your cloud, never uploaded to the Foundation.' })}</span></div>
-      <div className="hub-section"><div className="section-title" style={{ padding: '0 0 8px' }}>{t({ id: 'diary.hub', message: 'Epilepsy Foundation of Hong Kong Resource Centre' })}</div><div className="hub-grid">{hubKeys.map((key) => <button key={key} className="hub-btn">{hubButtons[key]}</button>)}</div></div>
-      <button className="fab-record" id="fabRecord" title={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} aria-label={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} ref={ref} onClick={handleClick}>
+      <button type="button" className="fab-record" id="fabRecord" title={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} aria-label={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} onClick={openEventLog}>
         <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ pointerEvents: 'none' }}>
           <path d="M12 20h9" />
           <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />

@@ -64,7 +64,7 @@ test('auto-hides header and bottom bar on downward scroll and reveals them after
   await expect(bottomNav).not.toHaveClass(/is-hidden/);
 });
 
-test('dashboard keeps its FAB above navigation and scrolls the window', async ({ page }) => {
+test('dashboard keeps its FAB above navigation via CSS across resizes and scrolls clear of the FAB', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 600 });
   mockCounterRoute(page, { initialTotal: 12544 });
   await page.goto('/diary');
@@ -73,10 +73,17 @@ test('dashboard keeps its FAB above navigation and scrolls the window', async ({
   const fabBox = await fab.boundingBox();
   const navBox = await nav.boundingBox();
   expect(fabBox.y + fabBox.height).toBeLessThan(navBox.y);
+  expect(await fab.evaluate((el) => el.style.transform)).toBe('');
   expect(await page.locator('.app-container').evaluate((el) => getComputedStyle(el).textAlign)).toBe('left');
-  await page.evaluate(() => window.scrollTo(0, 200));
-  await expect(page.locator('.app-header')).toHaveClass(/is-hidden/);
-  expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+  await page.setViewportSize({ width: 320, height: 520 });
+  const resizedFab = await fab.boundingBox();
+  const resizedNav = await nav.boundingBox();
+  expect(resizedFab.x + resizedFab.width).toBeLessThanOrEqual(320);
+  expect(resizedFab.y + resizedFab.height).toBeLessThan(resizedNav.y);
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  const privacyBox = await page.locator('.privacy-note').boundingBox();
+  const fabAtBottom = await fab.boundingBox();
+  expect(privacyBox.y + privacyBox.height).toBeLessThanOrEqual(fabAtBottom.y);
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.getByRole('button', { name: /完整月曆/ }).click();
   await expect(page.getByRole('dialog', { name: '2026年 9月 記錄' })).toBeVisible();

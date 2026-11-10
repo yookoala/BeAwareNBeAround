@@ -189,7 +189,7 @@ msgid "report.fixture.7c32d40e5e"
 msgstr "--- 系统纪录至此，以上为历年全部无删减资料 ---"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:77
+#: src/pages/DiaryDashboardPage.jsx:67
 msgid "diary.profileDesc"
 msgstr "(选填) 建议填写综合诊断资料、发作类型、脑电图等数据，有助于为您的主诊医生生成更精准完整的 PDF 报告。"
 
@@ -292,27 +292,27 @@ msgid "video.label"
 msgstr "▶️ 急性癫痫发作处理动画"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:112
+#: src/pages/DiaryDashboardPage.jsx:101
 msgid "diary.state.urti"
 msgstr "☐ 伤风感冒 (URTI)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:112
+#: src/pages/DiaryDashboardPage.jsx:101
 msgid "diary.state.custom"
 msgstr "☐ 自订: ________"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:112
+#: src/pages/DiaryDashboardPage.jsx:101
 msgid "diary.state.stress"
 msgstr "☐ 极度悲伤/压力"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:112
+#: src/pages/DiaryDashboardPage.jsx:101
 msgid "diary.state.period"
 msgstr "☐ 女性生理期"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:112
+#: src/pages/DiaryDashboardPage.jsx:101
 msgid "diary.state.surgery"
 msgstr "☐ 手术"
 
@@ -322,9 +322,14 @@ msgid "faq.summary"
 msgstr "❓ 常见问题 (FAQ)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:34
+#: src/pages/ResourcePage.jsx:9
 msgid "diary.hub.social"
 msgstr "🌐 社交媒体"
+
+#. js-lingui-explicit-id
+#: src/pages/ResourcePage.jsx:29
+msgid "resource.website"
+msgstr "🏠 香港脑痫基金会 (官方网站)"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:44
@@ -342,7 +347,7 @@ msgid "report.fixture.50000f6273"
 msgstr "💊 4. 历年抗脑痫药物资料 (Medication History)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:38
+#: src/pages/ResourcePage.jsx:13
 msgid "diary.hub.donate"
 msgstr "💖 捐款支持"
 
@@ -397,32 +402,32 @@ msgid "report.fixture.0344073394"
 msgstr "📅 5. 发作与状态明细 (Comprehensive Daily Ledger) - 近期纪录"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:51
+#: src/pages/DiaryDashboardPage.jsx:41
 msgid "diary.fullCalendar"
 msgstr "📅 完整月历 ➔"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:35
+#: src/pages/ResourcePage.jsx:10
 msgid "diary.hub.events"
 msgstr "📅 最新活动"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:80
+#: src/pages/DiaryDashboardPage.jsx:70
 msgid "diary.reportA"
 msgstr "📊 门诊报告 (Level A)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:81
+#: src/pages/DiaryDashboardPage.jsx:71
 msgid "diary.reportB"
 msgstr "📋 历史总记 (Level B)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:37
+#: src/pages/ResourcePage.jsx:12
 msgid "diary.hub.courses"
 msgstr "📚 网上课程"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:39
+#: src/pages/ResourcePage.jsx:14
 msgid "diary.hub.contact"
 msgstr "📞 联系我们"
 
@@ -440,6 +445,11 @@ msgstr "📲 安装及使用指南"
 #: src/pages/FirstAidPage.jsx:178
 msgid "footer.linkLabel"
 msgstr "🔗 了解更多 Epilepsy Foundation HK"
+
+#. js-lingui-explicit-id
+#: src/pages/ResourcePage.jsx:44
+msgid "resource.moreLinks"
+msgstr "🔗 更多链接 (More Links)"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:45
@@ -657,7 +667,7 @@ msgid "diary.eventLog.trigger.light"
 msgstr "强光/闪光"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:46
+#: src/pages/DiaryDashboardPage.jsx:36
 msgid "diary.calendarView"
 msgstr "日历视图"
 
@@ -749,7 +759,7 @@ msgid "profile.lifeLabel"
 msgstr "有困难或不能做到的日常生活："
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:45
+#: src/pages/DiaryDashboardPage.jsx:35
 msgid "diary.daily"
 msgstr "日常记录"
 
@@ -885,8 +895,8 @@ msgid "diary.profile.contactEmergencyMsg"
 msgstr "紧急通知：我目前可能正在经历脑痫发作，请协助我。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:85
-#: src/pages/DiaryDashboardPage.jsx:85
+#: src/pages/DiaryDashboardPage.jsx:74
+#: src/pages/DiaryDashboardPage.jsx:74
 msgid "diary.emergencyVideo"
 msgstr "紧急录像"
 
@@ -926,7 +936,7 @@ msgid "diary.eventLog.saved"
 msgstr "记录已保存！"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:43
+#: src/pages/DiaryDashboardPage.jsx:33
 msgid "diary.dashboard.title"
 msgstr "癫痫及头痛追踪"
 
@@ -959,7 +969,7 @@ msgid "report.fixture.519df040d6"
 msgstr "香港脑痫基金会 PWA 汇出 (Page 3)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:84
+#: src/pages/ResourcePage.jsx:20
 msgid "diary.hub"
 msgstr "香港癫痫基金会 资源中心"
 
@@ -1049,7 +1059,7 @@ msgid "diary.eventLog.notesPlaceholder"
 msgstr "例如：左手抽搐、意识不清约2分钟..."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:30
+#: src/pages/DiaryDashboardPage.jsx:28
 msgid "diary.weekday.fri"
 msgstr "五"
 
@@ -1089,7 +1099,7 @@ msgid "report.fixture.ed147a309e"
 msgstr "手震副作用逐渐改善。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:67
+#: src/pages/DiaryDashboardPage.jsx:57
 msgid "diary.headache"
 msgstr "头痛记录"
 
@@ -1114,13 +1124,13 @@ msgid "setup.operateHeading"
 msgstr "如何操作"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:36
+#: src/pages/ResourcePage.jsx:11
 msgid "diary.hub.about"
 msgstr "ℹ️ 关于我们"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:14
-#: src/pages/DiaryDashboardPage.jsx:62
+#: src/pages/DiaryDashboardPage.jsx:52
 msgid "diary.legend.illness"
 msgstr "疾病/压力"
 
@@ -1232,7 +1242,7 @@ msgid "report.fixture.62f790cc83"
 msgstr "服药"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:59
+#: src/pages/DiaryDashboardPage.jsx:49
 msgid "diary.legend.meds"
 msgstr "服药(绿=吃/黄=漏)"
 
@@ -1254,7 +1264,7 @@ msgid "report.medMissed"
 msgstr "漏服药物"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:70
+#: src/pages/DiaryDashboardPage.jsx:60
 msgid "diary.meds"
 msgstr "服药记录"
 
@@ -1316,7 +1326,7 @@ msgid "profile.t5"
 msgstr "忘记按时服药"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:26
+#: src/pages/DiaryDashboardPage.jsx:24
 msgid "diary.weekday.mon"
 msgstr "一"
 
@@ -1341,7 +1351,7 @@ msgid "report.fixture.fd5436428e"
 msgstr "陈太太（妻子）"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:109
+#: src/pages/DiaryDashboardPage.jsx:98
 msgid "diary.monthMeds"
 msgstr "多频服药(绿/黄)"
 
@@ -1351,7 +1361,7 @@ msgid "playlist.mute"
 msgstr "静音"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:75
+#: src/pages/DiaryDashboardPage.jsx:65
 msgid "diary.medicalData"
 msgstr "我的医疗资料"
 
@@ -1516,7 +1526,7 @@ msgid "report.fixture.1483158f58"
 msgstr "其他 (Others)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:47
+#: src/pages/DiaryDashboardPage.jsx:37
 msgid "diary.past7"
 msgstr "过去 7 天"
 
@@ -1527,8 +1537,8 @@ msgstr "暂停"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:13
-#: src/pages/DiaryDashboardPage.jsx:61
-#: src/pages/DiaryDashboardPage.jsx:109
+#: src/pages/DiaryDashboardPage.jsx:51
+#: src/pages/DiaryDashboardPage.jsx:98
 msgid "diary.legend.period"
 msgstr "生理期"
 
@@ -1539,7 +1549,7 @@ msgid "report.periodIllness"
 msgstr "生理期/疾病"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:77
+#: src/pages/DiaryDashboardPage.jsx:67
 msgid "diary.profile"
 msgstr "个人医疗档案"
 
@@ -1564,12 +1574,12 @@ msgid "profile.a1"
 msgstr "身体感觉 (刺痛/麻木)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:111
+#: src/pages/DiaryDashboardPage.jsx:100
 msgid "diary.healthTitle"
 msgstr "生理及健康状况"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:72
+#: src/pages/DiaryDashboardPage.jsx:62
 msgid "diary.health"
 msgstr "生理及健康"
 
@@ -1625,7 +1635,7 @@ msgid "profile.surgeries"
 msgstr "曾做过的手术"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:83
+#: src/pages/DiaryDashboardPage.jsx:73
 msgid "diary.privacy"
 msgstr "隐私保障：资料仅储存于本机或您的云端，绝不上传至基金会。"
 
@@ -1719,6 +1729,11 @@ msgid "report.period"
 msgstr "报告生成区间"
 
 #. js-lingui-explicit-id
+#: src/components/BottomNav.jsx:20
+msgid "nav.resource"
+msgstr "资源"
+
+#. js-lingui-explicit-id
 #: src/components/diary/InvestigationCard.jsx:48
 msgid "profile.result"
 msgstr "结果 (Result)"
@@ -1739,7 +1754,7 @@ msgid "action.safe"
 msgstr "望"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:31
+#: src/pages/DiaryDashboardPage.jsx:29
 msgid "diary.weekday.sat"
 msgstr "六"
 
@@ -1795,7 +1810,7 @@ msgid "report.fixture.6b9307910c"
 msgstr "发作频率减半，仍有突破性发作。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:66
+#: src/pages/DiaryDashboardPage.jsx:56
 msgid "diary.seizure"
 msgstr "癫痫记录"
 
@@ -1816,8 +1831,8 @@ msgstr "无发作天数"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:12
-#: src/pages/DiaryDashboardPage.jsx:60
-#: src/pages/DiaryDashboardPage.jsx:109
+#: src/pages/DiaryDashboardPage.jsx:50
+#: src/pages/DiaryDashboardPage.jsx:98
 msgid "diary.legend.event"
 msgstr "发作/头痛"
 
@@ -1827,7 +1842,7 @@ msgid "report.fixture.f525bfca0b"
 msgstr "发作次数下降，无出疹过敏反应。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:91
+#: src/pages/DiaryDashboardPage.jsx:80
 msgid "diary.monthTitle"
 msgstr "2026年 9月 记录"
 
@@ -1863,7 +1878,7 @@ msgid "action.side"
 msgstr "相"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:71
+#: src/pages/DiaryDashboardPage.jsx:61
 msgid "diary.sideEffects"
 msgstr "副作用"
 
@@ -1981,7 +1996,7 @@ msgid "report.fixture.e92943ac50"
 msgstr "Suboptimal control: 压力引发密集 FIAS，加入二线药物。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:25
+#: src/pages/DiaryDashboardPage.jsx:23
 msgid "diary.weekday.sun"
 msgstr "日"
 
@@ -2032,12 +2047,12 @@ msgid "faq.answer4"
 msgstr "计数器显示所有用户点击过应用动作按钮的总次数。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:48
+#: src/pages/DiaryDashboardPage.jsx:38
 msgid "diary.thisWeek"
 msgstr "本周"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:29
+#: src/pages/DiaryDashboardPage.jsx:27
 msgid "diary.weekday.thu"
 msgstr "四"
 
@@ -2077,7 +2092,7 @@ msgid "profile.triggers"
 msgstr "诱因与生活影响"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:27
+#: src/pages/DiaryDashboardPage.jsx:25
 msgid "diary.weekday.tue"
 msgstr "二"
 
@@ -2112,7 +2127,7 @@ msgid "diary.eventLog.unsavedTitle"
 msgstr "尚未保存"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:109
+#: src/pages/DiaryDashboardPage.jsx:98
 msgid "diary.monthIllness"
 msgstr "URTI/手术/压力等"
 
@@ -2147,7 +2162,7 @@ msgid "profile.t7"
 msgstr "天气转变"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:28
+#: src/pages/DiaryDashboardPage.jsx:26
 msgid "diary.weekday.wed"
 msgstr "三"
 

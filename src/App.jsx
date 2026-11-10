@@ -13,6 +13,7 @@ import EventLogPage from './pages/EventLogPage';
 import ProfilePage from './pages/ProfilePage';
 import ReportLevelAPage from './pages/ReportLevelAPage';
 import ReportLevelBPage from './pages/ReportLevelBPage';
+import ResourcePage from './pages/ResourcePage';
 
 // App shell (PLAN06 M13): owns the shared chrome (header + bottom nav),
 // the route table, and cross-route state. The visit counter is hoisted
@@ -65,6 +66,7 @@ export function AppRoutes() {
         <Route path="/diary/profile" element={<ProfilePage />} />
         <Route path="/diary/report/level-a" element={<ReportLevelAPage />} />
         <Route path="/diary/report/level-b" element={<ReportLevelBPage />} />
+        <Route path="/resource" element={<ResourcePage />} />
       </Routes>
       {!isReport && <BottomNav hidden={chromeHidden} />}
     </main>
