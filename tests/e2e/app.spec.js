@@ -87,3 +87,21 @@ test('includes generated PWA assets', async ({ page }) => {
   await expect(page.locator('link[rel="manifest"]')).toHaveAttribute('href', /manifest/);
   await expect(page.getByRole('heading', { name: "Be Aware n' Be Around" })).toBeVisible();
 });
+
+test('event log keeps shell, selections across languages and returns to diary', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('link', { name: '日記', exact: true }).click();
+  await page.locator('#btn-attack').click();
+  await expect(page).toHaveURL(/\/diary\/event-log$/);
+  await expect(page.locator('.app-header')).toBeVisible();
+  await expect(page.locator('.bottom-nav a[href="/diary"]')).toHaveAttribute('aria-current', 'page');
+  await page.getByRole('button', { name: '無預兆' }).click();
+  await page.getByRole('button', { name: '語言' }).click();
+  await page.getByRole('menuitem', { name: 'EN', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'No Aura' })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('Entry saved!');
+  await expect(page.getByRole('status')).toHaveCount(0);
+  await page.getByRole('button', { name: '← Cancel' }).click();
+  await expect(page).toHaveURL(/\/diary$/);
+});

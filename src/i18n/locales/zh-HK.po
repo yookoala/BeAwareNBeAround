@@ -144,6 +144,11 @@ msgid "diary.profileDesc"
 msgstr "(選填) 建議填寫綜合診斷資料、發作類型、腦電圖等數據，有助於為您的主診醫生生成更精準完整的 PDF 報告。"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:71
+msgid "diary.eventLog.cancel"
+msgstr "← 取消"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:146
 msgid "video.label"
 msgstr "▶️ 急性腦癇發作處理動畫"
@@ -187,6 +192,11 @@ msgstr "🌐 社交媒體"
 #: src/pages/DiaryDashboardPage.jsx:33
 msgid "diary.hub.donate"
 msgstr "💖 捐款支持"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:103
+msgid "diary.eventLog.videoHelp"
+msgstr "💡 剛才如果有進行「緊急錄影」，影片將會自動附在下方。"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:35
@@ -239,6 +249,11 @@ msgid "footer.linkLabel"
 msgstr "🔗 了解更多 Epilepsy Foundation HK"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:54
+msgid "diary.eventLog.aura.abdominal"
+msgstr "腹部 (胃部不適/向上移)"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:171
 msgid "faq.answer1"
 msgstr "點擊按鍵會播放預錄的語音。請檢查媒體音量、關閉靜音模式；若音訊未能載入，請重新整理頁面。"
@@ -254,6 +269,11 @@ msgid "header.subtitle"
 msgstr "處理急性腦癇發作的口訣"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:63
+msgid "diary.eventLog.trigger.alcohol"
+msgstr "飲酒"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:153
 msgid "setup.androidLabel"
 msgstr "Android："
@@ -262,6 +282,21 @@ msgstr "Android："
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.environmentLabel"
 msgstr "評估環境："
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:51
+msgid "diary.eventLog.aura.auditory"
+msgstr "聽覺 (如耳鳴/雜音)"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:93
+msgid "diary.eventLog.auras"
+msgstr "預兆 (可多選)"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:55
+msgid "diary.eventLog.aura.autonomic"
+msgstr "自律神經 (心悸/流汗)"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:163
@@ -294,6 +329,11 @@ msgid "whatIs.tagline2"
 msgstr "Be Aware：不要壓制。Be Around：保護並陪伴。"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:65
+msgid "diary.eventLog.trigger.light"
+msgstr "強光/閃光"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:41
 msgid "diary.calendarView"
 msgstr "日曆檢視"
@@ -320,9 +360,19 @@ msgid "diary.close"
 msgstr "關閉"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:45
+msgid "diary.eventLog.cluster"
+msgstr "叢集 / 連續多次"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:40
 msgid "diary.daily"
 msgstr "日常記錄"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:86
+msgid "diary.eventLog.decrease"
+msgstr "減少發作次數"
 
 #. js-lingui-explicit-id
 #: src/components/BottomNav.jsx:16
@@ -361,6 +411,11 @@ msgid "diary.emergencyVideo"
 msgstr "緊急錄影"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:105
+msgid "diary.eventLog.saved"
+msgstr "記錄已儲存！"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:38
 msgid "diary.dashboard.title"
 msgstr "腦癇及頭痛追蹤"
@@ -374,6 +429,16 @@ msgstr "香港腦癇基金會"
 #: src/pages/DiaryDashboardPage.jsx:79
 msgid "diary.hub"
 msgstr "香港腦癇基金會 資源中心"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:84
+msgid "diary.eventLog.estimatedCount"
+msgstr "估計發作次數"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:61
+msgid "diary.eventLog.trigger.illness"
+msgstr "發燒/感冒"
 
 #. js-lingui-explicit-id
 #: src/components/BottomNav.jsx:12
@@ -394,6 +459,11 @@ msgstr "指南及日記"
 #: src/components/FirstAidPlaylist.jsx:90
 msgid "playlist.cardLabel"
 msgstr "急救語音指引"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:102
+msgid "diary.eventLog.notesPlaceholder"
+msgstr "例如：左手抽搐、意識不清約2分鐘..."
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:25
@@ -437,6 +507,11 @@ msgid "diary.legend.illness"
 msgstr "疾病/壓力"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:88
+msgid "diary.eventLog.increase"
+msgstr "增加發作次數"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:173
 msgid "faq.answer3"
 msgstr "首次成功載入後，安裝此 PWA 或加入主畫面即可離線使用。"
@@ -463,6 +538,11 @@ msgid "playlist.loading"
 msgstr "載入中…"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:40
+msgid "diary.eventLog.major"
+msgstr "大發作"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:54
 msgid "diary.legend.meds"
 msgstr "服藥(綠=吃/黃=漏)"
@@ -471,6 +551,21 @@ msgstr "服藥(綠=吃/黃=漏)"
 #: src/pages/DiaryDashboardPage.jsx:65
 msgid "diary.meds"
 msgstr "服藥記錄"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:62
+msgid "diary.eventLog.trigger.menstruation"
+msgstr "月經"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:41
+msgid "diary.eventLog.minor"
+msgstr "小發作"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:59
+msgid "diary.eventLog.trigger.medication"
+msgstr "忘記依時服藥"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:10
@@ -501,6 +596,16 @@ msgstr "我的醫療資料"
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.dontsText"
 msgstr "切勿壓制患者的動作或把任何物品放入口中。"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:72
+msgid "diary.eventLog.title"
+msgstr "新增記錄"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:48
+msgid "diary.eventLog.aura.none"
+msgstr "無預兆"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:11
@@ -548,6 +653,11 @@ msgstr "生理期"
 #: src/pages/DiaryDashboardPage.jsx:72
 msgid "diary.profile"
 msgstr "個人醫療檔案"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:50
+msgid "diary.eventLog.aura.sensory"
+msgstr "身體感覺 (如麻木/刺痛)"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:101
@@ -601,6 +711,11 @@ msgid "whatIs.supportLabel"
 msgstr "提供支持："
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:52
+msgid "diary.eventLog.aura.psychic"
+msgstr "心理 (如恐懼/似曾相識)"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:170
 msgid "faq.question1"
 msgstr "Q1: 為什麼教育模式沒有聲音？"
@@ -652,6 +767,11 @@ msgid "diary.weekday.sat"
 msgstr "六"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:73
+msgid "diary.eventLog.save"
+msgstr "儲存"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.secureLabel"
 msgstr "清理周邊環境："
@@ -662,6 +782,11 @@ msgid "guide.step4"
 msgstr "尋求協助。陪伴患者直至清醒，若發作超過五分鐘請召喚救護車。"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:101
+msgid "diary.eventLog.notes"
+msgstr "發作描述 / 備註"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:31
 msgid "guide.title"
 msgstr "守望相助 急救指南"
@@ -670,6 +795,16 @@ msgstr "守望相助 急救指南"
 #: src/pages/DiaryDashboardPage.jsx:61
 msgid "diary.seizure"
 msgstr "腦癇記錄"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:80
+msgid "diary.eventLog.severityPattern"
+msgstr "發作程度與模式"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:76
+msgid "diary.eventLog.time"
+msgstr "發作時間"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:12
@@ -698,6 +833,21 @@ msgstr "相"
 #: src/pages/DiaryDashboardPage.jsx:66
 msgid "diary.sideEffects"
 msgstr "副作用"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:44
+msgid "diary.eventLog.single"
+msgstr "單次發作"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:58
+msgid "diary.eventLog.trigger.sleep"
+msgstr "熬夜/睡眠不足"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:53
+msgid "diary.eventLog.aura.smellTaste"
+msgstr "嗅覺/味覺 (不舒服氣味)"
 
 #. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:188
@@ -734,6 +884,11 @@ msgstr "陪伴患者直至完全清醒，並給予平靜的安慰。"
 #: src/pages/FirstAidPage.jsx:20
 msgid "header.slogan"
 msgstr "守、望、相、助"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:60
+msgid "diary.eventLog.trigger.stress"
+msgstr "壓力/緊張"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:20
@@ -776,6 +931,11 @@ msgid "install.fallbackAlert"
 msgstr "請使用瀏覽器的「加入主畫面」選項安裝。"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:97
+msgid "diary.eventLog.triggers"
+msgstr "誘發原因 (可多選)"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:22
 msgid "diary.weekday.tue"
 msgstr "二"
@@ -801,9 +961,19 @@ msgid "playlist.deviceVolume"
 msgstr "請使用裝置的音量按鍵調整音量。"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:49
+msgid "diary.eventLog.aura.visual"
+msgstr "視覺 (如閃光/幻覺)"
+
+#. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:164
 msgid "playlist.volume"
 msgstr "音量"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:64
+msgid "diary.eventLog.trigger.weather"
+msgstr "天氣轉變"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:23

@@ -144,6 +144,11 @@ msgid "diary.profileDesc"
 msgstr "(Optional) Add comprehensive diagnostic information, seizure types, EEG and other data to help generate a more accurate and complete PDF report for your doctor."
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:71
+msgid "diary.eventLog.cancel"
+msgstr "← Cancel"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:146
 msgid "video.label"
 msgstr "▶️ Acute Seizure Management Animation"
@@ -187,6 +192,11 @@ msgstr "🌐 Social media"
 #: src/pages/DiaryDashboardPage.jsx:33
 msgid "diary.hub.donate"
 msgstr "💖 Donate"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:103
+msgid "diary.eventLog.videoHelp"
+msgstr "💡 If you just made an emergency recording, the video will be attached below automatically."
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:35
@@ -239,6 +249,11 @@ msgid "footer.linkLabel"
 msgstr "🔗 Learn more about Epilepsy Foundation HK"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:54
+msgid "diary.eventLog.aura.abdominal"
+msgstr "Abdominal (discomfort/rising sensation)"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:171
 msgid "faq.answer1"
 msgstr "Action buttons play recorded audio. Check the media volume, disable silent mode, and refresh the page if the audio fails to load."
@@ -254,6 +269,11 @@ msgid "header.subtitle"
 msgstr "Acute Seizure Management Slogan"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:63
+msgid "diary.eventLog.trigger.alcohol"
+msgstr "Alcohol"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:153
 msgid "setup.androidLabel"
 msgstr "Android:"
@@ -262,6 +282,21 @@ msgstr "Android:"
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.environmentLabel"
 msgstr "Assess Environment:"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:51
+msgid "diary.eventLog.aura.auditory"
+msgstr "Auditory (e.g. ringing/noise)"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:93
+msgid "diary.eventLog.auras"
+msgstr "Auras (select all that apply)"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:55
+msgid "diary.eventLog.aura.autonomic"
+msgstr "Autonomic (palpitations/sweating)"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:163
@@ -294,6 +329,11 @@ msgid "whatIs.tagline2"
 msgstr "Be Aware: Don't restrain. Be Around: Protect and remain."
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:65
+msgid "diary.eventLog.trigger.light"
+msgstr "Bright/flashing lights"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:41
 msgid "diary.calendarView"
 msgstr "Calendar view"
@@ -320,9 +360,19 @@ msgid "diary.close"
 msgstr "Close"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:45
+msgid "diary.eventLog.cluster"
+msgstr "Cluster / repeated seizures"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:40
 msgid "diary.daily"
 msgstr "Daily records"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:86
+msgid "diary.eventLog.decrease"
+msgstr "Decrease seizure count"
 
 #. js-lingui-explicit-id
 #: src/components/BottomNav.jsx:16
@@ -361,6 +411,11 @@ msgid "diary.emergencyVideo"
 msgstr "Emergency video"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:105
+msgid "diary.eventLog.saved"
+msgstr "Entry saved!"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:38
 msgid "diary.dashboard.title"
 msgstr "Epilepsy and Headache Tracking"
@@ -374,6 +429,16 @@ msgstr "Epilepsy Foundation of Hong Kong"
 #: src/pages/DiaryDashboardPage.jsx:79
 msgid "diary.hub"
 msgstr "Epilepsy Foundation of Hong Kong Resource Centre"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:84
+msgid "diary.eventLog.estimatedCount"
+msgstr "Estimated number of seizures"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:61
+msgid "diary.eventLog.trigger.illness"
+msgstr "Fever/cold"
 
 #. js-lingui-explicit-id
 #: src/components/BottomNav.jsx:12
@@ -394,6 +459,11 @@ msgstr "First Aid and Diary"
 #: src/components/FirstAidPlaylist.jsx:90
 msgid "playlist.cardLabel"
 msgstr "First aid audio guide"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:102
+msgid "diary.eventLog.notesPlaceholder"
+msgstr "For example: left hand twitching, confused for about 2 minutes..."
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:25
@@ -437,6 +507,11 @@ msgid "diary.legend.illness"
 msgstr "Illness/Stress"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:88
+msgid "diary.eventLog.increase"
+msgstr "Increase seizure count"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:173
 msgid "faq.answer3"
 msgstr "Install this PWA or add it to your home screen after a successful first load."
@@ -463,6 +538,11 @@ msgid "playlist.loading"
 msgstr "Loading…"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:40
+msgid "diary.eventLog.major"
+msgstr "Major seizure"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:54
 msgid "diary.legend.meds"
 msgstr "Medication (green=taken/yellow=missed)"
@@ -471,6 +551,21 @@ msgstr "Medication (green=taken/yellow=missed)"
 #: src/pages/DiaryDashboardPage.jsx:65
 msgid "diary.meds"
 msgstr "Medication record"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:62
+msgid "diary.eventLog.trigger.menstruation"
+msgstr "Menstruation"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:41
+msgid "diary.eventLog.minor"
+msgstr "Minor seizure"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:59
+msgid "diary.eventLog.trigger.medication"
+msgstr "Missed medication"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:10
@@ -501,6 +596,16 @@ msgstr "My medical information"
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.dontsText"
 msgstr "Never restrain movement or place anything in the person's mouth."
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:72
+msgid "diary.eventLog.title"
+msgstr "New Entry"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:48
+msgid "diary.eventLog.aura.none"
+msgstr "No Aura"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:11
@@ -548,6 +653,11 @@ msgstr "Period"
 #: src/pages/DiaryDashboardPage.jsx:72
 msgid "diary.profile"
 msgstr "Personal medical profile"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:50
+msgid "diary.eventLog.aura.sensory"
+msgstr "Physical sensations (e.g. numbness/tingling)"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:101
@@ -601,6 +711,11 @@ msgid "whatIs.supportLabel"
 msgstr "Provide Support:"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:52
+msgid "diary.eventLog.aura.psychic"
+msgstr "Psychological (e.g. fear/déjà vu)"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:170
 msgid "faq.question1"
 msgstr "Q1: Why is there no sound in Education Mode?"
@@ -652,6 +767,11 @@ msgid "diary.weekday.sat"
 msgstr "Sat"
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:73
+msgid "diary.eventLog.save"
+msgstr "Save"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.secureLabel"
 msgstr "Secure the Surroundings:"
@@ -662,6 +782,11 @@ msgid "guide.step4"
 msgstr "Seek help. Stay with them until fully conscious, and call an ambulance if over 5 minutes."
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:101
+msgid "diary.eventLog.notes"
+msgstr "Seizure description / notes"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:31
 msgid "guide.title"
 msgstr "Seizure First Aid Guide"
@@ -670,6 +795,16 @@ msgstr "Seizure First Aid Guide"
 #: src/pages/DiaryDashboardPage.jsx:61
 msgid "diary.seizure"
 msgstr "Seizure record"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:80
+msgid "diary.eventLog.severityPattern"
+msgstr "Seizure severity and pattern"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:76
+msgid "diary.eventLog.time"
+msgstr "Seizure time"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:12
@@ -698,6 +833,21 @@ msgstr "SIDE"
 #: src/pages/DiaryDashboardPage.jsx:66
 msgid "diary.sideEffects"
 msgstr "Side effects"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:44
+msgid "diary.eventLog.single"
+msgstr "Single seizure"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:58
+msgid "diary.eventLog.trigger.sleep"
+msgstr "Sleep deprivation"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:53
+msgid "diary.eventLog.aura.smellTaste"
+msgstr "Smell/taste (unpleasant smells)"
 
 #. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:188
@@ -734,6 +884,11 @@ msgstr "Stay until the person is fully alert and offer calm reassurance."
 #: src/pages/FirstAidPage.jsx:20
 msgid "header.slogan"
 msgstr "STAY, SAFE, SIDE, HELP"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:60
+msgid "diary.eventLog.trigger.stress"
+msgstr "Stress/tension"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:20
@@ -776,6 +931,11 @@ msgid "install.fallbackAlert"
 msgstr "To install, use your browser's Add to Home Screen option."
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:97
+msgid "diary.eventLog.triggers"
+msgstr "Triggers (select all that apply)"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:22
 msgid "diary.weekday.tue"
 msgstr "Tue"
@@ -801,9 +961,19 @@ msgid "playlist.deviceVolume"
 msgstr "Use your device's volume buttons to adjust the volume."
 
 #. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:49
+msgid "diary.eventLog.aura.visual"
+msgstr "Visual (e.g. flashing lights/hallucinations)"
+
+#. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:164
 msgid "playlist.volume"
 msgstr "Volume"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:64
+msgid "diary.eventLog.trigger.weather"
+msgstr "Weather changes"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:23
