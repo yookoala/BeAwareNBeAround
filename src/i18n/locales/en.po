@@ -169,11 +169,6 @@ msgstr ""
 #~ msgstr "☐ Surgery"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:100
-#~ msgid "diary.healthTitle"
-#~ msgstr "Physiological and health conditions"
-
-#. js-lingui-explicit-id
 #: src/data/mockReportB.js:292
 msgid "report.fixture.ba92146327"
 msgstr " Doctor instructed a gradual Valproate taper and introduced Levetiracetam."
@@ -279,7 +274,9 @@ msgstr "#"
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:125
 #: src/pages/EventMenuPage.jsx:52
+#: src/pages/HealthStatePage.jsx:75
 #: src/pages/MedicationEventPage.jsx:19
+#: src/pages/SideEffectsPage.jsx:95
 msgid "diary.eventLog.back"
 msgstr "← Back"
 
@@ -304,6 +301,11 @@ msgid "profile.addAura"
 msgstr "+ Add custom aura"
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:100
+msgid "diary.healthState.addCustom"
+msgstr "+ Add custom condition"
+
+#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:31
 msgid "profile.addCustom"
 msgstr "+ Add custom item"
@@ -317,6 +319,11 @@ msgstr "+ Add investigation"
 #: src/pages/profileMessages.js:26
 msgid "profile.addMed"
 msgstr "+ Add medication"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:157
+msgid "diary.sideEffects.addBtn"
+msgstr "+ Add side effect"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:146
@@ -575,6 +582,8 @@ msgstr "Android:"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:204
+#: src/pages/HealthStatePage.jsx:126
+#: src/pages/SideEffectsPage.jsx:183
 msgid "diary.eventLog.unsavedPrompt"
 msgstr "Are you sure you want to leave without saving?"
 
@@ -720,6 +729,11 @@ msgid "diary.eventLog.cluster"
 msgstr "Cluster / repeated seizures"
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:33
+msgid "diary.healthState.urti"
+msgstr "Cold (URTI)"
+
+#. js-lingui-explicit-id
 #: src/pages/MedicationEventPage.jsx:26
 msgid "diary.comingSoon"
 msgstr "Coming soon"
@@ -728,6 +742,11 @@ msgstr "Coming soon"
 #: src/pages/profileMessages.js:12
 msgid "profile.auras"
 msgstr "Common seizure auras"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:114
+msgid "diary.sideEffects.commonTitle"
+msgstr "Common side effects (select all that apply)"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:21
@@ -816,14 +835,29 @@ msgid "nav.diary"
 msgstr "Diary"
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:35
+msgid "diary.sideEffects.dizziness"
+msgstr "Dizziness/unsteadiness"
+
+#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:15
 msgid "profile.doctor"
 msgstr "Doctor name"
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:121
+msgid "diary.sideEffects.manageDone"
+msgstr "Done"
+
+#. js-lingui-explicit-id
 #: src/data/mockReportB.js:93
 msgid "report.fixture.a38b5988c5"
 msgstr "Dose and frequency"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:34
+msgid "diary.sideEffects.drowsiness"
+msgstr "Drowsiness/fatigue"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:50
@@ -928,14 +962,29 @@ msgid "report.fixture.27eefa5237"
 msgstr "End date"
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:116
+msgid "diary.healthState.notesPlaceholder"
+msgstr "Enter any additional physiological or health remarks..."
+
+#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:30
 msgid "profile.auraPlaceholder"
 msgstr "Enter custom aura..."
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:99
+msgid "diary.healthState.customPlaceholder"
+msgstr "Enter custom condition..."
+
+#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:24
 msgid "profile.allergiesPlaceholder"
 msgstr "Enter medication allergies..."
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:154
+msgid "diary.sideEffects.addPlaceholder"
+msgstr "Enter new side effect..."
 
 #. js-lingui-explicit-id
 #: src/pages/profileMessages.js:20
@@ -954,6 +1003,8 @@ msgstr "Enter surgical history..."
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:216
+#: src/pages/HealthStatePage.jsx:138
+#: src/pages/SideEffectsPage.jsx:195
 msgid "diary.eventLog.saved"
 msgstr "Entry saved!"
 
@@ -1026,6 +1077,16 @@ msgid "report.fixture.5b4fadcf5c"
 msgstr "Export date: 2026-09-20 | Page: 3 / 3"
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:164
+msgid "diary.sideEffects.notes"
+msgstr "Extra observations / notes"
+
+#. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:35
+msgid "diary.healthState.stress"
+msgstr "Extreme sadness/stress"
+
+#. js-lingui-explicit-id
 #: src/data/mockReportB.js:70
 msgid "report.fixture.79efc63abc"
 msgstr "Family History"
@@ -1081,6 +1142,11 @@ msgid "diary.eventLog.notesPlaceholder"
 msgstr "For example: left hand twitching, confused for about 2 minutes..."
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:173
+msgid "diary.sideEffects.notesPlaceholder"
+msgstr "For example: occurred 2 hours after taking medication..."
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:28
 msgid "diary.weekday.fri"
 msgstr "Fri"
@@ -1116,6 +1182,11 @@ msgid "profile.l8"
 msgstr "Going out with friends"
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:36
+msgid "diary.sideEffects.tremor"
+msgstr "Hand tremor"
+
+#. js-lingui-explicit-id
 #: src/data/mockReportB.js:124
 msgid "report.fixture.ed147a309e"
 msgstr "Hand tremor gradually improved."
@@ -1141,6 +1212,16 @@ msgstr "Headache severity and pattern"
 #: src/pages/EventLogPage.jsx:113
 msgid "diary.headacheLog.time"
 msgstr "Headache time"
+
+#. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:107
+msgid "diary.healthState.notes"
+msgstr "Health condition notes"
+
+#. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:93
+msgid "diary.healthState.selectTitle"
+msgstr "Health conditions (select all that apply)"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:29
@@ -1216,6 +1297,8 @@ msgstr "Language"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:211
+#: src/pages/HealthStatePage.jsx:133
+#: src/pages/SideEffectsPage.jsx:190
 msgid "diary.eventLog.leave"
 msgstr "Leave"
 
@@ -1258,6 +1341,11 @@ msgstr "Male"
 #: src/data/mockReportA.js:13
 msgid "report.fixture.af4d7b397c"
 msgstr "Male / 45 years"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:122
+msgid "diary.sideEffects.manage"
+msgstr "Manage side effects"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:71
@@ -1325,6 +1413,16 @@ msgstr "Medication taken"
 #: src/pages/profileMessages.js:55
 msgid "profile.l7"
 msgstr "Memory decline"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:37
+msgid "diary.sideEffects.memory"
+msgstr "Memory/concentration decline"
+
+#. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:32
+msgid "diary.healthState.period"
+msgstr "Menstrual period"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:46
@@ -1397,6 +1495,11 @@ msgid "report.mon"
 msgstr "Mon"
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:38
+msgid "diary.sideEffects.mood"
+msgstr "Mood swings/irritability"
+
+#. js-lingui-explicit-id
 #: src/components/diary/InvestigationCard.jsx:6
 msgid "profile.mri"
 msgstr "MRI"
@@ -1440,6 +1543,11 @@ msgstr "Name"
 #: src/data/mockReportA.js:12
 msgid "report.fixture.cc8b6b96d2"
 msgstr "Name:"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:40
+msgid "diary.sideEffects.gi"
+msgstr "Nausea/GI upset"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:165
@@ -1635,6 +1743,11 @@ msgid "profile.a1"
 msgstr "Physical sensations (tingling/numbness)"
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:76
+msgid "diary.healthTitle"
+msgstr "Physiological and health conditions"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:45
 #: src/pages/EventMenuPage.jsx:39
 msgid "diary.health"
@@ -1747,6 +1860,12 @@ msgid "whatIs.recognizeLabel"
 msgstr "Recognize & Time:"
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:80
+#: src/pages/SideEffectsPage.jsx:100
+msgid "diary.recordTime"
+msgstr "Record time"
+
+#. js-lingui-explicit-id
 #: src/components/diary/ContactCard.jsx:27
 #: src/components/diary/ContactCard.jsx:31
 msgid "profile.relationship"
@@ -1756,6 +1875,11 @@ msgstr "Relationship"
 #: src/components/diary/InvestigationCard.jsx:58
 msgid "profile.remark"
 msgstr "Remark"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:131
+msgid "diary.sideEffects.removePrefix"
+msgstr "Remove"
 
 #. js-lingui-explicit-id
 #: src/components/diary/ContactCard.jsx:11
@@ -1827,6 +1951,8 @@ msgstr "Sat"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:127
+#: src/pages/HealthStatePage.jsx:77
+#: src/pages/SideEffectsPage.jsx:97
 msgid "diary.eventLog.save"
 msgstr "Save"
 
@@ -1949,6 +2075,7 @@ msgstr "SIDE"
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:49
 #: src/pages/EventMenuPage.jsx:33
+#: src/pages/SideEffectsPage.jsx:96
 msgid "diary.sideEffects"
 msgstr "Side effects"
 
@@ -1976,6 +2103,11 @@ msgstr "Single headache · Stress/tension"
 #: src/pages/EventLogPage.jsx:85
 msgid "diary.eventLog.single"
 msgstr "Single seizure"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:39
+msgid "diary.sideEffects.rash"
+msgstr "Skin rash/allergy"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:99
@@ -2032,6 +2164,8 @@ msgstr "Status:"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:208
+#: src/pages/HealthStatePage.jsx:130
+#: src/pages/SideEffectsPage.jsx:187
 msgid "diary.eventLog.stay"
 msgstr "Stay"
 
@@ -2084,6 +2218,11 @@ msgstr "Sun"
 #: src/components/diary/MiniMonth.jsx:8
 msgid "report.sun"
 msgstr "Sun"
+
+#. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:34
+msgid "diary.healthState.surgery"
+msgstr "Surgery"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:213
@@ -2203,6 +2342,8 @@ msgstr "Unmute"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:200
+#: src/pages/HealthStatePage.jsx:122
+#: src/pages/SideEffectsPage.jsx:179
 msgid "diary.eventLog.unsavedTitle"
 msgstr "Unsaved changes"
 
@@ -2250,6 +2391,11 @@ msgstr "Wed"
 #: src/components/diary/MiniMonth.jsx:8
 msgid "report.wed"
 msgstr "Wed"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:41
+msgid "diary.sideEffects.weight"
+msgstr "Weight change"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:142

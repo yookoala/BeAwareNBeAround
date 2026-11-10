@@ -75,6 +75,15 @@ body.page-event-log .coming-soon-card { margin: 24px 16px; padding: 36px 20px; b
 body.page-event-log .coming-soon-icon { font-size: 36px; width: 64px; height: 64px; border-radius: 50%; background: var(--efhk-flame-light); display: flex; align-items: center; justify-content: center; }
 body.page-event-log .coming-soon-text { font-size: 16px; font-weight: 700; color: var(--text-secondary); }
 
+body.page-event-log .manage-btn { background: none; border: none; color: var(--efhk-flame); font-size: 13px; font-weight: 700; cursor: pointer; padding: 0; }
+body.page-event-log .side-effect-manage-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 20px; background-color: var(--tag-bg); border: 1px solid var(--border-color); font-size: 14px; color: var(--text-primary); }
+body.page-event-log .chip-remove-btn { background: none; border: none; color: var(--record-red); font-size: 16px; font-weight: 700; cursor: pointer; line-height: 1; padding: 0 2px; }
+body.page-event-log .side-effect-add-row { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+body.page-event-log .form-control { width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; font-family: inherit; background-color: var(--bg-color); color: var(--text-primary); }
+body.page-event-log .input-group { position: relative; margin-bottom: 8px; }
+body.page-event-log .custom-remove { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--record-red); font-weight: 700; cursor: pointer; }
+body.page-event-log .add-btn { width: 100%; padding: 10px; border: 1px dashed var(--efhk-flame); border-radius: 8px; background: var(--efhk-flame-light); color: var(--efhk-flame); font-size: 13px; font-weight: 700; cursor: pointer; }
+
 /* View Transitions between Diary Dashboard and Event Log (sliding from/to the right) */
 @keyframes vtSlideFromRight {
   from { transform: translateX(100%); }

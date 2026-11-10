@@ -169,11 +169,6 @@ msgstr ""
 #~ msgstr "☐ 手術"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:100
-#~ msgid "diary.healthTitle"
-#~ msgstr "生理及健康狀況"
-
-#. js-lingui-explicit-id
 #: src/data/mockReportB.js:292
 msgid "report.fixture.ba92146327"
 msgstr " 醫師指示開始逐步減量 Valproate，並引入 Levetiracetam。"
@@ -279,7 +274,9 @@ msgstr "數"
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:125
 #: src/pages/EventMenuPage.jsx:52
+#: src/pages/HealthStatePage.jsx:75
 #: src/pages/MedicationEventPage.jsx:19
+#: src/pages/SideEffectsPage.jsx:95
 msgid "diary.eventLog.back"
 msgstr "← 返回"
 
@@ -304,6 +301,11 @@ msgid "profile.addAura"
 msgstr "+ 新增自訂預兆"
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:100
+msgid "diary.healthState.addCustom"
+msgstr "+ 新增自訂狀況"
+
+#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:31
 msgid "profile.addCustom"
 msgstr "+ 新增自訂項目"
@@ -317,6 +319,11 @@ msgstr "+ 新增檢查紀錄"
 #: src/pages/profileMessages.js:26
 msgid "profile.addMed"
 msgstr "+ 新增藥物"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:157
+msgid "diary.sideEffects.addBtn"
+msgstr "+ 新增副作用"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:146
@@ -575,6 +582,8 @@ msgstr "Android："
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:204
+#: src/pages/HealthStatePage.jsx:126
+#: src/pages/SideEffectsPage.jsx:183
 msgid "diary.eventLog.unsavedPrompt"
 msgstr "您有尚未儲存的更改，確定要離開嗎？"
 
@@ -720,6 +729,11 @@ msgid "diary.eventLog.cluster"
 msgstr "叢集 / 連續多次"
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:33
+msgid "diary.healthState.urti"
+msgstr "傷風感冒 (URTI)"
+
+#. js-lingui-explicit-id
 #: src/pages/MedicationEventPage.jsx:26
 msgid "diary.comingSoon"
 msgstr "即將推出"
@@ -728,6 +742,11 @@ msgstr "即將推出"
 #: src/pages/profileMessages.js:12
 msgid "profile.auras"
 msgstr "常見發作預兆 (Auras)"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:114
+msgid "diary.sideEffects.commonTitle"
+msgstr "常見副作用 (可多選)"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:21
@@ -816,14 +835,29 @@ msgid "nav.diary"
 msgstr "日記"
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:35
+msgid "diary.sideEffects.dizziness"
+msgstr "頭暈/不穩"
+
+#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:15
 msgid "profile.doctor"
 msgstr "醫生姓名"
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:121
+msgid "diary.sideEffects.manageDone"
+msgstr "完成管理"
+
+#. js-lingui-explicit-id
 #: src/data/mockReportB.js:93
 msgid "report.fixture.a38b5988c5"
 msgstr "劑量與頻率"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:34
+msgid "diary.sideEffects.drowsiness"
+msgstr "嗜睡/疲倦"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:50
@@ -928,14 +962,29 @@ msgid "report.fixture.27eefa5237"
 msgstr "結束日期"
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:116
+msgid "diary.healthState.notesPlaceholder"
+msgstr "輸入其他生理或健康狀況備註..."
+
+#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:30
 msgid "profile.auraPlaceholder"
 msgstr "輸入自訂預兆..."
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:99
+msgid "diary.healthState.customPlaceholder"
+msgstr "輸入自訂狀況..."
+
+#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:24
 msgid "profile.allergiesPlaceholder"
 msgstr "輸入過敏藥物名稱..."
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:154
+msgid "diary.sideEffects.addPlaceholder"
+msgstr "輸入新增副作用..."
 
 #. js-lingui-explicit-id
 #: src/pages/profileMessages.js:20
@@ -954,6 +1003,8 @@ msgstr "輸入手術紀錄..."
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:216
+#: src/pages/HealthStatePage.jsx:138
+#: src/pages/SideEffectsPage.jsx:195
 msgid "diary.eventLog.saved"
 msgstr "記錄已儲存！"
 
@@ -1026,6 +1077,16 @@ msgid "report.fixture.5b4fadcf5c"
 msgstr "匯出日期：2026-09-20 | 頁數：3 / 3"
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:164
+msgid "diary.sideEffects.notes"
+msgstr "額外觀察 / 備註"
+
+#. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:35
+msgid "diary.healthState.stress"
+msgstr "極度悲傷/壓力"
+
+#. js-lingui-explicit-id
 #: src/data/mockReportB.js:70
 msgid "report.fixture.79efc63abc"
 msgstr "家族病史 (Family History)"
@@ -1081,6 +1142,11 @@ msgid "diary.eventLog.notesPlaceholder"
 msgstr "例如：左手抽搐、意識不清約2分鐘..."
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:173
+msgid "diary.sideEffects.notesPlaceholder"
+msgstr "例如：服藥後兩小時出現..."
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:28
 msgid "diary.weekday.fri"
 msgstr "五"
@@ -1116,6 +1182,11 @@ msgid "profile.l8"
 msgstr "與朋友外出"
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:36
+msgid "diary.sideEffects.tremor"
+msgstr "手部震顫"
+
+#. js-lingui-explicit-id
 #: src/data/mockReportB.js:124
 msgid "report.fixture.ed147a309e"
 msgstr "手震副作用逐漸改善。"
@@ -1141,6 +1212,16 @@ msgstr "頭痛程度與模式"
 #: src/pages/EventLogPage.jsx:113
 msgid "diary.headacheLog.time"
 msgstr "頭痛時間"
+
+#. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:107
+msgid "diary.healthState.notes"
+msgstr "健康狀況備註"
+
+#. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:93
+msgid "diary.healthState.selectTitle"
+msgstr "健康狀況 (可多選)"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:29
@@ -1216,6 +1297,8 @@ msgstr "語言"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:211
+#: src/pages/HealthStatePage.jsx:133
+#: src/pages/SideEffectsPage.jsx:190
 msgid "diary.eventLog.leave"
 msgstr "確定離開"
 
@@ -1258,6 +1341,11 @@ msgstr "男 (Male)"
 #: src/data/mockReportA.js:13
 msgid "report.fixture.af4d7b397c"
 msgstr "男 / 45歲"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:122
+msgid "diary.sideEffects.manage"
+msgstr "管理副作用項目"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:71
@@ -1325,6 +1413,16 @@ msgstr "已服藥"
 #: src/pages/profileMessages.js:55
 msgid "profile.l7"
 msgstr "記憶力下降"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:37
+msgid "diary.sideEffects.memory"
+msgstr "記憶力/專注力下降"
+
+#. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:32
+msgid "diary.healthState.period"
+msgstr "女性生理期"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:46
@@ -1397,6 +1495,11 @@ msgid "report.mon"
 msgstr "一"
 
 #. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:38
+msgid "diary.sideEffects.mood"
+msgstr "情緒波動/易怒"
+
+#. js-lingui-explicit-id
 #: src/components/diary/InvestigationCard.jsx:6
 msgid "profile.mri"
 msgstr "磁力共振 (MRI)"
@@ -1440,6 +1543,11 @@ msgstr "姓名"
 #: src/data/mockReportA.js:12
 msgid "report.fixture.cc8b6b96d2"
 msgstr "姓名："
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:40
+msgid "diary.sideEffects.gi"
+msgstr "噁心/腸胃不適"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:165
@@ -1635,6 +1743,11 @@ msgid "profile.a1"
 msgstr "身體感覺 (刺痛/麻木)"
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:76
+msgid "diary.healthTitle"
+msgstr "生理及健康狀況"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:45
 #: src/pages/EventMenuPage.jsx:39
 msgid "diary.health"
@@ -1747,6 +1860,12 @@ msgid "whatIs.recognizeLabel"
 msgstr "辨認與計時："
 
 #. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:80
+#: src/pages/SideEffectsPage.jsx:100
+msgid "diary.recordTime"
+msgstr "記錄時間"
+
+#. js-lingui-explicit-id
 #: src/components/diary/ContactCard.jsx:27
 #: src/components/diary/ContactCard.jsx:31
 msgid "profile.relationship"
@@ -1756,6 +1875,11 @@ msgstr "關係"
 #: src/components/diary/InvestigationCard.jsx:58
 msgid "profile.remark"
 msgstr "備註 (Remark)"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:131
+msgid "diary.sideEffects.removePrefix"
+msgstr "移除"
 
 #. js-lingui-explicit-id
 #: src/components/diary/ContactCard.jsx:11
@@ -1827,6 +1951,8 @@ msgstr "六"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:127
+#: src/pages/HealthStatePage.jsx:77
+#: src/pages/SideEffectsPage.jsx:97
 msgid "diary.eventLog.save"
 msgstr "儲存"
 
@@ -1949,6 +2075,7 @@ msgstr "相"
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:49
 #: src/pages/EventMenuPage.jsx:33
+#: src/pages/SideEffectsPage.jsx:96
 msgid "diary.sideEffects"
 msgstr "副作用"
 
@@ -1976,6 +2103,11 @@ msgstr "單次頭痛 · 壓力/緊張"
 #: src/pages/EventLogPage.jsx:85
 msgid "diary.eventLog.single"
 msgstr "單次發作"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:39
+msgid "diary.sideEffects.rash"
+msgstr "皮疹/過敏"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:99
@@ -2032,6 +2164,8 @@ msgstr "狀態："
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:208
+#: src/pages/HealthStatePage.jsx:130
+#: src/pages/SideEffectsPage.jsx:187
 msgid "diary.eventLog.stay"
 msgstr "繼續編輯"
 
@@ -2084,6 +2218,11 @@ msgstr "日"
 #: src/components/diary/MiniMonth.jsx:8
 msgid "report.sun"
 msgstr "日"
+
+#. js-lingui-explicit-id
+#: src/pages/HealthStatePage.jsx:34
+msgid "diary.healthState.surgery"
+msgstr "手術"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:213
@@ -2203,6 +2342,8 @@ msgstr "取消靜音"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:200
+#: src/pages/HealthStatePage.jsx:122
+#: src/pages/SideEffectsPage.jsx:179
 msgid "diary.eventLog.unsavedTitle"
 msgstr "尚未儲存"
 
@@ -2250,6 +2391,11 @@ msgstr "三"
 #: src/components/diary/MiniMonth.jsx:8
 msgid "report.wed"
 msgstr "三"
+
+#. js-lingui-explicit-id
+#: src/pages/SideEffectsPage.jsx:41
+msgid "diary.sideEffects.weight"
+msgstr "體重變化"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:142
