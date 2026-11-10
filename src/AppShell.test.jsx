@@ -92,15 +92,14 @@ test('renders the bottom nav on every route with the active tab marked', async (
   expect(diaryTab.querySelector('svg')).toBeInTheDocument();
 });
 
-test('switches to the diary placeholder and back via the bottom nav without re-counting the visit', async () => {
+test('switches to the diary dashboard and back via the bottom nav without re-counting the visit', async () => {
   const { counter } = renderShell(['/']);
 
   expect(await screen.findByRole('heading', { name: "Be Aware n' Be Around" })).toBeInTheDocument();
   expect(visitPosts(counter.requests)).toHaveLength(1);
 
   fireEvent.click(screen.getByRole('link', { name: '日記' }));
-  expect(await screen.findByRole('heading', { name: '日記功能即將推出' })).toBeInTheDocument();
-  expect(screen.getByText('日記功能正在開發中，敬請期待。')).toBeInTheDocument();
+  expect(await screen.findByRole('heading', { name: '腦癇及頭痛追蹤' })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: '日記' })).toHaveAttribute('aria-current', 'page');
   expect(screen.getByRole('link', { name: '指南' })).not.toHaveAttribute('aria-current');
 
@@ -112,7 +111,7 @@ test('switches to the diary placeholder and back via the bottom nav without re-c
 test('renders the shared app header on the diary route too and navigates Home when clicking the brand link', async () => {
   renderShell(['/diary']);
 
-  expect(await screen.findByRole('heading', { name: '日記功能即將推出' })).toBeInTheDocument();
+  expect(await screen.findByRole('heading', { name: '腦癇及頭痛追蹤' })).toBeInTheDocument();
   expect(screen.getByRole('button', { name: '語言' })).toBeInTheDocument();
 
   fireEvent.click(screen.getByRole('link', { name: /腦癎錦囊/ }));
