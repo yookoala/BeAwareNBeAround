@@ -11,6 +11,7 @@ import FirstAidPage from './pages/FirstAidPage';
 import DiaryDashboardPage from './pages/DiaryDashboardPage';
 import EventMenuPage from './pages/EventMenuPage';
 import EventLogPage from './pages/EventLogPage';
+import MedicationEventPage from './pages/MedicationEventPage';
 import ProfilePage from './pages/ProfilePage';
 import ReportLevelAPage from './pages/ReportLevelAPage';
 import ReportLevelBPage from './pages/ReportLevelBPage';
@@ -65,7 +66,9 @@ export function AppRoutes() {
         <Route path="/" element={<FirstAidPage counter={counter} language={language} />} />
         <Route path="/diary" element={<DiaryDashboardPage />} />
         <Route path="/diary/event" element={<EventMenuPage />} />
-        <Route path="/diary/event-log" element={<EventLogPage />} />
+        <Route path="/diary/event/seizure" element={<EventLogPage key="seizure" variant="seizure" />} />
+        <Route path="/diary/event/headache" element={<EventLogPage key="headache" variant="headache" />} />
+        <Route path="/diary/event/medication" element={<MedicationEventPage />} />
         <Route path="/diary/profile" element={<ProfilePage />} />
         <Route path="/diary/report/level-a" element={<ReportLevelAPage />} />
         <Route path="/diary/report/level-b" element={<ReportLevelBPage />} />

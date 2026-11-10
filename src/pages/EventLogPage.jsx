@@ -10,7 +10,8 @@ import '../styles/event-log.css';
 
 const DEFAULT_DATETIME = '2026-09-17T17:30';
 
-export default function EventLogPage() {
+export default function EventLogPage({ variant = 'seizure' }) {
+  const isHeadache = variant === 'headache';
   const navigate = useNavigate();
   usePageBodyClass('page-event-log');
   const [eventTime, setEventTime] = useState(DEFAULT_DATETIME);
@@ -55,25 +56,35 @@ export default function EventLogPage() {
     setIsDirty(false);
     setSaveCount((count) => count + 1);
   }
-  function leaveToDiary() {
+  function leaveToMenu() {
     setLeaveConfirmOpen(false);
-    navigateWithViewTransition(navigate, '/diary', 'vt-slide-out-right');
+    navigateWithViewTransition(navigate, '/diary/event', 'vt-slide-out-right');
   }
   function handleBack() {
     if (isDirty) {
       setLeaveConfirmOpen(true);
       return;
     }
-    leaveToDiary();
+    leaveToMenu();
   }
-  const severityOptions = [
-    { value: 'major', label: t({ id: 'diary.eventLog.major', message: 'Major seizure' }) },
-    { value: 'minor', label: t({ id: 'diary.eventLog.minor', message: 'Minor seizure' }) },
-  ];
-  const patternOptions = [
-    { value: 'single', label: t({ id: 'diary.eventLog.single', message: 'Single seizure' }) },
-    { value: 'cluster', label: t({ id: 'diary.eventLog.cluster', message: 'Cluster / repeated seizures' }) },
-  ];
+  const severityOptions = isHeadache
+    ? [
+        { value: 'major', label: t({ id: 'diary.headacheLog.major', message: 'Severe headache' }) },
+        { value: 'minor', label: t({ id: 'diary.headacheLog.minor', message: 'Mild/moderate headache' }) },
+      ]
+    : [
+        { value: 'major', label: t({ id: 'diary.eventLog.major', message: 'Major seizure' }) },
+        { value: 'minor', label: t({ id: 'diary.eventLog.minor', message: 'Minor seizure' }) },
+      ];
+  const patternOptions = isHeadache
+    ? [
+        { value: 'single', label: t({ id: 'diary.headacheLog.single', message: 'Single headache' }) },
+        { value: 'cluster', label: t({ id: 'diary.headacheLog.cluster', message: 'Cluster / repeated headaches' }) },
+      ]
+    : [
+        { value: 'single', label: t({ id: 'diary.eventLog.single', message: 'Single seizure' }) },
+        { value: 'cluster', label: t({ id: 'diary.eventLog.cluster', message: 'Cluster / repeated seizures' }) },
+      ];
   const auraTags = [
     { id: 'none', label: t({ id: 'diary.eventLog.aura.none', message: 'No Aura' }) },
     { id: 'visual', label: t({ id: 'diary.eventLog.aura.visual', message: 'Visual (e.g. flashing lights/hallucinations)' }) },
@@ -95,15 +106,28 @@ export default function EventLogPage() {
     { id: 'light', label: t({ id: 'diary.eventLog.trigger.light', message: 'Bright/flashing lights' }) },
   ];
 
+  const headerTitle = isHeadache
+    ? t({ id: 'diary.headache', message: 'Headache record' })
+    : t({ id: 'diary.seizure', message: 'Seizure record' });
+  const timeLabel = isHeadache
+    ? t({ id: 'diary.headacheLog.time', message: 'Headache time' })
+    : t({ id: 'diary.eventLog.time', message: 'Seizure time' });
+  const severitySectionHeader = isHeadache
+    ? t({ id: 'diary.headacheLog.severityPattern', message: 'Headache severity and pattern' })
+    : t({ id: 'diary.eventLog.severityPattern', message: 'Seizure severity and pattern' });
+  const notesLabel = isHeadache
+    ? t({ id: 'diary.headacheLog.notes', message: 'Headache description / notes' })
+    : t({ id: 'diary.eventLog.notes', message: 'Seizure description / notes' });
+
   return (
     <div className="app-container">
       <header className="diary-subheader">
         <button type="button" className="back-btn" onClick={handleBack}>{t({ id: 'diary.eventLog.back', message: '← Back' })}</button>
-        <div className="header-title">{t({ id: 'diary.eventLog.title', message: 'New Entry' })}</div>
+        <div className="header-title">{headerTitle}</div>
         <button type="button" className="save-btn" onClick={handleSave}>{t({ id: 'diary.eventLog.save', message: 'Save' })}</button>
       </header>
       <div className="form-section" style={{ marginTop: 0, borderTop: 'none' }}>
-        <label className="section-header" htmlFor="event-time">{t({ id: 'diary.eventLog.time', message: 'Seizure time' })}</label>
+        <label className="section-header" htmlFor="event-time">{timeLabel}</label>
         <input
           id="event-time"
           type="datetime-local"
@@ -116,7 +140,7 @@ export default function EventLogPage() {
         />
       </div>
       <div className="form-section">
-        <div className="section-header">{t({ id: 'diary.eventLog.severityPattern', message: 'Seizure severity and pattern' })}</div>
+        <div className="section-header">{severitySectionHeader}</div>
         <OptionGroup id="severity-group" options={severityOptions} value={severity} onSelect={selectSeverity} />
         <OptionGroup id="pattern-group" options={patternOptions} value={pattern} onSelect={selectPattern} />
         <div className={`cluster-counter${pattern === 'cluster' ? ' show' : ''}`} id="cluster-counter" hidden={pattern !== 'cluster'}>
@@ -157,7 +181,7 @@ export default function EventLogPage() {
         <TagCloud tags={triggerTags} selected={triggers} onToggle={toggleTrigger} />
       </div>
       <div className="form-section" style={{ marginBottom: '24px' }}>
-        <label className="section-header" htmlFor="event-notes">{t({ id: 'diary.eventLog.notes', message: 'Seizure description / notes' })}</label>
+        <label className="section-header" htmlFor="event-notes">{notesLabel}</label>
         <textarea
           id="event-notes"
           className="textarea-box"
@@ -183,7 +207,7 @@ export default function EventLogPage() {
             <button type="button" className="unsaved-stay-btn" onClick={() => setLeaveConfirmOpen(false)}>
               {t({ id: 'diary.eventLog.stay', message: 'Stay' })}
             </button>
-            <button type="button" className="unsaved-leave-btn" onClick={leaveToDiary}>
+            <button type="button" className="unsaved-leave-btn" onClick={leaveToMenu}>
               {t({ id: 'diary.eventLog.leave', message: 'Leave' })}
             </button>
           </div>
