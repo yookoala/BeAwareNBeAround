@@ -287,27 +287,27 @@ msgid "video.label"
 msgstr "▶️ Acute Seizure Management Animation"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:102
+#: src/pages/DiaryDashboardPage.jsx:107
 msgid "diary.state.urti"
 msgstr "☐ Cold (URTI)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:102
+#: src/pages/DiaryDashboardPage.jsx:107
 msgid "diary.state.custom"
 msgstr "☐ Custom: ________"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:102
+#: src/pages/DiaryDashboardPage.jsx:107
 msgid "diary.state.stress"
 msgstr "☐ Extreme sadness/stress"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:102
+#: src/pages/DiaryDashboardPage.jsx:107
 msgid "diary.state.period"
 msgstr "☐ Menstrual period"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:102
+#: src/pages/DiaryDashboardPage.jsx:107
 msgid "diary.state.surgery"
 msgstr "☐ Surgery"
 
@@ -1326,7 +1326,7 @@ msgid "report.fixture.fd5436428e"
 msgstr "Mrs. Chan (Wife)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:99
+#: src/pages/DiaryDashboardPage.jsx:104
 msgid "diary.monthMeds"
 msgstr "Multiple medications (green/yellow)"
 
@@ -1513,7 +1513,7 @@ msgstr "Pause"
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:13
 #: src/pages/DiaryDashboardPage.jsx:56
-#: src/pages/DiaryDashboardPage.jsx:99
+#: src/pages/DiaryDashboardPage.jsx:104
 msgid "diary.legend.period"
 msgstr "Period"
 
@@ -1549,7 +1549,7 @@ msgid "profile.a1"
 msgstr "Physical sensations (tingling/numbness)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:101
+#: src/pages/DiaryDashboardPage.jsx:106
 msgid "diary.healthTitle"
 msgstr "Physiological and health conditions"
 
@@ -1802,7 +1802,7 @@ msgstr "Seizure-free days"
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:12
 #: src/pages/DiaryDashboardPage.jsx:55
-#: src/pages/DiaryDashboardPage.jsx:99
+#: src/pages/DiaryDashboardPage.jsx:104
 msgid "diary.legend.event"
 msgstr "Seizure/Headache"
 
@@ -1812,7 +1812,7 @@ msgid "report.fixture.f525bfca0b"
 msgstr "Seizures decreased; no allergic rash."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:81
+#: src/pages/DiaryDashboardPage.jsx:86
 msgid "diary.monthTitle"
 msgstr "September 2026 records"
 
@@ -2087,7 +2087,7 @@ msgid "playlist.unmute"
 msgstr "Unmute"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:99
+#: src/pages/DiaryDashboardPage.jsx:104
 msgid "diary.monthIllness"
 msgstr "URTI/surgery/stress etc."
 

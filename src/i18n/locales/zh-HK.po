@@ -287,27 +287,27 @@ msgid "video.label"
 msgstr "▶️ 急性腦癇發作處理動畫"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:102
+#: src/pages/DiaryDashboardPage.jsx:107
 msgid "diary.state.urti"
 msgstr "☐ 傷風感冒 (URTI)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:102
+#: src/pages/DiaryDashboardPage.jsx:107
 msgid "diary.state.custom"
 msgstr "☐ 自訂: ________"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:102
+#: src/pages/DiaryDashboardPage.jsx:107
 msgid "diary.state.stress"
 msgstr "☐ 極度悲傷/壓力"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:102
+#: src/pages/DiaryDashboardPage.jsx:107
 msgid "diary.state.period"
 msgstr "☐ 女性生理期"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:102
+#: src/pages/DiaryDashboardPage.jsx:107
 msgid "diary.state.surgery"
 msgstr "☐ 手術"
 
@@ -1326,7 +1326,7 @@ msgid "report.fixture.fd5436428e"
 msgstr "陳太太（妻子）"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:99
+#: src/pages/DiaryDashboardPage.jsx:104
 msgid "diary.monthMeds"
 msgstr "多頻服藥(綠/黃)"
 
@@ -1513,7 +1513,7 @@ msgstr "暫停"
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:13
 #: src/pages/DiaryDashboardPage.jsx:56
-#: src/pages/DiaryDashboardPage.jsx:99
+#: src/pages/DiaryDashboardPage.jsx:104
 msgid "diary.legend.period"
 msgstr "生理期"
 
@@ -1549,7 +1549,7 @@ msgid "profile.a1"
 msgstr "身體感覺 (刺痛/麻木)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:101
+#: src/pages/DiaryDashboardPage.jsx:106
 msgid "diary.healthTitle"
 msgstr "生理及健康狀況"
 
@@ -1802,7 +1802,7 @@ msgstr "無發作天數"
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:12
 #: src/pages/DiaryDashboardPage.jsx:55
-#: src/pages/DiaryDashboardPage.jsx:99
+#: src/pages/DiaryDashboardPage.jsx:104
 msgid "diary.legend.event"
 msgstr "發作/頭痛"
 
@@ -1812,7 +1812,7 @@ msgid "report.fixture.f525bfca0b"
 msgstr "發作次數下降，無出疹過敏反應。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:81
+#: src/pages/DiaryDashboardPage.jsx:86
 msgid "diary.monthTitle"
 msgstr "2026年 9月 記錄"
 
@@ -2087,7 +2087,7 @@ msgid "playlist.unmute"
 msgstr "取消靜音"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:99
+#: src/pages/DiaryDashboardPage.jsx:104
 msgid "diary.monthIllness"
 msgstr "URTI/手術/壓力等"
 

@@ -77,7 +77,12 @@ export default function DiaryDashboardPage() {
       </div>
       <div className="privacy-note"><span aria-hidden="true">🔒</span><span>{t({ id: 'diary.privacy', message: 'Privacy: data is stored only on your device or in your cloud, never uploaded to the Foundation.' })}</span></div>
       <div className="hub-section"><div className="section-title" style={{ padding: '0 0 8px' }}>{t({ id: 'diary.hub', message: 'Epilepsy Foundation of Hong Kong Resource Centre' })}</div><div className="hub-grid">{hubKeys.map((key) => <button key={key} className="hub-btn">{hubButtons[key]}</button>)}</div></div>
-      <button className="fab-record" id="fabRecord" title={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} aria-label={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} ref={ref} onClick={handleClick}>🔴</button>
+      <button className="fab-record" id="fabRecord" title={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} aria-label={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} ref={ref} onClick={handleClick}>
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ pointerEvents: 'none' }}>
+          <path d="M12 20h9" />
+          <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+        </svg>
+      </button>
       {modal === 'monthly' && <Modal id="monthlyModal" title={t({ id: 'diary.monthTitle', message: 'September 2026 records' })} onClose={closeModal}>
         <div className="month-grid">
           {monthHeaderDays.map((day) => <div key={day} className="month-header-day">{weekdays[day]}</div>)}

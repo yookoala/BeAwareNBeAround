@@ -60,7 +60,7 @@ export default function useDraggableFAB(onClick) {
     }
 
     function onPointerDown(e) {
-      if (e.target !== fab) return;
+      if (!fab.contains(e.target)) return;
       const s = drag.current;
       s.dragging = true;
       s.moved = false;

@@ -57,7 +57,10 @@ test.each([
   expect(screen.getByTestId('location')).toHaveTextContent(destination);
 });
 
-test('FAB exists only on the diary dashboard', () => {
+test('FAB exists only on the diary dashboard and uses a pen icon', () => {
+  const { container: diaryContainer } = renderApp('/diary');
+  expect(diaryContainer.querySelector('#fabRecord svg')).not.toBeNull();
+  expect(diaryContainer.querySelector('#fabRecord')).not.toHaveTextContent('🔴');
   const { container } = renderApp('/');
   expect(container.querySelector('#fabRecord')).toBeNull();
 });
