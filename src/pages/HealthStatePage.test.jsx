@@ -46,6 +46,11 @@ test('toggles health condition tags, adds/removes custom health items, and warns
 
   fireEvent.click(screen.getByRole('button', { name: '+ 新增自訂狀況' }));
   expect(container.querySelectorAll('#custom-health-list input')).toHaveLength(1);
+  fireEvent.click(screen.getByRole('button', { name: '儲存' }));
+  fireEvent.change(container.querySelector('#custom-health-list input'), { target: { value: '高強度訓練' } });
+  fireEvent.click(screen.getByRole('button', { name: '← 返回' }));
+  expect(screen.getByRole('dialog', { name: '尚未儲存' })).toBeVisible();
+  fireEvent.click(screen.getByRole('button', { name: '繼續編輯' }));
   fireEvent.click(screen.getByRole('button', { name: '刪除' }));
   expect(container.querySelectorAll('#custom-health-list input')).toHaveLength(0);
 

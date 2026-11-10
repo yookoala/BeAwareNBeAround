@@ -582,7 +582,7 @@ msgstr "Android："
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:204
-#: src/pages/HealthStatePage.jsx:126
+#: src/pages/HealthStatePage.jsx:127
 #: src/pages/SideEffectsPage.jsx:183
 msgid "diary.eventLog.unsavedPrompt"
 msgstr "您有尚未保存的更改，确定要离开吗？"
@@ -962,7 +962,7 @@ msgid "report.fixture.27eefa5237"
 msgstr "结束日期"
 
 #. js-lingui-explicit-id
-#: src/pages/HealthStatePage.jsx:116
+#: src/pages/HealthStatePage.jsx:117
 msgid "diary.healthState.notesPlaceholder"
 msgstr "输入其他生理或健康状况备注..."
 
@@ -1003,7 +1003,7 @@ msgstr "输入手术记录..."
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:216
-#: src/pages/HealthStatePage.jsx:138
+#: src/pages/HealthStatePage.jsx:139
 #: src/pages/SideEffectsPage.jsx:195
 msgid "diary.eventLog.saved"
 msgstr "记录已保存！"
@@ -1214,7 +1214,7 @@ msgid "diary.headacheLog.time"
 msgstr "头痛时间"
 
 #. js-lingui-explicit-id
-#: src/pages/HealthStatePage.jsx:107
+#: src/pages/HealthStatePage.jsx:108
 msgid "diary.healthState.notes"
 msgstr "健康状况备注"
 
@@ -1297,7 +1297,7 @@ msgstr "语言"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:211
-#: src/pages/HealthStatePage.jsx:133
+#: src/pages/HealthStatePage.jsx:134
 #: src/pages/SideEffectsPage.jsx:190
 msgid "diary.eventLog.leave"
 msgstr "确定离开"
@@ -1452,7 +1452,7 @@ msgstr "小发作"
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:34
 msgid "diary.recent.seizureSummary"
-msgstr "小发作 (叢集 2 次) · 右手麻木"
+msgstr "小发作 (丛集 2 次) · 右手麻木"
 
 #. js-lingui-explicit-id
 #: src/pages/ReportLevelAPage.jsx:81
@@ -2164,7 +2164,7 @@ msgstr "状态："
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:208
-#: src/pages/HealthStatePage.jsx:130
+#: src/pages/HealthStatePage.jsx:131
 #: src/pages/SideEffectsPage.jsx:187
 msgid "diary.eventLog.stay"
 msgstr "继续编辑"
@@ -2342,7 +2342,7 @@ msgstr "取消静音"
 
 #. js-lingui-explicit-id
 #: src/pages/EventLogPage.jsx:200
-#: src/pages/HealthStatePage.jsx:122
+#: src/pages/HealthStatePage.jsx:123
 #: src/pages/SideEffectsPage.jsx:179
 msgid "diary.eventLog.unsavedTitle"
 msgstr "尚未保存"

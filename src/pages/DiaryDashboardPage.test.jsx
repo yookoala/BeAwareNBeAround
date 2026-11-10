@@ -35,7 +35,7 @@ test('renders unified dashboard with recent 5 entries and without action-layout 
 });
 
 test.each([
-  ['zh-CN', '发作/头痛', '近期记录', '小发作 (叢集 2 次) · 右手麻木'],
+  ['zh-CN', '发作/头痛', '近期记录', '小发作 (丛集 2 次) · 右手麻木'],
   ['en', 'Seizure/Headache', 'Recent entries', 'Minor seizure (cluster ×2) · Right hand numbness'],
 ])('localizes the legend and recent entries in %s', (locale, legend, recentHeading, firstSummary) => {
   renderApp('/diary', locale);

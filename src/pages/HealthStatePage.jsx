@@ -100,6 +100,7 @@ export default function HealthStatePage() {
             addLabel={t({ id: 'diary.healthState.addCustom', message: '+ Add custom condition' })}
             onAdd={addCustomItem}
             onRemove={removeCustomItem}
+            onItemChange={() => setIsDirty(true)}
           />
         </div>
       </div>
