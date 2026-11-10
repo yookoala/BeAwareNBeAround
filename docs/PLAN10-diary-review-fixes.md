@@ -13,3 +13,19 @@ Resolve dashboard FAB gesture and viewport bugs, modal keyboard/short-screen acc
 ## Human testing
 
 On a mobile device, drag the FAB to each edge and rotate; verify it remains reachable above the bottom navigation. Open each modal, cycle Tab and Shift+Tab, close it, and verify focus returns to its trigger. On a short viewport scroll the monthly modal. With a screen reader, inspect weekly and monthly days in all three languages.
+
+# M17-002 event log focus review fix
+
+## Objective and approach
+
+Provide a clearly visible keyboard focus ring on both event-log text controls. The current CSS suppresses the browser outline without replacement. Restore an explicit, high-contrast outline for keyboard focus; using only a subtle border change risks insufficient visibility. Keep styling scoped to the event-log page and preserve mouse and form behavior.
+
+## TODO
+
+- [x] Add a real-browser keyboard regression for both controls and observe it fail before the fix.
+- [x] Add the focus ring and verify the regression passes.
+- [x] Run unit, lint, build and E2E regressions; inspect and commit the change.
+
+## Human testing
+
+Navigate to the event log, use Tab to reach the date/time and notes fields, and confirm a clear focus ring is visible around each at mobile and desktop widths.

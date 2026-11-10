@@ -105,3 +105,23 @@ test('event log keeps shell, selections across languages and returns to diary', 
   await page.getByRole('button', { name: '← Cancel' }).click();
   await expect(page).toHaveURL(/\/diary$/);
 });
+
+test('event log text controls have a visible keyboard focus ring', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('link', { name: '日記', exact: true }).click();
+  await page.locator('#btn-attack').click();
+
+  for (const id of ['event-time', 'event-notes']) {
+    for (let i = 0; i < 80 && await page.evaluate(() => document.activeElement?.id) !== id; i++) {
+      await page.keyboard.press('Tab');
+    }
+    const control = page.locator(`#${id}`);
+    await expect(control).toBeFocused();
+    const outline = await control.evaluate((element) => {
+      const style = getComputedStyle(element);
+      return { style: style.outlineStyle, width: parseFloat(style.outlineWidth) };
+    });
+    expect(outline.style).not.toBe('none');
+    expect(outline.width).toBeGreaterThanOrEqual(2);
+  }
+});
