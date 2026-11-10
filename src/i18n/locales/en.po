@@ -119,92 +119,102 @@ msgstr ""
 #~ msgstr "Previous"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:200
+#: src/App.jsx:134
+#~ msgid "organization.name"
+#~ msgstr "Epilepsy Foundation of Hong Kong"
+
+#. js-lingui-explicit-id
+#: src/App.jsx:133
+#~ msgid "organization.nameChinese"
+#~ msgstr "香港腦癇基金會"
+
+#. js-lingui-explicit-id
+#: src/App.jsx:150
 msgid "video.label"
 msgstr "▶️ Acute Seizure Management Animation"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:37
+#: src/App.jsx:34
 msgid "faq.summary"
 msgstr "❓ Frequently Asked Questions (FAQ)"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:36
+#: src/App.jsx:33
 msgid "whatIs.summary"
 msgstr "💡 What is Be Aware n' Be Around?"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:35
+#: src/App.jsx:32
 msgid "install.button"
 msgstr "📥 Install App"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:34
+#: src/App.jsx:31
 msgid "setup.summary"
 msgstr "📲 Setup & Guide"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:232
+#: src/App.jsx:182
 msgid "footer.linkLabel"
 msgstr "🔗 Learn more about Epilepsy Foundation HK"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:225
+#: src/App.jsx:175
 msgid "faq.answer1"
 msgstr "Action buttons play recorded audio. Check the media volume, disable silent mode, and refresh the page if the audio fails to load."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:201
+#: src/App.jsx:151
 msgid "video.title"
 msgstr "Acute Seizure Animation"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:22
+#: src/App.jsx:19
 msgid "header.subtitle"
 msgstr "Acute Seizure Management Slogan"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:207
+#: src/App.jsx:157
 msgid "setup.androidLabel"
 msgstr "Android:"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:219
+#: src/App.jsx:169
 msgid "whatIs.environmentLabel"
 msgstr "Assess Environment:"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:217
+#: src/App.jsx:167
 msgid "whatIs.tagline3"
 msgstr "Aware of what to do, Around when it matters most."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:220
+#: src/App.jsx:170
 msgid "whatIs.aroundHeading"
 msgstr "Be Around (Physical Protection & Care)"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:218
+#: src/App.jsx:168
 msgid "whatIs.awareHeading"
 msgstr "Be Aware (Mental Vigilance & Safety Knowledge)"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:156
+#: src/App.jsx:106
 msgid "app.title"
 msgstr "Be Aware n' Be Around"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:215
+#: src/App.jsx:165
 msgid "whatIs.tagline1"
 msgstr "Be Aware of the time. Be Around for the safe recovery."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:216
+#: src/App.jsx:166
 msgid "whatIs.tagline2"
 msgstr "Be Aware: Don't restrain. Be Around: Protect and remain."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:171
 msgid "whatIs.secureText"
 msgstr "Clear hard objects and cushion their head."
 
@@ -215,22 +225,22 @@ msgid "dialog.close"
 msgstr "Close"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:25
+#: src/App.jsx:22
 msgid "mode.education"
 msgstr "Education Mode"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:63
+#: src/App.jsx:60
 msgid "status.educationDefault"
 msgstr "Education Mode: Click buttons for instructions."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:58
+#: src/App.jsx:55
 msgid "status.paused"
 msgstr "Education playback paused."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:60
+#: src/App.jsx:57
 msgid "status.ended"
 msgstr "Education step finished."
 
@@ -240,18 +250,12 @@ msgid "header.brandTitle"
 msgstr "EFHK Seizure Help"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:130
 #: src/components/AppHeader.jsx:59
 msgid "organization.logoAlt"
 msgstr "Epilepsy Foundation of Hong Kong"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:134
-msgid "organization.name"
-msgstr "Epilepsy Foundation of Hong Kong"
-
-#. js-lingui-explicit-id
-#: src/App.jsx:170
+#: src/App.jsx:120
 msgid "actions.ariaLabel"
 msgstr "First aid actions"
 
@@ -261,55 +265,53 @@ msgid "playlist.cardLabel"
 msgstr "First aid audio guide"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:46
+#: src/App.jsx:43
 msgid "guide.step3"
 msgstr "Gently roll the person onto their side. Never put anything in their mouth."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:24
+#: src/App.jsx:21
 msgid "counter.label"
 msgstr "Global Clicks:"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:30
+#: src/App.jsx:27
 msgid "action.help"
 msgstr "HELP"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:206
+#: src/App.jsx:156
 msgid "setup.installHeading"
 msgstr "How to Install"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:208
+#: src/App.jsx:158
 msgid "setup.operateHeading"
 msgstr "How to Operate"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:227
+#: src/App.jsx:177
 msgid "faq.answer3"
 msgstr "Install this PWA or add it to your home screen after a successful first load."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:207
+#: src/App.jsx:157
 msgid "setup.iosLabel"
 msgstr "iPhone (iOS):"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:219
+#: src/App.jsx:169
 msgid "whatIs.dontsLabel"
 msgstr "Know the Don'ts:"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:138
-#: src/App.jsx:142
 #: src/components/AppHeader.jsx:71
 #: src/components/AppHeader.jsx:96
 msgid "language.selectorLabel"
 msgstr "Language"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:33
+#: src/App.jsx:30
 msgid "playlist.loading"
 msgstr "Loading…"
 
@@ -319,27 +321,27 @@ msgid "playlist.mute"
 msgstr "Mute"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:219
+#: src/App.jsx:169
 msgid "whatIs.dontsText"
 msgstr "Never restrain movement or place anything in the person's mouth."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:219
+#: src/App.jsx:169
 msgid "whatIs.recognizeText"
 msgstr "Note when the seizure starts; call emergency services if it exceeds 5 minutes."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:45
+#: src/App.jsx:42
 msgid "guide.step2"
 msgstr "Observe and keep the person safe. Clear hard objects and cushion their head."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:207
+#: src/App.jsx:157
 msgid "setup.androidInstructions"
 msgstr "Open in Chrome, use the menu, then select Add to Home screen."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:207
+#: src/App.jsx:157
 msgid "setup.iosInstructions"
 msgstr "Open in Safari, tap Share, then select Add to Home Screen."
 
@@ -359,7 +361,7 @@ msgid "playlist.repeatOnce"
 msgstr "Play all once"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:62
+#: src/App.jsx:59
 #: src/components/FirstAidPlaylist.jsx:64
 msgid "playlist.error"
 msgstr "Playback failed. Press play to try again."
@@ -370,37 +372,37 @@ msgid "playlist.seek"
 msgstr "Playback position"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:56
+#: src/App.jsx:53
 msgid "status.playingEducation"
 msgstr "Playing education step {id}..."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:171
 msgid "whatIs.positionLabel"
 msgstr "Position safely:"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:171
 msgid "whatIs.supportLabel"
 msgstr "Provide Support:"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:224
+#: src/App.jsx:174
 msgid "faq.question1"
 msgstr "Q1: Why is there no sound in Education Mode?"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:226
+#: src/App.jsx:176
 msgid "faq.question3"
 msgstr "Q2: Can I use the app offline?"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:228
+#: src/App.jsx:178
 msgid "faq.question4"
 msgstr "Q3: How does the global click counter work?"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:219
+#: src/App.jsx:169
 msgid "whatIs.recognizeLabel"
 msgstr "Recognize & Time:"
 
@@ -426,22 +428,22 @@ msgid "playlist.repeatOne"
 msgstr "Repeat one"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:28
+#: src/App.jsx:25
 msgid "action.safe"
 msgstr "SAFE"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:171
 msgid "whatIs.secureLabel"
 msgstr "Secure the Surroundings:"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:47
+#: src/App.jsx:44
 msgid "guide.step4"
 msgstr "Seek help. Stay with them until fully conscious, and call an ambulance if over 5 minutes."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:32
+#: src/App.jsx:29
 msgid "guide.title"
 msgstr "Seizure First Aid Guide"
 
@@ -452,7 +454,7 @@ msgid "playlist.settings"
 msgstr "Settings"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:29
+#: src/App.jsx:26
 msgid "action.side"
 msgstr "SIDE"
 
@@ -468,52 +470,52 @@ msgid "playlist.speedOption"
 msgstr "Speed {rate}×"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:219
+#: src/App.jsx:169
 msgid "whatIs.environmentText"
 msgstr "Spot physical hazards such as sharp corners, water, or stairs."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:27
+#: src/App.jsx:24
 msgid "action.stay"
 msgstr "STAY"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:44
+#: src/App.jsx:41
 msgid "guide.step1"
 msgstr "Stay calm and time the seizure."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:171
 msgid "whatIs.supportText"
 msgstr "Stay until the person is fully alert and offer calm reassurance."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:21
+#: src/App.jsx:18
 msgid "header.slogan"
 msgstr "STAY, SAFE, SIDE, HELP"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:209
+#: src/App.jsx:159
 msgid "setup.educationInstructions"
 msgstr "Tap a button to hear the clinical instruction for that step."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:23
+#: src/App.jsx:20
 msgid "header.secondarySubtitle"
 msgstr "Tap the 4 buttons below to learn the steps"
 
 #. js-lingui-explicit-id
-#: src/App.jsx:229
+#: src/App.jsx:179
 msgid "faq.answer4"
 msgstr "The counter shows the total number of times the app's action buttons have been clicked, across all users."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:116
+#: src/App.jsx:91
 msgid "install.fallbackAlert"
 msgstr "To install, use your browser's Add to Home Screen option."
 
 #. js-lingui-explicit-id
-#: src/App.jsx:221
+#: src/App.jsx:171
 msgid "whatIs.positionText"
 msgstr "Turn the person gently onto their side to keep their airway clear."
 
@@ -531,8 +533,3 @@ msgstr "Use your device's volume buttons to adjust the volume."
 #: src/components/FirstAidPlaylist.jsx:164
 msgid "playlist.volume"
 msgstr "Volume"
-
-#. js-lingui-explicit-id
-#: src/App.jsx:133
-msgid "organization.nameChinese"
-msgstr "香港腦癇基金會"

@@ -4,6 +4,7 @@ import { mockPlaylistPlayer } from './mock-playlist-player.js';
 const languageStates = [
   {
     selector: '繁體',
+    brandTitle: '腦癎錦囊',
     action: '守',
     panelHeading: '如何安裝至手機',
     loadingStatus: '載入中…',
@@ -12,6 +13,7 @@ const languageStates = [
   },
   {
     selector: '简体',
+    brandTitle: '脑痫锦囊',
     action: '守',
     panelHeading: '如何安装至手机',
     loadingStatus: '加载中…',
@@ -20,6 +22,7 @@ const languageStates = [
   },
   {
     selector: 'EN',
+    brandTitle: 'EFHK Seizure Help',
     action: 'STAY',
     panelHeading: 'How to Install',
     loadingStatus: 'Loading…',
@@ -38,6 +41,25 @@ for (const language of languageStates) {
 
     await page.getByRole('button', { name: '語言' }).click();
     await page.getByRole('menuitem', { name: language.selector, exact: true }).click();
+    await expect(page.locator('.app-header .app-header-title')).toHaveText(language.brandTitle);
+    await expect(page.locator('.app-header .app-header-home-link')).toHaveAttribute('href', './');
+    const headerFitsSingleRow = await page.evaluate(() => {
+      const header = document.querySelector('.app-header');
+      const logo = document.querySelector('.app-header-logo');
+      const title = document.querySelector('.app-header-title');
+      const toggle = document.querySelector('.lang-menu-toggle');
+      const headerRect = header.getBoundingClientRect();
+      const logoRect = logo.getBoundingClientRect();
+      const titleRect = title.getBoundingClientRect();
+      const toggleRect = toggle.getBoundingClientRect();
+      return (
+        document.documentElement.scrollWidth <= window.innerWidth
+        && Math.abs((logoRect.top + logoRect.height / 2) - (toggleRect.top + toggleRect.height / 2)) <= 6
+        && titleRect.right <= toggleRect.left
+        && headerRect.top === 0
+      );
+    });
+    expect(headerFitsSingleRow).toBe(true);
     await page.locator('.setup-guide').click();
     await expect(page.locator('dialog[open]')).toHaveCount(1);
     await expect(page.getByRole('heading', { name: language.panelHeading })).toBeVisible();

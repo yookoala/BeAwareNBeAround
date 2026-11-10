@@ -64,6 +64,29 @@ test('renders the application heading', () => {
   expect(screen.getByRole('heading', { name: "Be Aware n' Be Around" })).toBeInTheDocument();
 });
 
+test('renders the AppHeader brand title in each locale and navigates Home without sending extra counter events', () => {
+  const { counter } = renderApp();
+
+  const header = document.querySelector('.app-header');
+  expect(header).not.toBeNull();
+  const homeLink = screen.getByRole('link', { name: /腦癎錦囊/ });
+  expect(homeLink).toHaveAttribute('href', './');
+  expect(homeLink).not.toHaveAttribute('target');
+  expect(screen.queryByText('Epilepsy Foundation of Hong Kong')).not.toBeInTheDocument();
+
+  const requestsBeforeHomeClick = counter.requests.length;
+  fireEvent.click(homeLink);
+  expect(counter.requests).toHaveLength(requestsBeforeHomeClick);
+
+  fireEvent.click(screen.getByRole('button', { name: '語言' }));
+  fireEvent.click(screen.getByRole('menuitem', { name: '简体' }));
+  expect(screen.getByRole('link', { name: /脑痫锦囊/ })).toHaveAttribute('href', './');
+
+  fireEvent.click(screen.getByRole('button', { name: '语言' }));
+  fireEvent.click(screen.getByRole('menuitem', { name: 'EN' }));
+  expect(screen.getByRole('link', { name: /EFHK Seizure Help/ })).toHaveAttribute('href', './');
+});
+
 test('places the playlist guide before the video container', () => {
   renderApp();
 

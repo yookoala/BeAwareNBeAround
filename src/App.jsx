@@ -1,19 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { t } from '@lingui/core/macro';
-import { APP_LOCALES, activateLocale, i18n } from './i18n/setup';
+import { activateLocale, i18n } from './i18n/setup';
 import { getInstallId, getInstallAction, isIOS } from './services/install';
 import { useClickCounter } from './hooks/useClickCounter';
 import { usePlaylistPlayer } from './hooks/usePlaylistPlayer';
+import { AppHeader } from './components/AppHeader';
 import { ClickCounter } from './components/ClickCounter';
 import { FirstAidPlaylist } from './components/FirstAidPlaylist';
 import { InfoPanel } from './components/InfoPanel';
 
-const logoUrl = 'https://epilepsy.org.hk/wp-content/uploads/elementor/thumbs/EFHK-abb-Logo-Ver-%E5%9C%93%E5%BA%95-rsi4tzw9b949vi84j6y5gkdzbj2s5xn3mit7czgz2g.png';
-
 export default function App() {
   const [language, setLanguage] = useState('zh-HK');
-  const [langMenuOpen, setLangMenuOpen] = useState(false);
-  const langMenuRef = useRef(null);
   const player = usePlaylistPlayer({ locale: language });
   const [installPrompt, setInstallPrompt] = useState(null);
   const { count, loading, error, trackClick } = useClickCounter({ endpointUrl: import.meta.env.VITE_VISIT_COUNTER_URL, targetUrl: window.location.href, installId: getInstallId() });
@@ -71,28 +68,6 @@ export default function App() {
     return () => window.removeEventListener('beforeinstallprompt', handlePrompt);
   }, []);
 
-  useEffect(() => {
-    if (!langMenuOpen) {
-      return;
-    }
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setLangMenuOpen(false);
-      }
-    };
-    const handlePointerDown = (event) => {
-      if (langMenuRef.current && !langMenuRef.current.contains(event.target)) {
-        setLangMenuOpen(false);
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('pointerdown', handlePointerDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('pointerdown', handlePointerDown);
-    };
-  }, [langMenuOpen]);
-
   function changeLanguage(nextLanguage) {
     activateLocale(nextLanguage);
     setLanguage(nextLanguage);
@@ -124,34 +99,9 @@ export default function App() {
 
   return (
     <main>
-      <div className="top-bar">
-        <div className="top-left-group">
-          <a href="https://epilepsy.org.hk" target="_blank" rel="noopener noreferrer" className="logo-link">
-            <img src={logoUrl} alt={t({ id: 'organization.logoAlt', message: 'Epilepsy Foundation of Hong Kong' })} className="app-logo" />
-          </a>
-          <div className="org-name">
-            <div className="org-name-zh">{t({ id: 'organization.nameChinese', message: '香港腦癇基金會' })}</div>
-            <div className="org-name-en">{t({ id: 'organization.name', message: 'Epilepsy Foundation of Hong Kong' })}</div>
-          </div>
-        </div>
-        <div className="lang-menu" ref={langMenuRef}>
-          <button className="lang-menu-toggle" aria-label={t({ id: 'language.selectorLabel', message: 'Language' })} aria-haspopup="menu" aria-expanded={langMenuOpen} onClick={() => setLangMenuOpen(!langMenuOpen)}>
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
-          </button>
-          {langMenuOpen && (
-            <div className="lang-menu-dropdown" role="menu" aria-label={t({ id: 'language.selectorLabel', message: 'Language' })}>
-              {Object.entries(APP_LOCALES).map(([code, { selectorLabel }]) => (
-                <button key={code} role="menuitem" className={`lang-menu-item ${language === code ? 'active' : ''}`} aria-current={language === code ? 'true' : undefined} onClick={() => { changeLanguage(code); setLangMenuOpen(false); }}>
-                  {selectorLabel}
-                  {language === code && <span aria-hidden="true">✓</span>}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
+      <AppHeader language={language} onLanguageChange={changeLanguage} />
 
-      <header className="header">
+      <section className="header">
         <div className="slogan-chars">{labels.slogan}</div>
         <h1 className="theme-title">{t({ id: 'app.title', message: "Be Aware n' Be Around" })}</h1>
         <div className="subtitle-box">
@@ -165,7 +115,7 @@ export default function App() {
           label={labels.clicks}
           className="counter-box"
         />
-      </header>
+      </section>
 
       <section className="grid" aria-label={t({ id: 'actions.ariaLabel', message: 'First aid actions' })}>
         {labels.buttons.map((label, index) => <button key={label} className={`btn-toy button-${index + 1}${isPlayingButton(index + 1) ? ' playing' : ''}`} aria-pressed={isPlayingButton(index + 1)} onClick={() => selectInstruction(index + 1)}>{label}</button>)}
