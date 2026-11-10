@@ -235,7 +235,13 @@ msgid "status.ended"
 msgstr "教育步驟已完成。"
 
 #. js-lingui-explicit-id
+#: src/components/AppHeader.jsx:63
+msgid "header.brandTitle"
+msgstr "腦癎錦囊"
+
+#. js-lingui-explicit-id
 #: src/App.jsx:130
+#: src/components/AppHeader.jsx:59
 msgid "organization.logoAlt"
 msgstr "香港腦癇基金會"
 
@@ -297,6 +303,8 @@ msgstr "了解不要做什麼："
 #. js-lingui-explicit-id
 #: src/App.jsx:138
 #: src/App.jsx:142
+#: src/components/AppHeader.jsx:71
+#: src/components/AppHeader.jsx:96
 msgid "language.selectorLabel"
 msgstr "語言"
 
