@@ -88,11 +88,16 @@ test('includes generated PWA assets', async ({ page }) => {
   await expect(page.getByRole('heading', { name: "Be Aware n' Be Around" })).toBeVisible();
 });
 
-test('event log replaces top header, warns on unsaved changes, and returns to diary', async ({ page }) => {
+test('event menu and seizure log replace top header, warn on unsaved changes, and return to diary', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: '日記', exact: true }).click();
+  await expect(page.locator('.recent-entries-list .recent-entry-card')).toHaveCount(5);
+  await page.locator('#fabRecord').click();
+  await expect(page).toHaveURL(/\/diary\/event$/);
+  await expect(page.locator('.app-header')).toHaveCount(0);
+  await expect(page.locator('.event-menu-list .event-menu-btn')).toHaveCount(5);
   await page.locator('#btn-attack').click();
-  await expect(page).toHaveURL(/\/diary\/event-log$/);
+  await expect(page).toHaveURL(/\/diary\/event\/seizure$/);
   await expect(page.locator('.app-header')).toHaveCount(0);
   await expect(page.locator('.diary-subheader')).toBeVisible();
   await expect(page.locator('.bottom-nav a[href="/diary"]')).toHaveAttribute('aria-current', 'page');
@@ -106,6 +111,8 @@ test('event log replaces top header, warns on unsaved changes, and returns to di
   await expect(page.getByRole('status')).toHaveCount(0);
   const subheaderBounds = await page.locator('.diary-subheader').boundingBox();
   await page.getByRole('button', { name: '← 返回' }).click();
+  await expect(page).toHaveURL(/\/diary\/event$/);
+  await page.getByRole('button', { name: '← 返回' }).click();
   await expect(page).toHaveURL(/\/diary$/);
   const appHeaderBounds = await page.locator('.app-header').boundingBox();
   expect(subheaderBounds.x).toBe(appHeaderBounds.x);
@@ -115,6 +122,7 @@ test('event log replaces top header, warns on unsaved changes, and returns to di
 test('event log text controls have a visible keyboard focus ring', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: '日記', exact: true }).click();
+  await page.locator('#fabRecord').click();
   await page.locator('#btn-attack').click();
 
   for (const id of ['event-time', 'event-notes']) {
@@ -157,20 +165,23 @@ test('medical profile works with keyboard and retains the diary shell', async ({
   await expect(page).toHaveURL(/\/diary$/);
 });
 
-test('complete diary journey includes both printable reports', async ({ page }) => {
+test('complete diary journey includes recent entries, 5-icon event menu, sub-views, and printable reports', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: '日記', exact: true }).click();
-  await expect(page.locator('#btn-attack')).toContainText('腦癇記錄');
-  await expect(page.locator('#btn-headache')).toContainText('頭痛記錄');
-  await expect(page.locator('#appMode, .first-aid-banner')).toHaveCount(0);
+  await expect(page.locator('.recent-entries-list .recent-entry-card')).toHaveCount(5);
+  await expect(page.locator('#appMode, .first-aid-banner, .action-layout, #stateModal')).toHaveCount(0);
   await expect(page.locator('#fabRecord')).toBeVisible();
   await page.locator('.month-button').click();
   await expect(page.locator('#monthlyModal [role="dialog"]')).toBeVisible();
   await page.getByRole('button', { name: '關閉' }).click();
-  await page.getByRole('button', { name: /生理及健康/ }).click();
-  await expect(page.locator('#stateModal [role="dialog"]')).toBeVisible();
-  await page.keyboard.press('Escape');
+
+  // Open 5-icon event menu via FAB
+  await page.locator('#fabRecord').click();
+  await expect(page).toHaveURL(/\/diary\/event$/);
+
+  // 1. Seizure view
   await page.locator('#btn-attack').click();
+  await expect(page).toHaveURL(/\/diary\/event\/seizure$/);
   await page.getByRole('button', { name: '叢集 / 連續多次' }).click();
   await page.locator('#cluster-counter button').last().click();
   await expect(page.locator('#attack-count')).toHaveText('3');
@@ -183,6 +194,39 @@ test('complete diary journey includes both printable reports', async ({ page }) 
   await page.getByRole('button', { name: '← 返回' }).click();
   await expect(page.getByRole('dialog', { name: '尚未儲存' })).toBeVisible();
   await page.getByRole('button', { name: '確定離開' }).click();
+  await expect(page).toHaveURL(/\/diary\/event$/);
+
+  // 2. Headache view
+  await page.locator('#btn-headache').click();
+  await expect(page).toHaveURL(/\/diary\/event\/headache$/);
+  await expect(page.getByRole('button', { name: '劇烈頭痛' })).toBeVisible();
+  await page.getByRole('button', { name: '← 返回' }).click();
+
+  // 3. Medication coming soon view
+  await page.locator('#btn-meds').click();
+  await expect(page).toHaveURL(/\/diary\/event\/medication$/);
+  await expect(page.getByText('即將推出')).toBeVisible();
+  await page.getByRole('button', { name: '← 返回' }).click();
+
+  // 4. Side effects view
+  await page.locator('#btn-side').click();
+  await expect(page).toHaveURL(/\/diary\/event\/side-effects$/);
+  await page.getByRole('button', { name: '管理副作用項目' }).click();
+  await page.locator('#new-side-effect-input').fill('視力模糊');
+  await page.getByRole('button', { name: '+ 新增副作用' }).click();
+  await page.getByRole('button', { name: '完成管理' }).click();
+  await expect(page.getByRole('button', { name: '視力模糊' })).toBeVisible();
+  await page.getByRole('button', { name: '儲存', exact: true }).click();
+  await page.getByRole('button', { name: '← 返回' }).click();
+
+  // 5. Physiology & health view
+  await page.locator('#btn-health').click();
+  await expect(page).toHaveURL(/\/diary\/event\/health$/);
+  await expect(page.getByRole('button', { name: '女性生理期' })).toBeVisible();
+  await page.getByRole('button', { name: '← 返回' }).click();
+  await page.getByRole('button', { name: '← 返回' }).click();
+  await expect(page).toHaveURL(/\/diary$/);
+
   await page.locator('.profile-card').click();
   const contacts = page.getByTestId('accordion-contacts');
   await contacts.locator('.accordion-header').click();
@@ -286,6 +330,7 @@ test('event log fields stay inside their form sections on mobile', async ({ page
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto('/');
   await page.getByRole('link', { name: '日記', exact: true }).click();
+  await page.locator('#fabRecord').click();
   await page.locator('#btn-attack').click();
   for (const selector of ['.datetime-picker', '.textarea-box']) {
     const control = page.locator(selector);
