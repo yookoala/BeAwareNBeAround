@@ -219,6 +219,11 @@ msgid "whatIs.secureText"
 msgstr "移开硬物，并在患者头下垫上软物。"
 
 #. js-lingui-explicit-id
+#: src/App.jsx:21
+msgid "counter.label"
+msgstr "点击次数"
+
+#. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:239
 #: src/components/InfoPanel.jsx:38
 msgid "dialog.close"
@@ -268,11 +273,6 @@ msgstr "急救语音指引"
 #: src/App.jsx:43
 msgid "guide.step3"
 msgstr "将患者轻轻翻侧，保持呼吸道畅通。切勿强行将任何物品塞入患者口中。"
-
-#. js-lingui-explicit-id
-#: src/App.jsx:21
-msgid "counter.label"
-msgstr "全球点击次数"
 
 #. js-lingui-explicit-id
 #: src/App.jsx:27

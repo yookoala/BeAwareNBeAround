@@ -15,7 +15,7 @@ test('reads the initial count and increments it on each action click', async ({ 
   const counter = page.locator('.counter-box');
 
   // Initial count comes from the GET ?url=...&action=click on mount.
-  await expect(counter.locator('.counter-label')).toHaveText('全球點擊次數');
+  await expect(counter.locator('.counter-label')).toHaveText('點擊次數');
   await expect(counter.locator('.counter-value')).toHaveText(FORMATTED_TOTALS[0]);
   const isLabelDarkerThanValue = await page.evaluate(() => {
     const parseRgb = (color) => color.match(/\d+/g).slice(0, 3).map(Number);
@@ -30,7 +30,7 @@ test('reads the initial count and increments it on each action click', async ({ 
   // the response's metrics.total_views.
   await page.getByRole('button', { name: '語言' }).click();
   await page.getByRole('menuitem', { name: 'EN' }).click();
-  await expect(counter.locator('.counter-label')).toHaveText('Global Clicks');
+  await expect(counter.locator('.counter-label')).toHaveText('Clicks');
   await page.getByRole('button', { name: 'STAY', exact: true }).click();
   await expect(counter.locator('.counter-value')).toHaveText(FORMATTED_TOTALS[1]);
 

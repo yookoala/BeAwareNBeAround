@@ -20,12 +20,12 @@ test('shows the unavailable state on error', () => {
 
 test('renders the label and the formatted count as separate pill segments', () => {
   const { container } = render(
-    <ClickCounter count={1234} label="Global Clicks" className="counter-box" />,
+    <ClickCounter count={1234} label="Clicks" className="counter-box" />,
   );
 
   const box = container.firstChild;
   expect(box).toHaveClass('counter-box');
   expect(box.childNodes).toHaveLength(2);
-  expect(screen.getByText('Global Clicks')).toHaveClass('counter-label');
+  expect(screen.getByText('Clicks')).toHaveClass('counter-label');
   expect(screen.getByText('1,234')).toHaveClass('counter-value');
 });

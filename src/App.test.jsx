@@ -138,17 +138,17 @@ test('opens the language menu from the globe toggle', () => {
 test('switches the language and closes the menu when a menu item is selected', async () => {
   renderApp();
 
-  expect(await screen.findByText('全球點擊次數')).toHaveClass('counter-label');
+  expect(await screen.findByText('點擊次數')).toHaveClass('counter-label');
 
   fireEvent.click(screen.getByRole('button', { name: '語言' }));
   fireEvent.click(screen.getByRole('menuitem', { name: '简体' }));
-  expect(await screen.findByText('全球点击次数')).toHaveClass('counter-label');
+  expect(await screen.findByText('点击次数')).toHaveClass('counter-label');
 
   fireEvent.click(screen.getByRole('button', { name: '语言' }));
   fireEvent.click(screen.getByRole('menuitem', { name: 'EN' }));
 
   expect(screen.queryByRole('menuitem')).not.toBeInTheDocument();
-  expect(await screen.findByText('Global Clicks')).toHaveClass('counter-label');
+  expect(await screen.findByText('Clicks')).toHaveClass('counter-label');
   expect(screen.getByRole('button', { name: 'Language' })).toHaveAttribute('aria-expanded', 'false');
 });
 
@@ -209,7 +209,7 @@ test('switches the visible action labels to English', async () => {
   fireEvent.click(screen.getByRole('button', { name: '語言' }));
   fireEvent.click(screen.getByRole('menuitem', { name: 'EN' }));
 
-  expect(await screen.findByText('Global Clicks')).toBeInTheDocument();
+  expect(await screen.findByText('Clicks')).toBeInTheDocument();
   expect(await screen.findByText('12,544')).toBeInTheDocument();
   expect(counter.requests.some((request) => request.method === 'GET' && request.url.includes('action=click'))).toBe(true);
   expect(screen.getByRole('link', { name: '🔗 Learn more about Epilepsy Foundation HK' })).toBeInTheDocument();
