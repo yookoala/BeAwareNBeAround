@@ -12,26 +12,39 @@ function renderApp(path = '/diary', locale = 'zh-HK') {
   return render(<I18nProvider i18n={i18n}><MemoryRouter initialEntries={[path]}><Location /><AppRoutes /></MemoryRouter></I18nProvider>);
 }
 
-test('renders unified dashboard in shared shell without legacy chrome', () => {
+test('renders unified dashboard with recent 5 entries and without action-layout or stateModal', () => {
   const { container } = renderApp();
   expect(screen.getByRole('link', { name: /腦癎錦囊/ })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: '日記' })).toHaveAttribute('aria-current', 'page');
-  expect(container.querySelector('.official-banner, #appMode, .first-aid-banner')).toBeNull();
-  for (const [id, label] of [['btn-attack', '腦癇記錄'], ['btn-headache', '頭痛記錄'], ['btn-meds', '服藥記錄'], ['btn-side', '副作用']]) {
-    expect(container.querySelector(`#${id}`)).toHaveTextContent(label);
-    expect(container.querySelector(`#${id}`)).not.toHaveClass('hidden');
-  }
-  expect(screen.getByRole('button', { name: /生理及健康/ })).toBeVisible();
+  expect(container.querySelector('.official-banner, #appMode, .first-aid-banner, .action-layout, #stateModal')).toBeNull();
+  expect(screen.getByText('近期記錄')).toBeInTheDocument();
+  const cards = container.querySelectorAll('.recent-entries-list .recent-entry-card');
+  expect(cards).toHaveLength(5);
+  expect(cards[0]).toHaveTextContent('2026-09-15 16:00');
+  expect(cards[0]).toHaveTextContent('腦癇記錄');
+  expect(cards[1]).toHaveTextContent('2026-09-14 21:15');
+  expect(cards[1]).toHaveTextContent('頭痛記錄');
+  expect(cards[2]).toHaveTextContent('2026-09-14 08:00');
+  expect(cards[2]).toHaveTextContent('服藥記錄');
+  expect(cards[3]).toHaveTextContent('2026-09-13 19:30');
+  expect(cards[3]).toHaveTextContent('生理及健康');
+  expect(cards[4]).toHaveTextContent('2026-09-10 11:00');
+  expect(cards[4]).toHaveTextContent('副作用');
   expect(screen.getByText('發作/頭痛')).toBeInTheDocument();
   expect(screen.getByText('(選填) 建議填寫綜合診斷資料、發作類型、腦電圖等數據，有助於為您的主診醫生生成更精準完整的 PDF 報告。')).toBeInTheDocument();
 });
 
-test.each([['zh-CN', '发作/头痛'], ['en', 'Seizure/Headache']])('localizes the legend in %s', (locale, legend) => {
+test.each([
+  ['zh-CN', '发作/头痛', '近期记录', '小发作 (叢集 2 次) · 右手麻木'],
+  ['en', 'Seizure/Headache', 'Recent entries', 'Minor seizure (cluster ×2) · Right hand numbness'],
+])('localizes the legend and recent entries in %s', (locale, legend, recentHeading, firstSummary) => {
   renderApp('/diary', locale);
   expect(screen.getByText(legend)).toBeInTheDocument();
+  expect(screen.getByText(recentHeading)).toBeInTheDocument();
+  expect(screen.getByText(firstSummary)).toBeInTheDocument();
 });
 
-test('switches calendar views and closes both modals with Escape', () => {
+test('switches calendar views and closes monthly modal with Escape', () => {
   const { container } = renderApp();
   expect(container.querySelector('#cal-past-7')).toBeVisible();
   expect(container.querySelector('#cal-this-week')).not.toBeVisible();
@@ -42,22 +55,20 @@ test('switches calendar views and closes both modals with Escape', () => {
   expect(screen.getByRole('heading', { name: '2026年 9月 記錄' })).toBeVisible();
   fireEvent.keyDown(window, { key: 'Escape' });
   expect(screen.queryByRole('heading', { name: '2026年 9月 記錄' })).not.toBeInTheDocument();
-  fireEvent.click(screen.getByRole('button', { name: /生理及健康/ }));
-  expect(screen.getByRole('heading', { name: '生理及健康狀況' })).toBeVisible();
-  fireEvent.keyDown(window, { key: 'Escape' });
-  expect(screen.queryByRole('heading', { name: '生理及健康狀況' })).not.toBeInTheDocument();
 });
 
 test.each([
-  ['#btn-attack', '/diary/event-log'], ['#btn-headache', '/diary/event-log'], ['#fabRecord', '/diary/event-log'],
-  ['.profile-card', '/diary/profile'], ['[data-report="level-a"]', '/diary/report/level-a'], ['[data-report="level-b"]', '/diary/report/level-b'],
+  ['#fabRecord', '/diary/event'],
+  ['.profile-card', '/diary/profile'],
+  ['[data-report="level-a"]', '/diary/report/level-a'],
+  ['[data-report="level-b"]', '/diary/report/level-b'],
 ])('%s navigates to %s', (selector, destination) => {
   const { container } = renderApp();
   fireEvent.click(container.querySelector(selector));
   expect(screen.getByTestId('location')).toHaveTextContent(destination);
 });
 
-test('opening event log uses document.startViewTransition with vt-slide-in-right', async () => {
+test('opening event menu via FAB uses document.startViewTransition with vt-slide-in-right', async () => {
   let finishTransition;
   document.startViewTransition = vi.fn((callback) => {
     callback();
@@ -69,10 +80,10 @@ test('opening event log uses document.startViewTransition with vt-slide-in-right
   });
   try {
     const { container } = renderApp();
-    fireEvent.click(container.querySelector('#btn-attack'));
+    fireEvent.click(container.querySelector('#fabRecord'));
     expect(document.startViewTransition).toHaveBeenCalledTimes(1);
     expect(document.documentElement).toHaveClass('vt-slide-in-right');
-    expect(screen.getByTestId('location')).toHaveTextContent('/diary/event-log');
+    expect(screen.getByTestId('location')).toHaveTextContent('/diary/event');
     await act(async () => {
       finishTransition();
     });
@@ -90,13 +101,10 @@ test('FAB exists only on the diary dashboard and uses a pen icon', () => {
   expect(container.querySelector('#fabRecord')).toBeNull();
 });
 
-test('close buttons dismiss dialogs and the dashboard body class is removed on exit', () => {
+test('close button dismisses monthly dialog and the dashboard body class is removed on exit', () => {
   const { unmount } = renderApp();
   expect(document.body).toHaveClass('page-dashboard');
   fireEvent.click(screen.getByRole('button', { name: /完整月曆/ }));
-  fireEvent.click(screen.getByRole('button', { name: '關閉' }));
-  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-  fireEvent.click(screen.getByRole('button', { name: /生理及健康/ }));
   fireEvent.click(screen.getByRole('button', { name: '關閉' }));
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   unmount();
@@ -111,12 +119,12 @@ test.each([
   expect(screen.getByText(description)).toBeInTheDocument();
 });
 
-test.each([[/完整月曆/, '2026年 9月 記錄'], [/生理及健康/, '生理及健康狀況']])('keeps focus in %s modal and restores the trigger', (triggerName, title) => {
+test('keeps focus in monthly modal and restores the trigger', () => {
   renderApp();
-  const trigger = screen.getByRole('button', { name: triggerName });
+  const trigger = screen.getByRole('button', { name: /完整月曆/ });
   trigger.focus();
   fireEvent.click(trigger);
-  const dialog = screen.getByRole('dialog', { name: title });
+  const dialog = screen.getByRole('dialog', { name: '2026年 9月 記錄' });
   const close = screen.getByRole('button', { name: '關閉' });
   expect(close).toHaveFocus();
   const tab = new KeyboardEvent('keydown', { key: 'Tab', bubbles: true, cancelable: true });

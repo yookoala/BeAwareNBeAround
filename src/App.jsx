@@ -9,6 +9,7 @@ import { AppHeader } from './components/AppHeader';
 import { BottomNav } from './components/BottomNav';
 import FirstAidPage from './pages/FirstAidPage';
 import DiaryDashboardPage from './pages/DiaryDashboardPage';
+import EventMenuPage from './pages/EventMenuPage';
 import EventLogPage from './pages/EventLogPage';
 import ProfilePage from './pages/ProfilePage';
 import ReportLevelAPage from './pages/ReportLevelAPage';
@@ -27,7 +28,7 @@ export function AppRoutes() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const isReport = pathname.startsWith('/diary/report/');
-  const isEventLog = pathname === '/diary/event-log';
+  const isEventRoute = pathname === '/diary/event-log' || pathname.startsWith('/diary/event');
   const chromeHidden = useAutoHideChrome();
   // Captured once at app load so tab switches never change the tracked URL.
   const [targetUrl] = useState(() => window.location.href);
@@ -54,7 +55,7 @@ export function AppRoutes() {
 
   return (
     <main className={isReport ? 'main--report' : undefined}>
-      {!isReport && !isEventLog && <AppHeader
+      {!isReport && !isEventRoute && <AppHeader
         language={language}
         onLanguageChange={changeLanguage}
         onNavigateHome={navigateHome}
@@ -63,6 +64,7 @@ export function AppRoutes() {
       <Routes>
         <Route path="/" element={<FirstAidPage counter={counter} language={language} />} />
         <Route path="/diary" element={<DiaryDashboardPage />} />
+        <Route path="/diary/event" element={<EventMenuPage />} />
         <Route path="/diary/event-log" element={<EventLogPage />} />
         <Route path="/diary/profile" element={<ProfilePage />} />
         <Route path="/diary/report/level-a" element={<ReportLevelAPage />} />

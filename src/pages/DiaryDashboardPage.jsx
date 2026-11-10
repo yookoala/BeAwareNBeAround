@@ -6,7 +6,7 @@ import { calendarLabel } from '../components/diary/calendarLabel';
 import Modal from '../components/diary/Modal';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { navigateWithViewTransition } from '../utils/viewTransition';
-import { past7Days, thisWeekDays, monthDays, monthEmptyCells, monthHeaderDays } from '../data/mockDashboard';
+import { past7Days, thisWeekDays, monthDays, monthEmptyCells, monthHeaderDays, recentEntries } from '../data/mockDashboard';
 import '../styles/dashboard.css';
 
 export default function DiaryDashboardPage() {
@@ -15,8 +15,8 @@ export default function DiaryDashboardPage() {
   const [calendarView, setCalendarView] = useState('past7');
   const [modal, setModal] = useState(null);
   const closeModal = useCallback(() => setModal(null), []);
-  const openEventLog = useCallback(
-    () => navigateWithViewTransition(navigate, '/diary/event-log', 'vt-slide-in-right'),
+  const openEventMenu = useCallback(
+    () => navigateWithViewTransition(navigate, '/diary/event', 'vt-slide-in-right'),
     [navigate],
   );
   const weekdays = {
@@ -27,6 +27,28 @@ export default function DiaryDashboardPage() {
     '四': t({ id: 'diary.weekday.thu', message: 'Thu' }),
     '五': t({ id: 'diary.weekday.fri', message: 'Fri' }),
     '六': t({ id: 'diary.weekday.sat', message: 'Sat' }),
+  };
+  const entryTypes = {
+    seizure: {
+      title: t({ id: 'diary.seizure', message: 'Seizure record' }),
+      summary: t({ id: 'diary.recent.seizureSummary', message: 'Minor seizure (cluster ×2) · Right hand numbness' }),
+    },
+    headache: {
+      title: t({ id: 'diary.headache', message: 'Headache record' }),
+      summary: t({ id: 'diary.recent.headacheSummary', message: 'Single headache · Stress/tension' }),
+    },
+    meds: {
+      title: t({ id: 'diary.meds', message: 'Medication record' }),
+      summary: t({ id: 'diary.recent.medsSummary', message: 'Levetiracetam 1000mg · Lamotrigine 50mg' }),
+    },
+    health: {
+      title: t({ id: 'diary.health', message: 'Physiology and health' }),
+      summary: t({ id: 'diary.recent.healthSummary', message: 'Menstrual period · Cold (URTI)' }),
+    },
+    sideEffects: {
+      title: t({ id: 'diary.sideEffects', message: 'Side effects' }),
+      summary: t({ id: 'diary.recent.sideEffectsSummary', message: 'Drowsiness/fatigue · Hand tremor' }),
+    },
   };
   return (
     <div className="app-container" id="appContainer">
@@ -51,16 +73,23 @@ export default function DiaryDashboardPage() {
         <div className="legend-item"><div className="legend-line period" />{t({ id: 'diary.legend.period', message: 'Period' })}</div>
         <div className="legend-item"><div className="legend-line illness" />{t({ id: 'diary.legend.illness', message: 'Illness/Stress' })}</div>
       </div>
-      <div className="action-layout">
-        <div className="action-row" id="row-attacks">
-          <button className="action-btn top-row-btn" id="btn-attack" onClick={openEventLog}><span className="action-icon" aria-hidden="true">⚡</span><span>{t({ id: 'diary.seizure', message: 'Seizure record' })}</span></button>
-          <button className="action-btn top-row-btn" id="btn-headache" onClick={openEventLog}><span className="action-icon" aria-hidden="true">🤕</span><span>{t({ id: 'diary.headache', message: 'Headache record' })}</span></button>
-        </div>
-        <div className="action-row" id="row-management">
-          <button className="action-btn" id="btn-meds"><span className="action-icon" aria-hidden="true">💊</span><span>{t({ id: 'diary.meds', message: 'Medication record' })}</span></button>
-          <button className="action-btn" id="btn-side"><span className="action-icon" aria-hidden="true">😵‍💫</span><span>{t({ id: 'diary.sideEffects', message: 'Side effects' })}</span></button>
-          <button className="action-btn" onClick={() => setModal('state')}><span className="action-icon" aria-hidden="true">⏳</span><span>{t({ id: 'diary.health', message: 'Physiology and health' })}</span></button>
-        </div>
+      <div className="section-title">{t({ id: 'diary.recentEntries', message: 'Recent entries' })}</div>
+      <div className="recent-entries-list">
+        {recentEntries.map((entry) => {
+          const info = entryTypes[entry.type];
+          return (
+            <div key={entry.id} className="recent-entry-card">
+              <span className="recent-entry-icon" aria-hidden="true">{entry.icon}</span>
+              <div className="recent-entry-body">
+                <div className="recent-entry-header">
+                  <strong className="recent-entry-title">{info.title}</strong>
+                  <span className="recent-entry-time">{entry.datetime}</span>
+                </div>
+                <p className="recent-entry-summary">{info.summary}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div className="section-title">{t({ id: 'diary.medicalData', message: 'My medical information' })}</div>
       <button className="profile-card" onClick={() => navigate('/diary/profile')}>
@@ -71,7 +100,7 @@ export default function DiaryDashboardPage() {
         <button data-report="level-b" onClick={() => navigate('/diary/report/level-b')}>{t({ id: 'diary.reportB', message: '📋 Historical summary (Level B)' })}</button>
       </div>
       <div className="privacy-note"><span aria-hidden="true">🔒</span><span>{t({ id: 'diary.privacy', message: 'Privacy: data is stored only on your device or in your cloud, never uploaded to the Foundation.' })}</span></div>
-      <button type="button" className="fab-record" id="fabRecord" title={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} aria-label={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} onClick={openEventLog}>
+      <button type="button" className="fab-record" id="fabRecord" title={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} aria-label={t({ id: 'diary.emergencyVideo', message: 'Emergency video' })} onClick={openEventMenu}>
         <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ pointerEvents: 'none' }}>
           <path d="M12 20h9" />
           <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
@@ -96,9 +125,6 @@ export default function DiaryDashboardPage() {
           })}
         </div>
         <div className="modal-legend"><div className="legend-item"><div className="med-dots"><span className="m-dot taken" /><span className="m-dot missed" /></div>{t({ id: 'diary.monthMeds', message: 'Multiple medications (green/yellow)' })}</div><div className="legend-item"><div className="event-dot has-record" />{t({ id: 'diary.legend.event', message: 'Seizure/Headache' })}</div><div className="legend-item"><div className="legend-line period" />{t({ id: 'diary.legend.period', message: 'Period' })}</div><div className="legend-item"><div className="legend-line illness" />{t({ id: 'diary.monthIllness', message: 'URTI/surgery/stress etc.' })}</div></div>
-      </Modal>}
-      {modal === 'state' && <Modal id="stateModal" title={t({ id: 'diary.healthTitle', message: 'Physiological and health conditions' })} onClose={closeModal}>
-        <ul style={{ listStyle: 'none', fontSize: '13px', lineHeight: 1.8, padding: '0 4px' }}><li>{t({ id: 'diary.state.period', message: '☐ Menstrual period' })}</li><li>{t({ id: 'diary.state.urti', message: '☐ Cold (URTI)' })}</li><li>{t({ id: 'diary.state.surgery', message: '☐ Surgery' })}</li><li>{t({ id: 'diary.state.stress', message: '☐ Extreme sadness/stress' })}</li><li>{t({ id: 'diary.state.custom', message: '☐ Custom: ________' })}</li></ul>
       </Modal>}
     </div>
   );
