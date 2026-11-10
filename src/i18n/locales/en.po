@@ -582,7 +582,7 @@ msgid "profile.a8"
 msgstr "Autonomic (palpitations/sweating/heat)"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:42
 msgid "profile.available"
 msgstr "Available"
 
@@ -622,7 +622,7 @@ msgid "whatIs.tagline2"
 msgstr "Be Aware: Don't restrain. Be Around: Protect and remain."
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:8
 msgid "profile.blood"
 msgstr "Blood test"
 
@@ -637,7 +637,7 @@ msgid "report.fixture.2548a68c6b"
 msgstr "Bridge medication while discontinuing the previous drug."
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:9
+#: src/components/diary/InvestigationCard.jsx:59
 msgid "profile.remarkPlaceholder"
 msgstr "Brief description..."
 
@@ -652,7 +652,7 @@ msgid "diary.calendarView"
 msgstr "Calendar view"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:11
+#: src/components/diary/ContactCard.jsx:49
 msgid "profile.call"
 msgstr "Call"
 
@@ -698,17 +698,17 @@ msgid "report.fixture.4d13913b8c"
 msgstr "Complete epilepsy diary history (Level B)"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:8
+#: src/components/diary/ContactCard.jsx:21
 msgid "profile.contact"
 msgstr "Contact"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:8
+#: src/components/diary/ContactCard.jsx:21
 msgid "profile.contact1"
 msgstr "Contact 1"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:7
 msgid "profile.ct"
 msgstr "CT scan"
 
@@ -749,7 +749,7 @@ msgid "report.fixture.b6fed9af83"
 msgstr "Date"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:7
+#: src/components/diary/InvestigationCard.jsx:31
 msgid "profile.date"
 msgstr "Date"
 
@@ -794,7 +794,7 @@ msgid "profile.doctorExample"
 msgstr "e.g. Dr Chan"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:9
+#: src/components/diary/ContactCard.jsx:31
 msgid "profile.father"
 msgstr "e.g. Father"
 
@@ -855,7 +855,7 @@ msgid "header.brandTitle"
 msgstr "EFHK Seizure Help"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:5
 msgid "profile.eeg"
 msgstr "Electroencephalogram (EEG)"
 
@@ -1049,7 +1049,7 @@ msgid "report.fri"
 msgstr "Fri"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:9
 msgid "profile.genetic"
 msgstr "Genetic test"
 
@@ -1311,7 +1311,7 @@ msgid "report.mon"
 msgstr "Mon"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:6
 msgid "profile.mri"
 msgstr "MRI"
 
@@ -1346,7 +1346,7 @@ msgid "report.fixture.fb47d6452a"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:8
+#: src/components/diary/ContactCard.jsx:17
 msgid "profile.name"
 msgstr "Name"
 
@@ -1396,7 +1396,7 @@ msgid "report.fixture.9a4dca4f30"
 msgstr "No structural defect"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:50
 msgid "profile.normal"
 msgstr "Normal"
 
@@ -1416,12 +1416,12 @@ msgid "report.fixture.c687bd7d35"
 msgstr "Normal Sinus Rhythm"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:41
 msgid "profile.notAvailable"
 msgstr "Not available"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:51
 msgid "profile.notNormal"
 msgstr "Not normal"
 
@@ -1486,7 +1486,7 @@ msgid "profile.medsHint"
 msgstr "Open the medication library to set baseline medications and frequency."
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:10
 msgid "profile.other"
 msgstr "Other"
 
@@ -1529,12 +1529,12 @@ msgid "diary.profile"
 msgstr "Personal medical profile"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:10
+#: src/components/diary/ContactCard.jsx:38
 msgid "profile.phone"
 msgstr "Phone"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:10
+#: src/components/diary/ContactCard.jsx:38
 msgid "profile.phoneExample"
 msgstr "Phone (include country code, e.g. 85298765432)"
 
@@ -1660,20 +1660,20 @@ msgid "whatIs.recognizeLabel"
 msgstr "Recognize & Time:"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:9
-#: src/components/diary/ContactCard.jsx:9
+#: src/components/diary/ContactCard.jsx:27
+#: src/components/diary/ContactCard.jsx:31
 msgid "profile.relationship"
 msgstr "Relationship"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:9
+#: src/components/diary/InvestigationCard.jsx:58
 msgid "profile.remark"
 msgstr "Remark"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:7
+#: src/components/diary/ContactCard.jsx:11
 #: src/components/diary/CustomItemList.jsx:4
-#: src/components/diary/InvestigationCard.jsx:6
+#: src/components/diary/InvestigationCard.jsx:17
 msgid "profile.remove"
 msgstr "Remove"
 
@@ -1704,7 +1704,7 @@ msgid "report.period"
 msgstr "Report period"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:48
 msgid "profile.result"
 msgstr "Result"
 
@@ -1909,7 +1909,7 @@ msgid "report.fixture.7fd7a227e9"
 msgstr "Start date"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:39
 msgid "profile.status"
 msgstr "Status"
 
@@ -2072,7 +2072,7 @@ msgid "whatIs.positionText"
 msgstr "Turn the person gently onto their side to keep their airway clear."
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:7
+#: src/components/diary/InvestigationCard.jsx:23
 msgid "profile.type"
 msgstr "Type"
 

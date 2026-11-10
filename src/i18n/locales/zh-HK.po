@@ -582,7 +582,7 @@ msgid "profile.a8"
 msgstr "自律神經 (心悸/流汗/發熱)"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:42
 msgid "profile.available"
 msgstr "已提供"
 
@@ -622,7 +622,7 @@ msgid "whatIs.tagline2"
 msgstr "Be Aware：不要壓制。Be Around：保護並陪伴。"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:8
 msgid "profile.blood"
 msgstr "血液檢查 (Blood Test)"
 
@@ -637,7 +637,7 @@ msgid "report.fixture.2548a68c6b"
 msgstr "作為停用舊藥期間的橋接用藥。"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:9
+#: src/components/diary/InvestigationCard.jsx:59
 msgid "profile.remarkPlaceholder"
 msgstr "簡短說明..."
 
@@ -652,7 +652,7 @@ msgid "diary.calendarView"
 msgstr "日曆檢視"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:11
+#: src/components/diary/ContactCard.jsx:49
 msgid "profile.call"
 msgstr "致電"
 
@@ -698,17 +698,17 @@ msgid "report.fixture.4d13913b8c"
 msgstr "腦癇日誌歷史總記錄 (Level B)"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:8
+#: src/components/diary/ContactCard.jsx:21
 msgid "profile.contact"
 msgstr "聯絡人"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:8
+#: src/components/diary/ContactCard.jsx:21
 msgid "profile.contact1"
 msgstr "聯絡人 1"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:7
 msgid "profile.ct"
 msgstr "電腦掃描 (CT)"
 
@@ -749,7 +749,7 @@ msgid "report.fixture.b6fed9af83"
 msgstr "日期"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:7
+#: src/components/diary/InvestigationCard.jsx:31
 msgid "profile.date"
 msgstr "日期 (Date)"
 
@@ -794,7 +794,7 @@ msgid "profile.doctorExample"
 msgstr "例: 陳醫生"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:9
+#: src/components/diary/ContactCard.jsx:31
 msgid "profile.father"
 msgstr "例: 父親"
 
@@ -855,7 +855,7 @@ msgid "header.brandTitle"
 msgstr "腦癎錦囊"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:5
 msgid "profile.eeg"
 msgstr "腦電圖 (EEG)"
 
@@ -1049,7 +1049,7 @@ msgid "report.fri"
 msgstr "五"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:9
 msgid "profile.genetic"
 msgstr "基因檢測 (Genetic Test)"
 
@@ -1311,7 +1311,7 @@ msgid "report.mon"
 msgstr "一"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:6
 msgid "profile.mri"
 msgstr "磁力共振 (MRI)"
 
@@ -1346,7 +1346,7 @@ msgid "report.fixture.fb47d6452a"
 msgstr "姓名 (Name)"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:8
+#: src/components/diary/ContactCard.jsx:17
 msgid "profile.name"
 msgstr "姓名"
 
@@ -1396,7 +1396,7 @@ msgid "report.fixture.9a4dca4f30"
 msgstr "無結構異常"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:50
 msgid "profile.normal"
 msgstr "正常"
 
@@ -1416,12 +1416,12 @@ msgid "report.fixture.c687bd7d35"
 msgstr "正常竇性心律"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:41
 msgid "profile.notAvailable"
 msgstr "未提供"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:51
 msgid "profile.notNormal"
 msgstr "異常"
 
@@ -1486,7 +1486,7 @@ msgid "profile.medsHint"
 msgstr "點擊下方按鈕開啟完整藥物庫，設定您的基線藥物與服用頻率。"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:4
+#: src/components/diary/InvestigationCard.jsx:10
 msgid "profile.other"
 msgstr "其他 (Other)"
 
@@ -1529,12 +1529,12 @@ msgid "diary.profile"
 msgstr "個人醫療檔案"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:10
+#: src/components/diary/ContactCard.jsx:38
 msgid "profile.phone"
 msgstr "電話"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:10
+#: src/components/diary/ContactCard.jsx:38
 msgid "profile.phoneExample"
 msgstr "電話 (包含區號, 例: 85298765432)"
 
@@ -1660,20 +1660,20 @@ msgid "whatIs.recognizeLabel"
 msgstr "辨認與計時："
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:9
-#: src/components/diary/ContactCard.jsx:9
+#: src/components/diary/ContactCard.jsx:27
+#: src/components/diary/ContactCard.jsx:31
 msgid "profile.relationship"
 msgstr "關係"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:9
+#: src/components/diary/InvestigationCard.jsx:58
 msgid "profile.remark"
 msgstr "備註 (Remark)"
 
 #. js-lingui-explicit-id
-#: src/components/diary/ContactCard.jsx:7
+#: src/components/diary/ContactCard.jsx:11
 #: src/components/diary/CustomItemList.jsx:4
-#: src/components/diary/InvestigationCard.jsx:6
+#: src/components/diary/InvestigationCard.jsx:17
 msgid "profile.remove"
 msgstr "刪除"
 
@@ -1704,7 +1704,7 @@ msgid "report.period"
 msgstr "報告生成區間"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:48
 msgid "profile.result"
 msgstr "結果 (Result)"
 
@@ -1909,7 +1909,7 @@ msgid "report.fixture.7fd7a227e9"
 msgstr "開始日期"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:8
+#: src/components/diary/InvestigationCard.jsx:39
 msgid "profile.status"
 msgstr "狀態 (Status)"
 
@@ -2072,7 +2072,7 @@ msgid "whatIs.positionText"
 msgstr "將患者輕輕翻側，保持呼吸道暢通。"
 
 #. js-lingui-explicit-id
-#: src/components/diary/InvestigationCard.jsx:7
+#: src/components/diary/InvestigationCard.jsx:23
 msgid "profile.type"
 msgstr "檢查項目 (Type)"
 
