@@ -82,3 +82,47 @@ test.each([
   renderApp('/diary', locale);
   expect(screen.getByText(description)).toBeInTheDocument();
 });
+
+test.each([[/完整月曆/, '2026年 9月 記錄'], [/生理及健康/, '生理及健康狀況']])('keeps focus in %s modal and restores the trigger', (triggerName, title) => {
+  renderApp();
+  const trigger = screen.getByRole('button', { name: triggerName });
+  trigger.focus();
+  fireEvent.click(trigger);
+  const dialog = screen.getByRole('dialog', { name: title });
+  const close = screen.getByRole('button', { name: '關閉' });
+  expect(close).toHaveFocus();
+  const tab = new KeyboardEvent('keydown', { key: 'Tab', bubbles: true, cancelable: true });
+  close.dispatchEvent(tab);
+  expect(tab.defaultPrevented).toBe(true);
+  expect(dialog).toContainElement(document.activeElement);
+  const reverseTab = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true, cancelable: true });
+  close.dispatchEvent(reverseTab);
+  expect(reverseTab.defaultPrevented).toBe(true);
+  expect(dialog).toContainElement(document.activeElement);
+  fireEvent.keyDown(window, { key: 'Escape' });
+  expect(trigger).toHaveFocus();
+});
+
+test('announces medication, event and health indicators for weekly and monthly days', () => {
+  const { container } = renderApp('/diary', 'en');
+  const weeklyDays = container.querySelectorAll('#cal-past-7 .calendar-day');
+  expect(weeklyDays[2]).toHaveAccessibleName('Thu 10, Taken: 2, Missed: 1');
+  expect(weeklyDays[3]).toHaveAccessibleName('Fri 11, Taken: 3, Seizure/Headache');
+  expect(weeklyDays[6]).toHaveAccessibleName('Mon 14, Taken: 1, Not recorded: 2, Period, Illness/Stress');
+  fireEvent.click(screen.getByRole('button', { name: /Full calendar/ }));
+  const days = container.querySelectorAll('#monthlyModal .month-day:not(.empty)');
+  expect(days[2]).toHaveAccessibleName('3, Taken: 2, Missed: 1');
+  expect(days[3]).toHaveAccessibleName('4, Taken: 2, Seizure/Headache');
+  expect(days[12]).toHaveAccessibleName('13, Taken: 2, Period, Illness/Stress');
+  expect(days[14]).not.toHaveAttribute('aria-label');
+});
+
+test('localizes day indicator descriptions in Chinese', () => {
+  const { container } = renderApp();
+  expect(container.querySelectorAll('#cal-past-7 .calendar-day')[2]).toHaveAccessibleName('四 10, 已服: 2, 漏服: 1');
+});
+
+test('localizes day indicator descriptions in simplified Chinese', () => {
+  const { container } = renderApp('/diary', 'zh-CN');
+  expect(container.querySelectorAll('#cal-past-7 .calendar-day')[6]).toHaveAccessibleName('一 14, 已服: 1, 未记录: 2, 生理期, 疾病/压力');
+});

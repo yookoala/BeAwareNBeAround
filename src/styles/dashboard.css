@@ -73,7 +73,7 @@ body.page-dashboard .fab-record { position: fixed; top: 0; left: 0; width: 56px;
 
 /* Modal */
 body.page-dashboard .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(2px); }
-body.page-dashboard .modal-content { background: var(--surface-color); width: 96%; max-width: 400px; border-radius: 16px; padding: 20px 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+body.page-dashboard .modal-content { max-height: 90vh; overflow-y: auto; box-sizing: border-box; background: var(--surface-color); width: 96%; max-width: 400px; border-radius: 16px; padding: 20px 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
 body.page-dashboard .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding: 0 4px;}
 body.page-dashboard .modal-header h2 { font-size: 18px; color: var(--efhk-flame); }
 body.page-dashboard .close-btn { background: none; border: none; font-size: 24px; color: var(--text-secondary); cursor: pointer; }

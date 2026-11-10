@@ -1,8 +1,11 @@
+import { calendarLabel } from './calendarLabel';
+
 // One weekly-calendar cell, mirroring the prototype's .calendar-day DOM 1:1.
 export default function CalendarDay({ day }) {
   const lines = day.lines ?? [];
+  const label = calendarLabel(day, `${day.name} ${day.num}`);
   return (
-    <div className={day.today ? 'calendar-day today' : 'calendar-day'}>
+    <div className={day.today ? 'calendar-day today' : 'calendar-day'} role={label ? 'img' : undefined} aria-label={label}>
       <span className="day-name">{day.name}</span>
       <span className="day-num">{day.num}</span>
       <div className="day-indicators">

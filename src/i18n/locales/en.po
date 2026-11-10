@@ -139,7 +139,7 @@ msgstr ""
 #~ msgstr "The diary feature is under development. Stay tuned."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:71
+#: src/pages/DiaryDashboardPage.jsx:72
 msgid "diary.profileDesc"
 msgstr "(Optional) Add comprehensive diagnostic information, seizure types, EEG and other data to help generate a more accurate and complete PDF report for your doctor."
 
@@ -149,27 +149,27 @@ msgid "video.label"
 msgstr "▶️ Acute Seizure Management Animation"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:89
+#: src/pages/DiaryDashboardPage.jsx:102
 msgid "diary.state.urti"
 msgstr "☐ Cold (URTI)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:89
+#: src/pages/DiaryDashboardPage.jsx:102
 msgid "diary.state.custom"
 msgstr "☐ Custom: ________"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:89
+#: src/pages/DiaryDashboardPage.jsx:102
 msgid "diary.state.stress"
 msgstr "☐ Extreme sadness/stress"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:89
+#: src/pages/DiaryDashboardPage.jsx:102
 msgid "diary.state.period"
 msgstr "☐ Menstrual period"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:89
+#: src/pages/DiaryDashboardPage.jsx:102
 msgid "diary.state.surgery"
 msgstr "☐ Surgery"
 
@@ -179,12 +179,12 @@ msgid "faq.summary"
 msgstr "❓ Frequently Asked Questions (FAQ)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:28
+#: src/pages/DiaryDashboardPage.jsx:29
 msgid "diary.hub.social"
 msgstr "🌐 Social media"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:32
+#: src/pages/DiaryDashboardPage.jsx:33
 msgid "diary.hub.donate"
 msgstr "💖 Donate"
 
@@ -194,32 +194,32 @@ msgid "whatIs.summary"
 msgstr "💡 What is Be Aware n' Be Around?"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:45
+#: src/pages/DiaryDashboardPage.jsx:46
 msgid "diary.fullCalendar"
 msgstr "📅 Full calendar ➔"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:29
+#: src/pages/DiaryDashboardPage.jsx:30
 msgid "diary.hub.events"
 msgstr "📅 Latest events"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:74
+#: src/pages/DiaryDashboardPage.jsx:75
 msgid "diary.reportA"
 msgstr "📊 Clinic report (Level A)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:75
+#: src/pages/DiaryDashboardPage.jsx:76
 msgid "diary.reportB"
 msgstr "📋 Historical summary (Level B)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:31
+#: src/pages/DiaryDashboardPage.jsx:32
 msgid "diary.hub.courses"
 msgstr "📚 Online courses"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:33
+#: src/pages/DiaryDashboardPage.jsx:34
 msgid "diary.hub.contact"
 msgstr "📞 Contact us"
 
@@ -294,7 +294,7 @@ msgid "whatIs.tagline2"
 msgstr "Be Aware: Don't restrain. Be Around: Protect and remain."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:40
+#: src/pages/DiaryDashboardPage.jsx:41
 msgid "diary.calendarView"
 msgstr "Calendar view"
 
@@ -315,12 +315,12 @@ msgid "dialog.close"
 msgstr "Close"
 
 #. js-lingui-explicit-id
-#: src/components/diary/Modal.jsx:18
+#: src/components/diary/Modal.jsx:36
 msgid "diary.close"
 msgstr "Close"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:39
+#: src/pages/DiaryDashboardPage.jsx:40
 msgid "diary.daily"
 msgstr "Daily records"
 
@@ -355,13 +355,13 @@ msgid "header.brandTitle"
 msgstr "EFHK Seizure Help"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:79
-#: src/pages/DiaryDashboardPage.jsx:79
+#: src/pages/DiaryDashboardPage.jsx:80
+#: src/pages/DiaryDashboardPage.jsx:80
 msgid "diary.emergencyVideo"
 msgstr "Emergency video"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:37
+#: src/pages/DiaryDashboardPage.jsx:38
 msgid "diary.dashboard.title"
 msgstr "Epilepsy and Headache Tracking"
 
@@ -371,7 +371,7 @@ msgid "organization.logoAlt"
 msgstr "Epilepsy Foundation of Hong Kong"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:78
+#: src/pages/DiaryDashboardPage.jsx:79
 msgid "diary.hub"
 msgstr "Epilepsy Foundation of Hong Kong Resource Centre"
 
@@ -396,7 +396,7 @@ msgid "playlist.cardLabel"
 msgstr "First aid audio guide"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:24
+#: src/pages/DiaryDashboardPage.jsx:25
 msgid "diary.weekday.fri"
 msgstr "Fri"
 
@@ -406,7 +406,7 @@ msgid "guide.step3"
 msgstr "Gently roll the person onto their side. Never put anything in their mouth."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:61
+#: src/pages/DiaryDashboardPage.jsx:62
 msgid "diary.headache"
 msgstr "Headache record"
 
@@ -426,12 +426,13 @@ msgid "setup.operateHeading"
 msgstr "How to Operate"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:30
+#: src/pages/DiaryDashboardPage.jsx:31
 msgid "diary.hub.about"
 msgstr "ℹ️ About us"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:56
+#: src/components/diary/calendarLabel.js:14
+#: src/pages/DiaryDashboardPage.jsx:57
 msgid "diary.legend.illness"
 msgstr "Illness/Stress"
 
@@ -462,22 +463,27 @@ msgid "playlist.loading"
 msgstr "Loading…"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:53
+#: src/pages/DiaryDashboardPage.jsx:54
 msgid "diary.legend.meds"
 msgstr "Medication (green=taken/yellow=missed)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:64
+#: src/pages/DiaryDashboardPage.jsx:65
 msgid "diary.meds"
 msgstr "Medication record"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:20
+#: src/components/diary/calendarLabel.js:10
+msgid "diary.calendar.missed"
+msgstr "Missed: {missed}"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryDashboardPage.jsx:21
 msgid "diary.weekday.mon"
 msgstr "Mon"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:86
+#: src/pages/DiaryDashboardPage.jsx:99
 msgid "diary.monthMeds"
 msgstr "Multiple medications (green/yellow)"
 
@@ -487,7 +493,7 @@ msgid "playlist.mute"
 msgstr "Mute"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:69
+#: src/pages/DiaryDashboardPage.jsx:70
 msgid "diary.medicalData"
 msgstr "My medical information"
 
@@ -495,6 +501,11 @@ msgstr "My medical information"
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.dontsText"
 msgstr "Never restrain movement or place anything in the person's mouth."
+
+#. js-lingui-explicit-id
+#: src/components/diary/calendarLabel.js:11
+msgid "diary.calendar.unrecorded"
+msgstr "Not recorded: {unrecorded}"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:165
@@ -517,7 +528,7 @@ msgid "setup.iosInstructions"
 msgstr "Open in Safari, tap Share, then select Add to Home Screen."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:41
+#: src/pages/DiaryDashboardPage.jsx:42
 msgid "diary.past7"
 msgstr "Past 7 days"
 
@@ -527,23 +538,24 @@ msgid "playlist.pause"
 msgstr "Pause"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:55
-#: src/pages/DiaryDashboardPage.jsx:86
+#: src/components/diary/calendarLabel.js:13
+#: src/pages/DiaryDashboardPage.jsx:56
+#: src/pages/DiaryDashboardPage.jsx:99
 msgid "diary.legend.period"
 msgstr "Period"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:71
+#: src/pages/DiaryDashboardPage.jsx:72
 msgid "diary.profile"
 msgstr "Personal medical profile"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:88
+#: src/pages/DiaryDashboardPage.jsx:101
 msgid "diary.healthTitle"
 msgstr "Physiological and health conditions"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:66
+#: src/pages/DiaryDashboardPage.jsx:67
 msgid "diary.health"
 msgstr "Physiology and health"
 
@@ -579,7 +591,7 @@ msgid "whatIs.positionLabel"
 msgstr "Position safely:"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:77
+#: src/pages/DiaryDashboardPage.jsx:78
 msgid "diary.privacy"
 msgstr "Privacy: data is stored only on your device or in your cloud, never uploaded to the Foundation."
 
@@ -635,7 +647,7 @@ msgid "action.safe"
 msgstr "SAFE"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:25
+#: src/pages/DiaryDashboardPage.jsx:26
 msgid "diary.weekday.sat"
 msgstr "Sat"
 
@@ -655,18 +667,19 @@ msgid "guide.title"
 msgstr "Seizure First Aid Guide"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:60
+#: src/pages/DiaryDashboardPage.jsx:61
 msgid "diary.seizure"
 msgstr "Seizure record"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:54
-#: src/pages/DiaryDashboardPage.jsx:86
+#: src/components/diary/calendarLabel.js:12
+#: src/pages/DiaryDashboardPage.jsx:55
+#: src/pages/DiaryDashboardPage.jsx:99
 msgid "diary.legend.event"
 msgstr "Seizure/Headache"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:80
+#: src/pages/DiaryDashboardPage.jsx:81
 msgid "diary.monthTitle"
 msgstr "September 2026 records"
 
@@ -682,7 +695,7 @@ msgid "action.side"
 msgstr "SIDE"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:65
+#: src/pages/DiaryDashboardPage.jsx:66
 msgid "diary.sideEffects"
 msgstr "Side effects"
 
@@ -723,9 +736,14 @@ msgid "header.slogan"
 msgstr "STAY, SAFE, SIDE, HELP"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:19
+#: src/pages/DiaryDashboardPage.jsx:20
 msgid "diary.weekday.sun"
 msgstr "Sun"
+
+#. js-lingui-explicit-id
+#: src/components/diary/calendarLabel.js:9
+msgid "diary.calendar.taken"
+msgstr "Taken: {taken}"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:155
@@ -743,12 +761,12 @@ msgid "faq.answer4"
 msgstr "The counter shows the total number of times the app's action buttons have been clicked, across all users."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:42
+#: src/pages/DiaryDashboardPage.jsx:43
 msgid "diary.thisWeek"
 msgstr "This week"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:23
+#: src/pages/DiaryDashboardPage.jsx:24
 msgid "diary.weekday.thu"
 msgstr "Thu"
 
@@ -758,7 +776,7 @@ msgid "install.fallbackAlert"
 msgstr "To install, use your browser's Add to Home Screen option."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:21
+#: src/pages/DiaryDashboardPage.jsx:22
 msgid "diary.weekday.tue"
 msgstr "Tue"
 
@@ -773,7 +791,7 @@ msgid "playlist.unmute"
 msgstr "Unmute"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:86
+#: src/pages/DiaryDashboardPage.jsx:99
 msgid "diary.monthIllness"
 msgstr "URTI/surgery/stress etc."
 
@@ -788,6 +806,6 @@ msgid "playlist.volume"
 msgstr "Volume"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:22
+#: src/pages/DiaryDashboardPage.jsx:23
 msgid "diary.weekday.wed"
 msgstr "Wed"

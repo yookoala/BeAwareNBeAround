@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { t } from '@lingui/core/macro';
 import CalendarDay from '../components/diary/CalendarDay';
+import { calendarLabel } from '../components/diary/calendarLabel';
 import Modal from '../components/diary/Modal';
 import useDraggableFAB from '../hooks/useDraggableFAB';
 import usePageBodyClass from '../hooks/usePageBodyClass';
@@ -81,7 +82,19 @@ export default function DiaryDashboardPage() {
         <div className="month-grid">
           {monthHeaderDays.map((day) => <div key={day} className="month-header-day">{weekdays[day]}</div>)}
           {Array.from({ length: monthEmptyCells }, (_, i) => <div key={`empty-${i}`} className="month-day empty" />)}
-          {monthDays.map((day) => <div key={day.num} className={day.today ? 'month-day today' : 'month-day'}>{day.num}<div className="day-indicators">{day.meds.length > 0 && <div className="med-dots">{day.meds.map((state, i) => <span key={i} className={state ? `m-dot ${state}` : 'm-dot'} />)}</div>}{day.eventDot && <div className="event-dot has-record" />}</div>{day.lines?.length > 0 && <div className="event-line-container">{day.lines.map((line) => <div key={line} className={`event-line ${line}`} />)}</div>}</div>)}
+          {monthDays.map((day) => {
+            const label = calendarLabel(day, String(day.num));
+            return (
+              <div key={day.num} className={day.today ? 'month-day today' : 'month-day'} role={label ? 'img' : undefined} aria-label={label}>
+                {day.num}
+                <div className="day-indicators">
+                  {day.meds.length > 0 && <div className="med-dots">{day.meds.map((state, i) => <span key={i} className={state ? `m-dot ${state}` : 'm-dot'} />)}</div>}
+                  {day.eventDot && <div className="event-dot has-record" />}
+                </div>
+                {day.lines?.length > 0 && <div className="event-line-container">{day.lines.map((line) => <div key={line} className={`event-line ${line}`} />)}</div>}
+              </div>
+            );
+          })}
         </div>
         <div className="modal-legend"><div className="legend-item"><div className="med-dots"><span className="m-dot taken" /><span className="m-dot missed" /></div>{t({ id: 'diary.monthMeds', message: 'Multiple medications (green/yellow)' })}</div><div className="legend-item"><div className="event-dot has-record" />{t({ id: 'diary.legend.event', message: 'Seizure/Headache' })}</div><div className="legend-item"><div className="legend-line period" />{t({ id: 'diary.legend.period', message: 'Period' })}</div><div className="legend-item"><div className="legend-line illness" />{t({ id: 'diary.monthIllness', message: 'URTI/surgery/stress etc.' })}</div></div>
       </Modal>}

@@ -97,3 +97,25 @@ test('dashboard and monthly calendar fit a 320px viewport', async ({ page }) => 
   expect(dialog.x).toBeGreaterThanOrEqual(0);
   expect(dialog.x + dialog.width).toBeLessThanOrEqual(320);
 });
+
+test('dashboard modal traps focus and scrolls on a short screen', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 300 });
+  mockCounterRoute(page, { initialTotal: 12544 });
+  await page.goto('/diary');
+  const trigger = page.getByRole('button', { name: /完整月曆/ });
+  await trigger.focus();
+  await trigger.click();
+  const dialog = page.getByRole('dialog', { name: '2026年 9月 記錄' });
+  const close = dialog.getByRole('button', { name: '關閉' });
+  await expect(close).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(close).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(close).toBeFocused();
+  const dimensions = await dialog.evaluate((el) => ({ height: el.getBoundingClientRect().height, scrollHeight: el.scrollHeight, clientHeight: el.clientHeight, overflowY: getComputedStyle(el).overflowY }));
+  expect(dimensions.height).toBeLessThanOrEqual(270);
+  expect(dimensions.scrollHeight).toBeGreaterThan(dimensions.clientHeight);
+  expect(dimensions.overflowY).toBe('auto');
+  await page.keyboard.press('Escape');
+  await expect(trigger).toBeFocused();
+});

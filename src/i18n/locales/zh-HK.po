@@ -139,7 +139,7 @@ msgstr ""
 #~ msgstr "日記功能正在開發中，敬請期待。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:71
+#: src/pages/DiaryDashboardPage.jsx:72
 msgid "diary.profileDesc"
 msgstr "(選填) 建議填寫綜合診斷資料、發作類型、腦電圖等數據，有助於為您的主診醫生生成更精準完整的 PDF 報告。"
 
@@ -149,27 +149,27 @@ msgid "video.label"
 msgstr "▶️ 急性腦癇發作處理動畫"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:89
+#: src/pages/DiaryDashboardPage.jsx:102
 msgid "diary.state.urti"
 msgstr "☐ 傷風感冒 (URTI)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:89
+#: src/pages/DiaryDashboardPage.jsx:102
 msgid "diary.state.custom"
 msgstr "☐ 自訂: ________"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:89
+#: src/pages/DiaryDashboardPage.jsx:102
 msgid "diary.state.stress"
 msgstr "☐ 極度悲傷/壓力"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:89
+#: src/pages/DiaryDashboardPage.jsx:102
 msgid "diary.state.period"
 msgstr "☐ 女性生理期"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:89
+#: src/pages/DiaryDashboardPage.jsx:102
 msgid "diary.state.surgery"
 msgstr "☐ 手術"
 
@@ -179,12 +179,12 @@ msgid "faq.summary"
 msgstr "❓ 常見問題 (FAQ)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:28
+#: src/pages/DiaryDashboardPage.jsx:29
 msgid "diary.hub.social"
 msgstr "🌐 社交媒體"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:32
+#: src/pages/DiaryDashboardPage.jsx:33
 msgid "diary.hub.donate"
 msgstr "💖 捐款支持"
 
@@ -194,32 +194,32 @@ msgid "whatIs.summary"
 msgstr "💡 什麼是 Be Aware n' Be Around?"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:45
+#: src/pages/DiaryDashboardPage.jsx:46
 msgid "diary.fullCalendar"
 msgstr "📅 完整月曆 ➔"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:29
+#: src/pages/DiaryDashboardPage.jsx:30
 msgid "diary.hub.events"
 msgstr "📅 最新活動"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:74
+#: src/pages/DiaryDashboardPage.jsx:75
 msgid "diary.reportA"
 msgstr "📊 門診報告 (Level A)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:75
+#: src/pages/DiaryDashboardPage.jsx:76
 msgid "diary.reportB"
 msgstr "📋 歷史總記 (Level B)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:31
+#: src/pages/DiaryDashboardPage.jsx:32
 msgid "diary.hub.courses"
 msgstr "📚 網上課程"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:33
+#: src/pages/DiaryDashboardPage.jsx:34
 msgid "diary.hub.contact"
 msgstr "📞 聯絡我們"
 
@@ -294,7 +294,7 @@ msgid "whatIs.tagline2"
 msgstr "Be Aware：不要壓制。Be Around：保護並陪伴。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:40
+#: src/pages/DiaryDashboardPage.jsx:41
 msgid "diary.calendarView"
 msgstr "日曆檢視"
 
@@ -315,12 +315,12 @@ msgid "dialog.close"
 msgstr "關閉"
 
 #. js-lingui-explicit-id
-#: src/components/diary/Modal.jsx:18
+#: src/components/diary/Modal.jsx:36
 msgid "diary.close"
 msgstr "關閉"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:39
+#: src/pages/DiaryDashboardPage.jsx:40
 msgid "diary.daily"
 msgstr "日常記錄"
 
@@ -355,13 +355,13 @@ msgid "header.brandTitle"
 msgstr "腦癎錦囊"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:79
-#: src/pages/DiaryDashboardPage.jsx:79
+#: src/pages/DiaryDashboardPage.jsx:80
+#: src/pages/DiaryDashboardPage.jsx:80
 msgid "diary.emergencyVideo"
 msgstr "緊急錄影"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:37
+#: src/pages/DiaryDashboardPage.jsx:38
 msgid "diary.dashboard.title"
 msgstr "腦癇及頭痛追蹤"
 
@@ -371,7 +371,7 @@ msgid "organization.logoAlt"
 msgstr "香港腦癇基金會"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:78
+#: src/pages/DiaryDashboardPage.jsx:79
 msgid "diary.hub"
 msgstr "香港腦癇基金會 資源中心"
 
@@ -396,7 +396,7 @@ msgid "playlist.cardLabel"
 msgstr "急救語音指引"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:24
+#: src/pages/DiaryDashboardPage.jsx:25
 msgid "diary.weekday.fri"
 msgstr "五"
 
@@ -406,7 +406,7 @@ msgid "guide.step3"
 msgstr "將患者輕輕翻側，保持呼吸道暢通。切勿強行將任何物品塞入患者口中。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:61
+#: src/pages/DiaryDashboardPage.jsx:62
 msgid "diary.headache"
 msgstr "頭痛記錄"
 
@@ -426,12 +426,13 @@ msgid "setup.operateHeading"
 msgstr "如何操作"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:30
+#: src/pages/DiaryDashboardPage.jsx:31
 msgid "diary.hub.about"
 msgstr "ℹ️ 關於我們"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:56
+#: src/components/diary/calendarLabel.js:14
+#: src/pages/DiaryDashboardPage.jsx:57
 msgid "diary.legend.illness"
 msgstr "疾病/壓力"
 
@@ -462,22 +463,27 @@ msgid "playlist.loading"
 msgstr "載入中…"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:53
+#: src/pages/DiaryDashboardPage.jsx:54
 msgid "diary.legend.meds"
 msgstr "服藥(綠=吃/黃=漏)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:64
+#: src/pages/DiaryDashboardPage.jsx:65
 msgid "diary.meds"
 msgstr "服藥記錄"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:20
+#: src/components/diary/calendarLabel.js:10
+msgid "diary.calendar.missed"
+msgstr "漏服: {missed}"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryDashboardPage.jsx:21
 msgid "diary.weekday.mon"
 msgstr "一"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:86
+#: src/pages/DiaryDashboardPage.jsx:99
 msgid "diary.monthMeds"
 msgstr "多頻服藥(綠/黃)"
 
@@ -487,7 +493,7 @@ msgid "playlist.mute"
 msgstr "靜音"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:69
+#: src/pages/DiaryDashboardPage.jsx:70
 msgid "diary.medicalData"
 msgstr "我的醫療資料"
 
@@ -495,6 +501,11 @@ msgstr "我的醫療資料"
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.dontsText"
 msgstr "切勿壓制患者的動作或把任何物品放入口中。"
+
+#. js-lingui-explicit-id
+#: src/components/diary/calendarLabel.js:11
+msgid "diary.calendar.unrecorded"
+msgstr "未記錄: {unrecorded}"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:165
@@ -517,7 +528,7 @@ msgid "setup.iosInstructions"
 msgstr "使用 Safari 瀏覽器開啟此網頁，點擊「分享」圖示，然後選擇「加入主畫面」。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:41
+#: src/pages/DiaryDashboardPage.jsx:42
 msgid "diary.past7"
 msgstr "過去 7 天"
 
@@ -527,23 +538,24 @@ msgid "playlist.pause"
 msgstr "暫停"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:55
-#: src/pages/DiaryDashboardPage.jsx:86
+#: src/components/diary/calendarLabel.js:13
+#: src/pages/DiaryDashboardPage.jsx:56
+#: src/pages/DiaryDashboardPage.jsx:99
 msgid "diary.legend.period"
 msgstr "生理期"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:71
+#: src/pages/DiaryDashboardPage.jsx:72
 msgid "diary.profile"
 msgstr "個人醫療檔案"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:88
+#: src/pages/DiaryDashboardPage.jsx:101
 msgid "diary.healthTitle"
 msgstr "生理及健康狀況"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:66
+#: src/pages/DiaryDashboardPage.jsx:67
 msgid "diary.health"
 msgstr "生理及健康"
 
@@ -579,7 +591,7 @@ msgid "whatIs.positionLabel"
 msgstr "安全擺位："
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:77
+#: src/pages/DiaryDashboardPage.jsx:78
 msgid "diary.privacy"
 msgstr "隱私保障：資料僅儲存於本機或您的雲端，絕不上傳至基金會。"
 
@@ -635,7 +647,7 @@ msgid "action.safe"
 msgstr "望"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:25
+#: src/pages/DiaryDashboardPage.jsx:26
 msgid "diary.weekday.sat"
 msgstr "六"
 
@@ -655,18 +667,19 @@ msgid "guide.title"
 msgstr "守望相助 急救指南"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:60
+#: src/pages/DiaryDashboardPage.jsx:61
 msgid "diary.seizure"
 msgstr "腦癇記錄"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:54
-#: src/pages/DiaryDashboardPage.jsx:86
+#: src/components/diary/calendarLabel.js:12
+#: src/pages/DiaryDashboardPage.jsx:55
+#: src/pages/DiaryDashboardPage.jsx:99
 msgid "diary.legend.event"
 msgstr "發作/頭痛"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:80
+#: src/pages/DiaryDashboardPage.jsx:81
 msgid "diary.monthTitle"
 msgstr "2026年 9月 記錄"
 
@@ -682,7 +695,7 @@ msgid "action.side"
 msgstr "相"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:65
+#: src/pages/DiaryDashboardPage.jsx:66
 msgid "diary.sideEffects"
 msgstr "副作用"
 
@@ -723,9 +736,14 @@ msgid "header.slogan"
 msgstr "守、望、相、助"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:19
+#: src/pages/DiaryDashboardPage.jsx:20
 msgid "diary.weekday.sun"
 msgstr "日"
+
+#. js-lingui-explicit-id
+#: src/components/diary/calendarLabel.js:9
+msgid "diary.calendar.taken"
+msgstr "已服: {taken}"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:155
@@ -743,12 +761,12 @@ msgid "faq.answer4"
 msgstr "計數器顯示所有用戶按過應用程式動作按鍵的總次數。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:42
+#: src/pages/DiaryDashboardPage.jsx:43
 msgid "diary.thisWeek"
 msgstr "本週"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:23
+#: src/pages/DiaryDashboardPage.jsx:24
 msgid "diary.weekday.thu"
 msgstr "四"
 
@@ -758,7 +776,7 @@ msgid "install.fallbackAlert"
 msgstr "請使用瀏覽器的「加入主畫面」選項安裝。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:21
+#: src/pages/DiaryDashboardPage.jsx:22
 msgid "diary.weekday.tue"
 msgstr "二"
 
@@ -773,7 +791,7 @@ msgid "playlist.unmute"
 msgstr "取消靜音"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:86
+#: src/pages/DiaryDashboardPage.jsx:99
 msgid "diary.monthIllness"
 msgstr "URTI/手術/壓力等"
 
@@ -788,6 +806,6 @@ msgid "playlist.volume"
 msgstr "音量"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:22
+#: src/pages/DiaryDashboardPage.jsx:23
 msgid "diary.weekday.wed"
 msgstr "三"
