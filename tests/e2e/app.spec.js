@@ -225,3 +225,23 @@ test('report sheets keep content above the footer and print at A4 size', async (
     await page.getByRole('button', { name: '← 返回日記' }).click();
   }
 });
+
+test('clinical report markers preserve their colors when printed', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('link', { name: '日記', exact: true }).click();
+  for (const [level, selectors] of [
+    ['a', ['.a4-landscape', '.mark-attack', '.mark-period', '.css-circle', '.css-triangle', '.cluster-tag']],
+    ['b', ['.a4-portrait', '.css-circle', '.css-triangle', '.cluster-tag', '.action-tag', '.month-divider']],
+  ]) {
+    await page.locator(`[data-report="level-${level}"]`).click();
+    await page.emulateMedia({ media: 'print' });
+    for (const selector of selectors) {
+      const marker = page.locator(selector).first();
+      await expect(marker).toHaveCount(1);
+      expect(await marker.evaluate((element) => getComputedStyle(element).getPropertyValue('print-color-adjust'))).toBe('exact');
+      expect(await marker.evaluate((element) => getComputedStyle(element).getPropertyValue('-webkit-print-color-adjust'))).toBe('exact');
+    }
+    await page.emulateMedia({ media: 'screen' });
+    await page.getByRole('button', { name: '← 返回日記' }).click();
+  }
+});

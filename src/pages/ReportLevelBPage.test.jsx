@@ -44,3 +44,26 @@ test('localizes investigation findings and family relationships in Chinese repor
   expect(screen.getByText('未進行')).toBeVisible();
   expect(screen.getByText('陳太太（妻子）')).toBeVisible();
 });
+
+test.each([
+  ['zh-HK', '香港腦癇基金會', '已服藥', '漏服藥物'],
+  ['zh-CN', '香港脑痫基金会', '已服药', '漏服药物'],
+  ['en', 'Epilepsy Foundation of Hong Kong', 'Medication taken', 'Medication missed'],
+])('exposes accessible report B medication marks and logo in %s', (locale, logo, taken, missed) => {
+  activateLocale(locale);
+  vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ status: 'success', metrics: {} }) })));
+  const { container } = render(<I18nProvider i18n={i18n}><MemoryRouter initialEntries={['/diary/report/level-b']}><AppRoutes /></MemoryRouter></I18nProvider>);
+  const circles = container.querySelectorAll('.css-circle');
+  const triangles = container.querySelectorAll('.css-triangle');
+  expect(circles.length).toBeGreaterThan(0);
+  expect(triangles.length).toBeGreaterThan(0);
+  for (const cell of circles) {
+    expect(cell).toHaveAttribute('role', 'img');
+    expect(cell).toHaveAccessibleName(taken);
+  }
+  for (const cell of triangles) {
+    expect(cell).toHaveAttribute('role', 'img');
+    expect(cell).toHaveAccessibleName(missed);
+  }
+  expect(container.querySelector('.pdf-logo-img')).toHaveAccessibleName(logo);
+});

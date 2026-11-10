@@ -921,14 +921,16 @@ msgid "diary.dashboard.title"
 msgstr "Epilepsy and Headache Tracking"
 
 #. js-lingui-explicit-id
-#: src/components/diary/A4Page.jsx:16
-#: src/pages/ReportLevelAPage.jsx:28
-msgid "report.foundation"
+#: src/components/AppHeader.jsx:63
+#: src/components/diary/A4Page.jsx:14
+#: src/pages/ReportLevelAPage.jsx:26
+msgid "organization.logoAlt"
 msgstr "Epilepsy Foundation of Hong Kong"
 
 #. js-lingui-explicit-id
-#: src/components/AppHeader.jsx:63
-msgid "organization.logoAlt"
+#: src/components/diary/A4Page.jsx:16
+#: src/pages/ReportLevelAPage.jsx:28
+msgid "report.foundation"
 msgstr "Epilepsy Foundation of Hong Kong"
 
 #. js-lingui-explicit-id
@@ -1230,9 +1232,23 @@ msgid "profile.allergies"
 msgstr "Medication allergies"
 
 #. js-lingui-explicit-id
+#: src/pages/ReportLevelAPage.jsx:81
+#: src/pages/ReportLevelAPage.jsx:100
+#: src/pages/ReportLevelBPage.jsx:53
+msgid "report.medMissed"
+msgstr "Medication missed"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:65
 msgid "diary.meds"
 msgstr "Medication record"
+
+#. js-lingui-explicit-id
+#: src/pages/ReportLevelAPage.jsx:81
+#: src/pages/ReportLevelAPage.jsx:98
+#: src/pages/ReportLevelBPage.jsx:51
+msgid "report.medTaken"
+msgstr "Medication taken"
 
 #. js-lingui-explicit-id
 #: src/pages/profileMessages.js:55
@@ -1502,6 +1518,7 @@ msgid "diary.legend.period"
 msgstr "Period"
 
 #. js-lingui-explicit-id
+#: src/components/diary/MiniMonth.jsx:26
 #: src/pages/ReportLevelAPage.jsx:78
 msgid "report.periodIllness"
 msgstr "Period/illness"
@@ -1737,6 +1754,7 @@ msgid "guide.step4"
 msgstr "Seek help. Stay with them until fully conscious, and call an ambulance if over 5 minutes."
 
 #. js-lingui-explicit-id
+#: src/components/diary/MiniMonth.jsx:26
 #: src/pages/ReportLevelAPage.jsx:71
 msgid "report.seizureDay"
 msgstr "Seizure day"

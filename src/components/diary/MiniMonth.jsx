@@ -23,8 +23,10 @@ export default function MiniMonth({ year, month, marks }) {
         {Array.from({ length: daysInMonth }, (_, i) => {
           const day = i + 1;
           const mark = marks[day];
+          const meaning = mark === 'attack' ? t({ id: 'report.seizureDay', message: 'Seizure day' }) : mark === 'period' ? t({ id: 'report.periodIllness', message: 'Period/illness' }) : undefined;
+          const date = `${title}-${String(day).padStart(2, '0')}`;
           return (
-            <div key={day} className={`mini-day${mark ? ` mark-${mark}` : ''}`}>
+            <div key={day} className={`mini-day${mark ? ` mark-${mark}` : ''}`} role={meaning ? 'img' : undefined} aria-label={meaning ? `${date}, ${meaning}` : undefined}>
               {day}
             </div>
           );

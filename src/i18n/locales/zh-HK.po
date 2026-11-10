@@ -921,14 +921,16 @@ msgid "diary.dashboard.title"
 msgstr "腦癇及頭痛追蹤"
 
 #. js-lingui-explicit-id
-#: src/components/diary/A4Page.jsx:16
-#: src/pages/ReportLevelAPage.jsx:28
-msgid "report.foundation"
+#: src/components/AppHeader.jsx:63
+#: src/components/diary/A4Page.jsx:14
+#: src/pages/ReportLevelAPage.jsx:26
+msgid "organization.logoAlt"
 msgstr "香港腦癇基金會"
 
 #. js-lingui-explicit-id
-#: src/components/AppHeader.jsx:63
-msgid "organization.logoAlt"
+#: src/components/diary/A4Page.jsx:16
+#: src/pages/ReportLevelAPage.jsx:28
+msgid "report.foundation"
 msgstr "香港腦癇基金會"
 
 #. js-lingui-explicit-id
@@ -1230,9 +1232,23 @@ msgid "profile.allergies"
 msgstr "藥物過敏"
 
 #. js-lingui-explicit-id
+#: src/pages/ReportLevelAPage.jsx:81
+#: src/pages/ReportLevelAPage.jsx:100
+#: src/pages/ReportLevelBPage.jsx:53
+msgid "report.medMissed"
+msgstr "漏服藥物"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:65
 msgid "diary.meds"
 msgstr "服藥記錄"
+
+#. js-lingui-explicit-id
+#: src/pages/ReportLevelAPage.jsx:81
+#: src/pages/ReportLevelAPage.jsx:98
+#: src/pages/ReportLevelBPage.jsx:51
+msgid "report.medTaken"
+msgstr "已服藥"
 
 #. js-lingui-explicit-id
 #: src/pages/profileMessages.js:55
@@ -1502,6 +1518,7 @@ msgid "diary.legend.period"
 msgstr "生理期"
 
 #. js-lingui-explicit-id
+#: src/components/diary/MiniMonth.jsx:26
 #: src/pages/ReportLevelAPage.jsx:78
 msgid "report.periodIllness"
 msgstr "生理期/疾病"
@@ -1737,6 +1754,7 @@ msgid "guide.step4"
 msgstr "尋求協助。陪伴患者直至清醒，若發作超過五分鐘請召喚救護車。"
 
 #. js-lingui-explicit-id
+#: src/components/diary/MiniMonth.jsx:26
 #: src/pages/ReportLevelAPage.jsx:71
 msgid "report.seizureDay"
 msgstr "發作日"

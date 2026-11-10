@@ -37,3 +37,32 @@ test.each([
   expect(screen.getByRole('status')).toHaveTextContent(mode);
   expect(screen.getByRole('heading', { name: title })).toBeVisible();
 });
+
+test.each([
+  ['zh-HK', '香港腦癇基金會', '發作日', '生理期/疾病', '已服藥', '漏服藥物'],
+  ['zh-CN', '香港脑痫基金会', '发作日', '生理期/疾病', '已服药', '漏服药物'],
+  ['en', 'Epilepsy Foundation of Hong Kong', 'Seizure day', 'Period/illness', 'Medication taken', 'Medication missed'],
+])('exposes accessible report A clinical marks and logo in %s', (locale, logo, attack, period, taken, missed) => {
+  activateLocale(locale);
+  vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ status: 'success', metrics: {} }) })));
+  const { container } = render(<I18nProvider i18n={i18n}><MemoryRouter initialEntries={['/diary/report/level-a']}><AppRoutes /></MemoryRouter></I18nProvider>);
+  const attackCell = container.querySelector('.mini-month .mark-attack');
+  const periodCell = container.querySelector('.mini-month .mark-period');
+  expect(attackCell).toHaveAttribute('role', 'img');
+  expect(attackCell).toHaveAccessibleName(`2026-07-14, ${attack}`);
+  expect(attackCell).toHaveTextContent('14');
+  expect(periodCell).toHaveAttribute('role', 'img');
+  expect(periodCell).toHaveAccessibleName(`2026-07-13, ${period}`);
+  expect(container.querySelector('.mini-day:not(.empty):not(.mark-attack):not(.mark-period)')).not.toHaveAttribute('aria-label');
+  expect(container.querySelectorAll('.css-circle').length).toBeGreaterThan(0);
+  expect(container.querySelectorAll('.css-triangle').length).toBeGreaterThan(0);
+  for (const cell of container.querySelectorAll('.css-circle')) {
+    expect(cell).toHaveAttribute('role', 'img');
+    expect(cell).toHaveAccessibleName(taken);
+  }
+  for (const cell of container.querySelectorAll('.css-triangle')) {
+    expect(cell).toHaveAttribute('role', 'img');
+    expect(cell).toHaveAccessibleName(missed);
+  }
+  expect(container.querySelector('.pdf-logo-img')).toHaveAccessibleName(logo);
+});

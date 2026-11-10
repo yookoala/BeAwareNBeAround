@@ -11,7 +11,7 @@ export default function A4Page({ header, footer, children }) {
         <div className="pdf-logo-area">
           {header.logo ? (
             <>
-              <img src={EFHK_LOGO_URL} alt="EFHK Logo" className="pdf-logo-img" />
+              <img src={EFHK_LOGO_URL} alt={t({ id: 'organization.logoAlt', message: 'Epilepsy Foundation of Hong Kong' })} className="pdf-logo-img" />
               <div>
                 <div style={{ fontSize: '13px', fontWeight: 700 }}>{t({ id: "report.foundation", message: "Epilepsy Foundation of Hong Kong" })}</div>
                 <div style={{ fontSize: '9px', color: '#6E6E73' }}>

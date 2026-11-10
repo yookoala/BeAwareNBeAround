@@ -45,3 +45,19 @@ Use the active Lingui locale for the prefilled emergency SMS and WhatsApp text, 
 ## Human testing
 
 Enter a contact number and custom aura, add an investigation and change its type. Switch between Traditional Chinese, Simplified Chinese and English; check entered values remain and inspect the SMS and WhatsApp drafts in each language. Enter only a plus sign or whitespace and verify the three links no longer point to an invalid phone URI.
+
+# M17-004 report accessibility and print review fixes
+
+## Objective and approach
+
+Preserve clinical marker fills in printed A4 reports and expose meaningful, localized screen-reader labels for marked heatmap days, medication symbols, and the logo. Reuse existing seizure/period and organization translations; use explicit medication-taken and missed messages to avoid ambiguity. Give marked dates an image role so their accessible name is announced, while leaving visible calendar text and unmarked days unchanged. Scope print-color adjustment to report sheets and marker classes; browsers may still allow the user or printer to override colors.
+
+## TODO
+
+- [x] Add failing unit coverage for marked and unmarked days, medication symbols, and the localized logo in all three locales, plus a browser regression for print color adjustment.
+- [x] Implement scoped print styles and accessible labels, then extract, translate, and compile catalogs.
+- [x] Run unit, lint, build and full E2E regressions; inspect and commit.
+
+## Human testing
+
+In all three languages, use a screen reader on marked days, medication markers and each report logo; verify dates and meanings. Print both color and grayscale reports with background graphics disabled and confirm seizure/health, medication, cluster and action markers remain distinguishable; printer/browser settings may override CSS.

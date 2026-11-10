@@ -1,3 +1,4 @@
+import { t } from '@lingui/core/macro';
 import { Fragment, useState } from 'react';
 import A4Page from '../components/diary/A4Page';
 import ActionTag from '../components/diary/ActionTag';
@@ -47,9 +48,9 @@ function MedMarks({ marks }) {
     <Fragment key={i}>
       {i > 0 ? ' ' : ''}
       {mark === 'circle' ? (
-        <span className="css-circle"></span>
+        <span className="css-circle" role="img" aria-label={t({ id: 'report.medTaken', message: 'Medication taken' })}></span>
       ) : (
-        <span className="css-triangle"></span>
+        <span className="css-triangle" role="img" aria-label={t({ id: 'report.medMissed', message: 'Medication missed' })}></span>
       )}
     </Fragment>
   ));

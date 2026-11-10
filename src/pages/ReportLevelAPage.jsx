@@ -23,7 +23,7 @@ export default function ReportLevelAPage() {
       <div className={`a4-landscape${bw ? ' bw-mode' : ''}`} id="pdfContainer">
         <div className="pdf-header">
           <div className="pdf-logo-area">
-            <img src={EFHK_LOGO_URL} alt="EFHK Logo" className="pdf-logo-img" />
+            <img src={EFHK_LOGO_URL} alt={t({ id: 'organization.logoAlt', message: 'Epilepsy Foundation of Hong Kong' })} className="pdf-logo-img" />
             <div>
               <div style={{ fontSize: '13px', fontWeight: 700 }}>{t({ id: "report.foundation", message: "Epilepsy Foundation of Hong Kong" })}</div>
               <div style={{ fontSize: '9px', color: '#6E6E73' }}>
@@ -78,7 +78,7 @@ export default function ReportLevelAPage() {
                   {t({ id: "report.periodIllness", message: "Period/illness" })}
                 </div>
                 <div>
-                  {t({ id: "report.medicationRecord", message: "Medication" })}: <span className="css-circle"></span> {t({ id: "report.taken", message: "Taken" })} / <span className="css-triangle"></span> {t({ id: "report.missed", message: "Missed" })}
+                  {t({ id: "report.medicationRecord", message: "Medication" })}: <span className="css-circle" role="img" aria-label={t({ id: 'report.medTaken', message: 'Medication taken' })}></span> {t({ id: "report.taken", message: "Taken" })} / <span className="css-triangle" role="img" aria-label={t({ id: 'report.medMissed', message: 'Medication missed' })}></span> {t({ id: "report.missed", message: "Missed" })}
                 </div>
               </div>
             </div>
@@ -95,9 +95,9 @@ export default function ReportLevelAPage() {
                     <span className="med-check">
                       {t({ id: "report.medicationRecord", message: "Medication" })}: {entry.meds.map((med, i) =>
                         med === 'circle' ? (
-                          <span key={i} className="css-circle"></span>
+                          <span key={i} className="css-circle" role="img" aria-label={t({ id: 'report.medTaken', message: 'Medication taken' })}></span>
                         ) : (
-                          <span key={i} className="css-triangle"></span>
+                          <span key={i} className="css-triangle" role="img" aria-label={t({ id: 'report.medMissed', message: 'Medication missed' })}></span>
                         ),
                       )}
                       {entry.missed ? ` (${entry.missed})` : ''}

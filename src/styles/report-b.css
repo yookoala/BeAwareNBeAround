@@ -67,3 +67,13 @@ body.page-report-b .css-circle { display: inline-block; width: 7px; height: 7px;
 body.page-report-b .bw-mode .css-circle { background-color: #000; }
 body.page-report-b .css-triangle { display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 7px solid #FFCC00; vertical-align: middle; }
 body.page-report-b .bw-mode .css-triangle { border-bottom-color: #666; }
+
+/* Keep clinical fills visible in print, including when background printing is disabled. */
+body.page-report-b .a4-portrait,
+body.page-report-b .mark-attack,
+body.page-report-b .mark-period,
+body.page-report-b .css-circle,
+body.page-report-b .css-triangle,
+body.page-report-b .cluster-tag,
+body.page-report-b .action-tag,
+body.page-report-b .month-divider { print-color-adjust: exact; -webkit-print-color-adjust: exact; }

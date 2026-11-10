@@ -95,3 +95,13 @@ body.page-report-a .bw-mode .pdf-footer { border-color: #000; }
 /* The prototype's content-box columns otherwise extend into the footer. */
 body.page-report-a .pdf-body { min-height: 0; }
 body.page-report-a .left-column, body.page-report-a .right-column { box-sizing: border-box; min-height: 0; }
+
+/* Keep clinical fills visible in print, including when background printing is disabled. */
+body.page-report-a .a4-landscape,
+body.page-report-a .mark-attack,
+body.page-report-a .mark-period,
+body.page-report-a .css-circle,
+body.page-report-a .css-triangle,
+body.page-report-a .cluster-tag,
+body.page-report-a .action-tag,
+body.page-report-a .month-divider { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
