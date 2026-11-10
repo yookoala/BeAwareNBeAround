@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLingui } from '@lingui/react';
 import { BrowserRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { activateLocale, i18n } from './i18n/setup';
 import { getInstallId } from './services/install';
@@ -20,8 +21,11 @@ import ReportLevelBPage from './pages/ReportLevelBPage';
 // total_views semantics unchanged, MEMORY D2/D4). Locale state lives here
 // until the useLocale hook lands (M15).
 export function AppRoutes() {
+  useLingui();
   const navigate = useNavigate();
-  const isReport = useLocation().pathname.startsWith('/diary/report/');
+  const { pathname } = useLocation();
+  const isReport = pathname.startsWith('/diary/report/');
+  const isEventLog = pathname === '/diary/event-log';
   const chromeHidden = useAutoHideChrome();
   // Captured once at app load so tab switches never change the tracked URL.
   const [targetUrl] = useState(() => window.location.href);
@@ -48,7 +52,7 @@ export function AppRoutes() {
 
   return (
     <main className={isReport ? 'main--report' : undefined}>
-      {!isReport && <AppHeader
+      {!isReport && !isEventLog && <AppHeader
         language={language}
         onLanguageChange={changeLanguage}
         onNavigateHome={navigateHome}

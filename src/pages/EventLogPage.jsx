@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react';
 import { t } from '@lingui/core/macro';
 import { useNavigate } from 'react-router-dom';
+import Modal from '../components/diary/Modal';
 import OptionGroup from '../components/diary/OptionGroup';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import '../styles/event-log.css';
 
+const DEFAULT_DATETIME = '2026-09-17T17:30';
+
 export default function EventLogPage() {
   const navigate = useNavigate();
   usePageBodyClass('page-event-log');
+  const [eventTime, setEventTime] = useState(DEFAULT_DATETIME);
   const [severity, setSeverity] = useState('major');
   const [pattern, setPattern] = useState('single');
   const [auras, setAuras] = useState([]);
   const [triggers, setTriggers] = useState([]);
   const [clusterCount, setClusterCount] = useState(2);
+  const [notes, setNotes] = useState('');
+  const [isDirty, setIsDirty] = useState(false);
+  const [leaveConfirmOpen, setLeaveConfirmOpen] = useState(false);
   const [saveCount, setSaveCount] = useState(0);
 
   useEffect(() => {
@@ -22,11 +29,17 @@ export default function EventLogPage() {
     return () => clearTimeout(timer);
   }, [saveCount]);
 
+  function selectSeverity(value) {
+    if (value !== severity) setIsDirty(true);
+    setSeverity(value);
+  }
   function selectPattern(value) {
+    if (value !== pattern) setIsDirty(true);
     setPattern(value);
     if (value === 'single') setClusterCount(2);
   }
   function toggleAura(id) {
+    setIsDirty(true);
     setAuras((previous) => {
       if (previous.includes(id)) return previous.filter((item) => item !== id);
       if (id === 'none') return [id];
@@ -34,7 +47,19 @@ export default function EventLogPage() {
     });
   }
   function toggleTrigger(id) {
+    setIsDirty(true);
     setTriggers((previous) => previous.includes(id) ? previous.filter((item) => item !== id) : [...previous, id]);
+  }
+  function handleSave() {
+    setIsDirty(false);
+    setSaveCount((count) => count + 1);
+  }
+  function handleBack() {
+    if (isDirty) {
+      setLeaveConfirmOpen(true);
+      return;
+    }
+    navigate('/diary');
   }
   const severityOptions = [
     { value: 'major', label: t({ id: 'diary.eventLog.major', message: 'Major seizure' }) },
@@ -67,25 +92,54 @@ export default function EventLogPage() {
 
   return (
     <div className="app-container">
-      <div className="diary-subheader">
-        <button type="button" className="back-btn" onClick={() => navigate('/diary')}>{t({ id: 'diary.eventLog.cancel', message: '← Cancel' })}</button>
+      <header className="diary-subheader">
+        <button type="button" className="back-btn" onClick={handleBack}>{t({ id: 'diary.eventLog.back', message: '← Back' })}</button>
         <div className="header-title">{t({ id: 'diary.eventLog.title', message: 'New Entry' })}</div>
-        <button type="button" className="save-btn" onClick={() => setSaveCount((count) => count + 1)}>{t({ id: 'diary.eventLog.save', message: 'Save' })}</button>
-      </div>
+        <button type="button" className="save-btn" onClick={handleSave}>{t({ id: 'diary.eventLog.save', message: 'Save' })}</button>
+      </header>
       <div className="form-section" style={{ marginTop: 0, borderTop: 'none' }}>
         <label className="section-header" htmlFor="event-time">{t({ id: 'diary.eventLog.time', message: 'Seizure time' })}</label>
-        <input id="event-time" type="datetime-local" className="datetime-picker" defaultValue="2026-09-17T17:30" />
+        <input
+          id="event-time"
+          type="datetime-local"
+          className="datetime-picker"
+          value={eventTime}
+          onChange={(e) => {
+            setEventTime(e.target.value);
+            setIsDirty(true);
+          }}
+        />
       </div>
       <div className="form-section">
         <div className="section-header">{t({ id: 'diary.eventLog.severityPattern', message: 'Seizure severity and pattern' })}</div>
-        <OptionGroup id="severity-group" options={severityOptions} value={severity} onSelect={setSeverity} />
+        <OptionGroup id="severity-group" options={severityOptions} value={severity} onSelect={selectSeverity} />
         <OptionGroup id="pattern-group" options={patternOptions} value={pattern} onSelect={selectPattern} />
         <div className={`cluster-counter${pattern === 'cluster' ? ' show' : ''}`} id="cluster-counter" hidden={pattern !== 'cluster'}>
           <span className="stepper-label">{t({ id: 'diary.eventLog.estimatedCount', message: 'Estimated number of seizures' })}</span>
           <div className="stepper-controls">
-            <button type="button" className="step-btn" aria-label={t({ id: 'diary.eventLog.decrease', message: 'Decrease seizure count' })} onClick={() => setClusterCount((count) => Math.max(2, count - 1))}>−</button>
+            <button
+              type="button"
+              className="step-btn"
+              aria-label={t({ id: 'diary.eventLog.decrease', message: 'Decrease seizure count' })}
+              onClick={() => {
+                setIsDirty(true);
+                setClusterCount((count) => Math.max(2, count - 1));
+              }}
+            >
+              −
+            </button>
             <span className="step-value" id="attack-count">{clusterCount}</span>
-            <button type="button" className="step-btn" aria-label={t({ id: 'diary.eventLog.increase', message: 'Increase seizure count' })} onClick={() => setClusterCount((count) => count + 1)}>+</button>
+            <button
+              type="button"
+              className="step-btn"
+              aria-label={t({ id: 'diary.eventLog.increase', message: 'Increase seizure count' })}
+              onClick={() => {
+                setIsDirty(true);
+                setClusterCount((count) => count + 1);
+              }}
+            >
+              +
+            </button>
           </div>
         </div>
       </div>
@@ -99,9 +153,37 @@ export default function EventLogPage() {
       </div>
       <div className="form-section" style={{ marginBottom: '24px' }}>
         <label className="section-header" htmlFor="event-notes">{t({ id: 'diary.eventLog.notes', message: 'Seizure description / notes' })}</label>
-        <textarea id="event-notes" className="textarea-box" placeholder={t({ id: 'diary.eventLog.notesPlaceholder', message: 'For example: left hand twitching, confused for about 2 minutes...' })} />
+        <textarea
+          id="event-notes"
+          className="textarea-box"
+          value={notes}
+          onChange={(e) => {
+            setNotes(e.target.value);
+            setIsDirty(true);
+          }}
+          placeholder={t({ id: 'diary.eventLog.notesPlaceholder', message: 'For example: left hand twitching, confused for about 2 minutes...' })}
+        />
         <div className="help-text">{t({ id: 'diary.eventLog.videoHelp', message: '💡 If you just made an emergency recording, the video will be attached below automatically.' })}</div>
       </div>
+      {leaveConfirmOpen && (
+        <Modal
+          id="leaveConfirmModal"
+          title={t({ id: 'diary.eventLog.unsavedTitle', message: 'Unsaved changes' })}
+          onClose={() => setLeaveConfirmOpen(false)}
+        >
+          <p className="unsaved-warning-text">
+            {t({ id: 'diary.eventLog.unsavedPrompt', message: 'Are you sure you want to leave without saving?' })}
+          </p>
+          <div className="unsaved-actions">
+            <button type="button" className="unsaved-stay-btn" onClick={() => setLeaveConfirmOpen(false)}>
+              {t({ id: 'diary.eventLog.stay', message: 'Stay' })}
+            </button>
+            <button type="button" className="unsaved-leave-btn" onClick={() => navigate('/diary')}>
+              {t({ id: 'diary.eventLog.leave', message: 'Leave' })}
+            </button>
+          </div>
+        </Modal>
+      )}
       {saveCount > 0 && <div role="status" className="event-log-toast">{t({ id: 'diary.eventLog.saved', message: 'Entry saved!' })}</div>}
     </div>
   );

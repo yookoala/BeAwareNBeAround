@@ -88,21 +88,23 @@ test('includes generated PWA assets', async ({ page }) => {
   await expect(page.getByRole('heading', { name: "Be Aware n' Be Around" })).toBeVisible();
 });
 
-test('event log keeps shell, selections across languages and returns to diary', async ({ page }) => {
+test('event log replaces top header, warns on unsaved changes, and returns to diary', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: '日記', exact: true }).click();
   await page.locator('#btn-attack').click();
   await expect(page).toHaveURL(/\/diary\/event-log$/);
-  await expect(page.locator('.app-header')).toBeVisible();
+  await expect(page.locator('.app-header')).toHaveCount(0);
+  await expect(page.locator('.diary-subheader')).toBeVisible();
   await expect(page.locator('.bottom-nav a[href="/diary"]')).toHaveAttribute('aria-current', 'page');
   await page.getByRole('button', { name: '無預兆' }).click();
-  await page.getByRole('button', { name: '語言' }).click();
-  await page.getByRole('menuitem', { name: 'EN', exact: true }).click();
-  await expect(page.getByRole('button', { name: 'No Aura' })).toHaveAttribute('aria-pressed', 'true');
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
-  await expect(page.getByRole('status')).toHaveText('Entry saved!');
+  await page.getByRole('button', { name: '← 返回' }).click();
+  await expect(page.getByRole('dialog', { name: '尚未儲存' })).toBeVisible();
+  await page.getByRole('button', { name: '繼續編輯' }).click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await page.getByRole('button', { name: '儲存', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('記錄已儲存！');
   await expect(page.getByRole('status')).toHaveCount(0);
-  await page.getByRole('button', { name: '← Cancel' }).click();
+  await page.getByRole('button', { name: '← 返回' }).click();
   await expect(page).toHaveURL(/\/diary$/);
 });
 
@@ -174,7 +176,9 @@ test('complete diary journey includes both printable reports', async ({ page }) 
   await visual.click();
   await expect(noAura).toHaveAttribute('aria-pressed', 'false');
   await expect(visual).toHaveAttribute('aria-pressed', 'true');
-  await page.getByRole('button', { name: '← 取消' }).click();
+  await page.getByRole('button', { name: '← 返回' }).click();
+  await expect(page.getByRole('dialog', { name: '尚未儲存' })).toBeVisible();
+  await page.getByRole('button', { name: '確定離開' }).click();
   await page.locator('.profile-card').click();
   const contacts = page.getByTestId('accordion-contacts');
   await contacts.locator('.accordion-header').click();
