@@ -5,9 +5,13 @@ import './AppHeader.css';
 
 const logoUrl = 'https://epilepsy.org.hk/wp-content/uploads/elementor/thumbs/EFHK-abb-Logo-Ver-%E5%9C%93%E5%BA%95-rsi4tzw9b949vi84j6y5gkdzbj2s5xn3mit7czgz2g.png';
 
-export function AppHeader({ language, onLanguageChange, onNavigateHome }) {
+export function AppHeader({ language, onLanguageChange, onNavigateHome, hidden = false }) {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const langMenuRef = useRef(null);
+
+  if (hidden && langMenuOpen) {
+    setLangMenuOpen(false);
+  }
 
   useEffect(() => {
     if (!langMenuOpen) {
@@ -52,7 +56,7 @@ export function AppHeader({ language, onLanguageChange, onNavigateHome }) {
   }
 
   return (
-    <header className="app-header">
+    <header className={`app-header${hidden ? ' is-hidden' : ''}`}>
       <a href="./" className="app-header-home-link" onClick={handleHomeClick}>
         <img
           src={logoUrl}

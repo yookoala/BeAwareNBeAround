@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import { activateLocale, i18n } from './i18n/setup';
 import { getInstallId } from './services/install';
+import { useAutoHideChrome } from './hooks/useAutoHideChrome';
 import { useClickCounter } from './hooks/useClickCounter';
 import { AppHeader } from './components/AppHeader';
 import { BottomNav } from './components/BottomNav';
@@ -16,6 +17,7 @@ import DiaryPlaceholderPage from './pages/DiaryPlaceholderPage';
 // until the useLocale hook lands (M15).
 export function AppRoutes() {
   const navigate = useNavigate();
+  const chromeHidden = useAutoHideChrome();
   // Captured once at app load so tab switches never change the tracked URL.
   const [targetUrl] = useState(() => window.location.href);
   // Seeded from the activated catalog so shell state and catalogs can
@@ -45,12 +47,13 @@ export function AppRoutes() {
         language={language}
         onLanguageChange={changeLanguage}
         onNavigateHome={navigateHome}
+        hidden={chromeHidden}
       />
       <Routes>
         <Route path="/" element={<FirstAidPage counter={counter} language={language} />} />
         <Route path="/diary" element={<DiaryPlaceholderPage />} />
       </Routes>
-      <BottomNav />
+      <BottomNav hidden={chromeHidden} />
     </main>
   );
 }

@@ -132,3 +132,38 @@ test('localizes the bottom tab labels when the app language changes', async () =
   expect(screen.getByRole('link', { name: 'First Aid' })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Diary' })).toBeInTheDocument();
 });
+
+test('auto-hides the header and bottom nav on downward scroll, closes any open language menu, and reveals them after scrolling up at least 5vh', async () => {
+  Object.defineProperty(window, 'innerHeight', { value: 800, configurable: true, writable: true });
+  Object.defineProperty(window, 'scrollY', { value: 0, configurable: true, writable: true });
+  renderShell(['/']);
+
+  const header = await screen.findByRole('banner');
+  const bottomNav = screen.getByRole('navigation', { name: '指南及日記' });
+  expect(header).not.toHaveClass('is-hidden');
+  expect(bottomNav).not.toHaveClass('is-hidden');
+
+  // Open the language menu, then scroll down.
+  fireEvent.click(screen.getByRole('button', { name: '語言' }));
+  expect(screen.getByRole('menuitem', { name: 'EN' })).toBeInTheDocument();
+
+  window.scrollY = 150;
+  fireEvent.scroll(window);
+
+  expect(header).toHaveClass('is-hidden');
+  expect(bottomNav).toHaveClass('is-hidden');
+  expect(screen.queryByRole('menuitem')).not.toBeInTheDocument();
+
+  // Scroll up by 20px (< 5vh = 40px): still hidden.
+  window.scrollY = 130;
+  fireEvent.scroll(window);
+  expect(header).toHaveClass('is-hidden');
+  expect(bottomNav).toHaveClass('is-hidden');
+
+  // Scroll up to 110 (total 40px >= 5vh): both reappear, and the menu stays closed.
+  window.scrollY = 110;
+  fireEvent.scroll(window);
+  expect(header).not.toHaveClass('is-hidden');
+  expect(bottomNav).not.toHaveClass('is-hidden');
+  expect(screen.queryByRole('menuitem')).not.toBeInTheDocument();
+});

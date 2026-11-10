@@ -4,9 +4,9 @@ import { t } from '@lingui/core/macro';
 // Fixed bottom tab bar (PLAN06 M13-003): the two top-level modes.
 // 指南 (first-aid medical cross) -> /, 日記 (notebook) -> /diary.
 // NavLink provides aria-current="page" on the active tab.
-export function BottomNav() {
+export function BottomNav({ hidden = false }) {
   return (
-    <nav className="bottom-nav" aria-label={t({ id: 'nav.ariaLabel', message: 'First Aid and Diary' })}>
+    <nav className={`bottom-nav${hidden ? ' is-hidden' : ''}`} aria-label={t({ id: 'nav.ariaLabel', message: 'First Aid and Diary' })}>
       <NavLink to="/" end className="bottom-nav-tab">
         <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M12 4v16" /><path d="M4 12h16" /></svg>
         <span>{t({ id: 'nav.firstAid', message: 'First Aid' })}</span>

@@ -16,6 +16,18 @@
   justify-content: space-between;
   gap: 12px;
   box-sizing: border-box;
+  transition: transform 220ms ease;
+}
+
+.app-header.is-hidden {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-header {
+    transition-duration: 0ms;
+  }
 }
 
 .app-header-home-link {

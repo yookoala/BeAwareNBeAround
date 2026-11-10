@@ -260,12 +260,12 @@ msgid "status.ended"
 msgstr "教育步驟已完成。"
 
 #. js-lingui-explicit-id
-#: src/components/AppHeader.jsx:63
+#: src/components/AppHeader.jsx:67
 msgid "header.brandTitle"
 msgstr "腦癎錦囊"
 
 #. js-lingui-explicit-id
-#: src/components/AppHeader.jsx:59
+#: src/components/AppHeader.jsx:63
 msgid "organization.logoAlt"
 msgstr "香港腦癇基金會"
 
@@ -325,8 +325,8 @@ msgid "whatIs.dontsLabel"
 msgstr "了解不要做什麼："
 
 #. js-lingui-explicit-id
-#: src/components/AppHeader.jsx:71
-#: src/components/AppHeader.jsx:96
+#: src/components/AppHeader.jsx:75
+#: src/components/AppHeader.jsx:100
 msgid "language.selectorLabel"
 msgstr "語言"
 

@@ -37,3 +37,29 @@ test('loads the diary route directly with the shared shell', async ({ page }) =>
   await expect(page.getByRole('button', { name: '語言' })).toBeVisible();
   await expect(page.getByRole('link', { name: '日記' })).toHaveAttribute('aria-current', 'page');
 });
+
+test('auto-hides header and bottom bar on downward scroll and reveals them after scrolling up at least 5vh', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 600 });
+  mockCounterRoute(page, { initialTotal: 12544 });
+  await page.goto('/');
+
+  const header = page.locator('.app-header');
+  const bottomNav = page.locator('.bottom-nav');
+  await expect(header).not.toHaveClass(/is-hidden/);
+  await expect(bottomNav).not.toHaveClass(/is-hidden/);
+
+  // Scroll down 200px: both bars retract.
+  await page.evaluate(() => window.scrollTo(0, 200));
+  await expect(header).toHaveClass(/is-hidden/);
+  await expect(bottomNav).toHaveClass(/is-hidden/);
+
+  // Scroll up by 15px (< 5vh = 30px at 600px height): still hidden.
+  await page.evaluate(() => window.scrollTo(0, 185));
+  await expect(header).toHaveClass(/is-hidden/);
+  await expect(bottomNav).toHaveClass(/is-hidden/);
+
+  // Scroll up to 165px (total 35px >= 5vh = 30px): both bars reappear.
+  await page.evaluate(() => window.scrollTo(0, 165));
+  await expect(header).not.toHaveClass(/is-hidden/);
+  await expect(bottomNav).not.toHaveClass(/is-hidden/);
+});
