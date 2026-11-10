@@ -22,21 +22,41 @@ export default function useDraggableFAB(onClick) {
     y: 0,
     startX: 0,
     startY: 0,
+    originX: 0,
+    originY: 0,
     baseX: 0,
     baseY: 0,
+    lastX: 0,
+    lastY: 0,
   });
 
   useEffect(() => {
     const fab = ref.current;
-    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-    const start = computeFABStart(vw, vh);
-    drag.current.x = start.x;
-    drag.current.y = start.y;
-    fab.style.transform = `translate3d(${start.x}px, ${start.y}px, 0)`;
-
     function setTranslate(x, y) {
-      fab.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      const nav = document.querySelector('.bottom-nav');
+      const navHeight = nav?.getBoundingClientRect().height || 0;
+      const width = fab.offsetWidth || 56;
+      const height = fab.offsetHeight || 56;
+      const maxX = Math.max(0, window.innerWidth - width);
+      const maxY = Math.max(0, window.innerHeight - navHeight - height);
+      const s = drag.current;
+      s.x = Math.min(maxX, Math.max(0, x));
+      s.y = Math.min(maxY, Math.max(0, y));
+      fab.style.transform = `translate3d(${s.x}px, ${s.y}px, 0)`;
+    }
+
+    const start = computeFABStart(window.innerWidth, window.innerHeight);
+    setTranslate(start.x, start.y);
+
+    function onResize() {
+      const s = drag.current;
+      setTranslate(s.x, s.y);
+      if (s.dragging) {
+        s.baseX = s.x;
+        s.baseY = s.y;
+        s.startX = s.lastX;
+        s.startY = s.lastY;
+      }
     }
 
     function onPointerDown(e) {
@@ -46,6 +66,10 @@ export default function useDraggableFAB(onClick) {
       s.moved = false;
       s.startX = e.clientX;
       s.startY = e.clientY;
+      s.originX = e.clientX;
+      s.originY = e.clientY;
+      s.lastX = e.clientX;
+      s.lastY = e.clientY;
       s.baseX = s.x;
       s.baseY = s.y;
     }
@@ -54,12 +78,12 @@ export default function useDraggableFAB(onClick) {
       const s = drag.current;
       if (!s.dragging) return;
       e.preventDefault();
-      s.x = s.baseX + (e.clientX - s.startX);
-      s.y = s.baseY + (e.clientY - s.startY);
-      if (Math.abs(e.clientX - s.startX) > 5 || Math.abs(e.clientY - s.startY) > 5) {
+      s.lastX = e.clientX;
+      s.lastY = e.clientY;
+      if (Math.hypot(e.clientX - s.originX, e.clientY - s.originY) > 5) {
         s.moved = true;
       }
-      setTranslate(s.x, s.y);
+      setTranslate(s.baseX + (e.clientX - s.startX), s.baseY + (e.clientY - s.startY));
     }
 
     function onPointerUp() {
@@ -69,10 +93,14 @@ export default function useDraggableFAB(onClick) {
     fab.addEventListener('pointerdown', onPointerDown);
     document.addEventListener('pointermove', onPointerMove);
     document.addEventListener('pointerup', onPointerUp);
+    document.addEventListener('pointercancel', onPointerUp);
+    window.addEventListener('resize', onResize);
     return () => {
       fab.removeEventListener('pointerdown', onPointerDown);
       document.removeEventListener('pointermove', onPointerMove);
       document.removeEventListener('pointerup', onPointerUp);
+      document.removeEventListener('pointercancel', onPointerUp);
+      window.removeEventListener('resize', onResize);
     };
   }, []);
 
