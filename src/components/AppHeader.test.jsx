@@ -71,6 +71,16 @@ test('links the brand area to the web app Home view and prevents full-page reloa
   expect(onNavigateHome).toHaveBeenCalledTimes(1);
 });
 
+test('scrolls smoothly to the top on plain Home link click when onNavigateHome is omitted', () => {
+  const scrollToSpy = vi.spyOn(window, 'scrollTo');
+  renderHeader('zh-HK');
+
+  const homeLink = screen.getByRole('link', { name: /腦癎錦囊/ });
+  fireEvent.click(homeLink);
+
+  expect(scrollToSpy).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
+});
+
 test('keeps the language menu closed by default and opens it from the globe toggle', () => {
   renderHeader('zh-HK');
 
