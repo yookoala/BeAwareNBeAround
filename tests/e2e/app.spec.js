@@ -104,8 +104,12 @@ test('event log replaces top header, warns on unsaved changes, and returns to di
   await page.getByRole('button', { name: '儲存', exact: true }).click();
   await expect(page.getByRole('status')).toHaveText('記錄已儲存！');
   await expect(page.getByRole('status')).toHaveCount(0);
+  const subheaderBounds = await page.locator('.diary-subheader').boundingBox();
   await page.getByRole('button', { name: '← 返回' }).click();
   await expect(page).toHaveURL(/\/diary$/);
+  const appHeaderBounds = await page.locator('.app-header').boundingBox();
+  expect(subheaderBounds.x).toBe(appHeaderBounds.x);
+  expect(subheaderBounds.width).toBe(appHeaderBounds.width);
 });
 
 test('event log text controls have a visible keyboard focus ring', async ({ page }) => {

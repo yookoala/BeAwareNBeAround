@@ -96,7 +96,7 @@ export default function FirstAidPage({ counter, language }) {
   const isPlayingButton = (id) => player.phase === 'playing' && player.selectedId === id;
 
   return (
-    <>
+    <div className="app-container">
       <section className="header">
         <div className="slogan-chars">{labels.slogan}</div>
         <h1 className="theme-title">{t({ id: 'app.title', message: "Be Aware n' Be Around" })}</h1>
@@ -176,6 +176,6 @@ export default function FirstAidPage({ counter, language }) {
       </InfoPanel>
 
       <footer className="footer-linktree"><a href="https://linktr.ee/EpilepsyFoundationOfHongKong" target="_blank" rel="noopener noreferrer" className="linktree-btn">{t({ id: 'footer.linkLabel', message: '🔗 Learn more about Epilepsy Foundation HK' })}</a></footer>
-    </>
+    </div>
   );
 }

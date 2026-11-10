@@ -2,9 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  width: calc(100% + 30px);
+  width: 100%;
   max-width: 450px;
-  margin: 0 -15px 18px;
+  margin: 0 auto 18px;
   background-color: #ffffff;
   padding: 10px 16px;
   border-bottom-left-radius: 12px;

@@ -18,9 +18,9 @@ body.page-event-log {
     --tag-bg: #F2F2F7;
 }
 
-body.page-event-log .app-container { width: 100%; max-width: 414px; text-align: left; display: flex; flex-direction: column; margin: 0 auto; padding-bottom: 40px; }
+body.page-event-log .app-container { width: 100%; max-width: 450px; text-align: left; display: flex; flex-direction: column; align-items: stretch; margin: 0 auto; padding: 0 0 calc(84px + env(safe-area-inset-bottom)); }
 
-body.page-event-log .diary-subheader { position: sticky; top: 0; z-index: 1000; background-color: var(--surface-color); padding: 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+body.page-event-log .diary-subheader { position: sticky; top: 0; z-index: 1000; width: 100%; background-color: var(--surface-color); padding: 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 body.page-event-log .back-btn { font-size: 16px; color: var(--efhk-flame); background: none; border: none; font-weight: 500; cursor: pointer; }
 body.page-event-log .header-title { font-size: 17px; font-weight: 700; }
 body.page-event-log .save-btn { font-size: 16px; color: #FFFFFF; background-color: var(--efhk-flame); border: none; font-weight: 700; padding: 6px 16px; border-radius: 16px; cursor: pointer; }

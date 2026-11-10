@@ -1,7 +1,8 @@
 :root { --red: #d32f2f; --orange: #f57c00; --yellow: #fbc02d; --primary-brand: #f57c00; --dark-orange: #e65100; --bg: #fff9f5; --text: #333; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--text); background: var(--bg); }
 body { margin: 0; background: var(--bg); }
 button { font: inherit; }
-main { display: flex; flex-direction: column; align-items: center; padding: 0 15px calc(84px + env(safe-area-inset-bottom)); text-align: center; }
+main { display: flex; flex-direction: column; align-items: center; padding: 0; text-align: center; }
+.app-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 15px calc(84px + env(safe-area-inset-bottom)); box-sizing: border-box; }
 .header { width: 100%; max-width: 400px; margin-bottom: 15px; }
 .slogan-chars { font-size: 22px; font-weight: 800; color: var(--dark-orange); margin: 0 0 5px; letter-spacing: 2px; }
 .theme-title { color: var(--primary-brand); margin: 0 0 10px; font-size: 24px; }
