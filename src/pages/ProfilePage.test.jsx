@@ -4,6 +4,7 @@ import { MemoryRouter, useLocation } from 'react-router-dom';
 import { expect, test, vi } from 'vitest';
 import { AppRoutes } from '../App';
 import { activateLocale, i18n } from '../i18n/setup';
+import { contactHrefs } from '../utils/contactLinks';
 
 function Location() { return <div data-testid="location">{useLocation().pathname}</div>; }
 function renderApp(locale = 'zh-HK') {
@@ -60,21 +61,53 @@ test('contact links update and added contacts can be removed', () => {
   expect(section.querySelectorAll('.contact-card')).toHaveLength(1);
 });
 
+test.each(['', '+', '   ', '()-'])('digitless phone %j has no emergency links', (phone) => {
+  expect(contactHrefs(phone, 'Emergency')).toEqual({ call: '#', sms: '#', wa: '#' });
+});
+
+test.each([
+  ['zh-HK', '緊急通知：我目前可能正在經歷腦癇發作，請協助我。'],
+  ['zh-CN', '紧急通知：我目前可能正在经历脑痫发作，请协助我。'],
+  ['en', 'Emergency notice: I may currently be experiencing a seizure, please assist me.'],
+])('emergency contact links use the %s message', (locale, message) => {
+  const { container } = renderApp(locale);
+  const section = open(container, 'contacts');
+  fireEvent.change(section.querySelector('.phone-input'), { target: { value: '+852 9876-5432' } });
+  expect(section.querySelector('.sms-link')).toHaveAttribute('href', `sms:+85298765432?body=${encodeURIComponent(message)}`);
+  expect(section.querySelector('.wa-link')).toHaveAttribute('href', `https://wa.me/85298765432?text=${encodeURIComponent(message)}`);
+});
+
 test('tag selections survive locale change and custom items can be added and removed', () => {
   const { container } = renderApp();
   const auras = open(container, 'auras');
   const triggers = open(container, 'triggers');
+  const contacts = open(container, 'contacts');
+  const investigations = open(container, 'investigations');
   for (const id of ['a1', 'a8', 't1', 't7', 'l1', 'l8']) fireEvent.click(container.querySelector(`label[for="${id}"]`));
+  const phone = contacts.querySelector('.phone-input');
+  fireEvent.change(phone, { target: { value: '+852 9876-5432' } });
+  const auraList = auras.querySelector('#custom-aura-list');
+  fireEvent.click(auraList.nextElementSibling);
+  fireEvent.change(auraList.querySelector('input'), { target: { value: 'Rising sensation' } });
+  fireEvent.click(within(investigations).getByRole('button', { name: '+ 新增檢查紀錄' }));
+  const type = investigations.querySelectorAll('.investigation-card')[1].querySelector('select');
+  fireEvent.change(type, { target: { value: 'MRI' } });
   fireEvent.click(screen.getByRole('button', { name: '語言' }));
   fireEvent.click(screen.getByRole('menuitem', { name: 'EN' }));
   for (const id of ['a1', 'a8', 't1', 't7', 'l1', 'l8']) expect(container.querySelector(`#${id}`)).toBeChecked();
-  for (const [section, listId] of [[auras, 'custom-aura-list'], [triggers, 'custom-trigger-list']]) {
-    const list = section.querySelector(`#${listId}`);
-    fireEvent.click(list.nextElementSibling);
-    expect(list.querySelectorAll('input')).toHaveLength(1);
-    fireEvent.click(within(list).getByRole('button'));
-    expect(list.querySelectorAll('input')).toHaveLength(0);
-  }
+  expect(contacts.querySelector('.phone-input')).toHaveValue('+852 9876-5432');
+  expect(auraList.querySelector('input')).toHaveValue('Rising sensation');
+  expect(investigations.querySelectorAll('.investigation-card')[1].querySelector('select')).toHaveValue('MRI');
+  const message = 'Emergency notice: I may currently be experiencing a seizure, please assist me.';
+  expect(contacts.querySelector('.sms-link')).toHaveAttribute('href', `sms:+85298765432?body=${encodeURIComponent(message)}`);
+  expect(contacts.querySelector('.wa-link')).toHaveAttribute('href', `https://wa.me/85298765432?text=${encodeURIComponent(message)}`);
+  fireEvent.click(within(auraList).getByRole('button'));
+  expect(auraList.querySelectorAll('input')).toHaveLength(0);
+  const triggerList = triggers.querySelector('#custom-trigger-list');
+  fireEvent.click(triggerList.nextElementSibling);
+  expect(triggerList.querySelectorAll('input')).toHaveLength(1);
+  fireEvent.click(within(triggerList).getByRole('button'));
+  expect(triggerList.querySelectorAll('input')).toHaveLength(0);
 });
 
 test('investigations keep the initial card and remove additional cards', () => {

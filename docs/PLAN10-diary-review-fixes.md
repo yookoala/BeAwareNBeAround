@@ -29,3 +29,19 @@ Provide a clearly visible keyboard focus ring on both event-log text controls. T
 ## Human testing
 
 Navigate to the event log, use Tab to reach the date/time and notes fields, and confirm a clear focus ring is visible around each at mobile and desktop widths.
+
+# M17-003 emergency contact review fixes
+
+## Objective and approach
+
+Use the active Lingui locale for the prefilled emergency SMS and WhatsApp text, and keep the link helper pure by passing it the translated message. Reject inputs with no ASCII digits after normalization rather than creating invalid links. Keep contact input, custom aura text, investigation selection, and tag selections intact when the locale changes; React keys must remain stable. URI-encode the message and digit-normalize the number as before. A full phone validation system is outside this review's scope and could reject legitimate international numbers.
+
+## TODO
+
+- [x] Add failing tests for digitless numbers, exact emergency messages in all three locales, and dynamic field preservation across locale switches.
+- [x] Pass the translated message to contact links, normalize before checking for an empty number, and update/compile the catalogs.
+- [x] Run unit, lint, build and E2E regressions; inspect and commit the change.
+
+## Human testing
+
+Enter a contact number and custom aura, add an investigation and change its type. Switch between Traditional Chinese, Simplified Chinese and English; check entered values remain and inspect the SMS and WhatsApp drafts in each language. Enter only a plus sign or whitespace and verify the three links no longer point to an invalid phone URI.

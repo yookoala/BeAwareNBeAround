@@ -550,6 +550,11 @@ msgid "profile.contacts"
 msgstr "紧急联系人"
 
 #. js-lingui-explicit-id
+#: src/components/diary/ContactCard.jsx:5
+msgid "diary.profile.contactEmergencyMsg"
+msgstr "紧急通知：我目前可能正在经历脑痫发作，请协助我。"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:80
 #: src/pages/DiaryDashboardPage.jsx:80
 msgid "diary.emergencyVideo"
