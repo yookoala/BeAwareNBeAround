@@ -64,6 +64,15 @@ test('renders the first-aid page at the / route', async () => {
   expect(await screen.findByRole('heading', { name: "Be Aware n' Be Around" })).toBeInTheDocument();
 });
 
+test('a legacy /diary/event-log link lands on the event menu', async () => {
+  // M18 renamed the menu to /diary/event; links saved from the deployed
+  // main build (which served the menu at /diary/event-log) must keep working.
+  renderShell(['/diary/event-log']);
+
+  expect(document.getElementById('btn-attack')).toBeInTheDocument();
+  expect(document.getElementById('btn-health')).toBeInTheDocument();
+});
+
 test('logs exactly one visit POST per app load across route changes', async () => {
   const { counter } = renderShell(['/'], { harness: true });
 

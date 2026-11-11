@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLingui } from '@lingui/react';
-import { BrowserRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { activateLocale, i18n } from './i18n/setup';
 import { getInstallId } from './services/install';
 import { useAutoHideChrome } from './hooks/useAutoHideChrome';
@@ -31,7 +31,7 @@ export function AppRoutes() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const isReport = pathname.startsWith('/diary/report/');
-  const isEventRoute = pathname === '/diary/event-log' || pathname.startsWith('/diary/event');
+  const isEventRoute = pathname.startsWith('/diary/event');
   const chromeHidden = useAutoHideChrome();
   // Captured once at app load so tab switches never change the tracked URL.
   const [targetUrl] = useState(() => window.location.href);
@@ -67,6 +67,8 @@ export function AppRoutes() {
       <Routes>
         <Route path="/" element={<FirstAidPage counter={counter} language={language} />} />
         <Route path="/diary" element={<DiaryDashboardPage />} />
+        <Route path="/diary/event-log" element={<Navigate to="/diary/event" replace />} />
+        {/* ^ legacy M17 menu URL saved by users of the deployed build; M18 renamed the menu */}
         <Route path="/diary/event" element={<EventMenuPage />} />
         <Route path="/diary/event/seizure" element={<EventLogPage key="seizure" variant="seizure" />} />
         <Route path="/diary/event/headache" element={<EventLogPage key="headache" variant="headache" />} />

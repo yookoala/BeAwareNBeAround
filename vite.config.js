@@ -9,6 +9,14 @@ import { fileURLToPath, URL } from 'node:url';
 
 const STATIC_ROUTES = [
   'diary',
+  // M18 replaced /diary/event-log with this menu + sub-routes; the legacy
+  // entry stays so saved links load and App.jsx redirects them.
+  'diary/event',
+  'diary/event/seizure',
+  'diary/event/headache',
+  'diary/event/medication',
+  'diary/event/side-effects',
+  'diary/event/health',
   'diary/event-log',
   'diary/profile',
   'diary/report/level-a',

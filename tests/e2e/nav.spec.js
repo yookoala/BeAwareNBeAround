@@ -33,7 +33,10 @@ test('loads the diary route directly with the shared shell', async ({ page }) =>
   mockCounterRoute(page, { initialTotal: 12544 });
   for (const [route, heading] of [
     ['/diary', '腦癇及頭痛追蹤'],
-    ['/diary/event-log', '新增記錄'],
+    ['/diary/event', '新增記錄'],
+    ['/diary/event/seizure', '腦癇記錄'],
+    ['/diary/event/side-effects', '副作用'],
+    ['/diary/event/health', '生理及健康狀況'],
     ['/diary/profile', '個人醫療檔案'],
     ['/resource', '香港腦癇基金會 資源中心'],
   ]) {
