@@ -1,5 +1,22 @@
 /* Full diary entries list page (M19-004); card visuals come from
    entry-cards.css. This file only adds the page chrome and paging states. */
+/* Page palette: every diary page defines its own theme vars (they are not
+   defined globally), dashboard values apply to the diary-family pages. */
+body.page-diary-entries {
+    --surface-color: #FFFFFF;
+    --text-primary: #1C1C1E;
+    --text-secondary: #6E6E73;
+    --efhk-flame: #F57C00;
+    --efhk-flame-light: #FFF0E0;
+    --border-color: #E5E5EA;
+}
+
+/* app-container override (like event-log/profile): the global container
+   centers its children with 15px padding, which makes the content-box
+   100%-wide subheader/list (377px) overflow a 375px phone viewport. */
+body.page-diary-entries .app-container,
+body.page-diary-entries .app-container * { box-sizing: border-box; }
+body.page-diary-entries .app-container { width: 100%; max-width: 450px; display: flex; flex-direction: column; align-items: stretch; margin: 0 auto; padding: 0 0 calc(84px + env(safe-area-inset-bottom)); }
 body.page-diary-entries .diary-subheader { position: sticky; top: 0; z-index: 1000; width: 100%; background-color: var(--surface-color); padding: 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 body.page-diary-entries .back-btn { font-size: 16px; color: var(--efhk-flame); background: none; border: none; font-weight: 500; cursor: pointer; }
 body.page-diary-entries .header-title { font-size: 17px; font-weight: 700; }

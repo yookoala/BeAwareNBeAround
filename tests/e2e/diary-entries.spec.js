@@ -42,6 +42,8 @@ test('diary entries journey creates, reviews, edits, and deletes a stored entry'
   const entryPath = new URL(page.url()).pathname;
 
   // 3. Detail view renders the recorded values read-only.
+  //    (Also a phone-width guard: neither M19 page may overflow 375px.)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
   await expect(page.getByText('記錄時間')).toBeVisible();
   await expect(page.getByText('女性生理期')).toBeVisible();
   await expect(page.getByText(marker)).toBeVisible();
@@ -66,6 +68,7 @@ test('diary entries journey creates, reviews, edits, and deletes a stored entry'
   await page.getByRole('link', { name: '日記', exact: true }).click();
   await page.locator('.see-all-btn').click();
   await expect(page).toHaveURL(/\/diary\/entries$/);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
   await expect(page.locator('.recent-entry-card')).toHaveCount(6);
   await expect(page.getByText(editedMarker)).toHaveCount(1);
 
