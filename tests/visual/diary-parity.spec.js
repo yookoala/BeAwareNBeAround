@@ -36,6 +36,14 @@ const captureOptions = {
   maxDiffPixelRatio: 0.01,
 };
 
+// Delete-trigger and confirmation-title strings per locale, so the dialog can
+// be opened in each language's own UI.
+const deleteLabels = {
+  'zh-hk': { trigger: '刪除記錄', title: '刪除記錄？' },
+  'zh-cn': { trigger: '删除记录', title: '删除记录？' },
+  en: { trigger: 'Delete entry', title: 'Delete entry?' },
+};
+
 async function openDiary(page, menu, { seed }) {
   mockExternalRequests(page);
   // Without startViewTransition, navigateWithViewTransition takes its plain
@@ -77,6 +85,12 @@ test.describe('diary view baselines', () => {
       await page.locator('.recent-entry-card').nth(4).click();
       await expect(page).toHaveURL(/\/diary\/entry\/seed-5$/);
       await expect(page).toHaveScreenshot(`diary-detail-${language.prefix}-375.png`, captureOptions);
+
+      // The delete confirmation (M19-008): a modal <dialog> over the detail
+      // view, scrim + shadowed card + the two choices.
+      await page.getByRole('button', { name: deleteLabels[language.prefix].trigger }).click();
+      await expect(page.getByRole('dialog', { name: deleteLabels[language.prefix].title })).toBeVisible();
+      await expect(page).toHaveScreenshot(`diary-delete-confirm-${language.prefix}-375.png`, captureOptions);
     });
 
     test(`preserves the empty diary dashboard in ${language.menu}`, async ({ page }) => {
@@ -85,4 +99,20 @@ test.describe('diary view baselines', () => {
       await expect(page).toHaveScreenshot(`diary-empty-${language.prefix}-375.png`, captureOptions);
     });
   }
+
+  // One capture of the unsaved-changes confirmation is enough: it is the same
+  // ConfirmDialog component and stylesheet as the delete confirm, only the
+  // labels differ, and the other three locales differ from 繁體 by text alone.
+  test('preserves the unsaved-changes confirmation on an event form', async ({ page }) => {
+    await openDiary(page, '繁體', { seed: true });
+    await page.locator('#fabRecord').click();
+    await page.locator('#btn-health').click();
+    // The form defaults its time to the current wall clock (localNowValue), so
+    // the baseline would rot daily without pinning the field to a fixed value.
+    await page.fill('#event-time', '2026-09-14T15:30');
+    await page.getByLabel('健康狀況備註').fill('第一天經痛');
+    await page.getByRole('button', { name: '← 返回' }).click();
+    await expect(page.getByRole('dialog', { name: '尚未儲存' })).toBeVisible();
+    await expect(page).toHaveScreenshot('diary-leave-confirm-zh-hk-375.png', captureOptions);
+  });
 });
