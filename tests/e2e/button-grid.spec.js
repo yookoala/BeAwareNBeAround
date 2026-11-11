@@ -10,29 +10,42 @@ test.describe('button grid geometry', () => {
 
     // The buttons transition `all` for 0.1s on mount and the gap is a
     // percentage of the grid content, so measuring mid-transition yields a
-    // too-large gap (flake seen under parallel load). Poll the grid width
-    // until it reports the final value before measuring anything.
+    // too-large gap (flake seen under parallel load). Poll the grid box
+    // until both dimensions report the final value before measuring — the
+    // width alone can settle while the rows are still growing vertically.
     await expect
-      .poll(async () => (await page.locator('.grid').boundingBox()).width, { timeout: 5000 })
-      .toBeCloseTo(255, 1);
+      .poll(async () => {
+        const box = await page.locator('.grid').boundingBox();
+        return Math.abs(box.width - 255) < 0.05 && Math.abs(box.height - 255) < 0.05;
+      }, { timeout: 5000 })
+      .toBe(true);
 
-    const grid = await page.locator('.grid').boundingBox();
-    expect(grid.width).toBeCloseTo(255, 1);
-    expect(grid.height).toBeCloseTo(255, 1);
+    // Snapshot every rect in one page.evaluate: separate boundingBox() calls
+    // straddle frames, and a scroll-anchoring nudge after the hero image
+    // settles shifted a later y-measure by ~1px (the remaining flake).
+    const boxes = await page.evaluate(() => {
+      const rect = (element) => {
+        const { x, y, width, height } = element.getBoundingClientRect();
+        return { x, y, width, height };
+      };
+      return {
+        grid: rect(document.querySelector('.grid')),
+        buttons: Array.from(document.querySelectorAll('.btn-toy'), rect),
+      };
+    });
 
-    const buttons = page.locator('.btn-toy');
-    expect(await buttons.count()).toBe(4);
-    for (let i = 0; i < 4; i++) {
-      const box = await buttons.nth(i).boundingBox();
+    expect(boxes.grid.width).toBeCloseTo(255, 1);
+    expect(boxes.grid.height).toBeCloseTo(255, 1);
+
+    expect(boxes.buttons).toHaveLength(4);
+    for (const box of boxes.buttons) {
       expect(box.width).toBeCloseTo(100, 1);
       expect(box.height).toBeCloseTo(100, 1);
     }
 
     // Used gaps, derived from positions (the computed `gap` value changes
     // representation when the CSS changes from px to %).
-    const stay = await buttons.nth(0).boundingBox();
-    const safe = await buttons.nth(1).boundingBox();
-    const side = await buttons.nth(2).boundingBox();
+    const [stay, safe, side] = boxes.buttons;
     expect(safe.x - stay.x - stay.width).toBeCloseTo(15, 1);
     expect(side.y - stay.y - stay.height).toBeCloseTo(15, 1);
 
