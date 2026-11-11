@@ -851,6 +851,14 @@ test.describe('real recordings in the browser', () => {
     await expect(page.locator('.playlist-card')).toBeVisible();
   });
 
+  // The seek value has to be the exact string the engine keeps: a range input
+  // stores the canonical shortest form of the number (the engine drops trailing
+  // zeros, so "23.70" becomes "23.7"), and Playwright's fill() rejects any value
+  // it has to rewrite ("Malformed value"). Number -> String is canonical by
+  // construction, and the two decimals keep the value short enough that the
+  // engine does not re-round it either.
+  const seekValue = (seconds) => String(Number(seconds.toFixed(2)));
+
   test('a real recording reports a finite duration, seeks, and ends on its own', async ({ page }) => {
     await row(page, 1).click();
     await expect(status(page)).toHaveText(HK.playing(1));
@@ -860,12 +868,15 @@ test.describe('real recordings in the browser', () => {
     expect(max).toBeGreaterThan(0);
     await expect(page.locator('.playlist-seek .playlist-time').nth(1)).not.toHaveText('0:00');
 
-    await page.locator('.playlist-seek-range').fill(String(max / 2));
+    await page.locator('.playlist-seek-range').fill(seekValue(max / 2));
     await expect(page.locator('.playlist-seek .playlist-time').first()).not.toHaveText('0:00');
     expect(await page.evaluate(() => window.__createdAudio[0].currentTime)).toBeGreaterThan(0);
 
-    // Seek close to the end so the natural end event arrives quickly.
-    await page.locator('.playlist-seek-range').fill((max - 0.2).toFixed(2));
+    // Seek close to the end so the natural end event arrives quickly. The max is
+    // read again here: it comes from decoded audio metadata, so it is only known
+    // at run time and must not be measured several actions earlier.
+    const liveMax = Number(await page.locator('.playlist-seek-range').getAttribute('max'));
+    await page.locator('.playlist-seek-range').fill(seekValue(liveMax - 0.2));
     await expect(status(page)).toHaveText(HK.ended, { timeout: 15000 });
     await expect(page.locator('.playlist-playing-badge')).toHaveCount(0);
   });
