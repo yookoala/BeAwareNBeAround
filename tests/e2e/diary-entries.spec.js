@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { journeySeedEntries, seedDiaryEntries } from './diary-db.js';
+import { expectConfirmShell } from './confirm-dialog.js';
 
 // Full M19 journey against real Chromium IndexedDB: create → dashboard card
 // → full list → detail → edit (pre-filled) → save-in-place (no duplicate) →
@@ -72,14 +73,28 @@ test('diary entries journey creates, reviews, edits, and deletes a stored entry'
   await expect(page.locator('.recent-entry-card')).toHaveCount(6);
   await expect(page.getByText(editedMarker)).toHaveCount(1);
 
-  // 7. Delete: Cancel keeps the entry; confirming removes it and lands back
-  //    on the list with the delete toast.
+  // 7. Delete: the confirmation is a modal <dialog> (M19-008) — scrim, shadow,
+  //    and the two choices as its only controls. Cancel, a scrim click and
+  //    Escape all keep the entry; only 刪除 deletes.
   await page.locator('.recent-entry-card').first().click();
   await expect(page).toHaveURL(new RegExp(`${entryPath}$`));
   await page.getByRole('button', { name: '刪除記錄' }).click();
-  await expect(page.getByRole('dialog', { name: '刪除記錄？' })).toBeVisible();
+  await expectConfirmShell(page, { title: '刪除記錄？', cancelLabel: '取消', confirmLabel: '刪除' });
+
+  // The dark area is the scrim: clicking it cancels without deleting.
+  await page.mouse.click(10, 300);
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: '刪除記錄' })).toBeVisible();
+
+  await page.getByRole('button', { name: '刪除記錄' }).click();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+
+  await page.getByRole('button', { name: '刪除記錄' }).click();
   await page.getByRole('button', { name: '取消' }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: '刪除記錄' })).toBeVisible();
+
   await page.getByRole('button', { name: '刪除記錄' }).click();
   await page.getByRole('button', { name: '刪除', exact: true }).click();
   await expect(page).toHaveURL(/\/diary\/entries$/);

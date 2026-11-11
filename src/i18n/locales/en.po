@@ -629,14 +629,14 @@ msgid "setup.androidLabel"
 msgstr "Android:"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:186
+#: src/pages/DiaryEntryDetailPage.jsx:183
 msgid "diary.entry.deletePrompt"
 msgstr "Are you sure you want to delete this entry? It will be permanently removed from this device."
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:210
-#: src/pages/HealthStatePage.jsx:163
-#: src/pages/SideEffectsPage.jsx:219
+#: src/pages/EventLogPage.jsx:207
+#: src/pages/HealthStatePage.jsx:160
+#: src/pages/SideEffectsPage.jsx:216
 msgid "diary.eventLog.unsavedPrompt"
 msgstr "Are you sure you want to leave without saving?"
 
@@ -751,7 +751,7 @@ msgid "profile.call"
 msgstr "Call"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:190
+#: src/pages/DiaryEntryDetailPage.jsx:184
 msgid "diary.entry.deleteCancel"
 msgstr "Cancel"
 
@@ -827,9 +827,9 @@ msgid "profile.contact1"
 msgstr "Contact 1"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:223
-#: src/pages/HealthStatePage.jsx:176
-#: src/pages/SideEffectsPage.jsx:232
+#: src/pages/EventLogPage.jsx:215
+#: src/pages/HealthStatePage.jsx:168
+#: src/pages/SideEffectsPage.jsx:224
 msgid "diary.eventLog.saveError"
 msgstr "Could not save the record. Storage is unavailable on this device."
 
@@ -890,7 +890,7 @@ msgid "diary.eventLog.decrease"
 msgstr "Decrease seizure count"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:193
+#: src/pages/DiaryEntryDetailPage.jsx:185
 msgid "diary.entry.deleteConfirm"
 msgstr "Delete"
 
@@ -1092,10 +1092,10 @@ msgid "diary.entry.deleted"
 msgstr "Entry deleted"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:199
-#: src/pages/EventLogPage.jsx:222
-#: src/pages/HealthStatePage.jsx:175
-#: src/pages/SideEffectsPage.jsx:231
+#: src/pages/DiaryEntryDetailPage.jsx:191
+#: src/pages/EventLogPage.jsx:214
+#: src/pages/HealthStatePage.jsx:167
+#: src/pages/SideEffectsPage.jsx:223
 msgid "diary.eventLog.saved"
 msgstr "Entry saved!"
 
@@ -1396,9 +1396,9 @@ msgid "language.selectorLabel"
 msgstr "Language"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:217
-#: src/pages/HealthStatePage.jsx:170
-#: src/pages/SideEffectsPage.jsx:226
+#: src/pages/EventLogPage.jsx:209
+#: src/pages/HealthStatePage.jsx:162
+#: src/pages/SideEffectsPage.jsx:218
 msgid "diary.eventLog.leave"
 msgstr "Leave"
 
@@ -1969,7 +1969,7 @@ msgstr "Record time"
 #: src/pages/DiaryDashboardPage.jsx:64
 #: src/pages/DiaryEntriesPage.jsx:79
 #: src/pages/DiaryEntryDetailPage.jsx:102
-#: src/pages/DiaryEntryDetailPage.jsx:200
+#: src/pages/DiaryEntryDetailPage.jsx:192
 msgid "diary.recordsUnavailable"
 msgstr "Records unavailable — this device could not open its diary storage."
 
@@ -2273,9 +2273,9 @@ msgid "report.fixture.252475c9cb"
 msgstr "Status:"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:214
-#: src/pages/HealthStatePage.jsx:167
-#: src/pages/SideEffectsPage.jsx:223
+#: src/pages/EventLogPage.jsx:208
+#: src/pages/HealthStatePage.jsx:161
+#: src/pages/SideEffectsPage.jsx:217
 msgid "diary.eventLog.stay"
 msgstr "Stay"
 

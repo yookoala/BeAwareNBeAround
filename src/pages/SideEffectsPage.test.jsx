@@ -97,7 +97,12 @@ test('warns on unsaved changes when leaving and saves cleanly with toast', async
   vi.useFakeTimers();
   fireEvent.change(screen.getByLabelText('額外觀察 / 備註'), { target: { value: '輕微頭暈' } });
   fireEvent.click(screen.getByRole('button', { name: '← 返回' }));
-  expect(screen.getByRole('dialog', { name: '尚未儲存' })).toBeVisible();
+  const leaveDialog = screen.getByRole('dialog', { name: '尚未儲存' });
+  expect(leaveDialog).toBeVisible();
+  // M19-008: modal <dialog>, no close control, the stay choice holds focus.
+  expect(leaveDialog.tagName).toBe('DIALOG');
+  expect(within(leaveDialog).queryByRole('button', { name: 'Close' })).not.toBeInTheDocument();
+  expect(within(leaveDialog).getByRole('button', { name: '繼續編輯' })).toHaveFocus();
   fireEvent.click(screen.getByRole('button', { name: '繼續編輯' }));
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 

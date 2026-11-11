@@ -1,0 +1,43 @@
+/* Confirmation dialog shared by the four diary confirmations (M19-008): the
+   delete confirm on the detail view and the unsaved-changes confirms on the
+   three event forms. Scoped to both page families the way entry-cards.css is,
+   because the theme vars are declared per page and nothing is global.
+
+   A modal <dialog> sits in the browser top layer: it needs no z-index to beat
+   the sticky subheader (1000) or the toasts (3000), and ::backdrop is the
+   dimmed transparent scrim the page behind shows through. margin: auto is what
+   centres a modal dialog; the box carries the drop shadow. */
+body.page-diary-entry-detail .confirm-dialog,
+body.page-event-log .confirm-dialog {
+    margin: auto;
+    width: 92%;
+    max-width: 360px;
+    padding: 20px 16px;
+    border: none;
+    border-radius: 16px;
+    background: var(--surface-color);
+    color: var(--text-primary);
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+body.page-diary-entry-detail .confirm-dialog::backdrop,
+body.page-event-log .confirm-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+}
+
+body.page-diary-entry-detail .confirm-dialog-title,
+body.page-event-log .confirm-dialog-title { font-size: 18px; font-weight: 700; color: var(--efhk-flame); margin: 0 0 12px; }
+
+body.page-diary-entry-detail .confirm-dialog-prompt,
+body.page-event-log .confirm-dialog-prompt { font-size: 14px; line-height: 1.5; color: var(--text-primary); margin: 0; }
+
+body.page-diary-entry-detail .confirm-dialog-actions,
+body.page-event-log .confirm-dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px; }
+
+body.page-diary-entry-detail .confirm-cancel-btn,
+body.page-event-log .confirm-cancel-btn { padding: 8px 16px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--surface-color); color: var(--text-primary); font-size: 14px; font-weight: 700; cursor: pointer; }
+
+body.page-diary-entry-detail .confirm-destructive-btn,
+body.page-event-log .confirm-destructive-btn { padding: 8px 16px; border: none; border-radius: 8px; background: var(--record-red); color: #ffffff; font-size: 14px; font-weight: 700; cursor: pointer; }

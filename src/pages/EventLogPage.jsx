@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { t } from '@lingui/core/macro';
 import { useNavigate } from 'react-router-dom';
-import Modal from '../components/diary/Modal';
+import ConfirmDialog from '../components/diary/ConfirmDialog';
 import OptionGroup from '../components/diary/OptionGroup';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
@@ -201,23 +201,15 @@ export default function EventLogPage({ variant = 'seizure' }) {
         </>
       )}
       {leaveConfirmOpen && (
-        <Modal
+        <ConfirmDialog
           id="leaveConfirmModal"
           title={t({ id: 'diary.eventLog.unsavedTitle', message: 'Unsaved changes' })}
-          onClose={() => setLeaveConfirmOpen(false)}
-        >
-          <p className="unsaved-warning-text">
-            {t({ id: 'diary.eventLog.unsavedPrompt', message: 'Are you sure you want to leave without saving?' })}
-          </p>
-          <div className="unsaved-actions">
-            <button type="button" className="unsaved-stay-btn" onClick={() => setLeaveConfirmOpen(false)}>
-              {t({ id: 'diary.eventLog.stay', message: 'Stay' })}
-            </button>
-            <button type="button" className="unsaved-leave-btn" onClick={leaveToMenu}>
-              {t({ id: 'diary.eventLog.leave', message: 'Leave' })}
-            </button>
-          </div>
-        </Modal>
+          prompt={t({ id: 'diary.eventLog.unsavedPrompt', message: 'Are you sure you want to leave without saving?' })}
+          cancelLabel={t({ id: 'diary.eventLog.stay', message: 'Stay' })}
+          confirmLabel={t({ id: 'diary.eventLog.leave', message: 'Leave' })}
+          onCancel={() => setLeaveConfirmOpen(false)}
+          onConfirm={leaveToMenu}
+        />
       )}
       {saveCount > 0 && <div role="status" className="event-log-toast">{t({ id: 'diary.eventLog.saved', message: 'Entry saved!' })}</div>}
       {errorCount > 0 && <div role="status" className="event-log-toast">{t({ id: 'diary.eventLog.saveError', message: 'Could not save the record. Storage is unavailable on this device.' })}</div>}

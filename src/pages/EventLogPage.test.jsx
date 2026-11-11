@@ -75,6 +75,10 @@ test('warns before leaving when form has unsaved changes, and allows staying or 
   expect(screen.getByTestId('location')).toHaveTextContent('/diary/event/seizure');
   const dialog = screen.getByRole('dialog', { name: '尚未儲存' });
   expect(dialog).toBeVisible();
+  // M19-008: a modal <dialog> whose only controls are the two choices.
+  expect(dialog.tagName).toBe('DIALOG');
+  expect(dialog.open).toBe(true);
+  expect(within(dialog).queryByRole('button', { name: 'Close' })).not.toBeInTheDocument();
   expect(within(dialog).getByText('您有尚未儲存的更改，確定要離開嗎？')).toBeVisible();
   fireEvent.click(within(dialog).getByRole('button', { name: '繼續編輯' }));
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();

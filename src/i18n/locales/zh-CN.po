@@ -629,14 +629,14 @@ msgid "setup.androidLabel"
 msgstr "Android："
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:186
+#: src/pages/DiaryEntryDetailPage.jsx:183
 msgid "diary.entry.deletePrompt"
 msgstr "确定要删除这条记录吗？它将从此设备永久移除，无法恢复。"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:210
-#: src/pages/HealthStatePage.jsx:163
-#: src/pages/SideEffectsPage.jsx:219
+#: src/pages/EventLogPage.jsx:207
+#: src/pages/HealthStatePage.jsx:160
+#: src/pages/SideEffectsPage.jsx:216
 msgid "diary.eventLog.unsavedPrompt"
 msgstr "您有尚未保存的更改，确定要离开吗？"
 
@@ -751,7 +751,7 @@ msgid "profile.call"
 msgstr "致电"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:190
+#: src/pages/DiaryEntryDetailPage.jsx:184
 msgid "diary.entry.deleteCancel"
 msgstr "取消"
 
@@ -827,9 +827,9 @@ msgid "profile.contact1"
 msgstr "联系人 1"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:223
-#: src/pages/HealthStatePage.jsx:176
-#: src/pages/SideEffectsPage.jsx:232
+#: src/pages/EventLogPage.jsx:215
+#: src/pages/HealthStatePage.jsx:168
+#: src/pages/SideEffectsPage.jsx:224
 msgid "diary.eventLog.saveError"
 msgstr "未能保存记录。此设备的存储空间暂时不可用。"
 
@@ -890,7 +890,7 @@ msgid "diary.eventLog.decrease"
 msgstr "减少发作次数"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:193
+#: src/pages/DiaryEntryDetailPage.jsx:185
 msgid "diary.entry.deleteConfirm"
 msgstr "删除"
 
@@ -1092,10 +1092,10 @@ msgid "diary.entry.deleted"
 msgstr "记录已删除"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:199
-#: src/pages/EventLogPage.jsx:222
-#: src/pages/HealthStatePage.jsx:175
-#: src/pages/SideEffectsPage.jsx:231
+#: src/pages/DiaryEntryDetailPage.jsx:191
+#: src/pages/EventLogPage.jsx:214
+#: src/pages/HealthStatePage.jsx:167
+#: src/pages/SideEffectsPage.jsx:223
 msgid "diary.eventLog.saved"
 msgstr "记录已保存！"
 
@@ -1396,9 +1396,9 @@ msgid "language.selectorLabel"
 msgstr "语言"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:217
-#: src/pages/HealthStatePage.jsx:170
-#: src/pages/SideEffectsPage.jsx:226
+#: src/pages/EventLogPage.jsx:209
+#: src/pages/HealthStatePage.jsx:162
+#: src/pages/SideEffectsPage.jsx:218
 msgid "diary.eventLog.leave"
 msgstr "确定离开"
 
@@ -1969,7 +1969,7 @@ msgstr "记录时间"
 #: src/pages/DiaryDashboardPage.jsx:64
 #: src/pages/DiaryEntriesPage.jsx:79
 #: src/pages/DiaryEntryDetailPage.jsx:102
-#: src/pages/DiaryEntryDetailPage.jsx:200
+#: src/pages/DiaryEntryDetailPage.jsx:192
 msgid "diary.recordsUnavailable"
 msgstr "无法读取记录 — 此设备暂时无法打开日记存储空间。"
 
@@ -2273,9 +2273,9 @@ msgid "report.fixture.252475c9cb"
 msgstr "状态："
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:214
-#: src/pages/HealthStatePage.jsx:167
-#: src/pages/SideEffectsPage.jsx:223
+#: src/pages/EventLogPage.jsx:208
+#: src/pages/HealthStatePage.jsx:161
+#: src/pages/SideEffectsPage.jsx:217
 msgid "diary.eventLog.stay"
 msgstr "继续编辑"
 

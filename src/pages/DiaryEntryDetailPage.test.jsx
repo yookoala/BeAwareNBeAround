@@ -217,6 +217,12 @@ test('delete confirmation: Escape and Cancel keep the entry; confirm deletes and
 
   fireEvent.click(screen.getByRole('button', { name: 'Delete entry' }));
   const dialog = screen.getByRole('dialog');
+  // M19-008: a modal <dialog> with the two choices as its only controls, and
+  // Cancel focused so the destructive action is never the keyboard default.
+  expect(dialog.tagName).toBe('DIALOG');
+  expect(dialog.open).toBe(true);
+  expect(within(dialog).queryByRole('button', { name: 'Close' })).not.toBeInTheDocument();
+  expect(within(dialog).getByRole('button', { name: 'Cancel' })).toHaveFocus();
   expect(screen.getByText('Delete entry?')).toBeInTheDocument();
   expect(within(dialog).getByText('Are you sure you want to delete this entry? It will be permanently removed from this device.')).toBeInTheDocument();
 

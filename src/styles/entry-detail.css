@@ -10,6 +10,7 @@ body.page-diary-entry-detail {
     --efhk-flame: #F57C00;
     --efhk-flame-light: #FFF0E0;
     --border-color: #E5E5EA;
+    --record-red: #FF3B30;
 }
 
 /* app-container override (like event-log/profile): the global container
@@ -31,10 +32,7 @@ body.page-diary-entry-detail .tag { padding: 8px 14px; border-radius: 20px; font
 body.page-diary-entry-detail .tag.selected { background-color: var(--efhk-flame-light); color: var(--efhk-flame); border-color: var(--efhk-flame); font-weight: 500; }
 body.page-diary-entry-detail .entry-detail-notes { font-size: 14px; color: var(--text-primary); line-height: 1.5; white-space: pre-wrap; }
 body.page-diary-entry-detail .delete-btn { display: block; margin: 20px 16px 24px; padding: 10px 16px; width: calc(100% - 32px); background-color: var(--surface-color); color: #c0392b; border: 1px solid #c0392b; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
-body.page-diary-entry-detail .delete-warning-text { font-size: 14px; color: var(--text-primary); line-height: 1.5; }
-body.page-diary-entry-detail .delete-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 16px; }
-body.page-diary-entry-detail .delete-cancel-btn { padding: 8px 16px; border: 1px solid var(--border-color); border-radius: 8px; background: none; font-size: 14px; cursor: pointer; }
-body.page-diary-entry-detail .delete-confirm-btn { padding: 8px 16px; border: none; border-radius: 8px; background-color: #c0392b; color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; }
+/* The confirmation box itself is ConfirmDialog.css (M19-008). */
 body.page-diary-entry-detail .entry-not-found,
 body.page-diary-entry-detail .recent-records-unavailable { margin: 12px 16px 0; padding: 4px 16px 8px; font-size: 13px; color: var(--text-secondary); }
 body.page-diary-entry-detail .recent-records-unavailable { color: var(--efhk-flame); font-weight: 700; }

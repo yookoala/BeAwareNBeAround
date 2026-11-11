@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { t } from '@lingui/core/macro';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import Modal from '../components/diary/Modal';
+import ConfirmDialog from '../components/diary/ConfirmDialog';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { navigateWithViewTransition } from '../utils/viewTransition';
 import {
@@ -177,23 +177,15 @@ export default function DiaryEntryDetailPage() {
       )}
 
       {deleteOpen && (
-        <Modal
+        <ConfirmDialog
           id="deleteConfirmModal"
           title={t({ id: 'diary.entry.deleteTitle', message: 'Delete entry?' })}
-          onClose={() => setDeleteOpen(false)}
-        >
-          <p className="delete-warning-text">
-            {t({ id: 'diary.entry.deletePrompt', message: 'Are you sure you want to delete this entry? It will be permanently removed from this device.' })}
-          </p>
-          <div className="delete-actions">
-            <button type="button" className="delete-cancel-btn" onClick={() => setDeleteOpen(false)}>
-              {t({ id: 'diary.entry.deleteCancel', message: 'Cancel' })}
-            </button>
-            <button type="button" className="delete-confirm-btn" onClick={confirmDelete}>
-              {t({ id: 'diary.entry.deleteConfirm', message: 'Delete' })}
-            </button>
-          </div>
-        </Modal>
+          prompt={t({ id: 'diary.entry.deletePrompt', message: 'Are you sure you want to delete this entry? It will be permanently removed from this device.' })}
+          cancelLabel={t({ id: 'diary.entry.deleteCancel', message: 'Cancel' })}
+          confirmLabel={t({ id: 'diary.entry.deleteConfirm', message: 'Delete' })}
+          onCancel={() => setDeleteOpen(false)}
+          onConfirm={confirmDelete}
+        />
       )}
 
       {savedToast && <div role="status" className="entry-toast">{t({ id: 'diary.eventLog.saved', message: 'Entry saved!' })}</div>}

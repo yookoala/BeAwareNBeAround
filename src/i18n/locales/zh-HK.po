@@ -629,14 +629,14 @@ msgid "setup.androidLabel"
 msgstr "Android："
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:186
+#: src/pages/DiaryEntryDetailPage.jsx:183
 msgid "diary.entry.deletePrompt"
 msgstr "確定要刪除這筆記錄嗎？它將從此裝置永久移除，無法復原。"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:210
-#: src/pages/HealthStatePage.jsx:163
-#: src/pages/SideEffectsPage.jsx:219
+#: src/pages/EventLogPage.jsx:207
+#: src/pages/HealthStatePage.jsx:160
+#: src/pages/SideEffectsPage.jsx:216
 msgid "diary.eventLog.unsavedPrompt"
 msgstr "您有尚未儲存的更改，確定要離開嗎？"
 
@@ -751,7 +751,7 @@ msgid "profile.call"
 msgstr "致電"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:190
+#: src/pages/DiaryEntryDetailPage.jsx:184
 msgid "diary.entry.deleteCancel"
 msgstr "取消"
 
@@ -827,9 +827,9 @@ msgid "profile.contact1"
 msgstr "聯絡人 1"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:223
-#: src/pages/HealthStatePage.jsx:176
-#: src/pages/SideEffectsPage.jsx:232
+#: src/pages/EventLogPage.jsx:215
+#: src/pages/HealthStatePage.jsx:168
+#: src/pages/SideEffectsPage.jsx:224
 msgid "diary.eventLog.saveError"
 msgstr "未能儲存記錄。此裝置的儲存空間暫時無法使用。"
 
@@ -890,7 +890,7 @@ msgid "diary.eventLog.decrease"
 msgstr "減少發作次數"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:193
+#: src/pages/DiaryEntryDetailPage.jsx:185
 msgid "diary.entry.deleteConfirm"
 msgstr "刪除"
 
@@ -1092,10 +1092,10 @@ msgid "diary.entry.deleted"
 msgstr "記錄已刪除"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntryDetailPage.jsx:199
-#: src/pages/EventLogPage.jsx:222
-#: src/pages/HealthStatePage.jsx:175
-#: src/pages/SideEffectsPage.jsx:231
+#: src/pages/DiaryEntryDetailPage.jsx:191
+#: src/pages/EventLogPage.jsx:214
+#: src/pages/HealthStatePage.jsx:167
+#: src/pages/SideEffectsPage.jsx:223
 msgid "diary.eventLog.saved"
 msgstr "記錄已儲存！"
 
@@ -1396,9 +1396,9 @@ msgid "language.selectorLabel"
 msgstr "語言"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:217
-#: src/pages/HealthStatePage.jsx:170
-#: src/pages/SideEffectsPage.jsx:226
+#: src/pages/EventLogPage.jsx:209
+#: src/pages/HealthStatePage.jsx:162
+#: src/pages/SideEffectsPage.jsx:218
 msgid "diary.eventLog.leave"
 msgstr "確定離開"
 
@@ -1969,7 +1969,7 @@ msgstr "記錄時間"
 #: src/pages/DiaryDashboardPage.jsx:64
 #: src/pages/DiaryEntriesPage.jsx:79
 #: src/pages/DiaryEntryDetailPage.jsx:102
-#: src/pages/DiaryEntryDetailPage.jsx:200
+#: src/pages/DiaryEntryDetailPage.jsx:192
 msgid "diary.recordsUnavailable"
 msgstr "無法讀取記錄 — 此裝置暫時無法開啟日記儲存空間。"
 
@@ -2273,9 +2273,9 @@ msgid "report.fixture.252475c9cb"
 msgstr "狀態："
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:214
-#: src/pages/HealthStatePage.jsx:167
-#: src/pages/SideEffectsPage.jsx:223
+#: src/pages/EventLogPage.jsx:208
+#: src/pages/HealthStatePage.jsx:161
+#: src/pages/SideEffectsPage.jsx:217
 msgid "diary.eventLog.stay"
 msgstr "繼續編輯"
 

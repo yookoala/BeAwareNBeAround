@@ -1,10 +1,7 @@
 /* Match the prototype reset without affecting the shared app shell. */
 body.page-event-log .app-container,
-body.page-event-log .app-container *,
-body.page-event-log .modal-overlay,
-body.page-event-log .modal-overlay * { box-sizing: border-box; }
-body.page-event-log .app-container :is(h1, h2, h3, p),
-body.page-event-log .modal-overlay :is(h1, h2, h3, p) { margin: 0; }
+body.page-event-log .app-container * { box-sizing: border-box; }
+body.page-event-log .app-container :is(h1, h2, h3, p) { margin: 0; }
 
 body.page-event-log {
     --bg-color: #F2F2F7;
@@ -56,15 +53,9 @@ body.page-event-log .help-text { font-size: 12px; color: var(--text-secondary); 
 
 body.page-event-log .event-log-toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--text-primary); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; z-index: 3000; }
 
-body.page-event-log .modal-overlay { display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(2px); }
-body.page-event-log .modal-content { max-height: 90vh; overflow-y: auto; background: var(--surface-color); width: 92%; max-width: 360px; border-radius: 16px; padding: 20px 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); text-align: left; }
-body.page-event-log .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-body.page-event-log .modal-header h2 { font-size: 18px; color: var(--efhk-flame); }
-body.page-event-log .close-btn { background: none; border: none; font-size: 24px; color: var(--text-secondary); cursor: pointer; }
-body.page-event-log .unsaved-warning-text { font-size: 14px; color: var(--text-primary); line-height: 1.5; margin-bottom: 16px; }
-body.page-event-log .unsaved-actions { display: flex; justify-content: flex-end; gap: 10px; }
-body.page-event-log .unsaved-stay-btn { padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--surface-color); color: var(--text-primary); font-weight: 700; cursor: pointer; }
-body.page-event-log .unsaved-leave-btn { padding: 8px 16px; border-radius: 8px; border: none; background: var(--record-red); color: #ffffff; font-weight: 700; cursor: pointer; }
+/* The unsaved-changes confirmation is a modal <dialog> (M19-008) styled by
+   ConfirmDialog.css; the div-based .modal-overlay rules went dead when the
+   three event forms stopped rendering Modal. */
 
 body.page-event-log .event-menu-list { display: flex; flex-direction: column; gap: 12px; padding: 16px; }
 body.page-event-log .event-menu-btn { width: 100%; background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 14px; font-size: 16px; font-weight: 700; color: var(--text-primary); cursor: pointer; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }

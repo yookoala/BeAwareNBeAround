@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { mockPlaylistPlayer } from './mock-playlist-player.js';
 import { journeySeedEntries, seedDiaryEntries } from './diary-db.js';
+import { expectConfirmShell } from './confirm-dialog.js';
 
 const languageStates = [
   {
@@ -106,7 +107,7 @@ test('event menu and seizure log replace top header, warn on unsaved changes, an
   await expect(page.locator('.bottom-nav a[href="/diary"]')).toHaveAttribute('aria-current', 'page');
   await page.getByRole('button', { name: '無預兆' }).click();
   await page.getByRole('button', { name: '← 返回' }).click();
-  await expect(page.getByRole('dialog', { name: '尚未儲存' })).toBeVisible();
+  await expectConfirmShell(page, { title: '尚未儲存', cancelLabel: '繼續編輯', confirmLabel: '確定離開' });
   await page.getByRole('button', { name: '繼續編輯' }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await page.getByRole('button', { name: '儲存', exact: true }).click();
