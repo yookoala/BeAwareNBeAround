@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import Modal from '../components/diary/Modal';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
+import { useEditingEntry } from '../hooks/useEditingEntry';
 import { navigateWithViewTransition } from '../utils/viewTransition';
 import { sideEffectTagOptions } from '../utils/entryPresentation';
-import { addEntry } from '../services/diaryEntries';
+import { addEntry, updateEntry } from '../services/diaryEntries';
 import { localNowValue } from '../utils/localNowValue';
 import '../styles/event-log.css';
 
@@ -24,6 +25,16 @@ export default function SideEffectsPage() {
   const [leaveConfirmOpen, setLeaveConfirmOpen] = useState(false);
   const [saveCount, setSaveCount] = useState(0);
   const [errorCount, setErrorCount] = useState(0);
+
+  // Edit mode (?edit=<id>): stored built-in ids go straight into `selected`,
+  // stored custom labels re-enter the working catalog as custom tags so they
+  // render (and can be removed) exactly like newly added ones.
+  const { entry: editingEntry, settled } = useEditingEntry((found) => {
+    setEventTime(found.time);
+    setSelected(found.data.selected.map((item) => item.id));
+    setCustomTags(found.data.selected.filter((item) => item.label).map((item) => ({ id: item.id, label: item.label })));
+    setNotes(found.data.notes);
+  });
 
   useEffect(() => {
     if (!saveCount) return undefined;
@@ -73,17 +84,22 @@ export default function SideEffectsPage() {
 
   async function handleSave() {
     try {
-      await addEntry({
-        type: 'sideEffects',
-        time: eventTime,
-        data: {
-          selected: selected.map((id) => {
-            const custom = customTags.find((item) => item.id === id);
-            return custom ? { id, label: custom.label } : { id };
-          }),
-          notes,
-        },
-      });
+      const data = {
+        selected: selected.map((id) => {
+          const custom = customTags.find((item) => item.id === id);
+          return custom ? { id, label: custom.label } : { id };
+        }),
+        notes,
+      };
+      if (editingEntry) {
+        // id/type/createdAt stay immutable; the service bumps updatedAt.
+        await updateEntry(editingEntry.id, { time: eventTime, data });
+        setIsDirty(false);
+        // Back to the detail view that Edit came from; it hosts the toast.
+        navigateWithViewTransition(navigate, `/diary/entry/${editingEntry.id}`, 'vt-slide-out-right', { state: { saved: true } });
+        return;
+      }
+      await addEntry({ type: 'sideEffects', time: eventTime, data });
       setIsDirty(false);
       setSaveCount((count) => count + 1);
     } catch {
@@ -93,7 +109,8 @@ export default function SideEffectsPage() {
 
   function leaveToMenu() {
     setLeaveConfirmOpen(false);
-    navigateWithViewTransition(navigate, '/diary/event', 'vt-slide-out-right');
+    const destination = editingEntry ? `/diary/entry/${editingEntry.id}` : '/diary/event';
+    navigateWithViewTransition(navigate, destination, 'vt-slide-out-right');
   }
 
   function handleBack() {
@@ -109,8 +126,10 @@ export default function SideEffectsPage() {
       <header className="diary-subheader">
         <button type="button" className="back-btn" onClick={handleBack}>{t({ id: 'diary.eventLog.back', message: '← Back' })}</button>
         <div className="header-title">{t({ id: 'diary.sideEffects', message: 'Side effects' })}</div>
-        <button type="button" className="save-btn" onClick={handleSave}>{t({ id: 'diary.eventLog.save', message: 'Save' })}</button>
+        {settled && <button type="button" className="save-btn" onClick={handleSave}>{t({ id: 'diary.eventLog.save', message: 'Save' })}</button>}
       </header>
+      {settled && (
+        <>
       <div className="form-section" style={{ marginTop: 0, borderTop: 'none' }}>
         <label className="section-header" htmlFor="event-time">{t({ id: 'diary.recordTime', message: 'Record time' })}</label>
         <input
@@ -188,6 +207,8 @@ export default function SideEffectsPage() {
           placeholder={t({ id: 'diary.sideEffects.notesPlaceholder', message: 'For example: occurred 2 hours after taking medication...' })}
         />
       </div>
+        </>
+      )}
       {leaveConfirmOpen && (
         <Modal
           id="leaveConfirmModal"

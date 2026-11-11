@@ -4,7 +4,7 @@ import { MemoryRouter, useLocation } from 'react-router-dom';
 import { afterEach, expect, test, vi } from 'vitest';
 import { AppRoutes } from '../App';
 import { activateLocale, i18n } from '../i18n/setup';
-import { addEntry } from '../services/diaryEntries';
+import { addEntry, getEntry, updateEntry } from '../services/diaryEntries';
 
 vi.mock('../services/diaryEntries', () => ({
   addEntry: vi.fn(async (input) => ({ id: 'stub-entry', createdAt: '', updatedAt: '', ...input })),
@@ -24,15 +24,21 @@ function freezeNow() {
 }
 
 function Location() {
-  return <div data-testid="location">{useLocation().pathname}</div>;
+  const { pathname, search, state } = useLocation();
+  return (
+    <>
+      <div data-testid="location">{`${pathname}${search}`}</div>
+      <div data-testid="location-state">{JSON.stringify(state ?? null)}</div>
+    </>
+  );
 }
 
-function renderApp(locale = 'zh-HK') {
+function renderApp(locale = 'zh-HK', path = '/diary/event/side-effects') {
   activateLocale(locale);
   vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ status: 'success', metrics: {} }) })));
   return render(
     <I18nProvider i18n={i18n}>
-      <MemoryRouter initialEntries={['/diary/event/side-effects']}>
+      <MemoryRouter initialEntries={[path]}>
         <Location />
         <AppRoutes />
       </MemoryRouter>
@@ -132,4 +138,72 @@ test('saving stores a side-effects entry with built-in tag ids and labeled custo
   expect(payload.data.selected).toContainEqual(
     expect.objectContaining({ id: expect.stringMatching(/^[0-9a-f-]{36}$/), label: '視力模糊' }),
   );
+});
+
+// --- M19-006 edit mode ---
+
+const storedSideEffects = {
+  id: 's1',
+  type: 'sideEffects',
+  time: '2026-09-14T08:00',
+  createdAt: '2026-09-14T07:59:00.000Z',
+  updatedAt: '2026-09-14T07:59:00.000Z',
+  data: { selected: [{ id: 'drowsiness' }, { id: 'cx1', label: 'Blurred vision' }], notes: 'two hours after dosing' },
+};
+
+async function settleEditLoad() {
+  await act(async () => {
+    await Promise.resolve();
+  });
+}
+
+test('editing a side-effects entry pre-selects stored tags including custom labels', async () => {
+  getEntry.mockResolvedValueOnce(storedSideEffects);
+  renderApp('en', '/diary/event/side-effects?edit=s1');
+  await settleEditLoad();
+
+  expect(screen.getByLabelText('Record time')).toHaveValue('2026-09-14T08:00');
+  expect(screen.getByRole('button', { name: 'Drowsiness/fatigue' })).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByRole('button', { name: 'Blurred vision' })).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByLabelText('Extra observations / notes')).toHaveValue('two hours after dosing');
+});
+
+test('saving an edited side-effects entry re-stores the kept custom tag through updateEntry', async () => {
+  addEntry.mockClear();
+  getEntry.mockResolvedValueOnce(storedSideEffects);
+  renderApp('en', '/diary/event/side-effects?edit=s1');
+  await settleEditLoad();
+
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+    await Promise.resolve();
+  });
+
+  expect(updateEntry).toHaveBeenCalledTimes(1);
+  expect(updateEntry).toHaveBeenCalledWith('s1', {
+    time: '2026-09-14T08:00',
+    data: { selected: [{ id: 'drowsiness' }, { id: 'cx1', label: 'Blurred vision' }], notes: 'two hours after dosing' },
+  });
+  expect(addEntry).not.toHaveBeenCalled();
+  expect(screen.getByTestId('location').textContent).toBe('/diary/entry/s1');
+});
+
+test('removing a stored custom tag updates the entry without it', async () => {
+  addEntry.mockClear();
+  getEntry.mockResolvedValueOnce(storedSideEffects);
+  renderApp('en', '/diary/event/side-effects?edit=s1');
+  await settleEditLoad();
+
+  fireEvent.click(screen.getByRole('button', { name: 'Manage side effects' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Remove Blurred vision' }));
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+    await Promise.resolve();
+  });
+
+  expect(updateEntry).toHaveBeenCalledTimes(1);
+  expect(updateEntry).toHaveBeenCalledWith('s1', {
+    time: '2026-09-14T08:00',
+    data: { selected: [{ id: 'drowsiness' }], notes: 'two hours after dosing' },
+  });
 });

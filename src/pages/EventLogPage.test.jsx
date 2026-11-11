@@ -4,7 +4,7 @@ import { MemoryRouter, useLocation } from 'react-router-dom';
 import { afterEach, expect, test, vi } from 'vitest';
 import { AppRoutes } from '../App';
 import { activateLocale, i18n } from '../i18n/setup';
-import { addEntry } from '../services/diaryEntries';
+import { addEntry, getEntry, updateEntry } from '../services/diaryEntries';
 
 vi.mock('../services/diaryEntries', () => ({
   addEntry: vi.fn(async (input) => ({ id: 'stub-entry', createdAt: '', updatedAt: '', ...input })),
@@ -24,7 +24,15 @@ function freezeNow() {
   vi.useFakeTimers({ now: new Date(2026, 8, 17, 17, 30) });
 }
 
-function Location() { return <div data-testid="location">{useLocation().pathname}</div>; }
+function Location() {
+  const { pathname, search, state } = useLocation();
+  return (
+    <>
+      <div data-testid="location">{`${pathname}${search}`}</div>
+      <div data-testid="location-state">{JSON.stringify(state ?? null)}</div>
+    </>
+  );
+}
 function renderApp(locale = 'zh-HK', path = '/diary/event/seizure') {
   activateLocale(locale);
   vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ status: 'success', metrics: {} }) })));
@@ -243,4 +251,101 @@ test('a failed save shows an error toast and keeps the unsaved-changes guard', a
   expect(await screen.findByRole('status')).toHaveTextContent('Could not save the record. Storage is unavailable on this device.');
   fireEvent.click(screen.getByRole('button', { name: '← Back' }));
   expect(screen.getByRole('dialog', { name: 'Unsaved changes' })).toBeVisible();
+});
+
+// --- M19-006 edit mode ---
+
+const storedSeizure = {
+  id: 'e1',
+  type: 'seizure',
+  time: '2026-09-15T16:00',
+  createdAt: '2026-09-15T15:59:00.000Z',
+  updatedAt: '2026-09-15T15:59:00.000Z',
+  data: { severity: 'minor', pattern: 'cluster', clusterCount: 3, auras: ['visual'], triggers: ['stress'], notes: 'left hand twitching' },
+};
+
+// The edit load resolves on the microtask queue; a flushed act() settles the
+// form without waitFor polling (which stalls under the frozen clock).
+async function settleEditLoad() {
+  await act(async () => {
+    await Promise.resolve();
+  });
+}
+
+test('editing a stored seizure pre-fills every control', async () => {
+  freezeNow();
+  getEntry.mockResolvedValueOnce(storedSeizure);
+  const { container } = renderApp('en', '/diary/event/seizure?edit=e1');
+  await settleEditLoad();
+
+  expect(screen.getByLabelText('Seizure time')).toHaveValue('2026-09-15T16:00');
+  expect(screen.getByRole('button', { name: 'Minor seizure' })).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByRole('button', { name: 'Cluster / repeated seizures' })).toHaveAttribute('aria-pressed', 'true');
+  expect(container.querySelector('#attack-count')).toHaveTextContent('3');
+  expect(screen.getByRole('button', { name: 'Visual (e.g. flashing lights/hallucinations)' })).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByRole('button', { name: 'Stress/tension' })).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByLabelText('Seizure description / notes')).toHaveValue('left hand twitching');
+});
+
+test('saving an edited seizure updates the same entry and lands on the detail view with saved state', async () => {
+  freezeNow();
+  addEntry.mockClear();
+  getEntry.mockResolvedValueOnce(storedSeizure);
+  renderApp('en', '/diary/event/seizure?edit=e1');
+  await settleEditLoad();
+
+  fireEvent.change(screen.getByLabelText('Seizure description / notes'), { target: { value: 'updated notes' } });
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+    await Promise.resolve();
+  });
+
+  expect(updateEntry).toHaveBeenCalledTimes(1);
+  expect(updateEntry).toHaveBeenCalledWith('e1', {
+    time: '2026-09-15T16:00',
+    data: { severity: 'minor', pattern: 'cluster', clusterCount: 3, auras: ['visual'], triggers: ['stress'], notes: 'updated notes' },
+  });
+  expect(addEntry).not.toHaveBeenCalled();
+  expect(screen.getByTestId('location').textContent).toBe('/diary/entry/e1');
+  expect(screen.getByTestId('location-state')).toHaveTextContent('{"saved":true}');
+  // The detail view (now mounted) hosts the saved toast, not the form.
+  expect(screen.getByRole('status')).toHaveTextContent('Entry saved!');
+});
+
+test('an unknown edit id falls back to create-mode defaults and drops the edit param', async () => {
+  freezeNow();
+  addEntry.mockClear();
+  renderApp('en', '/diary/event/seizure?edit=nope');
+  await settleEditLoad();
+
+  expect(screen.getByLabelText('Seizure time')).toHaveValue('2026-09-17T17:30');
+  expect(screen.getByTestId('location').textContent).toBe('/diary/event/seizure');
+
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+    await Promise.resolve();
+  });
+  expect(addEntry).toHaveBeenCalledTimes(1);
+  expect(updateEntry).not.toHaveBeenCalled();
+});
+
+test('clean back in edit mode returns to the detail view, not the event menu', async () => {
+  getEntry.mockResolvedValueOnce(storedSeizure);
+  renderApp('en', '/diary/event/seizure?edit=e1');
+  await settleEditLoad();
+
+  fireEvent.click(screen.getByRole('button', { name: '← Back' }));
+  expect(screen.getByTestId('location').textContent).toBe('/diary/entry/e1');
+});
+
+test('the unsaved-changes guard in edit mode leaves to the detail view', async () => {
+  getEntry.mockResolvedValueOnce(storedSeizure);
+  renderApp('en', '/diary/event/seizure?edit=e1');
+  await settleEditLoad();
+
+  fireEvent.click(screen.getByRole('button', { name: 'Major seizure' }));
+  fireEvent.click(screen.getByRole('button', { name: '← Back' }));
+  expect(screen.getByRole('dialog', { name: 'Unsaved changes' })).toBeVisible();
+  fireEvent.click(screen.getByRole('button', { name: 'Leave' }));
+  expect(screen.getByTestId('location').textContent).toBe('/diary/entry/e1');
 });

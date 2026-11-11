@@ -304,11 +304,11 @@ msgstr "#"
 #. js-lingui-explicit-id
 #: src/pages/DiaryEntriesPage.jsx:75
 #: src/pages/DiaryEntryDetailPage.jsx:94
-#: src/pages/EventLogPage.jsx:108
+#: src/pages/EventLogPage.jsx:127
 #: src/pages/EventMenuPage.jsx:52
-#: src/pages/HealthStatePage.jsx:90
+#: src/pages/HealthStatePage.jsx:107
 #: src/pages/MedicationEventPage.jsx:19
-#: src/pages/SideEffectsPage.jsx:110
+#: src/pages/SideEffectsPage.jsx:127
 msgid "diary.eventLog.back"
 msgstr "← Back"
 
@@ -333,7 +333,7 @@ msgid "profile.addAura"
 msgstr "+ Add custom aura"
 
 #. js-lingui-explicit-id
-#: src/pages/HealthStatePage.jsx:115
+#: src/pages/HealthStatePage.jsx:134
 msgid "diary.healthState.addCustom"
 msgstr "+ Add custom condition"
 
@@ -353,7 +353,7 @@ msgid "profile.addMed"
 msgstr "+ Add medication"
 
 #. js-lingui-explicit-id
-#: src/pages/SideEffectsPage.jsx:172
+#: src/pages/SideEffectsPage.jsx:191
 msgid "diary.sideEffects.addBtn"
 msgstr "+ Add side effect"
 
@@ -403,7 +403,7 @@ msgid "diary.hub.donate"
 msgstr "💖 Donate"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:178
+#: src/pages/EventLogPage.jsx:199
 msgid "diary.eventLog.videoHelp"
 msgstr "💡 If you just made an emergency recording, the video will be attached below automatically."
 
@@ -634,9 +634,9 @@ msgid "diary.entry.deletePrompt"
 msgstr "Are you sure you want to delete this entry? It will be permanently removed from this device."
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:187
-#: src/pages/HealthStatePage.jsx:142
-#: src/pages/SideEffectsPage.jsx:198
+#: src/pages/EventLogPage.jsx:210
+#: src/pages/HealthStatePage.jsx:163
+#: src/pages/SideEffectsPage.jsx:219
 msgid "diary.eventLog.unsavedPrompt"
 msgstr "Are you sure you want to leave without saving?"
 
@@ -661,7 +661,7 @@ msgid "diary.entry.auras"
 msgstr "Auras"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:159
+#: src/pages/EventLogPage.jsx:180
 msgid "diary.eventLog.auras"
 msgstr "Auras (select all that apply)"
 
@@ -807,7 +807,7 @@ msgid "profile.auras"
 msgstr "Common seizure auras"
 
 #. js-lingui-explicit-id
-#: src/pages/SideEffectsPage.jsx:129
+#: src/pages/SideEffectsPage.jsx:148
 msgid "diary.sideEffects.commonTitle"
 msgstr "Common side effects (select all that apply)"
 
@@ -827,9 +827,9 @@ msgid "profile.contact1"
 msgstr "Contact 1"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:200
-#: src/pages/HealthStatePage.jsx:155
-#: src/pages/SideEffectsPage.jsx:211
+#: src/pages/EventLogPage.jsx:223
+#: src/pages/HealthStatePage.jsx:176
+#: src/pages/SideEffectsPage.jsx:232
 msgid "diary.eventLog.saveError"
 msgstr "Could not save the record. Storage is unavailable on this device."
 
@@ -885,7 +885,7 @@ msgid "report.fixture.1c37b940d2"
 msgstr "Date of birth / Age"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:135
+#: src/pages/EventLogPage.jsx:156
 msgid "diary.eventLog.decrease"
 msgstr "Decrease seizure count"
 
@@ -930,7 +930,7 @@ msgid "profile.doctor"
 msgstr "Doctor name"
 
 #. js-lingui-explicit-id
-#: src/pages/SideEffectsPage.jsx:136
+#: src/pages/SideEffectsPage.jsx:155
 msgid "diary.sideEffects.manageDone"
 msgstr "Done"
 
@@ -1047,7 +1047,7 @@ msgid "report.fixture.27eefa5237"
 msgstr "End date"
 
 #. js-lingui-explicit-id
-#: src/pages/HealthStatePage.jsx:132
+#: src/pages/HealthStatePage.jsx:151
 msgid "diary.healthState.notesPlaceholder"
 msgstr "Enter any additional physiological or health remarks..."
 
@@ -1057,7 +1057,7 @@ msgid "profile.auraPlaceholder"
 msgstr "Enter custom aura..."
 
 #. js-lingui-explicit-id
-#: src/pages/HealthStatePage.jsx:114
+#: src/pages/HealthStatePage.jsx:133
 msgid "diary.healthState.customPlaceholder"
 msgstr "Enter custom condition..."
 
@@ -1067,7 +1067,7 @@ msgid "profile.allergiesPlaceholder"
 msgstr "Enter medication allergies..."
 
 #. js-lingui-explicit-id
-#: src/pages/SideEffectsPage.jsx:169
+#: src/pages/SideEffectsPage.jsx:188
 msgid "diary.sideEffects.addPlaceholder"
 msgstr "Enter new side effect..."
 
@@ -1093,9 +1093,9 @@ msgstr "Entry deleted"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryEntryDetailPage.jsx:199
-#: src/pages/EventLogPage.jsx:199
-#: src/pages/HealthStatePage.jsx:154
-#: src/pages/SideEffectsPage.jsx:210
+#: src/pages/EventLogPage.jsx:222
+#: src/pages/HealthStatePage.jsx:175
+#: src/pages/SideEffectsPage.jsx:231
 msgid "diary.eventLog.saved"
 msgstr "Entry saved!"
 
@@ -1138,7 +1138,7 @@ msgid "diary.hub"
 msgstr "Epilepsy Foundation of Hong Kong Resource Centre"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:130
+#: src/pages/EventLogPage.jsx:151
 msgid "diary.eventLog.estimatedCount"
 msgstr "Estimated number of seizures"
 
@@ -1169,7 +1169,7 @@ msgstr "Export date: 2026-09-20 | Page: 3 / 3"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryEntryDetailPage.jsx:166
-#: src/pages/SideEffectsPage.jsx:179
+#: src/pages/SideEffectsPage.jsx:198
 msgid "diary.sideEffects.notes"
 msgstr "Extra observations / notes"
 
@@ -1229,12 +1229,12 @@ msgid "report.fixture.434b94fc8b"
 msgstr "Focal Impaired Awareness (FIAS), Secondary GTCS"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:176
+#: src/pages/EventLogPage.jsx:197
 msgid "diary.eventLog.notesPlaceholder"
 msgstr "For example: left hand twitching, confused for about 2 minutes..."
 
 #. js-lingui-explicit-id
-#: src/pages/SideEffectsPage.jsx:188
+#: src/pages/SideEffectsPage.jsx:207
 msgid "diary.sideEffects.notesPlaceholder"
 msgstr "For example: occurred 2 hours after taking medication..."
 
@@ -1285,12 +1285,12 @@ msgstr "Hand tremor gradually improved."
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryEntryDetailPage.jsx:162
-#: src/pages/EventLogPage.jsx:102
+#: src/pages/EventLogPage.jsx:121
 msgid "diary.headacheLog.notes"
 msgstr "Headache description / notes"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:93
+#: src/pages/EventLogPage.jsx:112
 #: src/pages/EventMenuPage.jsx:21
 #: src/utils/entryPresentation.js:18
 msgid "diary.headache"
@@ -1298,23 +1298,23 @@ msgstr "Headache record"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryEntryDetailPage.jsx:117
-#: src/pages/EventLogPage.jsx:99
+#: src/pages/EventLogPage.jsx:118
 msgid "diary.headacheLog.severityPattern"
 msgstr "Headache severity and pattern"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:96
+#: src/pages/EventLogPage.jsx:115
 msgid "diary.headacheLog.time"
 msgstr "Headache time"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryEntryDetailPage.jsx:167
-#: src/pages/HealthStatePage.jsx:123
+#: src/pages/HealthStatePage.jsx:142
 msgid "diary.healthState.notes"
 msgstr "Health condition notes"
 
 #. js-lingui-explicit-id
-#: src/pages/HealthStatePage.jsx:108
+#: src/pages/HealthStatePage.jsx:127
 msgid "diary.healthState.selectTitle"
 msgstr "Health conditions (select all that apply)"
 
@@ -1355,7 +1355,7 @@ msgid "diary.legend.illness"
 msgstr "Illness/Stress"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:147
+#: src/pages/EventLogPage.jsx:168
 msgid "diary.eventLog.increase"
 msgstr "Increase seizure count"
 
@@ -1396,9 +1396,9 @@ msgid "language.selectorLabel"
 msgstr "Language"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:194
-#: src/pages/HealthStatePage.jsx:149
-#: src/pages/SideEffectsPage.jsx:205
+#: src/pages/EventLogPage.jsx:217
+#: src/pages/HealthStatePage.jsx:170
+#: src/pages/SideEffectsPage.jsx:226
 msgid "diary.eventLog.leave"
 msgstr "Leave"
 
@@ -1438,7 +1438,7 @@ msgid "report.fixture.af4d7b397c"
 msgstr "Male / 45 years"
 
 #. js-lingui-explicit-id
-#: src/pages/SideEffectsPage.jsx:137
+#: src/pages/SideEffectsPage.jsx:156
 msgid "diary.sideEffects.manage"
 msgstr "Manage side effects"
 
@@ -1837,7 +1837,7 @@ msgid "profile.a1"
 msgstr "Physical sensations (tingling/numbness)"
 
 #. js-lingui-explicit-id
-#: src/pages/HealthStatePage.jsx:91
+#: src/pages/HealthStatePage.jsx:108
 msgid "diary.healthTitle"
 msgstr "Physiological and health conditions"
 
@@ -1960,8 +1960,8 @@ msgstr "Record not found on this device."
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryEntryDetailPage.jsx:108
-#: src/pages/HealthStatePage.jsx:95
-#: src/pages/SideEffectsPage.jsx:115
+#: src/pages/HealthStatePage.jsx:114
+#: src/pages/SideEffectsPage.jsx:134
 msgid "diary.recordTime"
 msgstr "Record time"
 
@@ -1985,7 +1985,7 @@ msgid "profile.remark"
 msgstr "Remark"
 
 #. js-lingui-explicit-id
-#: src/pages/SideEffectsPage.jsx:146
+#: src/pages/SideEffectsPage.jsx:165
 msgid "diary.sideEffects.removePrefix"
 msgstr "Remove"
 
@@ -2058,9 +2058,9 @@ msgid "report.sat"
 msgstr "Sat"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:110
-#: src/pages/HealthStatePage.jsx:92
-#: src/pages/SideEffectsPage.jsx:112
+#: src/pages/EventLogPage.jsx:129
+#: src/pages/HealthStatePage.jsx:109
+#: src/pages/SideEffectsPage.jsx:129
 msgid "diary.eventLog.save"
 msgstr "Save"
 
@@ -2087,7 +2087,7 @@ msgstr "Seizure day"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryEntryDetailPage.jsx:164
-#: src/pages/EventLogPage.jsx:103
+#: src/pages/EventLogPage.jsx:122
 msgid "diary.eventLog.notes"
 msgstr "Seizure description / notes"
 
@@ -2107,7 +2107,7 @@ msgid "report.fixture.6b9307910c"
 msgstr "Seizure frequency halved, but breakthrough seizures continued."
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:94
+#: src/pages/EventLogPage.jsx:113
 #: src/pages/EventMenuPage.jsx:15
 #: src/utils/entryPresentation.js:25
 msgid "diary.seizure"
@@ -2115,12 +2115,12 @@ msgstr "Seizure record"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryEntryDetailPage.jsx:118
-#: src/pages/EventLogPage.jsx:100
+#: src/pages/EventLogPage.jsx:119
 msgid "diary.eventLog.severityPattern"
 msgstr "Seizure severity and pattern"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:97
+#: src/pages/EventLogPage.jsx:116
 msgid "diary.eventLog.time"
 msgstr "Seizure time"
 
@@ -2184,7 +2184,7 @@ msgstr "SIDE"
 
 #. js-lingui-explicit-id
 #: src/pages/EventMenuPage.jsx:33
-#: src/pages/SideEffectsPage.jsx:111
+#: src/pages/SideEffectsPage.jsx:128
 #: src/utils/entryPresentation.js:22
 msgid "diary.sideEffects"
 msgstr "Side effects"
@@ -2273,9 +2273,9 @@ msgid "report.fixture.252475c9cb"
 msgstr "Status:"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:191
-#: src/pages/HealthStatePage.jsx:146
-#: src/pages/SideEffectsPage.jsx:202
+#: src/pages/EventLogPage.jsx:214
+#: src/pages/HealthStatePage.jsx:167
+#: src/pages/SideEffectsPage.jsx:223
 msgid "diary.eventLog.stay"
 msgstr "Stay"
 
@@ -2416,7 +2416,7 @@ msgid "diary.entry.triggers"
 msgstr "Triggers"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:163
+#: src/pages/EventLogPage.jsx:184
 msgid "diary.eventLog.triggers"
 msgstr "Triggers (select all that apply)"
 
@@ -2456,9 +2456,9 @@ msgid "playlist.unmute"
 msgstr "Unmute"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:183
-#: src/pages/HealthStatePage.jsx:138
-#: src/pages/SideEffectsPage.jsx:194
+#: src/pages/EventLogPage.jsx:206
+#: src/pages/HealthStatePage.jsx:159
+#: src/pages/SideEffectsPage.jsx:215
 msgid "diary.eventLog.unsavedTitle"
 msgstr "Unsaved changes"
 

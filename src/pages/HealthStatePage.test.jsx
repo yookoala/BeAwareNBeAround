@@ -4,7 +4,7 @@ import { MemoryRouter, useLocation } from 'react-router-dom';
 import { afterEach, expect, test, vi } from 'vitest';
 import { AppRoutes } from '../App';
 import { activateLocale, i18n } from '../i18n/setup';
-import { addEntry } from '../services/diaryEntries';
+import { addEntry, getEntry, updateEntry } from '../services/diaryEntries';
 
 vi.mock('../services/diaryEntries', () => ({
   addEntry: vi.fn(async (input) => ({ id: 'stub-entry', createdAt: '', updatedAt: '', ...input })),
@@ -24,15 +24,21 @@ function freezeNow() {
 }
 
 function Location() {
-  return <div data-testid="location">{useLocation().pathname}</div>;
+  const { pathname, search, state } = useLocation();
+  return (
+    <>
+      <div data-testid="location">{`${pathname}${search}`}</div>
+      <div data-testid="location-state">{JSON.stringify(state ?? null)}</div>
+    </>
+  );
 }
 
-function renderApp(locale = 'zh-HK') {
+function renderApp(locale = 'zh-HK', path = '/diary/event/health') {
   activateLocale(locale);
   vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ status: 'success', metrics: {} }) })));
   return render(
     <I18nProvider i18n={i18n}>
-      <MemoryRouter initialEntries={['/diary/event/health']}>
+      <MemoryRouter initialEntries={[path]}>
         <Location />
         <AppRoutes />
       </MemoryRouter>
@@ -112,4 +118,53 @@ test('saving stores a health entry with tag ids, custom item values, and notes',
     time: '2026-09-17T17:30',
     data: { selectedTags: ['period'], customItems: ['高強度訓練'], notes: '第一天經痛' },
   });
+});
+
+// --- M19-006 edit mode ---
+
+const storedHealth = {
+  id: 'h1',
+  type: 'health',
+  time: '2026-09-13T19:30',
+  createdAt: '2026-09-13T19:00:00.000Z',
+  updatedAt: '2026-09-13T19:00:00.000Z',
+  data: { selectedTags: ['period'], customItems: ['高強度訓練'], notes: '第一天經痛' },
+};
+
+async function settleEditLoad() {
+  await act(async () => {
+    await Promise.resolve();
+  });
+}
+
+test('editing a health entry pre-selects tags and pre-fills stored custom item texts', async () => {
+  getEntry.mockResolvedValueOnce(storedHealth);
+  renderApp('zh-HK', '/diary/event/health?edit=h1');
+  await settleEditLoad();
+
+  expect(screen.getByLabelText('記錄時間')).toHaveValue('2026-09-13T19:30');
+  expect(screen.getByRole('button', { name: '女性生理期' })).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByDisplayValue('高強度訓練')).toBeInTheDocument();
+  expect(screen.getByLabelText('健康狀況備註')).toHaveValue('第一天經痛');
+});
+
+test('saving an edited health entry updates it in place with tag ids and custom texts', async () => {
+  addEntry.mockClear();
+  getEntry.mockResolvedValueOnce(storedHealth);
+  renderApp('zh-HK', '/diary/event/health?edit=h1');
+  await settleEditLoad();
+
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: '儲存' }));
+    await Promise.resolve();
+  });
+
+  expect(updateEntry).toHaveBeenCalledTimes(1);
+  expect(updateEntry).toHaveBeenCalledWith('h1', {
+    time: '2026-09-13T19:30',
+    data: { selectedTags: ['period'], customItems: ['高強度訓練'], notes: '第一天經痛' },
+  });
+  expect(addEntry).not.toHaveBeenCalled();
+  expect(screen.getByTestId('location').textContent).toBe('/diary/entry/h1');
+  expect(screen.getByTestId('location-state')).toHaveTextContent('{"saved":true}');
 });

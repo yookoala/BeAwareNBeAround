@@ -5,9 +5,10 @@ import Modal from '../components/diary/Modal';
 import OptionGroup from '../components/diary/OptionGroup';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
+import { useEditingEntry } from '../hooks/useEditingEntry';
 import { navigateWithViewTransition } from '../utils/viewTransition';
 import { auraTagOptions, patternOptions, severityOptions, triggerTagOptions } from '../utils/entryPresentation';
-import { addEntry } from '../services/diaryEntries';
+import { addEntry, updateEntry } from '../services/diaryEntries';
 import { localNowValue } from '../utils/localNowValue';
 import '../styles/event-log.css';
 
@@ -26,6 +27,18 @@ export default function EventLogPage({ variant = 'seizure' }) {
   const [leaveConfirmOpen, setLeaveConfirmOpen] = useState(false);
   const [saveCount, setSaveCount] = useState(0);
   const [errorCount, setErrorCount] = useState(0);
+
+  // Edit mode (?edit=<id>): the seed runs in the hook's load chain, before
+  // `settled` flips and the form renders.
+  const { entry: editingEntry, settled } = useEditingEntry((found) => {
+    setEventTime(found.time);
+    setSeverity(found.data.severity);
+    setPattern(found.data.pattern);
+    setClusterCount(found.data.clusterCount);
+    setAuras(found.data.auras);
+    setTriggers(found.data.triggers);
+    setNotes(found.data.notes);
+  });
 
   useEffect(() => {
     if (!saveCount) return undefined;
@@ -62,11 +75,16 @@ export default function EventLogPage({ variant = 'seizure' }) {
   }
   async function handleSave() {
     try {
-      await addEntry({
-        type: isHeadache ? 'headache' : 'seizure',
-        time: eventTime,
-        data: { severity, pattern, clusterCount, auras, triggers, notes },
-      });
+      const payload = { time: eventTime, data: { severity, pattern, clusterCount, auras, triggers, notes } };
+      if (editingEntry) {
+        // id/type/createdAt stay immutable; the service bumps updatedAt.
+        await updateEntry(editingEntry.id, payload);
+        setIsDirty(false);
+        // Back to the detail view that Edit came from; it hosts the toast.
+        navigateWithViewTransition(navigate, `/diary/entry/${editingEntry.id}`, 'vt-slide-out-right', { state: { saved: true } });
+        return;
+      }
+      await addEntry({ type: isHeadache ? 'headache' : 'seizure', ...payload });
       setIsDirty(false);
       setSaveCount((count) => count + 1);
     } catch {
@@ -75,7 +93,8 @@ export default function EventLogPage({ variant = 'seizure' }) {
   }
   function leaveToMenu() {
     setLeaveConfirmOpen(false);
-    navigateWithViewTransition(navigate, '/diary/event', 'vt-slide-out-right');
+    const destination = editingEntry ? `/diary/entry/${editingEntry.id}` : '/diary/event';
+    navigateWithViewTransition(navigate, destination, 'vt-slide-out-right');
   }
   function handleBack() {
     if (isDirty) {
@@ -107,8 +126,10 @@ export default function EventLogPage({ variant = 'seizure' }) {
       <header className="diary-subheader">
         <button type="button" className="back-btn" onClick={handleBack}>{t({ id: 'diary.eventLog.back', message: '← Back' })}</button>
         <div className="header-title">{headerTitle}</div>
-        <button type="button" className="save-btn" onClick={handleSave}>{t({ id: 'diary.eventLog.save', message: 'Save' })}</button>
+        {settled && <button type="button" className="save-btn" onClick={handleSave}>{t({ id: 'diary.eventLog.save', message: 'Save' })}</button>}
       </header>
+      {settled && (
+        <>
       <div className="form-section" style={{ marginTop: 0, borderTop: 'none' }}>
         <label className="section-header" htmlFor="event-time">{timeLabel}</label>
         <input
@@ -177,6 +198,8 @@ export default function EventLogPage({ variant = 'seizure' }) {
         />
         <div className="help-text">{t({ id: 'diary.eventLog.videoHelp', message: '💡 If you just made an emergency recording, the video will be attached below automatically.' })}</div>
       </div>
+        </>
+      )}
       {leaveConfirmOpen && (
         <Modal
           id="leaveConfirmModal"

@@ -5,9 +5,10 @@ import CustomItemList from '../components/diary/CustomItemList';
 import Modal from '../components/diary/Modal';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
+import { useEditingEntry } from '../hooks/useEditingEntry';
 import { navigateWithViewTransition } from '../utils/viewTransition';
 import { healthTagOptions } from '../utils/entryPresentation';
-import { addEntry } from '../services/diaryEntries';
+import { addEntry, updateEntry } from '../services/diaryEntries';
 import { localNowValue } from '../utils/localNowValue';
 import '../styles/event-log.css';
 
@@ -22,6 +23,16 @@ export default function HealthStatePage() {
   const [leaveConfirmOpen, setLeaveConfirmOpen] = useState(false);
   const [saveCount, setSaveCount] = useState(0);
   const [errorCount, setErrorCount] = useState(0);
+
+  // Edit mode (?edit=<id>): stored custom item texts become working-catalog
+  // items with fresh ids (stored custom items are plain texts, so new ids are
+  // safe) and render before the form becomes interactive.
+  const { entry: editingEntry, settled } = useEditingEntry((found) => {
+    setEventTime(found.time);
+    setSelected(found.data.selectedTags);
+    setCustomItems(found.data.customItems.map((value) => ({ id: crypto.randomUUID(), value })));
+    setNotes(found.data.notes);
+  });
 
   useEffect(() => {
     if (!saveCount) return undefined;
@@ -59,11 +70,16 @@ export default function HealthStatePage() {
 
   async function handleSave() {
     try {
-      await addEntry({
-        type: 'health',
-        time: eventTime,
-        data: { selectedTags: selected, customItems: customItems.map((item) => item.value), notes },
-      });
+      const data = { selectedTags: selected, customItems: customItems.map((item) => item.value), notes };
+      if (editingEntry) {
+        // id/type/createdAt stay immutable; the service bumps updatedAt.
+        await updateEntry(editingEntry.id, { time: eventTime, data });
+        setIsDirty(false);
+        // Back to the detail view that Edit came from; it hosts the toast.
+        navigateWithViewTransition(navigate, `/diary/entry/${editingEntry.id}`, 'vt-slide-out-right', { state: { saved: true } });
+        return;
+      }
+      await addEntry({ type: 'health', time: eventTime, data });
       setIsDirty(false);
       setSaveCount((count) => count + 1);
     } catch {
@@ -73,7 +89,8 @@ export default function HealthStatePage() {
 
   function leaveToMenu() {
     setLeaveConfirmOpen(false);
-    navigateWithViewTransition(navigate, '/diary/event', 'vt-slide-out-right');
+    const destination = editingEntry ? `/diary/entry/${editingEntry.id}` : '/diary/event';
+    navigateWithViewTransition(navigate, destination, 'vt-slide-out-right');
   }
 
   function handleBack() {
@@ -89,8 +106,10 @@ export default function HealthStatePage() {
       <header className="diary-subheader">
         <button type="button" className="back-btn" onClick={handleBack}>{t({ id: 'diary.eventLog.back', message: '← Back' })}</button>
         <div className="header-title">{t({ id: 'diary.healthTitle', message: 'Physiological and health conditions' })}</div>
-        <button type="button" className="save-btn" onClick={handleSave}>{t({ id: 'diary.eventLog.save', message: 'Save' })}</button>
+        {settled && <button type="button" className="save-btn" onClick={handleSave}>{t({ id: 'diary.eventLog.save', message: 'Save' })}</button>}
       </header>
+      {settled && (
+        <>
       <div className="form-section" style={{ marginTop: 0, borderTop: 'none' }}>
         <label className="section-header" htmlFor="event-time">{t({ id: 'diary.recordTime', message: 'Record time' })}</label>
         <input
@@ -132,6 +151,8 @@ export default function HealthStatePage() {
           placeholder={t({ id: 'diary.healthState.notesPlaceholder', message: 'Enter any additional physiological or health remarks...' })}
         />
       </div>
+        </>
+      )}
       {leaveConfirmOpen && (
         <Modal
           id="leaveConfirmModal"
