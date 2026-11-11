@@ -11,7 +11,16 @@ const INDEX_NAME = 'by_time';
 // instances while the app shares one real indexedDB handle.
 const dbCache = new WeakMap();
 
-function openDb(factory = indexedDB) {
+// Guarded so environments without IndexedDB (e.g. jsdom) reject through the
+// promise chain instead of throwing while callers render.
+function defaultFactory() {
+  return typeof indexedDB === 'undefined' ? null : indexedDB;
+}
+
+function openDb(factory = defaultFactory()) {
+  if (!factory) {
+    return Promise.reject(new Error('IndexedDB is unavailable in this environment'));
+  }
   if (!dbCache.has(factory)) {
     dbCache.set(factory, new Promise((resolve, reject) => {
       const request = factory.open(DB_NAME, DB_VERSION);
@@ -32,7 +41,7 @@ function openDb(factory = indexedDB) {
   return dbCache.get(factory);
 }
 
-export async function addEntry({ type, time, data }, factory = indexedDB) {
+export async function addEntry({ type, time, data }, factory) {
   const now = new Date().toISOString();
   const entry = { id: crypto.randomUUID(), type, time, createdAt: now, updatedAt: now, data };
   const db = await openDb(factory);
@@ -45,7 +54,7 @@ export async function addEntry({ type, time, data }, factory = indexedDB) {
   });
 }
 
-export async function getEntry(id, factory = indexedDB) {
+export async function getEntry(id, factory) {
   const db = await openDb(factory);
   return new Promise((resolve, reject) => {
     const request = db.transaction(STORE_NAME, 'readonly').objectStore(STORE_NAME).get(id);
@@ -54,7 +63,7 @@ export async function getEntry(id, factory = indexedDB) {
   });
 }
 
-export async function updateEntry(id, { time, data }, factory = indexedDB) {
+export async function updateEntry(id, { time, data }, factory) {
   const db = await openDb(factory);
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(STORE_NAME, 'readwrite');
@@ -80,7 +89,7 @@ export async function updateEntry(id, { time, data }, factory = indexedDB) {
   });
 }
 
-export async function deleteEntry(id, factory = indexedDB) {
+export async function deleteEntry(id, factory) {
   const db = await openDb(factory);
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(STORE_NAME, 'readwrite');
@@ -91,7 +100,7 @@ export async function deleteEntry(id, factory = indexedDB) {
   });
 }
 
-export async function listEntries({ limit = 25, before } = {}, factory = indexedDB) {
+export async function listEntries({ limit = 25, before } = {}, factory) {
   const db = await openDb(factory);
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(STORE_NAME, 'readonly');
@@ -113,6 +122,6 @@ export async function listEntries({ limit = 25, before } = {}, factory = indexed
   });
 }
 
-export function listRecent(limit, factory = indexedDB) {
+export function listRecent(limit, factory) {
   return listEntries({ limit }, factory);
 }

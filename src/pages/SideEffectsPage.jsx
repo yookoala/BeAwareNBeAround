@@ -5,6 +5,7 @@ import Modal from '../components/diary/Modal';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { navigateWithViewTransition } from '../utils/viewTransition';
+import { sideEffectTagOptions } from '../utils/entryPresentation';
 import { addEntry } from '../services/diaryEntries';
 import { localNowValue } from '../utils/localNowValue';
 import '../styles/event-log.css';
@@ -36,16 +37,7 @@ export default function SideEffectsPage() {
     return () => clearTimeout(timer);
   }, [errorCount]);
 
-  const builtInTags = [
-    { id: 'drowsiness', label: t({ id: 'diary.sideEffects.drowsiness', message: 'Drowsiness/fatigue' }) },
-    { id: 'dizziness', label: t({ id: 'diary.sideEffects.dizziness', message: 'Dizziness/unsteadiness' }) },
-    { id: 'tremor', label: t({ id: 'diary.sideEffects.tremor', message: 'Hand tremor' }) },
-    { id: 'memory', label: t({ id: 'diary.sideEffects.memory', message: 'Memory/concentration decline' }) },
-    { id: 'mood', label: t({ id: 'diary.sideEffects.mood', message: 'Mood swings/irritability' }) },
-    { id: 'rash', label: t({ id: 'diary.sideEffects.rash', message: 'Skin rash/allergy' }) },
-    { id: 'gi', label: t({ id: 'diary.sideEffects.gi', message: 'Nausea/GI upset' }) },
-    { id: 'weight', label: t({ id: 'diary.sideEffects.weight', message: 'Weight change' }) },
-  ];
+  const builtInTags = sideEffectTagOptions();
 
   const allTags = [
     ...builtInTags.filter((tag) => !removedIds.includes(tag.id)),

@@ -1,9 +1,19 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
+import { beforeEach, expect, test, vi } from 'vitest';
 import { I18nProvider } from '@lingui/react';
 import { MemoryRouter, useLocation } from 'react-router-dom';
-import { expect, test, vi } from 'vitest';
 import { AppRoutes } from '../App';
 import { activateLocale, i18n } from '../i18n/setup';
+import { listRecent } from '../services/diaryEntries';
+
+vi.mock('../services/diaryEntries', () => ({
+  addEntry: vi.fn(async (input) => ({ id: 'stub-entry', createdAt: '', updatedAt: '', ...input })),
+  getEntry: vi.fn(async () => undefined),
+  updateEntry: vi.fn(async () => undefined),
+  deleteEntry: vi.fn(async () => undefined),
+  listEntries: vi.fn(async () => []),
+  listRecent: vi.fn(async () => []),
+}));
 
 function Location() { const { pathname } = useLocation(); return <output data-testid="location">{pathname}</output>; }
 function renderApp(path = '/diary', locale = 'zh-HK') {
@@ -12,36 +22,96 @@ function renderApp(path = '/diary', locale = 'zh-HK') {
   return render(<I18nProvider i18n={i18n}><MemoryRouter initialEntries={[path]}><Location /><AppRoutes /></MemoryRouter></I18nProvider>);
 }
 
-test('renders unified dashboard with recent 5 entries and without action-layout or stateModal', () => {
+// Stored entries as the service returns them: newest first, time as the
+// datetime-local wall-clock string.
+const fiveEntries = () => [
+  { id: 'e1', type: 'seizure', time: '2026-09-15T16:00', createdAt: '', updatedAt: '', data: { severity: 'minor', pattern: 'cluster', clusterCount: 3, auras: ['visual'], triggers: ['stress'], notes: '' } },
+  { id: 'e2', type: 'headache', time: '2026-09-14T21:15', createdAt: '', updatedAt: '', data: { severity: 'major', pattern: 'single', clusterCount: 2, auras: [], triggers: [], notes: '' } },
+  { id: 'e3', type: 'sideEffects', time: '2026-09-14T08:00', createdAt: '', updatedAt: '', data: { selected: [{ id: 'drowsiness' }, { id: 'tremor' }], notes: '' } },
+  { id: 'e4', type: 'health', time: '2026-09-13T19:30', createdAt: '', updatedAt: '', data: { selectedTags: ['period', 'urti'], customItems: ['高強度訓練'], notes: '' } },
+  { id: 'e5', type: 'sideEffects', time: '2026-09-10T11:00', createdAt: '', updatedAt: '', data: { selected: [{ id: 'custom-1', label: '視力模糊' }], notes: '' } },
+];
+
+beforeEach(() => {
+  listRecent.mockReset();
+  listRecent.mockResolvedValue([]);
+});
+
+test('renders the five newest stored entries newest-first, with icons, titles, times and generated summaries', async () => {
+  listRecent.mockResolvedValueOnce(fiveEntries());
   const { container } = renderApp();
+
   expect(screen.getByRole('link', { name: /腦癎錦囊/ })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: '日記' })).toHaveAttribute('aria-current', 'page');
   expect(container.querySelector('.official-banner, #appMode, .first-aid-banner, .action-layout, #stateModal')).toBeNull();
   expect(screen.getByText('近期記錄')).toBeInTheDocument();
+
+  await screen.findByText('2026-09-15 16:00');
   const cards = container.querySelectorAll('.recent-entries-list .recent-entry-card');
   expect(cards).toHaveLength(5);
-  expect(cards[0]).toHaveTextContent('2026-09-15 16:00');
+  expect(cards[0]).toHaveTextContent('⚡');
   expect(cards[0]).toHaveTextContent('腦癇記錄');
+  expect(cards[0]).toHaveTextContent('小發作 · 叢集 / 連續多次 ×3');
   expect(cards[1]).toHaveTextContent('2026-09-14 21:15');
   expect(cards[1]).toHaveTextContent('頭痛記錄');
+  expect(cards[1]).toHaveTextContent('劇烈頭痛 · 單次頭痛');
   expect(cards[2]).toHaveTextContent('2026-09-14 08:00');
-  expect(cards[2]).toHaveTextContent('服藥記錄');
+  expect(cards[2]).toHaveTextContent('副作用');
+  expect(cards[2]).toHaveTextContent('嗜睡/疲倦 · 手部震顫');
   expect(cards[3]).toHaveTextContent('2026-09-13 19:30');
   expect(cards[3]).toHaveTextContent('生理及健康');
+  expect(cards[3]).toHaveTextContent('女性生理期 · 傷風感冒 (URTI) (+1 項)');
   expect(cards[4]).toHaveTextContent('2026-09-10 11:00');
-  expect(cards[4]).toHaveTextContent('副作用');
+  expect(cards[4]).toHaveTextContent('視力模糊');
   expect(screen.getByText('發作/頭痛')).toBeInTheDocument();
   expect(screen.getByText('(選填) 建議填寫綜合診斷資料、發作類型、腦電圖等數據，有助於為您的主診醫生生成更精準完整的 PDF 報告。')).toBeInTheDocument();
 });
 
 test.each([
-  ['zh-CN', '发作/头痛', '近期记录', '小发作 (丛集 2 次) · 右手麻木'],
-  ['en', 'Seizure/Headache', 'Recent entries', 'Minor seizure (cluster ×2) · Right hand numbness'],
-])('localizes the legend and recent entries in %s', (locale, legend, recentHeading, firstSummary) => {
+  ['zh-CN', '发作/头痛', '近期记录', '小发作 · 丛集 / 连续多次 ×3', '嗜睡/疲倦 · 手部震颤'],
+  ['en', 'Seizure/Headache', 'Recent entries', 'Minor seizure · Cluster / repeated seizures ×3', 'Drowsiness/fatigue · Hand tremor'],
+])('localizes the legend and generated summaries in %s', async (locale, legend, recentHeading, firstSummary, thirdSummary) => {
+  listRecent.mockResolvedValueOnce(fiveEntries());
   renderApp('/diary', locale);
   expect(screen.getByText(legend)).toBeInTheDocument();
   expect(screen.getByText(recentHeading)).toBeInTheDocument();
-  expect(screen.getByText(firstSummary)).toBeInTheDocument();
+  expect(await screen.findByText(firstSummary)).toBeInTheDocument();
+  expect(screen.getByText(thirdSummary)).toBeInTheDocument();
+});
+
+test('renders neither cards nor the empty state while the load is pending', () => {
+  listRecent.mockReturnValueOnce(new Promise(() => {}));
+  const { container } = renderApp();
+  expect(container.querySelectorAll('.recent-entry-card')).toHaveLength(0);
+  expect(container.querySelector('.recent-entries-list')).toBeNull();
+  expect(container.querySelector('.recent-empty')).toBeNull();
+  expect(container.querySelector('.recent-records-unavailable')).toBeNull();
+  expect(container.querySelector('.see-all-btn')).toBeNull();
+});
+
+test('shows the empty state with the full-list control when nothing is stored', async () => {
+  const { container } = renderApp();
+  expect(await screen.findByText('尚無記錄 — 點擊右下角 ✏️ 按鈕開始記錄。')).toBeInTheDocument();
+  expect(container.querySelector('.recent-entries-list')).toBeNull();
+  fireEvent.click(container.querySelector('.see-all-btn'));
+  expect(screen.getByTestId('location')).toHaveTextContent('/diary/entries');
+});
+
+test('renders the full-list control below a stored list and navigates to /diary/entries', async () => {
+  listRecent.mockResolvedValueOnce(fiveEntries());
+  const { container } = renderApp();
+  await screen.findByText('2026-09-15 16:00');
+  expect(container.querySelector('.recent-entries-list .see-all-btn')).toBeNull();
+  fireEvent.click(container.querySelector('.see-all-btn'));
+  expect(screen.getByTestId('location')).toHaveTextContent('/diary/entries');
+});
+
+test('a failed load shows the records-unavailable line, not the empty state', async () => {
+  listRecent.mockRejectedValueOnce(new Error('storage unavailable'));
+  const { container } = renderApp('/diary', 'en');
+  expect(await screen.findByText('Records unavailable — this device could not open its diary storage.')).toBeInTheDocument();
+  expect(container.querySelector('.recent-empty')).toBeNull();
+  expect(container.querySelector('.recent-entries-list')).toBeNull();
 });
 
 test('switches calendar views and closes monthly modal with Escape', () => {

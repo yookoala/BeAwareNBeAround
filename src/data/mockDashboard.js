@@ -52,11 +52,3 @@ export const monthDays = [
 // the vendored logo fixture (tests/visual/fixtures/efhk-logo.png).
 export const EFHK_LOGO_URL =
   'https://epilepsy.org.hk/wp-content/uploads/elementor/thumbs/EFHK-abb-Logo-Ver-圓底-rsi4tzw9b949vi84j6y5gkdzbj2s5xn3mit7czgz2g.png';
-
-export const recentEntries = [
-  { id: 'entry-1', datetime: '2026-09-15 16:00', type: 'seizure', icon: '⚡' },
-  { id: 'entry-2', datetime: '2026-09-14 21:15', type: 'headache', icon: '🤕' },
-  { id: 'entry-3', datetime: '2026-09-14 08:00', type: 'meds', icon: '💊' },
-  { id: 'entry-4', datetime: '2026-09-13 19:30', type: 'health', icon: '⏳' },
-  { id: 'entry-5', datetime: '2026-09-10 11:00', type: 'sideEffects', icon: '😵‍💫' },
-];

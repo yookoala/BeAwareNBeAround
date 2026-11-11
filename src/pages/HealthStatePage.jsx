@@ -6,6 +6,7 @@ import Modal from '../components/diary/Modal';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { navigateWithViewTransition } from '../utils/viewTransition';
+import { healthTagOptions } from '../utils/entryPresentation';
 import { addEntry } from '../services/diaryEntries';
 import { localNowValue } from '../utils/localNowValue';
 import '../styles/event-log.css';
@@ -34,12 +35,7 @@ export default function HealthStatePage() {
     return () => clearTimeout(timer);
   }, [errorCount]);
 
-  const healthTags = [
-    { id: 'period', label: t({ id: 'diary.healthState.period', message: 'Menstrual period' }) },
-    { id: 'urti', label: t({ id: 'diary.healthState.urti', message: 'Cold (URTI)' }) },
-    { id: 'surgery', label: t({ id: 'diary.healthState.surgery', message: 'Surgery' }) },
-    { id: 'stress', label: t({ id: 'diary.healthState.stress', message: 'Extreme sadness/stress' }) },
-  ];
+  const healthTags = healthTagOptions();
 
   function toggleTag(id) {
     setIsDirty(true);

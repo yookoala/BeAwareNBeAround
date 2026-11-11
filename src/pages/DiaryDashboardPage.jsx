@@ -5,18 +5,25 @@ import CalendarDay from '../components/diary/CalendarDay';
 import { calendarLabel } from '../components/diary/calendarLabel';
 import Modal from '../components/diary/Modal';
 import usePageBodyClass from '../hooks/usePageBodyClass';
+import { useRecentEntries } from '../hooks/useRecentEntries';
 import { navigateWithViewTransition } from '../utils/viewTransition';
-import { past7Days, thisWeekDays, monthDays, monthEmptyCells, monthHeaderDays, recentEntries } from '../data/mockDashboard';
+import { ENTRY_ICONS, entrySummary, entryTypeTitle, formatEntryTime } from '../utils/entryPresentation';
+import { past7Days, thisWeekDays, monthDays, monthEmptyCells, monthHeaderDays } from '../data/mockDashboard';
 import '../styles/dashboard.css';
 
 export default function DiaryDashboardPage() {
   const navigate = useNavigate();
   usePageBodyClass('page-dashboard');
+  const { entries, loading, error } = useRecentEntries(5);
   const [calendarView, setCalendarView] = useState('past7');
   const [modal, setModal] = useState(null);
   const closeModal = useCallback(() => setModal(null), []);
   const openEventMenu = useCallback(
     () => navigateWithViewTransition(navigate, '/diary/event', 'vt-slide-in-right'),
+    [navigate],
+  );
+  const openEntriesList = useCallback(
+    () => navigateWithViewTransition(navigate, '/diary/entries', 'vt-slide-in-right'),
     [navigate],
   );
   const weekdays = {
@@ -27,28 +34,6 @@ export default function DiaryDashboardPage() {
     '四': t({ id: 'diary.weekday.thu', message: 'Thu' }),
     '五': t({ id: 'diary.weekday.fri', message: 'Fri' }),
     '六': t({ id: 'diary.weekday.sat', message: 'Sat' }),
-  };
-  const entryTypes = {
-    seizure: {
-      title: t({ id: 'diary.seizure', message: 'Seizure record' }),
-      summary: t({ id: 'diary.recent.seizureSummary', message: 'Minor seizure (cluster ×2) · Right hand numbness' }),
-    },
-    headache: {
-      title: t({ id: 'diary.headache', message: 'Headache record' }),
-      summary: t({ id: 'diary.recent.headacheSummary', message: 'Single headache · Stress/tension' }),
-    },
-    meds: {
-      title: t({ id: 'diary.meds', message: 'Medication record' }),
-      summary: t({ id: 'diary.recent.medsSummary', message: 'Levetiracetam 1000mg · Lamotrigine 50mg' }),
-    },
-    health: {
-      title: t({ id: 'diary.health', message: 'Physiology and health' }),
-      summary: t({ id: 'diary.recent.healthSummary', message: 'Menstrual period · Cold (URTI)' }),
-    },
-    sideEffects: {
-      title: t({ id: 'diary.sideEffects', message: 'Side effects' }),
-      summary: t({ id: 'diary.recent.sideEffectsSummary', message: 'Drowsiness/fatigue · Hand tremor' }),
-    },
   };
   return (
     <div className="app-container" id="appContainer">
@@ -74,23 +59,29 @@ export default function DiaryDashboardPage() {
         <div className="legend-item"><div className="legend-line illness" />{t({ id: 'diary.legend.illness', message: 'Illness/Stress' })}</div>
       </div>
       <div className="section-title">{t({ id: 'diary.recentEntries', message: 'Recent entries' })}</div>
-      <div className="recent-entries-list">
-        {recentEntries.map((entry) => {
-          const info = entryTypes[entry.type];
-          return (
+      {loading ? null : error ? (
+        <p className="recent-records-unavailable">{t({ id: 'diary.recordsUnavailable', message: 'Records unavailable — this device could not open its diary storage.' })}</p>
+      ) : entries.length === 0 ? (
+        <p className="recent-empty">{t({ id: 'diary.recent.empty', message: 'No entries yet — tap the ✏️ button below to record your first one.' })}</p>
+      ) : (
+        <div className="recent-entries-list">
+          {entries.map((entry) => (
             <div key={entry.id} className="recent-entry-card">
-              <span className="recent-entry-icon" aria-hidden="true">{entry.icon}</span>
+              <span className="recent-entry-icon" aria-hidden="true">{ENTRY_ICONS[entry.type]}</span>
               <div className="recent-entry-body">
                 <div className="recent-entry-header">
-                  <strong className="recent-entry-title">{info.title}</strong>
-                  <span className="recent-entry-time">{entry.datetime}</span>
+                  <strong className="recent-entry-title">{entryTypeTitle(entry.type)}</strong>
+                  <span className="recent-entry-time">{formatEntryTime(entry.time)}</span>
                 </div>
-                <p className="recent-entry-summary">{info.summary}</p>
+                <p className="recent-entry-summary">{entrySummary(entry)}</p>
               </div>
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      )}
+      {loading || error ? null : (
+        <button type="button" className="see-all-btn" onClick={openEntriesList}>{t({ id: 'diary.recent.viewAll', message: '📋 View all entries ➔' })}</button>
+      )}
       <div className="section-title">{t({ id: 'diary.medicalData', message: 'My medical information' })}</div>
       <button className="profile-card" onClick={() => navigate('/diary/profile')}>
         <span className="profile-icon" aria-hidden="true">👤</span><div className="profile-text"><strong>{t({ id: 'diary.profile', message: 'Personal medical profile' })}</strong><p id="profileDesc">{t({ id: 'diary.profileDesc', message: '(Optional) Add comprehensive diagnostic information, seizure types, EEG and other data to help generate a more accurate and complete PDF report for your doctor.' })}</p></div>

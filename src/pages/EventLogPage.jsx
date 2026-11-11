@@ -6,6 +6,7 @@ import OptionGroup from '../components/diary/OptionGroup';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { navigateWithViewTransition } from '../utils/viewTransition';
+import { patternOptions, severityOptions } from '../utils/entryPresentation';
 import { addEntry } from '../services/diaryEntries';
 import { localNowValue } from '../utils/localNowValue';
 import '../styles/event-log.css';
@@ -83,24 +84,8 @@ export default function EventLogPage({ variant = 'seizure' }) {
     }
     leaveToMenu();
   }
-  const severityOptions = isHeadache
-    ? [
-        { value: 'major', label: t({ id: 'diary.headacheLog.major', message: 'Severe headache' }) },
-        { value: 'minor', label: t({ id: 'diary.headacheLog.minor', message: 'Mild/moderate headache' }) },
-      ]
-    : [
-        { value: 'major', label: t({ id: 'diary.eventLog.major', message: 'Major seizure' }) },
-        { value: 'minor', label: t({ id: 'diary.eventLog.minor', message: 'Minor seizure' }) },
-      ];
-  const patternOptions = isHeadache
-    ? [
-        { value: 'single', label: t({ id: 'diary.headacheLog.single', message: 'Single headache' }) },
-        { value: 'cluster', label: t({ id: 'diary.headacheLog.cluster', message: 'Cluster / repeated headaches' }) },
-      ]
-    : [
-        { value: 'single', label: t({ id: 'diary.eventLog.single', message: 'Single seizure' }) },
-        { value: 'cluster', label: t({ id: 'diary.eventLog.cluster', message: 'Cluster / repeated seizures' }) },
-      ];
+  const severityGroup = severityOptions(isHeadache);
+  const patternGroup = patternOptions(isHeadache);
   const auraTags = [
     { id: 'none', label: t({ id: 'diary.eventLog.aura.none', message: 'No Aura' }) },
     { id: 'visual', label: t({ id: 'diary.eventLog.aura.visual', message: 'Visual (e.g. flashing lights/hallucinations)' }) },
@@ -157,8 +142,8 @@ export default function EventLogPage({ variant = 'seizure' }) {
       </div>
       <div className="form-section">
         <div className="section-header">{severitySectionHeader}</div>
-        <OptionGroup id="severity-group" options={severityOptions} value={severity} onSelect={selectSeverity} />
-        <OptionGroup id="pattern-group" options={patternOptions} value={pattern} onSelect={selectPattern} />
+        <OptionGroup id="severity-group" options={severityGroup} value={severity} onSelect={selectSeverity} />
+        <OptionGroup id="pattern-group" options={patternGroup} value={pattern} onSelect={selectPattern} />
         <div className={`cluster-counter${pattern === 'cluster' ? ' show' : ''}`} id="cluster-counter" hidden={pattern !== 'cluster'}>
           <span className="stepper-label">{t({ id: 'diary.eventLog.estimatedCount', message: 'Estimated number of seizures' })}</span>
           <div className="stepper-controls">

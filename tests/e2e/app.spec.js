@@ -1,6 +1,41 @@
 import { expect, test } from '@playwright/test';
 import { mockPlaylistPlayer } from './mock-playlist-player.js';
 
+// Diary entries live in device-local IndexedDB (M19). Tests that need a
+// populated diary seed rows through the same store/schema the app opens.
+async function seedDiaryEntries(page, rows) {
+  await page.evaluate(async (entries) => {
+    await new Promise((resolve, reject) => {
+      const request = indexedDB.open('beaware-diary', 1);
+      request.onupgradeneeded = () => {
+        const db = request.result;
+        if (!db.objectStoreNames.contains('entries')) {
+          db.createObjectStore('entries', { keyPath: 'id' }).createIndex('by_time', ['time', 'id']);
+        }
+      };
+      request.onsuccess = () => {
+        const db = request.result;
+        const transaction = db.transaction('entries', 'readwrite');
+        for (const row of entries) transaction.objectStore('entries').put(row);
+        transaction.oncomplete = () => {
+          db.close();
+          resolve();
+        };
+        transaction.onerror = () => reject(transaction.error);
+      };
+      request.onerror = () => reject(request.error);
+    });
+  }, rows);
+}
+
+const journeySeedEntries = [
+  { id: 'seed-1', type: 'seizure', time: '2026-09-15T16:00', createdAt: '2026-09-15T16:00:00.000Z', updatedAt: '2026-09-15T16:00:00.000Z', data: { severity: 'minor', pattern: 'single', clusterCount: 2, auras: [], triggers: [], notes: '' } },
+  { id: 'seed-2', type: 'headache', time: '2026-09-14T21:15', createdAt: '2026-09-14T21:15:00.000Z', updatedAt: '2026-09-14T21:15:00.000Z', data: { severity: 'major', pattern: 'single', clusterCount: 2, auras: [], triggers: [], notes: '' } },
+  { id: 'seed-3', type: 'sideEffects', time: '2026-09-14T08:00', createdAt: '2026-09-14T08:00:00.000Z', updatedAt: '2026-09-14T08:00:00.000Z', data: { selected: [{ id: 'drowsiness' }, { id: 'tremor' }], notes: '' } },
+  { id: 'seed-4', type: 'health', time: '2026-09-13T19:30', createdAt: '2026-09-13T19:30:00.000Z', updatedAt: '2026-09-13T19:30:00.000Z', data: { selectedTags: ['period'], customItems: [], notes: '' } },
+  { id: 'seed-5', type: 'seizure', time: '2026-09-10T11:00', createdAt: '2026-09-10T11:00:00.000Z', updatedAt: '2026-09-10T11:00:00.000Z', data: { severity: 'major', pattern: 'cluster', clusterCount: 3, auras: [], triggers: [], notes: '' } },
+];
+
 const languageStates = [
   {
     selector: '繁體',
@@ -91,7 +126,9 @@ test('includes generated PWA assets', async ({ page }) => {
 test('event menu and seizure log replace top header, warn on unsaved changes, and return to diary', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: '日記', exact: true }).click();
-  await expect(page.locator('.recent-entries-list .recent-entry-card')).toHaveCount(5);
+  // Fresh context: nothing stored yet, so the dashboard shows the empty state.
+  await expect(page.locator('.recent-empty')).toBeVisible();
+  await expect(page.locator('.see-all-btn')).toBeVisible();
   await page.locator('#fabRecord').click();
   await expect(page).toHaveURL(/\/diary\/event$/);
   await expect(page.locator('.app-header')).toHaveCount(0);
@@ -117,6 +154,9 @@ test('event menu and seizure log replace top header, warn on unsaved changes, an
   const appHeaderBounds = await page.locator('.app-header').boundingBox();
   expect(subheaderBounds.x).toBe(appHeaderBounds.x);
   expect(subheaderBounds.width).toBe(appHeaderBounds.width);
+  // The seizure saved earlier in this test is now a real stored entry shown
+  // on the dashboard.
+  await expect(page.locator('.recent-entries-list .recent-entry-card')).toHaveCount(1);
 });
 
 test('event log text controls have a visible keyboard focus ring', async ({ page }) => {
@@ -167,6 +207,7 @@ test('medical profile works with keyboard and retains the diary shell', async ({
 
 test('complete diary journey includes recent entries, 5-icon event menu, sub-views, and printable reports', async ({ page }) => {
   await page.goto('/');
+  await seedDiaryEntries(page, journeySeedEntries);
   await page.getByRole('link', { name: '日記', exact: true }).click();
   await expect(page.locator('.recent-entries-list .recent-entry-card')).toHaveCount(5);
   await expect(page.locator('#appMode, .first-aid-banner, .action-layout, #stateModal')).toHaveCount(0);

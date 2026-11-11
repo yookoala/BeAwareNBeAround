@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom/vitest';
 import { cleanup } from '@testing-library/react';
+import { IDBFactory, IDBKeyRange } from 'fake-indexeddb';
 import { afterEach, vi } from 'vitest';
 
 afterEach(() => {
@@ -83,6 +84,13 @@ class MockAudio {
 }
 window.MockAudioInstances = [];
 Object.defineProperty(window, 'Audio', { value: MockAudio, configurable: true });
+
+// jsdom has no IndexedDB; give components a browser-like diary store, fresh
+// per test file (defined permanently, not vi.stubGlobal, so afterEach's
+// unstubAllGlobals does not remove it). The service unit tests inject their
+// own factories instead.
+window.indexedDB = new IDBFactory();
+window.IDBKeyRange = IDBKeyRange;
 
 afterEach(() => {
   window.MockAudioInstances = [];
