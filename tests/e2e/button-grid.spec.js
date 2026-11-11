@@ -8,6 +8,14 @@ test.describe('button grid geometry', () => {
   test('preserves the current size and spacing at the static width', async ({ page }) => {
     await page.goto('/');
 
+    // The buttons transition `all` for 0.1s on mount and the gap is a
+    // percentage of the grid content, so measuring mid-transition yields a
+    // too-large gap (flake seen under parallel load). Poll the grid width
+    // until it reports the final value before measuring anything.
+    await expect
+      .poll(async () => (await page.locator('.grid').boundingBox()).width, { timeout: 5000 })
+      .toBeCloseTo(255, 1);
+
     const grid = await page.locator('.grid').boundingBox();
     expect(grid.width).toBeCloseTo(255, 1);
     expect(grid.height).toBeCloseTo(255, 1);
