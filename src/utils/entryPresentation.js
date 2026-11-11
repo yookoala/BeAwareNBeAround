@@ -72,6 +72,32 @@ export function healthTagOptions() {
   ];
 }
 
+export function auraTagOptions() {
+  return [
+    { id: 'none', label: t({ id: 'diary.eventLog.aura.none', message: 'No Aura' }) },
+    { id: 'visual', label: t({ id: 'diary.eventLog.aura.visual', message: 'Visual (e.g. flashing lights/hallucinations)' }) },
+    { id: 'sensory', label: t({ id: 'diary.eventLog.aura.sensory', message: 'Physical sensations (e.g. numbness/tingling)' }) },
+    { id: 'auditory', label: t({ id: 'diary.eventLog.aura.auditory', message: 'Auditory (e.g. ringing/noise)' }) },
+    { id: 'psychic', label: t({ id: 'diary.eventLog.aura.psychic', message: 'Psychological (e.g. fear/déjà vu)' }) },
+    { id: 'smell-taste', label: t({ id: 'diary.eventLog.aura.smellTaste', message: 'Smell/taste (unpleasant smells)' }) },
+    { id: 'abdominal', label: t({ id: 'diary.eventLog.aura.abdominal', message: 'Abdominal (discomfort/rising sensation)' }) },
+    { id: 'autonomic', label: t({ id: 'diary.eventLog.aura.autonomic', message: 'Autonomic (palpitations/sweating)' }) },
+  ];
+}
+
+export function triggerTagOptions() {
+  return [
+    { id: 'sleep', label: t({ id: 'diary.eventLog.trigger.sleep', message: 'Sleep deprivation' }) },
+    { id: 'medication', label: t({ id: 'diary.eventLog.trigger.medication', message: 'Missed medication' }) },
+    { id: 'stress', label: t({ id: 'diary.eventLog.trigger.stress', message: 'Stress/tension' }) },
+    { id: 'illness', label: t({ id: 'diary.eventLog.trigger.illness', message: 'Fever/cold' }) },
+    { id: 'menstruation', label: t({ id: 'diary.eventLog.trigger.menstruation', message: 'Menstruation' }) },
+    { id: 'alcohol', label: t({ id: 'diary.eventLog.trigger.alcohol', message: 'Alcohol' }) },
+    { id: 'weather', label: t({ id: 'diary.eventLog.trigger.weather', message: 'Weather changes' }) },
+    { id: 'light', label: t({ id: 'diary.eventLog.trigger.light', message: 'Bright/flashing lights' }) },
+  ];
+}
+
 export function formatEntryTime(time) {
   // Entry times are stored as datetime-local wall-clock strings; the cards
   // show them space-separated.
@@ -89,6 +115,20 @@ function tagLabel(options, item) {
   return options.find((tag) => tag.id === id)?.label ?? id;
 }
 
+// Display labels for an entry's side-effect/health selections (built-in ids
+// resolved to labels, custom items by their stored label/text). Seizure and
+// headache entries have no tags and resolve to an empty list.
+export function entryTags(entry) {
+  const { type, data } = entry;
+  if (type === 'health') {
+    return [...data.selectedTags.map((id) => tagLabel(healthTagOptions(), id)), ...data.customItems];
+  }
+  if (type === 'sideEffects') {
+    return data.selected.map((item) => tagLabel(sideEffectTagOptions(), item));
+  }
+  return [];
+}
+
 export function entrySummary(entry) {
   const { type, data } = entry;
 
@@ -99,9 +139,7 @@ export function entrySummary(entry) {
     return `${optionLabel(severityOptions(isHeadache), data.severity)} · ${pattern}${cluster}`;
   }
 
-  const labels = type === 'health'
-    ? [...data.selectedTags.map((id) => tagLabel(healthTagOptions(), id)), ...data.customItems]
-    : data.selected.map((item) => tagLabel(sideEffectTagOptions(), item));
+  const labels = entryTags(entry);
 
   const head = labels.slice(0, 2).join(' · ');
   const extra = labels.length - 2;

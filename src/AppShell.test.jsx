@@ -81,6 +81,16 @@ test('the full entries list hides the app header but keeps the Diary tab active'
   expect(container.querySelector('.bottom-nav a[href="/diary"]')).toHaveAttribute('aria-current', 'page');
 });
 
+test('the entry detail view hides the app header and reports the missing record', async () => {
+  const { container } = renderShell(['/diary/entry/unknown-id']);
+
+  // AppShell suites use the real service against the empty fake store: an id
+  // that was never stored lands on the localized not-found line.
+  expect(await screen.findByText('找不到此記錄。')).toBeInTheDocument();
+  expect(container.querySelector('.app-header')).toBeNull();
+  expect(container.querySelector('.bottom-nav a[href="/diary"]')).toHaveAttribute('aria-current', 'page');
+});
+
 test('logs exactly one visit POST per app load across route changes', async () => {
   const { counter } = renderShell(['/'], { harness: true });
 

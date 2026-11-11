@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { t } from '@lingui/core/macro';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import EntryCard from '../components/diary/EntryCard';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { navigateWithViewTransition } from '../utils/viewTransition';
-import { ENTRY_ICONS, entrySummary, entryTypeTitle, formatEntryTime } from '../utils/entryPresentation';
 import { listEntries } from '../services/diaryEntries';
 import '../styles/entries-list.css';
 import '../styles/entry-cards.css';
@@ -15,12 +15,21 @@ const PAGE_SIZE = 25;
 
 export default function DiaryEntriesPage() {
   const navigate = useNavigate();
+  const location = useLocation();
   usePageBodyClass('page-diary-entries');
   const [entries, setEntries] = useState([]);
   const [status, setStatus] = useState('loading'); // loading | ready | error
   const [hasMore, setHasMore] = useState(false);
+  // Set by the detail page after a confirmed delete (router navigation state).
+  const [deletedToast, setDeletedToast] = useState(Boolean(location.state?.deleted));
   const sentinelRef = useRef(null);
   const loadingRef = useRef(false);
+
+  useEffect(() => {
+    if (!deletedToast) return undefined;
+    const timer = setTimeout(() => setDeletedToast(false), 2000);
+    return () => clearTimeout(timer);
+  }, [deletedToast]);
 
   const loadNextPage = useCallback((before) => {
     if (loadingRef.current) return;
@@ -74,18 +83,7 @@ export default function DiaryEntriesPage() {
             <p className="recent-empty">{t({ id: 'diary.entries.empty', message: 'No entries yet. Saved records will appear here.' })}</p>
           ) : (
             <div className="recent-entries-list">
-              {entries.map((entry) => (
-                <div key={entry.id} className="recent-entry-card">
-                  <span className="recent-entry-icon" aria-hidden="true">{ENTRY_ICONS[entry.type]}</span>
-                  <div className="recent-entry-body">
-                    <div className="recent-entry-header">
-                      <strong className="recent-entry-title">{entryTypeTitle(entry.type)}</strong>
-                      <span className="recent-entry-time">{formatEntryTime(entry.time)}</span>
-                    </div>
-                    <p className="recent-entry-summary">{entrySummary(entry)}</p>
-                  </div>
-                </div>
-              ))}
+              {entries.map((entry) => <EntryCard key={entry.id} entry={entry} />)}
             </div>
           )}
           {entries.length > 0 && (hasMore
@@ -93,6 +91,7 @@ export default function DiaryEntriesPage() {
             : <div className="entries-end">{t({ id: 'diary.entries.end', message: '— End of list —' })}</div>)}
         </>
       )}
+      {deletedToast && <div role="status" className="entries-toast">{t({ id: 'diary.entry.deleted', message: 'Entry deleted' })}</div>}
     </div>
   );
 }

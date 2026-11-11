@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { t } from '@lingui/core/macro';
 import CalendarDay from '../components/diary/CalendarDay';
 import { calendarLabel } from '../components/diary/calendarLabel';
+import EntryCard from '../components/diary/EntryCard';
 import Modal from '../components/diary/Modal';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { useRecentEntries } from '../hooks/useRecentEntries';
 import { navigateWithViewTransition } from '../utils/viewTransition';
-import { ENTRY_ICONS, entrySummary, entryTypeTitle, formatEntryTime } from '../utils/entryPresentation';
 import { past7Days, thisWeekDays, monthDays, monthEmptyCells, monthHeaderDays } from '../data/mockDashboard';
 import '../styles/dashboard.css';
 import '../styles/entry-cards.css';
@@ -66,18 +66,7 @@ export default function DiaryDashboardPage() {
         <p className="recent-empty">{t({ id: 'diary.recent.empty', message: 'No entries yet — tap the ✏️ button below to record your first one.' })}</p>
       ) : (
         <div className="recent-entries-list">
-          {entries.map((entry) => (
-            <div key={entry.id} className="recent-entry-card">
-              <span className="recent-entry-icon" aria-hidden="true">{ENTRY_ICONS[entry.type]}</span>
-              <div className="recent-entry-body">
-                <div className="recent-entry-header">
-                  <strong className="recent-entry-title">{entryTypeTitle(entry.type)}</strong>
-                  <span className="recent-entry-time">{formatEntryTime(entry.time)}</span>
-                </div>
-                <p className="recent-entry-summary">{entrySummary(entry)}</p>
-              </div>
-            </div>
-          ))}
+          {entries.map((entry) => <EntryCard key={entry.id} entry={entry} />)}
         </div>
       )}
       {loading || error ? null : (

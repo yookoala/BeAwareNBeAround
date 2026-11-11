@@ -2,13 +2,16 @@ import { describe, expect, it } from 'vitest';
 import { activateLocale } from '../i18n/setup';
 import {
   ENTRY_ICONS,
+  auraTagOptions,
   entrySummary,
+  entryTags,
   entryTypeTitle,
   formatEntryTime,
   healthTagOptions,
   patternOptions,
   severityOptions,
   sideEffectTagOptions,
+  triggerTagOptions,
 } from './entryPresentation';
 
 const clusterSeizure = { severity: 'minor', pattern: 'cluster', clusterCount: 3, auras: ['visual'], triggers: ['stress'], notes: '' };
@@ -62,6 +65,29 @@ describe('entryPresentation', () => {
       expect(healthTagOptions().map((tag) => tag.id)).toEqual(['period', 'urti', 'surgery', 'stress']);
       activateLocale('zh-HK');
       expect(healthTagOptions()[1].label).toBe('傷風感冒 (URTI)');
+    });
+
+    it('provides the aura and trigger tag options shared by the seizure form and the detail view', () => {
+      activateLocale('en');
+      expect(auraTagOptions().map((tag) => tag.id)).toEqual([
+        'none', 'visual', 'sensory', 'auditory', 'psychic', 'smell-taste', 'abdominal', 'autonomic',
+      ]);
+      expect(auraTagOptions()[1].label).toBe('Visual (e.g. flashing lights/hallucinations)');
+      expect(triggerTagOptions().map((tag) => tag.id)).toEqual([
+        'sleep', 'medication', 'stress', 'illness', 'menstruation', 'alcohol', 'weather', 'light',
+      ]);
+      expect(triggerTagOptions().find((tag) => tag.id === 'stress').label).toBe('Stress/tension');
+    });
+  });
+
+  describe('entryTags', () => {
+    it('resolves side-effect and health selections to display labels', () => {
+      activateLocale('en');
+      expect(entryTags({ type: 'sideEffects', data: { selected: [{ id: 'drowsiness' }, { id: 'tremor' }, { id: 'custom-1', label: 'Blurred vision' }] } }))
+        .toEqual(['Drowsiness/fatigue', 'Hand tremor', 'Blurred vision']);
+      expect(entryTags({ type: 'health', data: { selectedTags: ['period', 'urti'], customItems: ['Intense training'] } }))
+        .toEqual(['Menstrual period', 'Cold (URTI)', 'Intense training']);
+      expect(entryTags({ type: 'seizure', data: {} })).toEqual([]);
     });
   });
 

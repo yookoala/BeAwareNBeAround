@@ -10,6 +10,7 @@ import { BottomNav } from './components/BottomNav';
 import FirstAidPage from './pages/FirstAidPage';
 import DiaryDashboardPage from './pages/DiaryDashboardPage';
 import DiaryEntriesPage from './pages/DiaryEntriesPage';
+import DiaryEntryDetailPage from './pages/DiaryEntryDetailPage';
 import EventMenuPage from './pages/EventMenuPage';
 import EventLogPage from './pages/EventLogPage';
 import MedicationEventPage from './pages/MedicationEventPage';
@@ -72,6 +73,7 @@ export function AppRoutes() {
         <Route path="/" element={<FirstAidPage counter={counter} language={language} />} />
         <Route path="/diary" element={<DiaryDashboardPage />} />
         <Route path="/diary/entries" element={<DiaryEntriesPage />} />
+        <Route path="/diary/entry/:id" element={<DiaryEntryDetailPage />} />
         <Route path="/diary/event-log" element={<Navigate to="/diary/event" replace />} />
         {/* ^ legacy M17 menu URL saved by users of the deployed build; M18 renamed the menu */}
         <Route path="/diary/event" element={<EventMenuPage />} />

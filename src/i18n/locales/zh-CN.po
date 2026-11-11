@@ -239,12 +239,12 @@ msgid "report.fixture.7c32d40e5e"
 msgstr "--- 系统纪录至此，以上为历年全部无删减资料 ---"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntriesPage.jsx:93
+#: src/pages/DiaryEntriesPage.jsx:91
 msgid "diary.entries.end"
 msgstr "— 已显示全部记录 —"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:88
+#: src/pages/DiaryDashboardPage.jsx:77
 msgid "diary.profileDesc"
 msgstr "(选填) 建议填写综合诊断资料、发作类型、脑电图等数据，有助于为您的主诊医生生成更精准完整的 PDF 报告。"
 
@@ -302,8 +302,9 @@ msgid "report.count"
 msgstr "数"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntriesPage.jsx:66
-#: src/pages/EventLogPage.jsx:126
+#: src/pages/DiaryEntriesPage.jsx:75
+#: src/pages/DiaryEntryDetailPage.jsx:94
+#: src/pages/EventLogPage.jsx:108
 #: src/pages/EventMenuPage.jsx:52
 #: src/pages/HealthStatePage.jsx:90
 #: src/pages/MedicationEventPage.jsx:19
@@ -357,7 +358,7 @@ msgid "diary.sideEffects.addBtn"
 msgstr "+ 新增副作用"
 
 #. js-lingui-explicit-id
-#: src/utils/entryPresentation.js:109
+#: src/utils/entryPresentation.js:147
 msgid "diary.recent.moreCount"
 msgstr "+{count} 项"
 
@@ -402,7 +403,7 @@ msgid "diary.hub.donate"
 msgstr "💖 捐款支持"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:196
+#: src/pages/EventLogPage.jsx:178
 msgid "diary.eventLog.videoHelp"
 msgstr "💡 刚才如果有进行「紧急录像」，视频将会自动附在下方。"
 
@@ -462,17 +463,17 @@ msgid "diary.hub.events"
 msgstr "📅 最新活动"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:91
+#: src/pages/DiaryDashboardPage.jsx:80
 msgid "diary.reportA"
 msgstr "📊 门诊报告 (Level A)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:92
+#: src/pages/DiaryDashboardPage.jsx:81
 msgid "diary.reportB"
 msgstr "📋 历史总记 (Level B)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:84
+#: src/pages/DiaryDashboardPage.jsx:73
 msgid "diary.recent.viewAll"
 msgstr "📋 查看完整记录 ➔"
 
@@ -577,7 +578,7 @@ msgid "report.fixture.83daed65be"
 msgstr "87 天"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:96
+#: src/utils/entryPresentation.js:83
 msgid "diary.eventLog.aura.abdominal"
 msgstr "腹部 (胃部不适/向上移)"
 
@@ -607,7 +608,7 @@ msgid "report.fixture.1ef47edf35"
 msgstr "发病年龄 (Age of Onset)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:105
+#: src/utils/entryPresentation.js:95
 msgid "diary.eventLog.trigger.alcohol"
 msgstr "饮酒"
 
@@ -617,7 +618,8 @@ msgid "profile.t2"
 msgstr "饮酒"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntriesPage.jsx:67
+#: src/pages/DiaryEntriesPage.jsx:76
+#: src/pages/DiaryEntryDetailPage.jsx:95
 msgid "diary.entries.title"
 msgstr "全部记录"
 
@@ -627,7 +629,12 @@ msgid "setup.androidLabel"
 msgstr "Android："
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:205
+#: src/pages/DiaryEntryDetailPage.jsx:186
+msgid "diary.entry.deletePrompt"
+msgstr "确定要删除这条记录吗？它将从此设备永久移除，无法恢复。"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:187
 #: src/pages/HealthStatePage.jsx:142
 #: src/pages/SideEffectsPage.jsx:198
 msgid "diary.eventLog.unsavedPrompt"
@@ -639,7 +646,7 @@ msgid "whatIs.environmentLabel"
 msgstr "评估环境："
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:93
+#: src/utils/entryPresentation.js:80
 msgid "diary.eventLog.aura.auditory"
 msgstr "听觉 (如耳鸣/杂音)"
 
@@ -649,12 +656,17 @@ msgid "profile.a3"
 msgstr "听觉 (人声/音乐等幻觉)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:177
+#: src/pages/DiaryEntryDetailPage.jsx:128
+msgid "diary.entry.auras"
+msgstr "先兆"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:159
 msgid "diary.eventLog.auras"
 msgstr "预兆 (可多选)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:97
+#: src/utils/entryPresentation.js:84
 msgid "diary.eventLog.aura.autonomic"
 msgstr "自主神经 (心悸/流汗)"
 
@@ -724,7 +736,7 @@ msgid "profile.remarkPlaceholder"
 msgstr "简短说明..."
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:107
+#: src/utils/entryPresentation.js:97
 msgid "diary.eventLog.trigger.light"
 msgstr "强光/闪光"
 
@@ -737,6 +749,11 @@ msgstr "日历视图"
 #: src/components/diary/ContactCard.jsx:49
 msgid "profile.call"
 msgstr "致电"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:190
+msgid "diary.entry.deleteCancel"
+msgstr "取消"
 
 #. js-lingui-explicit-id
 #: src/pages/profileMessages.js:53
@@ -810,7 +827,7 @@ msgid "profile.contact1"
 msgstr "联系人 1"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:218
+#: src/pages/EventLogPage.jsx:200
 #: src/pages/HealthStatePage.jsx:155
 #: src/pages/SideEffectsPage.jsx:211
 msgid "diary.eventLog.saveError"
@@ -868,9 +885,24 @@ msgid "report.fixture.1c37b940d2"
 msgstr "出生日期 (DOB) / 年龄"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:153
+#: src/pages/EventLogPage.jsx:135
 msgid "diary.eventLog.decrease"
 msgstr "减少发作次数"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:193
+msgid "diary.entry.deleteConfirm"
+msgstr "删除"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:174
+msgid "diary.entry.delete"
+msgstr "删除记录"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:182
+msgid "diary.entry.deleteTitle"
+msgstr "删除记录？"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:169
@@ -938,6 +970,11 @@ msgid "report.fixture.3d4c6cd105"
 msgstr "心脏超声波"
 
 #. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:97
+msgid "diary.entry.edit"
+msgstr "编辑"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:24
 msgid "mode.education"
 msgstr "教育模式"
@@ -999,8 +1036,8 @@ msgid "diary.profile.contactEmergencyMsg"
 msgstr "紧急通知：我目前可能正在经历脑痫发作，请协助我。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:95
-#: src/pages/DiaryDashboardPage.jsx:95
+#: src/pages/DiaryDashboardPage.jsx:84
+#: src/pages/DiaryDashboardPage.jsx:84
 msgid "diary.emergencyVideo"
 msgstr "紧急录像"
 
@@ -1050,7 +1087,13 @@ msgid "profile.surgeriesPlaceholder"
 msgstr "输入手术记录..."
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:217
+#: src/pages/DiaryEntriesPage.jsx:94
+msgid "diary.entry.deleted"
+msgstr "记录已删除"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:199
+#: src/pages/EventLogPage.jsx:199
 #: src/pages/HealthStatePage.jsx:154
 #: src/pages/SideEffectsPage.jsx:210
 msgid "diary.eventLog.saved"
@@ -1095,7 +1138,7 @@ msgid "diary.hub"
 msgstr "香港癫痫基金会 资源中心"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:148
+#: src/pages/EventLogPage.jsx:130
 msgid "diary.eventLog.estimatedCount"
 msgstr "估计发作次数"
 
@@ -1125,6 +1168,7 @@ msgid "report.fixture.5b4fadcf5c"
 msgstr "汇出日期：2026-09-20 | 页数：3 / 3"
 
 #. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:166
 #: src/pages/SideEffectsPage.jsx:179
 msgid "diary.sideEffects.notes"
 msgstr "额外观察 / 备注"
@@ -1140,7 +1184,7 @@ msgid "report.fixture.79efc63abc"
 msgstr "家族病史 (Family History)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:103
+#: src/utils/entryPresentation.js:93
 msgid "diary.eventLog.trigger.illness"
 msgstr "发烧/感冒"
 
@@ -1185,7 +1229,7 @@ msgid "report.fixture.434b94fc8b"
 msgstr "局部意识受损发作 (FIAS)，继发性 GTCS"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:194
+#: src/pages/EventLogPage.jsx:176
 msgid "diary.eventLog.notesPlaceholder"
 msgstr "例如：左手抽搐、意识不清约2分钟..."
 
@@ -1240,28 +1284,31 @@ msgid "report.fixture.ed147a309e"
 msgstr "手震副作用逐渐改善。"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:120
+#: src/pages/DiaryEntryDetailPage.jsx:162
+#: src/pages/EventLogPage.jsx:102
 msgid "diary.headacheLog.notes"
 msgstr "头痛描述 / 备注"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:111
+#: src/pages/EventLogPage.jsx:93
 #: src/pages/EventMenuPage.jsx:21
 #: src/utils/entryPresentation.js:18
 msgid "diary.headache"
 msgstr "头痛记录"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:117
+#: src/pages/DiaryEntryDetailPage.jsx:117
+#: src/pages/EventLogPage.jsx:99
 msgid "diary.headacheLog.severityPattern"
 msgstr "头痛程度与模式"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:114
+#: src/pages/EventLogPage.jsx:96
 msgid "diary.headacheLog.time"
 msgstr "头痛时间"
 
 #. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:167
 #: src/pages/HealthStatePage.jsx:123
 msgid "diary.healthState.notes"
 msgstr "健康状况备注"
@@ -1270,6 +1317,11 @@ msgstr "健康状况备注"
 #: src/pages/HealthStatePage.jsx:108
 msgid "diary.healthState.selectTitle"
 msgstr "健康状况 (可多选)"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:149
+msgid "diary.entry.healthTitle"
+msgstr "已记录的健康状况"
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:29
@@ -1303,7 +1355,7 @@ msgid "diary.legend.illness"
 msgstr "疾病/压力"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:165
+#: src/pages/EventLogPage.jsx:147
 msgid "diary.eventLog.increase"
 msgstr "增加发作次数"
 
@@ -1344,7 +1396,7 @@ msgid "language.selectorLabel"
 msgstr "语言"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:212
+#: src/pages/EventLogPage.jsx:194
 #: src/pages/HealthStatePage.jsx:149
 #: src/pages/SideEffectsPage.jsx:205
 msgid "diary.eventLog.leave"
@@ -1467,7 +1519,7 @@ msgid "diary.healthState.period"
 msgstr "女性生理期"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:104
+#: src/utils/entryPresentation.js:94
 msgid "diary.eventLog.trigger.menstruation"
 msgstr "月经"
 
@@ -1502,7 +1554,7 @@ msgid "report.fixture.7cd9ffdbc5"
 msgstr "漏晚药"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:101
+#: src/utils/entryPresentation.js:91
 msgid "diary.eventLog.trigger.medication"
 msgstr "忘记按时服药"
 
@@ -1547,7 +1599,7 @@ msgid "report.fixture.fd5436428e"
 msgstr "陈太太（妻子）"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:119
+#: src/pages/DiaryDashboardPage.jsx:108
 msgid "diary.monthMeds"
 msgstr "多频服药(绿/黄)"
 
@@ -1557,7 +1609,7 @@ msgid "playlist.mute"
 msgstr "静音"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:86
+#: src/pages/DiaryDashboardPage.jsx:75
 msgid "diary.medicalData"
 msgstr "我的医疗资料"
 
@@ -1602,7 +1654,7 @@ msgid "report.fixture.7b7a8d3ca9"
 msgstr "Nil (无脑痫家族史)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:90
+#: src/utils/entryPresentation.js:77
 msgid "diary.eventLog.aura.none"
 msgstr "无预兆"
 
@@ -1612,7 +1664,7 @@ msgid "diary.recent.empty"
 msgstr "尚无记录 — 点击右下角 ✏️ 按钮开始记录。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryEntriesPage.jsx:74
+#: src/pages/DiaryEntriesPage.jsx:83
 msgid "diary.entries.empty"
 msgstr "尚无记录。已保存的记录会显示在这里。"
 
@@ -1749,7 +1801,7 @@ msgstr "暂停"
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:13
 #: src/pages/DiaryDashboardPage.jsx:59
-#: src/pages/DiaryDashboardPage.jsx:119
+#: src/pages/DiaryDashboardPage.jsx:108
 msgid "diary.legend.period"
 msgstr "生理期"
 
@@ -1760,7 +1812,7 @@ msgid "report.periodIllness"
 msgstr "生理期/疾病"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:88
+#: src/pages/DiaryDashboardPage.jsx:77
 msgid "diary.profile"
 msgstr "个人医疗档案"
 
@@ -1775,7 +1827,7 @@ msgid "profile.phoneExample"
 msgstr "电话 (包含区号, 例: 85298765432)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:92
+#: src/utils/entryPresentation.js:79
 msgid "diary.eventLog.aura.sensory"
 msgstr "身体感觉 (如麻木/刺痛)"
 
@@ -1847,7 +1899,7 @@ msgid "profile.surgeries"
 msgstr "曾做过的手术"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:94
+#: src/pages/DiaryDashboardPage.jsx:83
 msgid "diary.privacy"
 msgstr "隐私保障：资料仅储存于本机或您的云端，绝不上传至基金会。"
 
@@ -1867,7 +1919,7 @@ msgid "profile.a6"
 msgstr "心理 (似曾相识/恐惧/错觉)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:94
+#: src/utils/entryPresentation.js:81
 msgid "diary.eventLog.aura.psychic"
 msgstr "心理 (如恐惧/似曾相识)"
 
@@ -1902,6 +1954,12 @@ msgid "whatIs.recognizeLabel"
 msgstr "识别与计时："
 
 #. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:104
+msgid "diary.entry.notFound"
+msgstr "找不到此记录。"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:108
 #: src/pages/HealthStatePage.jsx:95
 #: src/pages/SideEffectsPage.jsx:115
 msgid "diary.recordTime"
@@ -1909,7 +1967,9 @@ msgstr "记录时间"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:64
-#: src/pages/DiaryEntriesPage.jsx:70
+#: src/pages/DiaryEntriesPage.jsx:79
+#: src/pages/DiaryEntryDetailPage.jsx:102
+#: src/pages/DiaryEntryDetailPage.jsx:200
 msgid "diary.recordsUnavailable"
 msgstr "无法读取记录 — 此设备暂时无法打开日记存储空间。"
 
@@ -1998,7 +2058,7 @@ msgid "report.sat"
 msgstr "六"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:128
+#: src/pages/EventLogPage.jsx:110
 #: src/pages/HealthStatePage.jsx:92
 #: src/pages/SideEffectsPage.jsx:112
 msgid "diary.eventLog.save"
@@ -2026,7 +2086,8 @@ msgid "report.seizureDay"
 msgstr "发作日"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:121
+#: src/pages/DiaryEntryDetailPage.jsx:164
+#: src/pages/EventLogPage.jsx:103
 msgid "diary.eventLog.notes"
 msgstr "发作描述 / 备注"
 
@@ -2046,19 +2107,20 @@ msgid "report.fixture.6b9307910c"
 msgstr "发作频率减半，仍有突破性发作。"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:112
+#: src/pages/EventLogPage.jsx:94
 #: src/pages/EventMenuPage.jsx:15
 #: src/utils/entryPresentation.js:25
 msgid "diary.seizure"
 msgstr "癫痫记录"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:118
+#: src/pages/DiaryEntryDetailPage.jsx:118
+#: src/pages/EventLogPage.jsx:100
 msgid "diary.eventLog.severityPattern"
 msgstr "发作程度与模式"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:115
+#: src/pages/EventLogPage.jsx:97
 msgid "diary.eventLog.time"
 msgstr "发作时间"
 
@@ -2070,7 +2132,7 @@ msgstr "无发作天数"
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:12
 #: src/pages/DiaryDashboardPage.jsx:58
-#: src/pages/DiaryDashboardPage.jsx:119
+#: src/pages/DiaryDashboardPage.jsx:108
 msgid "diary.legend.event"
 msgstr "发作/头痛"
 
@@ -2080,7 +2142,7 @@ msgid "report.fixture.f525bfca0b"
 msgstr "发作次数下降，无出疹过敏反应。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:101
+#: src/pages/DiaryDashboardPage.jsx:90
 msgid "diary.monthTitle"
 msgstr "2026年 9月 记录"
 
@@ -2128,6 +2190,11 @@ msgid "diary.sideEffects"
 msgstr "副作用"
 
 #. js-lingui-explicit-id
+#: src/pages/DiaryEntryDetailPage.jsx:150
+msgid "diary.entry.sideEffectsTitle"
+msgstr "已记录的副作用"
+
+#. js-lingui-explicit-id
 #: src/data/mockReportB.js:198
 msgid "report.fixture.5a17596e16"
 msgstr "副作用："
@@ -2153,7 +2220,7 @@ msgid "diary.sideEffects.rash"
 msgstr "皮疹/过敏"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:100
+#: src/utils/entryPresentation.js:90
 msgid "diary.eventLog.trigger.sleep"
 msgstr "熬夜/睡眠不足"
 
@@ -2168,7 +2235,7 @@ msgid "profile.a4"
 msgstr "嗅觉 (不舒服气味)"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:95
+#: src/utils/entryPresentation.js:82
 msgid "diary.eventLog.aura.smellTaste"
 msgstr "嗅觉/味觉 (不舒服气味)"
 
@@ -2206,7 +2273,7 @@ msgid "report.fixture.252475c9cb"
 msgstr "状态："
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:209
+#: src/pages/EventLogPage.jsx:191
 #: src/pages/HealthStatePage.jsx:146
 #: src/pages/SideEffectsPage.jsx:202
 msgid "diary.eventLog.stay"
@@ -2233,7 +2300,7 @@ msgid "header.slogan"
 msgstr "守、望、相、助"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:102
+#: src/utils/entryPresentation.js:92
 msgid "diary.eventLog.trigger.stress"
 msgstr "压力/紧张"
 
@@ -2344,7 +2411,12 @@ msgid "report.fixture.b764971415"
 msgstr "90天内总发作"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:181
+#: src/pages/DiaryEntryDetailPage.jsx:136
+msgid "diary.entry.triggers"
+msgstr "诱因"
+
+#. js-lingui-explicit-id
+#: src/pages/EventLogPage.jsx:163
 msgid "diary.eventLog.triggers"
 msgstr "诱发原因 (可多选)"
 
@@ -2384,14 +2456,14 @@ msgid "playlist.unmute"
 msgstr "取消静音"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:201
+#: src/pages/EventLogPage.jsx:183
 #: src/pages/HealthStatePage.jsx:138
 #: src/pages/SideEffectsPage.jsx:194
 msgid "diary.eventLog.unsavedTitle"
 msgstr "尚未保存"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:119
+#: src/pages/DiaryDashboardPage.jsx:108
 msgid "diary.monthIllness"
 msgstr "URTI/手术/压力等"
 
@@ -2401,7 +2473,7 @@ msgid "playlist.deviceVolume"
 msgstr "请使用设备的音量按键调整音量。"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:91
+#: src/utils/entryPresentation.js:78
 msgid "diary.eventLog.aura.visual"
 msgstr "视觉 (如闪光/幻觉)"
 
@@ -2416,7 +2488,7 @@ msgid "playlist.volume"
 msgstr "音量"
 
 #. js-lingui-explicit-id
-#: src/pages/EventLogPage.jsx:106
+#: src/utils/entryPresentation.js:96
 msgid "diary.eventLog.trigger.weather"
 msgstr "天气转变"
 

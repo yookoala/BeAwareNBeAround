@@ -15,7 +15,7 @@ vi.mock('../services/diaryEntries', () => ({
   listRecent: vi.fn(async () => []),
 }));
 
-function Location() { const { pathname } = useLocation(); return <output data-testid="location">{pathname}</output>; }
+function Location() { const { pathname } = useLocation(); return <div data-testid="location">{pathname}</div>; }
 function renderApp(path = '/diary', locale = 'zh-HK') {
   activateLocale(locale);
   vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ status: 'success', metrics: {} }) })));
@@ -104,6 +104,18 @@ test('renders the full-list control below a stored list and navigates to /diary/
   expect(container.querySelector('.recent-entries-list .see-all-btn')).toBeNull();
   fireEvent.click(container.querySelector('.see-all-btn'));
   expect(screen.getByTestId('location')).toHaveTextContent('/diary/entries');
+});
+
+test('tapping a recent card opens its detail view', async () => {
+  listRecent.mockResolvedValueOnce(fiveEntries());
+  const { container } = renderApp();
+  await screen.findByText('2026-09-15 16:00');
+
+  const cards = container.querySelectorAll('.recent-entry-card');
+  // Card semantics are buttons, so keyboard users can Tab to them and press Enter.
+  expect(cards[0].tagName).toBe('BUTTON');
+  fireEvent.click(cards[0]);
+  expect(screen.getByTestId('location')).toHaveTextContent('/diary/entry/e1');
 });
 
 test('a failed load shows the records-unavailable line, not the empty state', async () => {

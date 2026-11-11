@@ -15,7 +15,7 @@ vi.mock('../services/diaryEntries', () => ({
   listRecent: vi.fn(async () => []),
 }));
 
-function Location() { const { pathname } = useLocation(); return <output data-testid="location">{pathname}</output>; }
+function Location() { const { pathname } = useLocation(); return <div data-testid="location">{pathname}</div>; }
 function renderApp(path = '/diary/entries', locale = 'zh-HK') {
   activateLocale(locale);
   vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ status: 'success', metrics: {} }) })));
@@ -146,4 +146,32 @@ test('back button returns to /diary with vt-slide-out-right', async () => {
   } finally {
     delete document.startViewTransition;
   }
+});
+
+test('tapping a card opens its detail view', async () => {
+  mockStoredRows(allEntries(3));
+  const { container } = renderApp('/diary/entries', 'en');
+  await screen.findByText('2026-10-01 23:59');
+
+  fireEvent.click(container.querySelector('.recent-entry-card'));
+  expect(screen.getByTestId('location')).toHaveTextContent('/diary/entry/e000');
+});
+
+test('shows a delete toast for 2 s only when mounted with { deleted: true } navigation state', async () => {
+  mockStoredRows(allEntries(3));
+  vi.useFakeTimers();
+  try {
+    renderApp({ pathname: '/diary/entries', state: { deleted: true } }, 'en');
+    expect(screen.getByRole('status')).toHaveTextContent('Entry deleted');
+    act(() => {
+      vi.advanceTimersByTime(2000);
+    });
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+  } finally {
+    vi.useRealTimers();
+  }
+
+  // A normal open has no toast.
+  renderApp('/diary/entries', 'en');
+  expect(screen.queryByRole('status')).not.toBeInTheDocument();
 });
