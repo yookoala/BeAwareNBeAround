@@ -9,6 +9,7 @@ import { AppHeader } from './components/AppHeader';
 import { BottomNav } from './components/BottomNav';
 import FirstAidPage from './pages/FirstAidPage';
 import DiaryDashboardPage from './pages/DiaryDashboardPage';
+import DiaryEntriesPage from './pages/DiaryEntriesPage';
 import EventMenuPage from './pages/EventMenuPage';
 import EventLogPage from './pages/EventLogPage';
 import MedicationEventPage from './pages/MedicationEventPage';
@@ -32,6 +33,9 @@ export function AppRoutes() {
   const { pathname } = useLocation();
   const isReport = pathname.startsWith('/diary/report/');
   const isEventRoute = pathname.startsWith('/diary/event');
+  // Diary list/detail sub-views use their own .diary-subheader instead of
+  // the shared AppHeader (BottomNav stays visible).
+  const isEntriesRoute = pathname === '/diary/entries' || pathname.startsWith('/diary/entry/');
   const chromeHidden = useAutoHideChrome();
   // Captured once at app load so tab switches never change the tracked URL.
   const [targetUrl] = useState(() => window.location.href);
@@ -58,7 +62,7 @@ export function AppRoutes() {
 
   return (
     <main className={isReport ? 'main--report' : undefined}>
-      {!isReport && !isEventRoute && <AppHeader
+      {!isReport && !isEventRoute && !isEntriesRoute && <AppHeader
         language={language}
         onLanguageChange={changeLanguage}
         onNavigateHome={navigateHome}
@@ -67,6 +71,7 @@ export function AppRoutes() {
       <Routes>
         <Route path="/" element={<FirstAidPage counter={counter} language={language} />} />
         <Route path="/diary" element={<DiaryDashboardPage />} />
+        <Route path="/diary/entries" element={<DiaryEntriesPage />} />
         <Route path="/diary/event-log" element={<Navigate to="/diary/event" replace />} />
         {/* ^ legacy M17 menu URL saved by users of the deployed build; M18 renamed the menu */}
         <Route path="/diary/event" element={<EventMenuPage />} />

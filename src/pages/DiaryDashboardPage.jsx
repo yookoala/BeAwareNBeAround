@@ -10,6 +10,7 @@ import { navigateWithViewTransition } from '../utils/viewTransition';
 import { ENTRY_ICONS, entrySummary, entryTypeTitle, formatEntryTime } from '../utils/entryPresentation';
 import { past7Days, thisWeekDays, monthDays, monthEmptyCells, monthHeaderDays } from '../data/mockDashboard';
 import '../styles/dashboard.css';
+import '../styles/entry-cards.css';
 
 export default function DiaryDashboardPage() {
   const navigate = useNavigate();

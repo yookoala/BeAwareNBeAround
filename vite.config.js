@@ -18,6 +18,7 @@ const STATIC_ROUTES = [
   'diary/event/side-effects',
   'diary/event/health',
   'diary/event-log',
+  'diary/entries',
   'diary/profile',
   'diary/report/level-a',
   'diary/report/level-b',

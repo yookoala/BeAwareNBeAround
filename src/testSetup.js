@@ -92,6 +92,40 @@ Object.defineProperty(window, 'Audio', { value: MockAudio, configurable: true })
 window.indexedDB = new IDBFactory();
 window.IDBKeyRange = IDBKeyRange;
 
+// Minimal IntersectionObserver for paging tests: records observers/callbacks
+// so a test can drive intersection with window.__triggerIntersection().
+// disconnect() marks the observer inactive so stale sentinels stop firing.
+class FakeIntersectionObserver {
+  constructor(callback, options = {}) {
+    this.callback = callback;
+    this.options = options;
+    this.targets = [];
+    this.disabled = false;
+    window.__intersectionObservers.push(this);
+  }
+
+  observe(target) { this.targets.push(target); }
+
+  unobserve(target) { this.targets = this.targets.filter((item) => item !== target); }
+
+  disconnect() {
+    this.targets = [];
+    this.disabled = true;
+  }
+}
+window.IntersectionObserver = FakeIntersectionObserver;
+window.__intersectionObservers = [];
+window.__triggerIntersection = (isIntersecting = true) => {
+  for (const observer of [...window.__intersectionObservers]) {
+    if (observer.disabled || observer.targets.length === 0) continue;
+    observer.callback(observer.targets.map((target) => ({ target, isIntersecting })), observer);
+  }
+};
+
+afterEach(() => {
+  window.__intersectionObservers = [];
+});
+
 afterEach(() => {
   window.MockAudioInstances = [];
 });

@@ -239,7 +239,12 @@ msgid "report.fixture.7c32d40e5e"
 msgstr "--- 系統紀錄至此，以上為歷年全部無刪減資料 ---"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:87
+#: src/pages/DiaryEntriesPage.jsx:93
+msgid "diary.entries.end"
+msgstr "— 已顯示全部記錄 —"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryDashboardPage.jsx:88
 msgid "diary.profileDesc"
 msgstr "(選填) 建議填寫綜合診斷資料、發作類型、腦電圖等數據，有助於為您的主診醫生生成更精準完整的 PDF 報告。"
 
@@ -297,6 +302,7 @@ msgid "report.count"
 msgstr "數"
 
 #. js-lingui-explicit-id
+#: src/pages/DiaryEntriesPage.jsx:66
 #: src/pages/EventLogPage.jsx:126
 #: src/pages/EventMenuPage.jsx:52
 #: src/pages/HealthStatePage.jsx:90
@@ -446,7 +452,7 @@ msgid "report.fixture.0344073394"
 msgstr "📅 5. 發作與狀態明細 (Comprehensive Daily Ledger) - 近期紀錄"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:48
+#: src/pages/DiaryDashboardPage.jsx:49
 msgid "diary.fullCalendar"
 msgstr "📅 完整月曆 ➔"
 
@@ -456,17 +462,17 @@ msgid "diary.hub.events"
 msgstr "📅 最新活動"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:90
+#: src/pages/DiaryDashboardPage.jsx:91
 msgid "diary.reportA"
 msgstr "📊 門診報告 (Level A)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:91
+#: src/pages/DiaryDashboardPage.jsx:92
 msgid "diary.reportB"
 msgstr "📋 歷史總記 (Level B)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:83
+#: src/pages/DiaryDashboardPage.jsx:84
 msgid "diary.recent.viewAll"
 msgstr "📋 查看完整記錄 ➔"
 
@@ -611,6 +617,11 @@ msgid "profile.t2"
 msgstr "飲酒"
 
 #. js-lingui-explicit-id
+#: src/pages/DiaryEntriesPage.jsx:67
+msgid "diary.entries.title"
+msgstr "全部記錄"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:153
 msgid "setup.androidLabel"
 msgstr "Android："
@@ -718,7 +729,7 @@ msgid "diary.eventLog.trigger.light"
 msgstr "強光/閃光"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:43
+#: src/pages/DiaryDashboardPage.jsx:44
 msgid "diary.calendarView"
 msgstr "日曆檢視"
 
@@ -837,7 +848,7 @@ msgid "profile.lifeLabel"
 msgstr "有困難或不能做到的日常生活："
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:42
+#: src/pages/DiaryDashboardPage.jsx:43
 msgid "diary.daily"
 msgstr "日常記錄"
 
@@ -988,8 +999,8 @@ msgid "diary.profile.contactEmergencyMsg"
 msgstr "緊急通知：我目前可能正在經歷腦癇發作，請協助我。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:94
-#: src/pages/DiaryDashboardPage.jsx:94
+#: src/pages/DiaryDashboardPage.jsx:95
+#: src/pages/DiaryDashboardPage.jsx:95
 msgid "diary.emergencyVideo"
 msgstr "緊急錄影"
 
@@ -1046,7 +1057,7 @@ msgid "diary.eventLog.saved"
 msgstr "記錄已儲存！"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:40
+#: src/pages/DiaryDashboardPage.jsx:41
 msgid "diary.dashboard.title"
 msgstr "腦癇及頭痛追蹤"
 
@@ -1184,7 +1195,7 @@ msgid "diary.sideEffects.notesPlaceholder"
 msgstr "例如：服藥後兩小時出現..."
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:35
+#: src/pages/DiaryDashboardPage.jsx:36
 msgid "diary.weekday.fri"
 msgstr "五"
 
@@ -1287,7 +1298,7 @@ msgstr "ℹ️ 關於我們"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:14
-#: src/pages/DiaryDashboardPage.jsx:59
+#: src/pages/DiaryDashboardPage.jsx:60
 msgid "diary.legend.illness"
 msgstr "疾病/壓力"
 
@@ -1406,7 +1417,7 @@ msgid "report.fixture.62f790cc83"
 msgstr "服藥"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:56
+#: src/pages/DiaryDashboardPage.jsx:57
 msgid "diary.legend.meds"
 msgstr "服藥(綠=吃/黃=漏)"
 
@@ -1506,7 +1517,7 @@ msgid "profile.t5"
 msgstr "忘記依時服藥"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:31
+#: src/pages/DiaryDashboardPage.jsx:32
 msgid "diary.weekday.mon"
 msgstr "一"
 
@@ -1536,7 +1547,7 @@ msgid "report.fixture.fd5436428e"
 msgstr "陳太太（妻子）"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:118
+#: src/pages/DiaryDashboardPage.jsx:119
 msgid "diary.monthMeds"
 msgstr "多頻服藥(綠/黃)"
 
@@ -1546,7 +1557,7 @@ msgid "playlist.mute"
 msgstr "靜音"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:85
+#: src/pages/DiaryDashboardPage.jsx:86
 msgid "diary.medicalData"
 msgstr "我的醫療資料"
 
@@ -1596,9 +1607,14 @@ msgid "diary.eventLog.aura.none"
 msgstr "無預兆"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:65
+#: src/pages/DiaryDashboardPage.jsx:66
 msgid "diary.recent.empty"
 msgstr "尚無記錄 — 點擊右下角 ✏️ 按鈕開始記錄。"
+
+#. js-lingui-explicit-id
+#: src/pages/DiaryEntriesPage.jsx:74
+msgid "diary.entries.empty"
+msgstr "尚無記錄。已儲存的記錄會顯示在這裡。"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:71
@@ -1721,7 +1737,7 @@ msgid "report.fixture.1483158f58"
 msgstr "其他 (Others)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:44
+#: src/pages/DiaryDashboardPage.jsx:45
 msgid "diary.past7"
 msgstr "過去 7 天"
 
@@ -1732,8 +1748,8 @@ msgstr "暫停"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:13
-#: src/pages/DiaryDashboardPage.jsx:58
-#: src/pages/DiaryDashboardPage.jsx:118
+#: src/pages/DiaryDashboardPage.jsx:59
+#: src/pages/DiaryDashboardPage.jsx:119
 msgid "diary.legend.period"
 msgstr "生理期"
 
@@ -1744,7 +1760,7 @@ msgid "report.periodIllness"
 msgstr "生理期/疾病"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:87
+#: src/pages/DiaryDashboardPage.jsx:88
 msgid "diary.profile"
 msgstr "個人醫療檔案"
 
@@ -1831,7 +1847,7 @@ msgid "profile.surgeries"
 msgstr "曾做過的手術"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:93
+#: src/pages/DiaryDashboardPage.jsx:94
 msgid "diary.privacy"
 msgstr "隱私保障：資料僅儲存於本機或您的雲端，絕不上傳至基金會。"
 
@@ -1876,7 +1892,7 @@ msgid "report.fixture.ee9f9e7a1b"
 msgstr "更改原因 (Why)"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:61
+#: src/pages/DiaryDashboardPage.jsx:62
 msgid "diary.recentEntries"
 msgstr "近期記錄"
 
@@ -1892,7 +1908,8 @@ msgid "diary.recordTime"
 msgstr "記錄時間"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:63
+#: src/pages/DiaryDashboardPage.jsx:64
+#: src/pages/DiaryEntriesPage.jsx:70
 msgid "diary.recordsUnavailable"
 msgstr "無法讀取記錄 — 此裝置暫時無法開啟日記儲存空間。"
 
@@ -1971,7 +1988,7 @@ msgid "action.safe"
 msgstr "望"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:36
+#: src/pages/DiaryDashboardPage.jsx:37
 msgid "diary.weekday.sat"
 msgstr "六"
 
@@ -2052,8 +2069,8 @@ msgstr "無發作天數"
 
 #. js-lingui-explicit-id
 #: src/components/diary/calendarLabel.js:12
-#: src/pages/DiaryDashboardPage.jsx:57
-#: src/pages/DiaryDashboardPage.jsx:118
+#: src/pages/DiaryDashboardPage.jsx:58
+#: src/pages/DiaryDashboardPage.jsx:119
 msgid "diary.legend.event"
 msgstr "發作/頭痛"
 
@@ -2063,7 +2080,7 @@ msgid "report.fixture.f525bfca0b"
 msgstr "發作次數下降，無出疹過敏反應。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:100
+#: src/pages/DiaryDashboardPage.jsx:101
 msgid "diary.monthTitle"
 msgstr "2026年 9月 記錄"
 
@@ -2236,7 +2253,7 @@ msgid "report.fixture.e92943ac50"
 msgstr "Suboptimal control: 壓力引發密集 FIAS，加入二線藥物。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:30
+#: src/pages/DiaryDashboardPage.jsx:31
 msgid "diary.weekday.sun"
 msgstr "日"
 
@@ -2292,12 +2309,12 @@ msgid "faq.answer4"
 msgstr "計數器顯示所有用戶按過應用程式動作按鍵的總次數。"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:45
+#: src/pages/DiaryDashboardPage.jsx:46
 msgid "diary.thisWeek"
 msgstr "本週"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:34
+#: src/pages/DiaryDashboardPage.jsx:35
 msgid "diary.weekday.thu"
 msgstr "四"
 
@@ -2337,7 +2354,7 @@ msgid "profile.triggers"
 msgstr "誘因與生活影響"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:32
+#: src/pages/DiaryDashboardPage.jsx:33
 msgid "diary.weekday.tue"
 msgstr "二"
 
@@ -2374,7 +2391,7 @@ msgid "diary.eventLog.unsavedTitle"
 msgstr "尚未儲存"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:118
+#: src/pages/DiaryDashboardPage.jsx:119
 msgid "diary.monthIllness"
 msgstr "URTI/手術/壓力等"
 
@@ -2409,7 +2426,7 @@ msgid "profile.t7"
 msgstr "天氣轉變"
 
 #. js-lingui-explicit-id
-#: src/pages/DiaryDashboardPage.jsx:33
+#: src/pages/DiaryDashboardPage.jsx:34
 msgid "diary.weekday.wed"
 msgstr "三"
 

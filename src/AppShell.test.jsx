@@ -73,6 +73,14 @@ test('a legacy /diary/event-log link lands on the event menu', async () => {
   expect(document.getElementById('btn-health')).toBeInTheDocument();
 });
 
+test('the full entries list hides the app header but keeps the Diary tab active', async () => {
+  const { container } = renderShell(['/diary/entries']);
+
+  expect(await screen.findByText('全部記錄')).toBeInTheDocument();
+  expect(container.querySelector('.app-header')).toBeNull();
+  expect(container.querySelector('.bottom-nav a[href="/diary"]')).toHaveAttribute('aria-current', 'page');
+});
+
 test('logs exactly one visit POST per app load across route changes', async () => {
   const { counter } = renderShell(['/'], { harness: true });
 
