@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { t } from '@lingui/core/macro';
 import { useNavigate } from 'react-router-dom';
 import CustomItemList from '../components/diary/CustomItemList';
@@ -6,27 +6,33 @@ import Modal from '../components/diary/Modal';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { navigateWithViewTransition } from '../utils/viewTransition';
+import { addEntry } from '../services/diaryEntries';
+import { localNowValue } from '../utils/localNowValue';
 import '../styles/event-log.css';
-
-const DEFAULT_DATETIME = '2026-09-17T17:30';
 
 export default function HealthStatePage() {
   const navigate = useNavigate();
   usePageBodyClass('page-event-log');
-  const [eventTime, setEventTime] = useState(DEFAULT_DATETIME);
+  const [eventTime, setEventTime] = useState(localNowValue);
   const [selected, setSelected] = useState([]);
   const [customItems, setCustomItems] = useState([]);
   const [notes, setNotes] = useState('');
   const [isDirty, setIsDirty] = useState(false);
   const [leaveConfirmOpen, setLeaveConfirmOpen] = useState(false);
   const [saveCount, setSaveCount] = useState(0);
-  const customSeq = useRef(0);
+  const [errorCount, setErrorCount] = useState(0);
 
   useEffect(() => {
     if (!saveCount) return undefined;
     const timer = setTimeout(() => setSaveCount(0), 2000);
     return () => clearTimeout(timer);
   }, [saveCount]);
+
+  useEffect(() => {
+    if (!errorCount) return undefined;
+    const timer = setTimeout(() => setErrorCount(0), 2000);
+    return () => clearTimeout(timer);
+  }, [errorCount]);
 
   const healthTags = [
     { id: 'period', label: t({ id: 'diary.healthState.period', message: 'Menstrual period' }) },
@@ -41,8 +47,7 @@ export default function HealthStatePage() {
   }
 
   function addCustomItem() {
-    customSeq.current += 1;
-    setCustomItems((prev) => [...prev, { id: `custom-health-${customSeq.current}` }]);
+    setCustomItems((prev) => [...prev, { id: crypto.randomUUID(), value: '' }]);
     setIsDirty(true);
   }
 
@@ -51,9 +56,23 @@ export default function HealthStatePage() {
     setIsDirty(true);
   }
 
-  function handleSave() {
-    setIsDirty(false);
-    setSaveCount((count) => count + 1);
+  function changeCustomItem(id, value) {
+    setIsDirty(true);
+    setCustomItems((prev) => prev.map((item) => (item.id === id ? { ...item, value } : item)));
+  }
+
+  async function handleSave() {
+    try {
+      await addEntry({
+        type: 'health',
+        time: eventTime,
+        data: { selectedTags: selected, customItems: customItems.map((item) => item.value), notes },
+      });
+      setIsDirty(false);
+      setSaveCount((count) => count + 1);
+    } catch {
+      setErrorCount((count) => count + 1);
+    }
   }
 
   function leaveToMenu() {
@@ -100,7 +119,7 @@ export default function HealthStatePage() {
             addLabel={t({ id: 'diary.healthState.addCustom', message: '+ Add custom condition' })}
             onAdd={addCustomItem}
             onRemove={removeCustomItem}
-            onItemChange={() => setIsDirty(true)}
+            onItemChange={changeCustomItem}
           />
         </div>
       </div>
@@ -137,6 +156,7 @@ export default function HealthStatePage() {
         </Modal>
       )}
       {saveCount > 0 && <div role="status" className="event-log-toast">{t({ id: 'diary.eventLog.saved', message: 'Entry saved!' })}</div>}
+      {errorCount > 0 && <div role="status" className="event-log-toast">{t({ id: 'diary.eventLog.saveError', message: 'Could not save the record. Storage is unavailable on this device.' })}</div>}
     </div>
   );
 }

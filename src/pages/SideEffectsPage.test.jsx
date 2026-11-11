@@ -1,9 +1,27 @@
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { I18nProvider } from '@lingui/react';
 import { MemoryRouter, useLocation } from 'react-router-dom';
-import { expect, test, vi } from 'vitest';
+import { afterEach, expect, test, vi } from 'vitest';
 import { AppRoutes } from '../App';
 import { activateLocale, i18n } from '../i18n/setup';
+import { addEntry } from '../services/diaryEntries';
+
+vi.mock('../services/diaryEntries', () => ({
+  addEntry: vi.fn(async (input) => ({ id: 'stub-entry', createdAt: '', updatedAt: '', ...input })),
+  getEntry: vi.fn(async () => undefined),
+  updateEntry: vi.fn(async () => undefined),
+  deleteEntry: vi.fn(async () => undefined),
+  listEntries: vi.fn(async () => []),
+  listRecent: vi.fn(async () => []),
+}));
+
+afterEach(() => {
+  vi.useRealTimers();
+});
+
+function freezeNow() {
+  vi.useFakeTimers({ now: new Date(2026, 8, 17, 17, 30) });
+}
 
 function Location() {
   return <div data-testid="location">{useLocation().pathname}</div>;
@@ -27,6 +45,7 @@ test.each([
   ['zh-CN', '← 返回', '副作用', '保存', '嗜睡/疲倦', '手部震颤'],
   ['en', '← Back', 'Side effects', 'Save', 'Drowsiness/fatigue', 'Hand tremor'],
 ])('renders localized side effects page in %s without main app header', (locale, back, title, save, firstTag, tremorTag) => {
+  freezeNow();
   const { container } = renderApp(locale);
   expect(container.querySelector('.app-header')).toBeNull();
   const subheader = container.querySelector('.diary-subheader');
@@ -67,7 +86,7 @@ test('toggles side effect selection, manages adding and removing side effects, a
   expect(notes).toHaveValue('服藥後兩小時出現');
 });
 
-test('warns on unsaved changes when leaving and saves cleanly with toast', () => {
+test('warns on unsaved changes when leaving and saves cleanly with toast', async () => {
   renderApp('zh-HK');
   vi.useFakeTimers();
   fireEvent.change(screen.getByLabelText('額外觀察 / 備註'), { target: { value: '輕微頭暈' } });
@@ -76,7 +95,9 @@ test('warns on unsaved changes when leaving and saves cleanly with toast', () =>
   fireEvent.click(screen.getByRole('button', { name: '繼續編輯' }));
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 
-  fireEvent.click(screen.getByRole('button', { name: '儲存' }));
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: '儲存' }));
+  });
   expect(screen.getByRole('status')).toHaveTextContent('記錄已儲存！');
   act(() => vi.advanceTimersByTime(2000));
   expect(screen.queryByRole('status')).not.toBeInTheDocument();
@@ -84,4 +105,31 @@ test('warns on unsaved changes when leaving and saves cleanly with toast', () =>
   fireEvent.click(screen.getByRole('button', { name: '← 返回' }));
   expect(screen.getByTestId('location')).toHaveTextContent('/diary/event');
   vi.useRealTimers();
+});
+
+test('saving stores a side-effects entry with built-in tag ids and labeled custom tags', async () => {
+  freezeNow();
+  renderApp('zh-HK');
+  fireEvent.click(screen.getByRole('button', { name: '手部震顫' }));
+
+  fireEvent.click(screen.getByRole('button', { name: '管理副作用項目' }));
+  fireEvent.change(screen.getByPlaceholderText('輸入新增副作用...'), { target: { value: '視力模糊' } });
+  fireEvent.click(screen.getByRole('button', { name: '+ 新增副作用' }));
+  fireEvent.click(screen.getByRole('button', { name: '完成管理' }));
+  fireEvent.click(screen.getByRole('button', { name: '視力模糊' }));
+  fireEvent.change(screen.getByLabelText('額外觀察 / 備註'), { target: { value: '服藥後兩小時出現' } });
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: '儲存' }));
+  });
+
+  expect(addEntry).toHaveBeenCalledTimes(1);
+  const [payload] = addEntry.mock.calls[0];
+  expect(payload.type).toBe('sideEffects');
+  expect(payload.time).toBe('2026-09-17T17:30');
+  expect(payload.data.notes).toBe('服藥後兩小時出現');
+  expect(payload.data.selected).toHaveLength(2);
+  expect(payload.data.selected).toContainEqual({ id: 'tremor' });
+  expect(payload.data.selected).toContainEqual(
+    expect.objectContaining({ id: expect.stringMatching(/^[0-9a-f-]{36}$/), label: '視力模糊' }),
+  );
 });

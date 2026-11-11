@@ -6,15 +6,15 @@ import OptionGroup from '../components/diary/OptionGroup';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { navigateWithViewTransition } from '../utils/viewTransition';
+import { addEntry } from '../services/diaryEntries';
+import { localNowValue } from '../utils/localNowValue';
 import '../styles/event-log.css';
-
-const DEFAULT_DATETIME = '2026-09-17T17:30';
 
 export default function EventLogPage({ variant = 'seizure' }) {
   const isHeadache = variant === 'headache';
   const navigate = useNavigate();
   usePageBodyClass('page-event-log');
-  const [eventTime, setEventTime] = useState(DEFAULT_DATETIME);
+  const [eventTime, setEventTime] = useState(localNowValue);
   const [severity, setSeverity] = useState('major');
   const [pattern, setPattern] = useState('single');
   const [auras, setAuras] = useState([]);
@@ -24,12 +24,19 @@ export default function EventLogPage({ variant = 'seizure' }) {
   const [isDirty, setIsDirty] = useState(false);
   const [leaveConfirmOpen, setLeaveConfirmOpen] = useState(false);
   const [saveCount, setSaveCount] = useState(0);
+  const [errorCount, setErrorCount] = useState(0);
 
   useEffect(() => {
     if (!saveCount) return undefined;
     const timer = setTimeout(() => setSaveCount(0), 2000);
     return () => clearTimeout(timer);
   }, [saveCount]);
+
+  useEffect(() => {
+    if (!errorCount) return undefined;
+    const timer = setTimeout(() => setErrorCount(0), 2000);
+    return () => clearTimeout(timer);
+  }, [errorCount]);
 
   function selectSeverity(value) {
     if (value !== severity) setIsDirty(true);
@@ -52,9 +59,18 @@ export default function EventLogPage({ variant = 'seizure' }) {
     setIsDirty(true);
     setTriggers((previous) => previous.includes(id) ? previous.filter((item) => item !== id) : [...previous, id]);
   }
-  function handleSave() {
-    setIsDirty(false);
-    setSaveCount((count) => count + 1);
+  async function handleSave() {
+    try {
+      await addEntry({
+        type: isHeadache ? 'headache' : 'seizure',
+        time: eventTime,
+        data: { severity, pattern, clusterCount, auras, triggers, notes },
+      });
+      setIsDirty(false);
+      setSaveCount((count) => count + 1);
+    } catch {
+      setErrorCount((count) => count + 1);
+    }
   }
   function leaveToMenu() {
     setLeaveConfirmOpen(false);
@@ -214,6 +230,7 @@ export default function EventLogPage({ variant = 'seizure' }) {
         </Modal>
       )}
       {saveCount > 0 && <div role="status" className="event-log-toast">{t({ id: 'diary.eventLog.saved', message: 'Entry saved!' })}</div>}
+      {errorCount > 0 && <div role="status" className="event-log-toast">{t({ id: 'diary.eventLog.saveError', message: 'Could not save the record. Storage is unavailable on this device.' })}</div>}
     </div>
   );
 }

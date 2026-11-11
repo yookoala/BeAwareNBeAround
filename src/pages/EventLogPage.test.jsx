@@ -1,9 +1,28 @@
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { I18nProvider } from '@lingui/react';
 import { MemoryRouter, useLocation } from 'react-router-dom';
-import { expect, test, vi } from 'vitest';
+import { afterEach, expect, test, vi } from 'vitest';
 import { AppRoutes } from '../App';
 import { activateLocale, i18n } from '../i18n/setup';
+import { addEntry } from '../services/diaryEntries';
+
+vi.mock('../services/diaryEntries', () => ({
+  addEntry: vi.fn(async (input) => ({ id: 'stub-entry', createdAt: '', updatedAt: '', ...input })),
+  getEntry: vi.fn(async () => undefined),
+  updateEntry: vi.fn(async () => undefined),
+  deleteEntry: vi.fn(async () => undefined),
+  listEntries: vi.fn(async () => []),
+  listRecent: vi.fn(async () => []),
+}));
+
+afterEach(() => {
+  vi.useRealTimers();
+});
+
+// Pin the clock so the now-default datetime matches the historic fixture value.
+function freezeNow() {
+  vi.useFakeTimers({ now: new Date(2026, 8, 17, 17, 30) });
+}
 
 function Location() { return <div data-testid="location">{useLocation().pathname}</div>; }
 function renderApp(locale = 'zh-HK', path = '/diary/event/seizure') {
@@ -20,6 +39,7 @@ test.each([
   ['zh-CN', '/diary/event/headache', '← 返回', '头痛记录', '保存'],
   ['en', '/diary/event/headache', '← Back', 'Headache record', 'Save'],
 ])('replaces the main app header with the localized header bar in %s at %s', (locale, path, back, title, save) => {
+  freezeNow();
   const { container } = renderApp(locale, path);
   const subheader = container.querySelector('.diary-subheader');
   expect(within(subheader).getByRole('button', { name: back })).toHaveAttribute('type', 'button');
@@ -57,10 +77,11 @@ test('warns before leaving when form has unsaved changes, and allows staying or 
   expect(screen.getByTestId('location')).toHaveTextContent('/diary/event');
 });
 
-test('saving clears the dirty state so back navigates without warning', () => {
+test('saving clears the dirty state so back navigates without warning', async () => {
   renderApp('en');
   fireEvent.change(screen.getByLabelText('Seizure description / notes'), { target: { value: 'Cluster after missed dose' } });
   fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+  await screen.findByRole('status');
   fireEvent.click(screen.getByRole('button', { name: '← Back' }));
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   expect(screen.getByTestId('location')).toHaveTextContent('/diary/event');
@@ -92,6 +113,7 @@ test('uses document.startViewTransition with vt-slide-out-right when returning t
 });
 
 test('severity and pattern options toggle and the cluster counter has a floor and resets on seizure and headache routes', () => {
+  freezeNow();
   const { container, unmount } = renderApp('zh-HK', '/diary/event/seizure');
   const minor = screen.getByRole('button', { name: '小發作' });
   fireEvent.click(minor);
@@ -140,10 +162,15 @@ test('aura and trigger selections survive language changes and no aura stays exc
   expect(none).toHaveAttribute('aria-pressed', 'true');
 });
 
-test.each([['zh-HK', '儲存', '記錄已儲存！'], ['zh-CN', '保存', '记录已保存！'], ['en', 'Save', 'Entry saved!']])('announces save temporarily in %s', (locale, save, message) => {
+test.each([['zh-HK', '儲存', '記錄已儲存！'], ['zh-CN', '保存', '记录已保存！'], ['en', 'Save', 'Entry saved!']])('announces save temporarily in %s', async (locale, save, message) => {
   renderApp(locale);
   vi.useFakeTimers();
-  fireEvent.click(screen.getByRole('button', { name: save }));
+  // act() flushes the async save handler and its render synchronously, so
+  // the toast is present without waitFor polling (which deadlocks under fake
+  // timers).
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: save }));
+  });
   expect(screen.getByRole('status')).toHaveTextContent(message);
   act(() => vi.advanceTimersByTime(2000));
   expect(screen.queryByRole('status')).not.toBeInTheDocument();
@@ -162,4 +189,58 @@ test.each([
   expect(screen.getByText(comingSoon)).toBeVisible();
   fireEvent.click(within(subheader).getByRole('button', { name: back }));
   expect(screen.getByTestId('location')).toHaveTextContent('/diary/event');
+});
+
+test('saving a seizure form stores one seizure entry with the full payload', async () => {
+  freezeNow();
+  renderApp('en');
+  fireEvent.click(screen.getByRole('button', { name: 'Minor seizure' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Cluster / repeated seizures' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Increase seizure count' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Visual (e.g. flashing lights/hallucinations)' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Missed medication' }));
+  fireEvent.change(screen.getByLabelText('Seizure description / notes'), { target: { value: 'left hand twitching' } });
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+  });
+
+  expect(addEntry).toHaveBeenCalledTimes(1);
+  expect(addEntry.mock.calls[0][0]).toEqual({
+    type: 'seizure',
+    time: '2026-09-17T17:30',
+    data: {
+      severity: 'minor',
+      pattern: 'cluster',
+      clusterCount: 3,
+      auras: ['visual'],
+      triggers: ['medication'],
+      notes: 'left hand twitching',
+    },
+  });
+});
+
+test('saving the headache variant stores type headache with defaults', async () => {
+  freezeNow();
+  renderApp('en', '/diary/event/headache');
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+  });
+
+  expect(addEntry).toHaveBeenCalledTimes(1);
+  expect(addEntry.mock.calls[0][0]).toEqual({
+    type: 'headache',
+    time: '2026-09-17T17:30',
+    data: { severity: 'major', pattern: 'single', clusterCount: 2, auras: [], triggers: [], notes: '' },
+  });
+});
+
+test('a failed save shows an error toast and keeps the unsaved-changes guard', async () => {
+  addEntry.mockRejectedValueOnce(new Error('storage quota'));
+  renderApp('en');
+  fireEvent.change(screen.getByLabelText('Seizure description / notes'), { target: { value: 'unsavable notes' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+
+  expect(await screen.findByRole('status')).toHaveTextContent('Could not save the record. Storage is unavailable on this device.');
+  fireEvent.click(screen.getByRole('button', { name: '← Back' }));
+  expect(screen.getByRole('dialog', { name: 'Unsaved changes' })).toBeVisible();
 });

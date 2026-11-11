@@ -1,18 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { t } from '@lingui/core/macro';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../components/diary/Modal';
 import TagCloud from '../components/diary/TagCloud';
 import usePageBodyClass from '../hooks/usePageBodyClass';
 import { navigateWithViewTransition } from '../utils/viewTransition';
+import { addEntry } from '../services/diaryEntries';
+import { localNowValue } from '../utils/localNowValue';
 import '../styles/event-log.css';
-
-const DEFAULT_DATETIME = '2026-09-17T17:30';
 
 export default function SideEffectsPage() {
   const navigate = useNavigate();
   usePageBodyClass('page-event-log');
-  const [eventTime, setEventTime] = useState(DEFAULT_DATETIME);
+  const [eventTime, setEventTime] = useState(localNowValue);
   const [selected, setSelected] = useState([]);
   const [removedIds, setRemovedIds] = useState([]);
   const [customTags, setCustomTags] = useState([]);
@@ -22,13 +22,19 @@ export default function SideEffectsPage() {
   const [isDirty, setIsDirty] = useState(false);
   const [leaveConfirmOpen, setLeaveConfirmOpen] = useState(false);
   const [saveCount, setSaveCount] = useState(0);
-  const customSeq = useRef(0);
+  const [errorCount, setErrorCount] = useState(0);
 
   useEffect(() => {
     if (!saveCount) return undefined;
     const timer = setTimeout(() => setSaveCount(0), 2000);
     return () => clearTimeout(timer);
   }, [saveCount]);
+
+  useEffect(() => {
+    if (!errorCount) return undefined;
+    const timer = setTimeout(() => setErrorCount(0), 2000);
+    return () => clearTimeout(timer);
+  }, [errorCount]);
 
   const builtInTags = [
     { id: 'drowsiness', label: t({ id: 'diary.sideEffects.drowsiness', message: 'Drowsiness/fatigue' }) },
@@ -54,8 +60,10 @@ export default function SideEffectsPage() {
   function addSideEffect() {
     const label = newSideEffect.trim();
     if (!label) return;
-    customSeq.current += 1;
-    const id = `custom-se-${customSeq.current}`;
+    // Ids are persisted in entry records from M19-002 on, so they must be
+    // collision-free across edits (the old per-mount custom-se-N counter
+    // would collide with stored ids).
+    const id = crypto.randomUUID();
     setCustomTags((prev) => [...prev, { id, label }]);
     setNewSideEffect('');
     setIsDirty(true);
@@ -64,16 +72,31 @@ export default function SideEffectsPage() {
   function removeSideEffect(id) {
     setIsDirty(true);
     setSelected((prev) => prev.filter((item) => item !== id));
-    if (id.startsWith('custom-se-')) {
+    if (customTags.some((item) => item.id === id)) {
       setCustomTags((prev) => prev.filter((item) => item.id !== id));
     } else {
       setRemovedIds((prev) => [...prev, id]);
     }
   }
 
-  function handleSave() {
-    setIsDirty(false);
-    setSaveCount((count) => count + 1);
+  async function handleSave() {
+    try {
+      await addEntry({
+        type: 'sideEffects',
+        time: eventTime,
+        data: {
+          selected: selected.map((id) => {
+            const custom = customTags.find((item) => item.id === id);
+            return custom ? { id, label: custom.label } : { id };
+          }),
+          notes,
+        },
+      });
+      setIsDirty(false);
+      setSaveCount((count) => count + 1);
+    } catch {
+      setErrorCount((count) => count + 1);
+    }
   }
 
   function leaveToMenu() {
@@ -193,6 +216,7 @@ export default function SideEffectsPage() {
         </Modal>
       )}
       {saveCount > 0 && <div role="status" className="event-log-toast">{t({ id: 'diary.eventLog.saved', message: 'Entry saved!' })}</div>}
+      {errorCount > 0 && <div role="status" className="event-log-toast">{t({ id: 'diary.eventLog.saveError', message: 'Could not save the record. Storage is unavailable on this device.' })}</div>}
     </div>
   );
 }
