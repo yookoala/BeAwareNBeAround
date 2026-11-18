@@ -254,6 +254,11 @@ test('switches the setup, guidance, FAQ, and footer content between languages', 
   // row subtree text instead of a single getByText text node.
   expect(document.querySelector('.playlist-row-1')).toHaveTextContent('Calmly Stay: Keep calm, stay close by, and time the seizure.');
   expect(document.querySelector('.slogan-chars')).toHaveTextContent('C A R E');
+  const subtitleEl = document.querySelector('.subtitle-primary');
+  // textContent concatenates across <br>, so this pins wording, casing and
+  // order; the br check pins that the line break actually renders.
+  expect(subtitleEl.textContent).toBe('Seizure First Aid GuideHow to C. A. R. E. during a seizure');
+  expect(subtitleEl.querySelector('br')).not.toBeNull();
   closeInfoPanel(englishSetupPanel, 'Close');
   const englishWhatIsPanel = openInfoPanel("💡 What is Be Aware n' Be Around?");
   expect(screen.getByText('Be Aware of the time. Be Around for the safe recovery.')).toBeInTheDocument();

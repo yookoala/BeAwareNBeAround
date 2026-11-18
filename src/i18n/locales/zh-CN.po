@@ -623,11 +623,6 @@ msgid "video.title"
 msgstr "急性癫痫发作处理动画"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:22
-msgid "header.subtitle"
-msgstr "处理急性癫痫发作的口诀"
-
-#. js-lingui-explicit-id
 #: src/data/mockReportB.js:69
 msgid "report.fixture.1ef47edf35"
 msgstr "发病年龄 (Age of Onset)"
@@ -2120,6 +2115,11 @@ msgstr "发作事件与长度"
 #: src/pages/FirstAidPage.jsx:32
 msgid "guide.title"
 msgstr "守望相助 急救指南"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:22
+msgid "header.subtitle"
+msgstr "处理急性癫痫发作的口诀"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:106

@@ -623,11 +623,6 @@ msgid "video.title"
 msgstr "急性腦癇發作處理動畫"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:22
-msgid "header.subtitle"
-msgstr "處理急性腦癇發作的口訣"
-
-#. js-lingui-explicit-id
 #: src/data/mockReportB.js:69
 msgid "report.fixture.1ef47edf35"
 msgstr "發病年齡 (Age of Onset)"
@@ -2120,6 +2115,11 @@ msgstr "發作事件與長度"
 #: src/pages/FirstAidPage.jsx:32
 msgid "guide.title"
 msgstr "守望相助 急救指南"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:22
+msgid "header.subtitle"
+msgstr "處理急性腦癇發作的口訣"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:106

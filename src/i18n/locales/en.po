@@ -623,11 +623,6 @@ msgid "video.title"
 msgstr "Acute Seizure Animation"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:22
-msgid "header.subtitle"
-msgstr "Acute Seizure Management Slogan"
-
-#. js-lingui-explicit-id
 #: src/data/mockReportB.js:69
 msgid "report.fixture.1ef47edf35"
 msgstr "Age of Onset"
@@ -2120,6 +2115,11 @@ msgstr "Seizure events and duration"
 #: src/pages/FirstAidPage.jsx:32
 msgid "guide.title"
 msgstr "Seizure First Aid Guide"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:22
+msgid "header.subtitle"
+msgstr "Seizure First Aid Guide<0/>How to C. A. R. E. during a seizure"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:106

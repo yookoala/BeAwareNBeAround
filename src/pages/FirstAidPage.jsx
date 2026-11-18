@@ -19,7 +19,7 @@ export default function FirstAidPage({ counter, language }) {
   const [installPrompt, setInstallPrompt] = useState(null);
   const labels = {
     slogan: t({ id: 'header.slogan', message: 'C A R E' }),
-    subtitle: t({ id: 'header.subtitle', message: 'Acute Seizure Management Slogan' }),
+    subtitle: <Trans id="header.subtitle">Seizure First Aid Guide<br />How to C. A. R. E. during a seizure</Trans>,
     secondarySubtitle: t({ id: 'header.secondarySubtitle', message: 'Tap the 4 buttons below to learn the steps' }),
     clicks: t({ id: 'counter.label', message: 'Clicks' }),
     education: t({ id: 'mode.education', message: 'Education Mode' }),
