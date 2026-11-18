@@ -801,6 +801,11 @@ msgid "whatIs.secureText"
 msgstr "移开硬物，并在患者头下垫上软物。"
 
 #. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:66
+msgid "status.educationDefault"
+msgstr "请点击按键聆听指示。"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:24
 msgid "counter.label"
 msgstr "点击次数"
@@ -1020,11 +1025,6 @@ msgid "mode.education"
 msgstr "教育模式"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:66
-msgid "status.educationDefault"
-msgstr "教育模式：请点击按键聆听指示。"
-
-#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:61
 msgid "status.paused"
 msgstr "教育播放已暂停。"
@@ -1046,14 +1046,14 @@ msgid "report.fixture.77e94207d6"
 msgstr "EFHK 脑痫日志历史总记录 (接续)"
 
 #. js-lingui-explicit-id
-#: src/data/mockReportA.js:56
-msgid "report.fixture.342356a388"
-msgstr "EFHK 医疗日志 PWA 汇出 (Level A)"
-
-#. js-lingui-explicit-id
 #: src/components/AppHeader.jsx:67
 msgid "header.brandTitle"
 msgstr "脑痫锦囊"
+
+#. js-lingui-explicit-id
+#: src/data/mockReportA.js:56
+msgid "report.fixture.342356a388"
+msgstr "EFHK 医疗日志 PWA 汇出 (Level A)"
 
 #. js-lingui-explicit-id
 #: src/components/diary/InvestigationCard.jsx:5

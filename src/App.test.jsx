@@ -84,7 +84,7 @@ test('renders the AppHeader brand title in each locale and navigates Home withou
 
   fireEvent.click(screen.getByRole('button', { name: '语言' }));
   fireEvent.click(screen.getByRole('menuitem', { name: 'EN' }));
-  expect(screen.getByRole('link', { name: /EFHK Seizure Help/ })).toHaveAttribute('href', './');
+  expect(screen.getByRole('link', { name: /EFHK Epilepsy Toolkit/ })).toHaveAttribute('href', './');
 });
 
 test('places the playlist guide before the video container', () => {
@@ -253,6 +253,7 @@ test('switches the setup, guidance, FAQ, and footer content between languages', 
   // The EN row instruction is now rich text (<strong> + text), so assert the
   // row subtree text instead of a single getByText text node.
   expect(document.querySelector('.playlist-row-1')).toHaveTextContent('Calmly Stay: Keep calm, stay close by, and time the seizure.');
+  expect(document.querySelector('.slogan-chars')).toHaveTextContent('C A R E');
   closeInfoPanel(englishSetupPanel, 'Close');
   const englishWhatIsPanel = openInfoPanel("💡 What is Be Aware n' Be Around?");
   expect(screen.getByText('Be Aware of the time. Be Around for the safe recovery.')).toBeInTheDocument();
@@ -543,7 +544,7 @@ test('switching language stops playback, keeps the selection, and the next play 
   expect(upperButton('A')).not.toHaveClass('playing');
   expect(rowBadge(1)).toBeNull();
   expect(playlistRowEl(1)).toHaveAttribute('aria-pressed', 'true');
-  expect(screen.getByText('Education Mode: Click buttons for instructions.')).toBeInTheDocument();
+  expect(screen.getByText('Click buttons for instructions.')).toBeInTheDocument();
 
   fireEvent.click(screen.getByRole('button', { name: 'Play' }));
 

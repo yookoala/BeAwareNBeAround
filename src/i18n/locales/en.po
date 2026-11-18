@@ -773,7 +773,7 @@ msgstr "C"
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:21
 msgid "header.slogan"
-msgstr "C, A, R, E"
+msgstr "C A R E"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:44
@@ -799,6 +799,11 @@ msgstr "Childcare"
 #: src/pages/FirstAidPage.jsx:170
 msgid "whatIs.secureText"
 msgstr "Clear hard objects and cushion their head."
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:66
+msgid "status.educationDefault"
+msgstr "Click buttons for instructions."
 
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:24
@@ -1020,11 +1025,6 @@ msgid "mode.education"
 msgstr "Education Mode"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:66
-msgid "status.educationDefault"
-msgstr "Education Mode: Click buttons for instructions."
-
-#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:61
 msgid "status.paused"
 msgstr "Education playback paused."
@@ -1046,14 +1046,14 @@ msgid "report.fixture.77e94207d6"
 msgstr "EFHK complete epilepsy diary history (continued)"
 
 #. js-lingui-explicit-id
+#: src/components/AppHeader.jsx:67
+msgid "header.brandTitle"
+msgstr "EFHK Epilepsy Toolkit"
+
+#. js-lingui-explicit-id
 #: src/data/mockReportA.js:56
 msgid "report.fixture.342356a388"
 msgstr "EFHK Medical Diary PWA export (Level A)"
-
-#. js-lingui-explicit-id
-#: src/components/AppHeader.jsx:67
-msgid "header.brandTitle"
-msgstr "EFHK Seizure Help"
 
 #. js-lingui-explicit-id
 #: src/components/diary/InvestigationCard.jsx:5

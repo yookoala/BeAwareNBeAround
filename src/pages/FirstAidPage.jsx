@@ -18,7 +18,7 @@ export default function FirstAidPage({ counter, language }) {
   const player = usePlaylistPlayer({ locale: language });
   const [installPrompt, setInstallPrompt] = useState(null);
   const labels = {
-    slogan: t({ id: 'header.slogan', message: 'C, A, R, E' }),
+    slogan: t({ id: 'header.slogan', message: 'C A R E' }),
     subtitle: t({ id: 'header.subtitle', message: 'Acute Seizure Management Slogan' }),
     secondarySubtitle: t({ id: 'header.secondarySubtitle', message: 'Tap the 4 buttons below to learn the steps' }),
     clicks: t({ id: 'counter.label', message: 'Clicks' }),
@@ -63,7 +63,7 @@ export default function FirstAidPage({ counter, language }) {
           ? t({ id: 'status.ended', message: 'Education step finished.' })
           : player.phase === 'error'
             ? t({ id: 'playlist.error', message: 'Playback failed. Press play to try again.' })
-            : t({ id: 'status.educationDefault', message: 'Education Mode: Click buttons for instructions.' });
+            : t({ id: 'status.educationDefault', message: 'Click buttons for instructions.' });
 
   useEffect(() => {
     const handlePrompt = (event) => {
