@@ -646,6 +646,11 @@ msgid "diary.eventLog.unsavedPrompt"
 msgstr "您有尚未保存的更改，确定要离开吗？"
 
 #. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:44
+msgid "guide.step2"
+msgstr "观察并保护患者。移开附近危险物品，用软物垫着患者头部。"
+
+#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.environmentLabel"
 msgstr "评估环境："
@@ -764,6 +769,11 @@ msgstr "日历视图"
 #: src/components/diary/ContactCard.jsx:49
 msgid "profile.call"
 msgstr "致电"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:43
+msgid "guide.step1"
+msgstr "保持镇定，记录抽搐开始及持续的时间。"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryEntryDetailPage.jsx:184
@@ -1051,6 +1061,11 @@ msgid "profile.contacts"
 msgstr "紧急联系人"
 
 #. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:46
+msgid "guide.step4"
+msgstr "寻求协助。陪伴患者直至清醒，若超过五分钟请召唤救护车。"
+
+#. js-lingui-explicit-id
 #: src/components/diary/ContactCard.jsx:5
 msgid "diary.profile.contactEmergencyMsg"
 msgstr "紧急通知：我目前可能正在经历脑痫发作，请协助我。"
@@ -1279,11 +1294,6 @@ msgid "report.fixture.2a9ae2751b"
 msgstr "基因检测"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:45
-msgid "guide.step3"
-msgstr "将患者轻轻翻侧，保持呼吸道畅通。切勿强行将任何物品塞入患者口中。"
-
-#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:52
 msgid "profile.l4"
 msgstr "起床"
@@ -1393,11 +1403,6 @@ msgstr "检查报告 (Investigations)"
 #: src/pages/FirstAidPage.jsx:153
 msgid "setup.iosLabel"
 msgstr "iPhone (iOS)："
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:43
-msgid "guide.step1"
-msgstr "保持镇定，记录抽搐开始及持续的时间。"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportA.js:55
@@ -1602,11 +1607,6 @@ msgstr "一"
 #: src/utils/entryPresentation.js:59
 msgid "diary.sideEffects.mood"
 msgstr "情绪波动/易怒"
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:44
-msgid "guide.step2"
-msgstr "观察并保护患者。移开附近危险物品，用软物垫着患者头部。"
 
 #. js-lingui-explicit-id
 #: src/components/diary/InvestigationCard.jsx:6
@@ -2068,6 +2068,11 @@ msgid "report.fixture.092a91096a"
 msgstr "右侧颞叶尖波"
 
 #. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:45
+msgid "guide.step3"
+msgstr "将患者轻轻翻侧，保持呼吸道畅通。切勿强行将任何物品塞入患者口中。"
+
+#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:37
 msgid "diary.weekday.sat"
 msgstr "六"
@@ -2093,11 +2098,6 @@ msgstr "保存"
 #: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.secureLabel"
 msgstr "清理周边环境："
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:46
-msgid "guide.step4"
-msgstr "寻求协助。陪伴患者直至清醒，若超过五分钟请召唤救护车。"
 
 #. js-lingui-explicit-id
 #: src/components/diary/MiniMonth.jsx:26
