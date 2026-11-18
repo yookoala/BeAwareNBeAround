@@ -363,12 +363,32 @@ msgid "diary.recent.moreCount"
 msgstr "+{count} 项"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:146
+#: src/pages/FirstAidPage.jsx:47
+msgid "guide.step2"
+msgstr "观察并保护患者。移开附近危险物品，用软物垫着患者头部。"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:46
+msgid "guide.step1"
+msgstr "保持镇定，记录抽搐开始及持续的时间。"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:49
+msgid "guide.step4"
+msgstr "寻求协助。陪伴患者直至清醒，若超过五分钟请召唤救护车。"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:48
+msgid "guide.step3"
+msgstr "将患者轻轻翻侧，保持呼吸道畅通。切勿强行将任何物品塞入患者口中。"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:149
 msgid "video.label"
 msgstr "▶️ 急性癫痫发作处理动画"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:36
+#: src/pages/FirstAidPage.jsx:37
 msgid "faq.summary"
 msgstr "❓ 常见问题 (FAQ)"
 
@@ -408,7 +428,7 @@ msgid "diary.eventLog.videoHelp"
 msgstr "💡 刚才如果有进行「紧急录像」，视频将会自动附在下方。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:35
+#: src/pages/FirstAidPage.jsx:36
 msgid "whatIs.summary"
 msgstr "💡 什么是 Be Aware n' Be Around?"
 
@@ -488,17 +508,17 @@ msgid "diary.hub.contact"
 msgstr "📞 联系我们"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:34
+#: src/pages/FirstAidPage.jsx:35
 msgid "install.button"
 msgstr "📥 安装 App"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:33
+#: src/pages/FirstAidPage.jsx:34
 msgid "setup.summary"
 msgstr "📲 安装及使用指南"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:178
+#: src/pages/FirstAidPage.jsx:181
 msgid "footer.linkLabel"
 msgstr "🔗 了解更多 Epilepsy Foundation HK"
 
@@ -578,7 +598,7 @@ msgid "report.fixture.83daed65be"
 msgstr "87 天"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:27
+#: src/pages/FirstAidPage.jsx:28
 msgid "action.safe"
 msgstr "望"
 
@@ -593,17 +613,17 @@ msgid "profile.a7"
 msgstr "腹部 (胃部不适向上移)"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:171
+#: src/pages/FirstAidPage.jsx:174
 msgid "faq.answer1"
 msgstr "点击按键会播放预录的语音。请检查媒体音量、关闭静音模式；若音频未能加载，请刷新页面。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:147
+#: src/pages/FirstAidPage.jsx:150
 msgid "video.title"
 msgstr "急性癫痫发作处理动画"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:21
+#: src/pages/FirstAidPage.jsx:22
 msgid "header.subtitle"
 msgstr "处理急性癫痫发作的口诀"
 
@@ -629,7 +649,7 @@ msgid "diary.entries.title"
 msgstr "全部记录"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:153
+#: src/pages/FirstAidPage.jsx:156
 msgid "setup.androidLabel"
 msgstr "Android："
 
@@ -646,12 +666,7 @@ msgid "diary.eventLog.unsavedPrompt"
 msgstr "您有尚未保存的更改，确定要离开吗？"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:44
-msgid "guide.step2"
-msgstr "观察并保护患者。移开附近危险物品，用软物垫着患者头部。"
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:165
+#: src/pages/FirstAidPage.jsx:168
 msgid "whatIs.environmentLabel"
 msgstr "评估环境："
 
@@ -691,7 +706,7 @@ msgid "profile.available"
 msgstr "已提供"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:163
+#: src/pages/FirstAidPage.jsx:166
 msgid "whatIs.tagline3"
 msgstr "知道该做什么，在最需要时陪伴左右。"
 
@@ -701,27 +716,27 @@ msgid "profile.basics"
 msgstr "基本与重要资料"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:166
+#: src/pages/FirstAidPage.jsx:169
 msgid "whatIs.aroundHeading"
 msgstr "Be Around（实际保护与照顾）"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:164
+#: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.awareHeading"
 msgstr "Be Aware（保持警觉与急救知识）"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:102
+#: src/pages/FirstAidPage.jsx:105
 msgid "app.title"
 msgstr "Be Aware n' Be Around"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:161
+#: src/pages/FirstAidPage.jsx:164
 msgid "whatIs.tagline1"
 msgstr "留意发作时间，陪伴患者安全恢复。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:162
+#: src/pages/FirstAidPage.jsx:165
 msgid "whatIs.tagline2"
 msgstr "Be Aware：不要压制。Be Around：保护并陪伴。"
 
@@ -751,12 +766,12 @@ msgid "diary.eventLog.trigger.light"
 msgstr "强光/闪光"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:26
+#: src/pages/FirstAidPage.jsx:27
 msgid "action.stay"
 msgstr "守"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:20
+#: src/pages/FirstAidPage.jsx:21
 msgid "header.slogan"
 msgstr "守、望、相、助"
 
@@ -771,11 +786,6 @@ msgid "profile.call"
 msgstr "致电"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:43
-msgid "guide.step1"
-msgstr "保持镇定，记录抽搐开始及持续的时间。"
-
-#. js-lingui-explicit-id
 #: src/pages/DiaryEntryDetailPage.jsx:184
 msgid "diary.entry.deleteCancel"
 msgstr "取消"
@@ -786,12 +796,12 @@ msgid "profile.l5"
 msgstr "照顾儿童"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:167
+#: src/pages/FirstAidPage.jsx:170
 msgid "whatIs.secureText"
 msgstr "移开硬物，并在患者头下垫上软物。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:23
+#: src/pages/FirstAidPage.jsx:24
 msgid "counter.label"
 msgstr "点击次数"
 
@@ -970,7 +980,7 @@ msgid "diary.sideEffects.drowsiness"
 msgstr "嗜睡/疲倦"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:29
+#: src/pages/FirstAidPage.jsx:30
 msgid "action.help"
 msgstr "助"
 
@@ -1005,22 +1015,22 @@ msgid "diary.entry.edit"
 msgstr "编辑"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:24
+#: src/pages/FirstAidPage.jsx:25
 msgid "mode.education"
 msgstr "教育模式"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:63
+#: src/pages/FirstAidPage.jsx:66
 msgid "status.educationDefault"
 msgstr "教育模式：请点击按键聆听指示。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:58
+#: src/pages/FirstAidPage.jsx:61
 msgid "status.paused"
 msgstr "教育播放已暂停。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:60
+#: src/pages/FirstAidPage.jsx:63
 msgid "status.ended"
 msgstr "教育步骤已完成。"
 
@@ -1059,11 +1069,6 @@ msgstr "紧急联络电话 (Emergency Contact)"
 #: src/pages/profileMessages.js:11
 msgid "profile.contacts"
 msgstr "紧急联系人"
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:46
-msgid "guide.step4"
-msgstr "寻求协助。陪伴患者直至清醒，若超过五分钟请召唤救护车。"
 
 #. js-lingui-explicit-id
 #: src/components/diary/ContactCard.jsx:5
@@ -1239,7 +1244,7 @@ msgid "nav.firstAid"
 msgstr "指南"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:116
+#: src/pages/FirstAidPage.jsx:119
 msgid "actions.ariaLabel"
 msgstr "急救行动"
 
@@ -1359,12 +1364,12 @@ msgid "profile.hospital"
 msgstr "医院/诊所"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:152
+#: src/pages/FirstAidPage.jsx:155
 msgid "setup.installHeading"
 msgstr "如何安装至手机"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:154
+#: src/pages/FirstAidPage.jsx:157
 msgid "setup.operateHeading"
 msgstr "如何操作"
 
@@ -1390,7 +1395,7 @@ msgid "report.fixture.79616fe840"
 msgstr "确诊初始用药。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:173
+#: src/pages/FirstAidPage.jsx:176
 msgid "faq.answer3"
 msgstr "首次成功加载后，安装此 PWA 或加入主屏幕即可离线使用。"
 
@@ -1400,7 +1405,7 @@ msgid "profile.investigations"
 msgstr "检查报告 (Investigations)"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:153
+#: src/pages/FirstAidPage.jsx:156
 msgid "setup.iosLabel"
 msgstr "iPhone (iOS)："
 
@@ -1410,7 +1415,7 @@ msgid "report.fixture.1c8ebe35b5"
 msgstr "标签对照：[T1]=FAS | [T2]=FIAS | [T3]=Absence | [T4]=Myoclonic | [T5]=GTCS"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:165
+#: src/pages/FirstAidPage.jsx:168
 msgid "whatIs.dontsLabel"
 msgstr "了解不要做什么："
 
@@ -1428,7 +1433,7 @@ msgid "diary.eventLog.leave"
 msgstr "确定离开"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:32
+#: src/pages/FirstAidPage.jsx:33
 msgid "playlist.loading"
 msgstr "加载中…"
 
@@ -1659,7 +1664,7 @@ msgid "diary.sideEffects.gi"
 msgstr "恶心/肠胃不适"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:165
+#: src/pages/FirstAidPage.jsx:168
 msgid "whatIs.dontsText"
 msgstr "切勿压制患者的动作或把任何物品放入口中。"
 
@@ -1749,7 +1754,7 @@ msgid "diary.calendar.unrecorded"
 msgstr "未记录: {unrecorded}"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:165
+#: src/pages/FirstAidPage.jsx:168
 msgid "whatIs.recognizeText"
 msgstr "记下发作开始时间；如超过五分钟，请呼叫紧急服务。"
 
@@ -1779,12 +1784,12 @@ msgid "report.fixture.cf20cd9e7a"
 msgstr "刚起床时发生。近期 Valproate 引起的手部震颤越来越明显，导致无法顺利进行精细器械操作，压力极大。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:153
+#: src/pages/FirstAidPage.jsx:156
 msgid "setup.androidInstructions"
 msgstr "使用 Chrome 浏览器打开，点击右上角菜单，然后选择「添加到主屏幕」。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:153
+#: src/pages/FirstAidPage.jsx:156
 msgid "setup.iosInstructions"
 msgstr "使用 Safari 浏览器打开此网页，点击「分享」图标，然后选择「添加到主屏幕」。"
 
@@ -1879,7 +1884,7 @@ msgstr "全部播放一次"
 
 #. js-lingui-explicit-id
 #: src/components/FirstAidPlaylist.jsx:64
-#: src/pages/FirstAidPage.jsx:62
+#: src/pages/FirstAidPage.jsx:65
 msgid "playlist.error"
 msgstr "播放失败，请按播放重试。"
 
@@ -1889,12 +1894,12 @@ msgid "playlist.seek"
 msgstr "播放位置"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:56
+#: src/pages/FirstAidPage.jsx:59
 msgid "status.playingEducation"
 msgstr "播放教育步骤 {id}..."
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:167
+#: src/pages/FirstAidPage.jsx:170
 msgid "whatIs.positionLabel"
 msgstr "安全摆位："
 
@@ -1929,7 +1934,7 @@ msgid "profile.saved"
 msgstr "档案已保存"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:167
+#: src/pages/FirstAidPage.jsx:170
 msgid "whatIs.supportLabel"
 msgstr "提供支持："
 
@@ -1944,22 +1949,22 @@ msgid "diary.eventLog.aura.psychic"
 msgstr "心理 (如恐惧/似曾相识)"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:170
+#: src/pages/FirstAidPage.jsx:173
 msgid "faq.question1"
 msgstr "Q1: 为什么教育模式没有声音？"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:172
+#: src/pages/FirstAidPage.jsx:175
 msgid "faq.question3"
 msgstr "Q2: 如何确保离线时也能使用？"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:174
+#: src/pages/FirstAidPage.jsx:177
 msgid "faq.question4"
 msgstr "Q3: 为什么点击次数没有立即更新？"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:28
+#: src/pages/FirstAidPage.jsx:29
 msgid "action.side"
 msgstr "相"
 
@@ -1974,7 +1979,7 @@ msgid "diary.recentEntries"
 msgstr "近期记录"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:165
+#: src/pages/FirstAidPage.jsx:168
 msgid "whatIs.recognizeLabel"
 msgstr "识别与计时："
 
@@ -2068,11 +2073,6 @@ msgid "report.fixture.092a91096a"
 msgstr "右侧颞叶尖波"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:45
-msgid "guide.step3"
-msgstr "将患者轻轻翻侧，保持呼吸道畅通。切勿强行将任何物品塞入患者口中。"
-
-#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:37
 msgid "diary.weekday.sat"
 msgstr "六"
@@ -2095,7 +2095,7 @@ msgid "profile.save"
 msgstr "保存"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:167
+#: src/pages/FirstAidPage.jsx:170
 msgid "whatIs.secureLabel"
 msgstr "清理周边环境："
 
@@ -2117,7 +2117,7 @@ msgid "report.fixture.cd4e4c42a0"
 msgstr "发作事件与长度"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:31
+#: src/pages/FirstAidPage.jsx:32
 msgid "guide.title"
 msgstr "守望相助 急救指南"
 
@@ -2266,7 +2266,7 @@ msgid "playlist.speedOption"
 msgstr "速度 {rate}×"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:165
+#: src/pages/FirstAidPage.jsx:168
 msgid "whatIs.environmentText"
 msgstr "留意尖角、水域或楼梯等实际危险。"
 
@@ -2295,7 +2295,7 @@ msgid "diary.eventLog.stay"
 msgstr "继续编辑"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:167
+#: src/pages/FirstAidPage.jsx:170
 msgid "whatIs.supportText"
 msgstr "陪伴患者直至完全清醒，并给予平静的安慰。"
 
@@ -2351,12 +2351,12 @@ msgid "diary.calendar.taken"
 msgstr "已服: {taken}"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:155
+#: src/pages/FirstAidPage.jsx:158
 msgid "setup.educationInstructions"
 msgstr "点击彩色按键，手机会播放该步骤的急救指示。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:22
+#: src/pages/FirstAidPage.jsx:23
 msgid "header.secondarySubtitle"
 msgstr "点按下面 4 个按键了解口诀"
 
@@ -2371,7 +2371,7 @@ msgid "report.fixture.24026fa896"
 msgstr "TDM 显示血中浓度偏低，为应付高压活动加量。"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:175
+#: src/pages/FirstAidPage.jsx:178
 msgid "faq.answer4"
 msgstr "计数器显示所有用户点击过应用动作按钮的总次数。"
 
@@ -2396,7 +2396,7 @@ msgid "report.fixture.09558b2cc6"
 msgstr "时间"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:89
+#: src/pages/FirstAidPage.jsx:92
 msgid "install.fallbackAlert"
 msgstr "请使用浏览器的「加入主屏幕」选项安装。"
 
@@ -2436,7 +2436,7 @@ msgid "report.tue"
 msgstr "二"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:167
+#: src/pages/FirstAidPage.jsx:170
 msgid "whatIs.positionText"
 msgstr "将患者轻轻翻侧，保持呼吸道畅通。"
 
