@@ -1043,7 +1043,7 @@ msgstr "EFHK 脑痫日志历史总记录 (接续)"
 #. js-lingui-explicit-id
 #: src/components/AppHeader.jsx:67
 msgid "header.brandTitle"
-msgstr "脑痫锦囊"
+msgstr "癫痫锦囊"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportA.js:56
