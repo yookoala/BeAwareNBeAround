@@ -578,6 +578,11 @@ msgid "report.fixture.83daed65be"
 msgstr "87 days"
 
 #. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:27
+msgid "action.safe"
+msgstr "A"
+
+#. js-lingui-explicit-id
 #: src/utils/entryPresentation.js:83
 msgid "diary.eventLog.aura.abdominal"
 msgstr "Abdominal (discomfort/rising sensation)"
@@ -739,6 +744,16 @@ msgstr "Brief description..."
 #: src/utils/entryPresentation.js:97
 msgid "diary.eventLog.trigger.light"
 msgstr "Bright/flashing lights"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:26
+msgid "action.stay"
+msgstr "C"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:20
+msgid "header.slogan"
+msgstr "C, A, R, E"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:44
@@ -943,6 +958,11 @@ msgstr "Dose and frequency"
 #: src/utils/entryPresentation.js:55
 msgid "diary.sideEffects.drowsiness"
 msgstr "Drowsiness/fatigue"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:29
+msgid "action.help"
+msgstr "E"
 
 #. js-lingui-explicit-id
 #: src/pages/profileMessages.js:16
@@ -1261,7 +1281,7 @@ msgstr "Genetic Test"
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:45
 msgid "guide.step3"
-msgstr "Gently roll the person onto their side. Never put anything in their mouth."
+msgstr "Gently roll them onto their side. Never put anything in their mouth."
 
 #. js-lingui-explicit-id
 #: src/pages/profileMessages.js:52
@@ -1324,11 +1344,6 @@ msgid "diary.entry.healthTitle"
 msgstr "Health conditions recorded"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:29
-msgid "action.help"
-msgstr "HELP"
-
-#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:17
 msgid "profile.hospital"
 msgstr "Hospital/clinic"
@@ -1378,6 +1393,11 @@ msgstr "Investigations"
 #: src/pages/FirstAidPage.jsx:153
 msgid "setup.iosLabel"
 msgstr "iPhone (iOS):"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:43
+msgid "guide.step1"
+msgstr "Keep calm, stay close by, and time the seizure."
 
 #. js-lingui-explicit-id
 #: src/data/mockReportA.js:55
@@ -1584,6 +1604,11 @@ msgid "diary.sideEffects.mood"
 msgstr "Mood swings/irritability"
 
 #. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:44
+msgid "guide.step2"
+msgstr "Move away dangerous objects and put something soft under their head."
+
+#. js-lingui-explicit-id
 #: src/components/diary/InvestigationCard.jsx:6
 msgid "profile.mri"
 msgstr "MRI"
@@ -1742,11 +1767,6 @@ msgstr "Note: Missed medication the previous evening; day before period."
 #: src/data/mockReportA.js:37
 msgid "report.fixture.a753d9b93e"
 msgstr "Note: No specific trigger; seizure at the office."
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:44
-msgid "guide.step2"
-msgstr "Observe and keep the person safe. Clear hard objects and cushion their head."
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:313
@@ -1939,6 +1959,11 @@ msgid "faq.question4"
 msgstr "Q3: How does the global click counter work?"
 
 #. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:28
+msgid "action.side"
+msgstr "R"
+
+#. js-lingui-explicit-id
 #: src/data/mockReportB.js:94
 msgid "report.fixture.ee9f9e7a1b"
 msgstr "Reason for change"
@@ -2043,11 +2068,6 @@ msgid "report.fixture.092a91096a"
 msgstr "Right temporal sharp waves"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:27
-msgid "action.safe"
-msgstr "SAFE"
-
-#. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:37
 msgid "diary.weekday.sat"
 msgstr "Sat"
@@ -2077,7 +2097,7 @@ msgstr "Secure the Surroundings:"
 #. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:46
 msgid "guide.step4"
-msgstr "Seek help. Stay with them until fully conscious, and call an ambulance if over 5 minutes."
+msgstr "Seek Help and Call 999 if it lasts over 3 to 5 minutes or if they are injured."
 
 #. js-lingui-explicit-id
 #: src/components/diary/MiniMonth.jsx:26
@@ -2178,11 +2198,6 @@ msgid "profile.l3"
 msgstr "Shopping"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:28
-msgid "action.side"
-msgstr "SIDE"
-
-#. js-lingui-explicit-id
 #: src/pages/EventMenuPage.jsx:33
 #: src/pages/SideEffectsPage.jsx:128
 #: src/utils/entryPresentation.js:22
@@ -2280,24 +2295,9 @@ msgid "diary.eventLog.stay"
 msgstr "Stay"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:26
-msgid "action.stay"
-msgstr "STAY"
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:43
-msgid "guide.step1"
-msgstr "Stay calm and time the seizure."
-
-#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.supportText"
 msgstr "Stay until the person is fully alert and offer calm reassurance."
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:20
-msgid "header.slogan"
-msgstr "STAY, SAFE, SIDE, HELP"
 
 #. js-lingui-explicit-id
 #: src/utils/entryPresentation.js:92

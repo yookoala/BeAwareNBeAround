@@ -578,6 +578,11 @@ msgid "report.fixture.83daed65be"
 msgstr "87 天"
 
 #. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:27
+msgid "action.safe"
+msgstr "望"
+
+#. js-lingui-explicit-id
 #: src/utils/entryPresentation.js:83
 msgid "diary.eventLog.aura.abdominal"
 msgstr "腹部 (胃部不适/向上移)"
@@ -739,6 +744,16 @@ msgstr "简短说明..."
 #: src/utils/entryPresentation.js:97
 msgid "diary.eventLog.trigger.light"
 msgstr "强光/闪光"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:26
+msgid "action.stay"
+msgstr "守"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:20
+msgid "header.slogan"
+msgstr "守、望、相、助"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:44
@@ -943,6 +958,11 @@ msgstr "剂量与频率"
 #: src/utils/entryPresentation.js:55
 msgid "diary.sideEffects.drowsiness"
 msgstr "嗜睡/疲倦"
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:29
+msgid "action.help"
+msgstr "助"
 
 #. js-lingui-explicit-id
 #: src/pages/profileMessages.js:16
@@ -1324,11 +1344,6 @@ msgid "diary.entry.healthTitle"
 msgstr "已记录的健康状况"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:29
-msgid "action.help"
-msgstr "助"
-
-#. js-lingui-explicit-id
 #: src/pages/profileMessages.js:17
 msgid "profile.hospital"
 msgstr "医院/诊所"
@@ -1378,6 +1393,11 @@ msgstr "检查报告 (Investigations)"
 #: src/pages/FirstAidPage.jsx:153
 msgid "setup.iosLabel"
 msgstr "iPhone (iOS)："
+
+#. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:43
+msgid "guide.step1"
+msgstr "保持镇定，记录抽搐开始及持续的时间。"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportA.js:55
@@ -1584,6 +1604,11 @@ msgid "diary.sideEffects.mood"
 msgstr "情绪波动/易怒"
 
 #. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:44
+msgid "guide.step2"
+msgstr "观察并保护患者。移开附近危险物品，用软物垫着患者头部。"
+
+#. js-lingui-explicit-id
 #: src/components/diary/InvestigationCard.jsx:6
 msgid "profile.mri"
 msgstr "磁共振 (MRI)"
@@ -1742,11 +1767,6 @@ msgstr "备注：前一晚漏服药物，生理期前夕。"
 #: src/data/mockReportA.js:37
 msgid "report.fixture.a753d9b93e"
 msgstr "备注：无特殊诱因，办公室发作。"
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:44
-msgid "guide.step2"
-msgstr "观察并保护患者。移开附近危险物品，用软物垫着患者头部。"
 
 #. js-lingui-explicit-id
 #: src/data/mockReportB.js:313
@@ -1939,6 +1959,11 @@ msgid "faq.question4"
 msgstr "Q3: 为什么点击次数没有立即更新？"
 
 #. js-lingui-explicit-id
+#: src/pages/FirstAidPage.jsx:28
+msgid "action.side"
+msgstr "相"
+
+#. js-lingui-explicit-id
 #: src/data/mockReportB.js:94
 msgid "report.fixture.ee9f9e7a1b"
 msgstr "更改原因 (Why)"
@@ -2041,11 +2066,6 @@ msgstr "疗效评估 (Results)"
 #: src/data/mockReportB.js:76
 msgid "report.fixture.092a91096a"
 msgstr "右侧颞叶尖波"
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:27
-msgid "action.safe"
-msgstr "望"
 
 #. js-lingui-explicit-id
 #: src/pages/DiaryDashboardPage.jsx:37
@@ -2178,11 +2198,6 @@ msgid "profile.l3"
 msgstr "购物"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:28
-msgid "action.side"
-msgstr "相"
-
-#. js-lingui-explicit-id
 #: src/pages/EventMenuPage.jsx:33
 #: src/pages/SideEffectsPage.jsx:128
 #: src/utils/entryPresentation.js:22
@@ -2280,24 +2295,9 @@ msgid "diary.eventLog.stay"
 msgstr "继续编辑"
 
 #. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:26
-msgid "action.stay"
-msgstr "守"
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:43
-msgid "guide.step1"
-msgstr "保持镇定，记录抽搐开始及持续的时间。"
-
-#. js-lingui-explicit-id
 #: src/pages/FirstAidPage.jsx:167
 msgid "whatIs.supportText"
 msgstr "陪伴患者直至完全清醒，并给予平静的安慰。"
-
-#. js-lingui-explicit-id
-#: src/pages/FirstAidPage.jsx:20
-msgid "header.slogan"
-msgstr "守、望、相、助"
 
 #. js-lingui-explicit-id
 #: src/utils/entryPresentation.js:92
